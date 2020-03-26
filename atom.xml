@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="www.yunshan.online/"/>
-  <updated>2020-03-26T05:54:05.269Z</updated>
+  <updated>2020-03-26T06:02:28.344Z</updated>
   <id>www.yunshan.online/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="www.yunshan.online/posts/1230801600.html"/>
     <id>www.yunshan.online/posts/1230801600.html</id>
     <published>2020-03-26T04:17:29.000Z</published>
-    <updated>2020-03-26T05:54:05.269Z</updated>
+    <updated>2020-03-26T06:02:28.344Z</updated>
     
     <summary type="html">
     
@@ -37,6 +37,10 @@
     </summary>
     
     
+      <category term="常用工具" scheme="www.yunshan.online/categories/%E5%B8%B8%E7%94%A8%E5%B7%A5%E5%85%B7/"/>
+    
+    
+      <category term="java" scheme="www.yunshan.online/tags/java/"/>
     
   </entry>
   
@@ -45,7 +49,7 @@
     <link href="www.yunshan.online/posts/3853991502.html"/>
     <id>www.yunshan.online/posts/3853991502.html</id>
     <published>2020-03-26T03:40:55.000Z</published>
-    <updated>2020-03-26T04:11:30.633Z</updated>
+    <updated>2020-03-26T06:02:24.762Z</updated>
     
     <summary type="html">
     
@@ -60,7 +64,7 @@
     </summary>
     
     
-      <category term="生活随机" scheme="www.yunshan.online/categories/%E7%94%9F%E6%B4%BB%E9%9A%8F%E6%9C%BA/"/>
+      <category term="生活随记" scheme="www.yunshan.online/categories/%E7%94%9F%E6%B4%BB%E9%9A%8F%E8%AE%B0/"/>
     
     
       <category term="照片" scheme="www.yunshan.online/tags/%E7%85%A7%E7%89%87/"/>
