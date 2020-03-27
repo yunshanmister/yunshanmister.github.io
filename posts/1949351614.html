@@ -877,15 +877,16 @@
 <p> 效果如下：  </p>
 <p> <i>i标签</i><br> <b>b标签</b><br> <kbd>kdb标签</kbd><br> <em>em标签</em><br> <sup>sup标签</sup></p>
 <h3 id="2-转移字符"><a href="#2-转移字符" class="headerlink" title="2.转移字符"></a>2.转移字符</h3><p> Markdown 使用反斜杠转义特殊字符<br></p><figure class="highlight markdown"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">\\   反斜线  </span><br><span class="line">\*   星号  </span><br><span class="line">\_   下划线  </span><br><span class="line">\{\}  花括号  </span><br><span class="line">\[\]  方括号  </span><br><span class="line">\(\)  小括号  </span><br><span class="line">\#   井字号  </span><br><span class="line">\+   加号  </span><br><span class="line">\-   减号  </span><br><span class="line">\.   英文句点  </span><br><span class="line">\!   感叹号</span><br></pre></td></tr></tbody></table></figure><br>支持转义的字符效果如下：<p></p>
-<p>\   反斜线<br>*   星号<br>_   下划线<br>{}  花括号<br>[]  方括号<br>()  小括号<br>#   井字号<br>+   加号<br>-   减号<br>.   英文句点<br>!   感叹号  </p>
-<h3 id="3-公式编辑"><a href="#3-公式编辑" class="headerlink" title="3.公式编辑"></a>3.公式编辑</h3><p>可以使用两个美元符 $$ 包裹 TeX 或 LaTeX 格式的数学公式来实现</p>
-<ul>
-<li><p>行内公式:  <code>$$E=mc^2$$</code>   </p>
-<p>$E=mc^2$</p>
-</li>
-<li><p>行间公式 ： <code>$$$\sum_{i=1}^n a_i=0$$$</code>   </p>
-<script type="math/tex; mode=display">\sum_{x=1}^n a_i=0</script></li>
-</ul>
+<p>\\   反斜线<br>*   星号<br>_   下划线<br>\{\}  花括号<br>[]  方括号<br>()  小括号<br>#   井字号<br>+   加号<br>-   减号<br>.   英文句点<br>!   感叹号  </p>
+<h3 id="3-文字"><a href="#3-文字" class="headerlink" title="3.文字"></a>3.文字</h3><p>文字居中：<br></p><figure class="highlight markdown"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="xml"><span class="tag">&lt;<span class="name">center</span>&gt;</span></span>我居中了<span class="xml"><span class="tag">&lt;/<span class="name">center</span>&gt;</span></span></span><br></pre></td></tr></tbody></table></figure><br>效果如下：<p></p>
+<center>我居中了</center>
+
+<p>左对齐：<br></p><figure class="highlight markdown"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="xml"><span class="tag">&lt;<span class="name">p</span> <span class="attr">align</span>=<span class="string">"left"</span>&gt;</span></span>我在左边<span class="xml"><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span></span><br></pre></td></tr></tbody></table></figure><br>效果如下：<p></p>
+<p align="left">我在左边</p>
+
+<p>右对齐<br></p><figure class="highlight markdown"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="xml"><span class="tag">&lt;<span class="name">p</span> <span class="attr">align</span>=<span class="string">"right"</span>&gt;</span></span>我在右边<span class="xml"><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span></span><br></pre></td></tr></tbody></table></figure><br>效果如下：<p></p>
+<p align="right">我在右边</p>
+
 <h3 id="4-删除线"><a href="#4-删除线" class="headerlink" title="4.删除线"></a>4.删除线</h3><p> 使用 ~~ 表示删除线<br></p><figure class="highlight markdown"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">~~这是一段错误的文本。~~</span><br></pre></td></tr></tbody></table></figure><p></p>
 <p>效果如下：</p>
 <p><del>这是一段错误的文本。</del></p>
