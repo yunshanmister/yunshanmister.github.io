@@ -162,7 +162,7 @@
     loaded();
 })()
  </script><meta name="generator" content="Hexo 4.2.0"><link rel="alternate" href="/atom.xml" title="云山先生" type="application/atom+xml">
-<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"><style type="text/css" lang="css">
+<link rel="stylesheet" href="/css/prism-vs.css" type="text/css"><style type="text/css" lang="css">
     #loading-container{
         position: fixed;
         top: 0;
@@ -880,7 +880,10 @@
 <li><p>方法名：所有的方法名都应该以小写字母开头（驼峰命名法）</p>
 </li>
 <li><p>主方法入口：</p>
-<figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>{</span><br><span class="line"></span><br><span class="line">  }</span><br></pre></td></tr></tbody></table></figure>
+<pre class=" language-lang-java"><code class="language-lang-java">public static void main(String[] args) {
+
+  }
+</code></pre>
 </li>
 </ul>
 <h3 id="java标识符"><a href="#java标识符" class="headerlink" title="java标识符"></a>java标识符</h3><p>Java中的名字。例如：类名，变量名，方法名等都可以称为标识符</p>
@@ -911,7 +914,28 @@
 <li>实例变量[非静态变量，成员变量]（不以static修饰）<br>1.实例变量声明在一个类中，但在方法、构造方法和语句块之外。<br>2.实例变量在对象创建的时候创建，在对象被销毁的时候销毁。当一个对象被实例化之后，每个实例变量的值就跟着确定。<br>3.访问修饰符可以修饰实例变量。<br>4.实例变量具有默认值。数值型变量的默认值是0，布尔型变量的默认值是false，引用类型变量的默认值是null。变量的值可以在声明时指定，也可以在构造方法中指定。  <h3 id="java数组"><a href="#java数组" class="headerlink" title="java数组"></a>java数组</h3></li>
 </ul>
 <p>数组是储存在堆上的对象，可以保存多个同类型变量。</p>
-<h3 id="Java-枚举"><a href="#Java-枚举" class="headerlink" title="Java 枚举"></a>Java 枚举</h3><p>在 JDK 1.5 之前没有枚举类型，那时候一般用接口常量来替代。枚举类是一种特殊类，它和普通类一样可以使用构造器、定义成员变量和方法，也能实现一个或多个接口,但枚举类不能继承其他类.<br></p><figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@Description</span>:定义枚举</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@Author</span>: yunshan</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@CreateDate</span>: 2020/3/26$ 15:45$</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">enum</span> Color {</span><br><span class="line">    BALCK, WHITE,GREEN</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure><br><figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@Description</span>:使用枚举</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@Author</span>: yunshan</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@CreateDate</span>: 2020/3/2$ 13:38$</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test</span> </span>{</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>{</span><br><span class="line">        System.out.println(Color.GREEN);</span><br><span class="line">    }</span><br><span class="line">}</span><br><span class="line">`</span><br></pre></td></tr></tbody></table></figure><p></p>
+<h3 id="Java-枚举"><a href="#Java-枚举" class="headerlink" title="Java 枚举"></a>Java 枚举</h3><p>在 JDK 1.5 之前没有枚举类型，那时候一般用接口常量来替代。枚举类是一种特殊类，它和普通类一样可以使用构造器、定义成员变量和方法，也能实现一个或多个接口,但枚举类不能继承其他类.</p>
+<pre class=" language-lang-java"><code class="language-lang-java">/**
+ * @Description:定义枚举
+ * @Author: yunshan
+ * @CreateDate: 2020/3/26$ 15:45$
+ */
+public enum Color {
+    BALCK, WHITE,GREEN
+}
+</code></pre>
+<pre class=" language-lang-java"><code class="language-lang-java">/**
+ * @Description:使用枚举
+ * @Author: yunshan
+ * @CreateDate: 2020/3/2$ 13:38$
+ */
+public class Test {
+    public static void main(String[] args) {
+        System.out.println(Color.GREEN);
+    }
+}
+`
+</code></pre>
 <h3 id="Java空白行和注释行"><a href="#Java空白行和注释行" class="headerlink" title="Java空白行和注释行"></a>Java空白行和注释行</h3><p>Java编译器会忽略</p>
 <h3 id="Java-对象和类"><a href="#Java-对象和类" class="headerlink" title="Java 对象和类"></a>Java 对象和类</h3><ul>
 <li>类：是抽象的概念集合，类是一个模板，它描述一类对象的行为和状态。</li>
@@ -1447,8 +1471,16 @@
                             编辑器推荐
 atom 官网下载安装即可
 也可以使用在线编辑器例如：菜鸟工具
-1.markdown标题使用 # 号可表示 1-6 级标题123456# 一级## 二级### 三级#### 四级##### 五级###### 六级效果如下:
-一级
+1.markdown标题使用 # 号可表示 1-6 级标题
+# 一级
+## 二级
+### 三级
+#### 四级
+##### 五级
+###### 六级
+
+效果如下:
+
                         
                     </div>
                     <div class="publish-info">

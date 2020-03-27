@@ -162,7 +162,7 @@
     loaded();
 })()
  </script><meta name="generator" content="Hexo 4.2.0"><link rel="alternate" href="/atom.xml" title="云山先生" type="application/atom+xml">
-<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"><style type="text/css" lang="css">
+<link rel="stylesheet" href="/css/prism-vs.css" type="text/css"><style type="text/css" lang="css">
     #loading-container{
         position: fixed;
         top: 0;
@@ -873,40 +873,89 @@
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <h2 id="markdown高级技巧"><a href="#markdown高级技巧" class="headerlink" title="markdown高级技巧"></a>markdown高级技巧</h2><p>学习完markdown的基础语法以后我们来开始进阶吧！</p>
-<h3 id="1-支持的-HTML-元素"><a href="#1-支持的-HTML-元素" class="headerlink" title="1.支持的 HTML 元素"></a>1.支持的 HTML 元素</h3><figure class="highlight markdown"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"> <span class="xml"><span class="tag">&lt;<span class="name">i</span>&gt;</span></span>i标签<span class="xml"><span class="tag">&lt;/<span class="name">i</span>&gt;</span></span>  </span><br><span class="line"> <span class="xml"><span class="tag">&lt;<span class="name">b</span>&gt;</span></span>b标签<span class="xml"><span class="tag">&lt;/<span class="name">b</span>&gt;</span></span>  </span><br><span class="line"> <span class="xml"><span class="tag">&lt;<span class="name">kbd</span>&gt;</span></span>kdb标签<span class="xml"><span class="tag">&lt;/<span class="name">kbd</span>&gt;</span></span>  </span><br><span class="line"> <span class="xml"><span class="tag">&lt;<span class="name">em</span>&gt;</span></span>em标签<span class="xml"><span class="tag">&lt;/<span class="name">em</span>&gt;</span></span>  </span><br><span class="line"> <span class="xml"><span class="tag">&lt;<span class="name">sup</span>&gt;</span></span>sup标签<span class="xml"><span class="tag">&lt;/<span class="name">sup</span>&gt;</span></span></span><br><span class="line">`</span><br></pre></td></tr></tbody></table></figure>
+<h3 id="1-支持的-HTML-元素"><a href="#1-支持的-HTML-元素" class="headerlink" title="1.支持的 HTML 元素"></a>1.支持的 HTML 元素</h3><pre class=" language-lang-markdown"><code class="language-lang-markdown">  <i>i标签</i>  
+  <b>b标签</b>  
+  <kbd>kdb标签</kbd>  
+  <em>em标签</em>  
+  <sup>sup标签</sup>
+ `
+</code></pre>
 <p> 效果如下：  </p>
 <p> <i>i标签</i><br> <b>b标签</b><br> <kbd>kdb标签</kbd><br> <em>em标签</em><br> <sup>sup标签</sup></p>
-<h3 id="2-转移字符"><a href="#2-转移字符" class="headerlink" title="2.转移字符"></a>2.转移字符</h3><p> Markdown 使用反斜杠转义特殊字符<br></p><figure class="highlight markdown"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">\\   反斜线  </span><br><span class="line">\*   星号  </span><br><span class="line">\_   下划线  </span><br><span class="line">\{\}  花括号  </span><br><span class="line">\[\]  方括号  </span><br><span class="line">\(\)  小括号  </span><br><span class="line">\#   井字号  </span><br><span class="line">\+   加号  </span><br><span class="line">\-   减号  </span><br><span class="line">\.   英文句点  </span><br><span class="line">\!   感叹号</span><br></pre></td></tr></tbody></table></figure><br>支持转义的字符效果如下：<p></p>
+<h3 id="2-转移字符"><a href="#2-转移字符" class="headerlink" title="2.转移字符"></a>2.转移字符</h3><p> Markdown 使用反斜杠转义特殊字符</p>
+<pre class=" language-lang-markdown"><code class="language-lang-markdown">\\   反斜线  
+\*   星号  
+\_   下划线  
+\{\}  花括号  
+\[\]  方括号  
+\(\)  小括号  
+\#   井字号  
+\+   加号  
+\-   减号  
+\.   英文句点  
+\!   感叹号
+</code></pre>
+<p>支持转义的字符效果如下：</p>
 <p>\\   反斜线<br>*   星号<br>_   下划线<br>\{\}  花括号<br>[]  方括号<br>()  小括号<br>#   井字号<br>+   加号<br>-   减号<br>.   英文句点<br>!   感叹号  </p>
-<h3 id="3-文字"><a href="#3-文字" class="headerlink" title="3.文字"></a>3.文字</h3><p>文字居中：<br></p><figure class="highlight markdown"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="xml"><span class="tag">&lt;<span class="name">center</span>&gt;</span></span>我居中了<span class="xml"><span class="tag">&lt;/<span class="name">center</span>&gt;</span></span></span><br></pre></td></tr></tbody></table></figure><br>效果如下：<p></p>
+<h3 id="3-文字"><a href="#3-文字" class="headerlink" title="3.文字"></a>3.文字</h3><p>文字居中：</p>
+<pre class=" language-lang-markdown"><code class="language-lang-markdown"> <center>我居中了</center>
+</code></pre>
+<p>效果如下：</p>
 <center>我居中了</center>
 
-<p>左对齐：<br></p><figure class="highlight markdown"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="xml"><span class="tag">&lt;<span class="name">p</span> <span class="attr">align</span>=<span class="string">"left"</span>&gt;</span></span>我在左边<span class="xml"><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span></span><br></pre></td></tr></tbody></table></figure><br>效果如下：<p></p>
+<p>左对齐：</p>
+<pre class=" language-lang-markdown"><code class="language-lang-markdown"> <p align="left">我在左边</p>
+</code></pre>
+<p>效果如下：</p>
 <p align="left">我在左边</p>
 
-<p>右对齐<br></p><figure class="highlight markdown"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="xml"><span class="tag">&lt;<span class="name">p</span> <span class="attr">align</span>=<span class="string">"right"</span>&gt;</span></span>我在右边<span class="xml"><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span></span><br></pre></td></tr></tbody></table></figure><br>效果如下：<p></p>
+<p>右对齐</p>
+<pre class=" language-lang-markdown"><code class="language-lang-markdown"><p align="right">我在右边</p>
+</code></pre>
+<p>效果如下：</p>
 <p align="right">我在右边</p>
 
-<h3 id="4-删除线"><a href="#4-删除线" class="headerlink" title="4.删除线"></a>4.删除线</h3><p> 使用 ~~ 表示删除线<br></p><figure class="highlight markdown"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">~~这是一段错误的文本。~~</span><br></pre></td></tr></tbody></table></figure><p></p>
+<h3 id="4-删除线"><a href="#4-删除线" class="headerlink" title="4.删除线"></a>4.删除线</h3><p> 使用 ~~ 表示删除线</p>
+<pre class=" language-lang-markdown"><code class="language-lang-markdown">   ~~这是一段错误的文本。~~
+</code></pre>
 <p>效果如下：</p>
 <p><del>这是一段错误的文本。</del></p>
-<h3 id="5-注脚"><a href="#5-注脚" class="headerlink" title="5.注脚"></a>5.注脚</h3><figure class="highlight markdown"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">这是一个到我的博客的链接[^1]。</span><br><span class="line"></span><br><span class="line">[<span class="symbol">^1</span>]: <span class="link">http://www.google.com</span></span><br></pre></td></tr></tbody></table></figure>
+<h3 id="5-注脚"><a href="#5-注脚" class="headerlink" title="5.注脚"></a>5.注脚</h3><pre class=" language-lang-markdown"><code class="language-lang-markdown">
+这是一个到我的博客的链接[^1]。
+
+[^1]: http://www.google.com
+</code></pre>
 <p>效果如下：</p>
 <p>这是一个到我的博客的链接<sup><a href="#fn_1" id="reffn_1">1</a></sup>。</p>
 <blockquote id="fn_1">
 <sup>1</sup>. <a href="http://www.google.com" target="_blank" rel="noopener">http://www.google.com</a><a href="#reffn_1" title="Jump back to footnote [1] in the text."> ↩</a>
 </blockquote>
-<h3 id="6-分割线"><a href="#6-分割线" class="headerlink" title="6.分割线"></a>6.分割线</h3><p>你可以在一行中用三个以上的星号*、-、_来建立一个分隔线，行内不能有其他东西。你也可以在星号或是减号中间插入空格。<br></p><figure class="highlight markdown"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="bullet">* </span><span class="emphasis">* *</span></span><br><span class="line"><span class="emphasis">_ _</span> _</span><br><span class="line"><span class="bullet">- </span>- -</span><br></pre></td></tr></tbody></table></figure><br>效果如下：<p></p>
+<h3 id="6-分割线"><a href="#6-分割线" class="headerlink" title="6.分割线"></a>6.分割线</h3><p>你可以在一行中用三个以上的星号*、-、_来建立一个分隔线，行内不能有其他东西。你也可以在星号或是减号中间插入空格。</p>
+<pre class=" language-lang-markdown"><code class="language-lang-markdown">  * * *
+  _ _ _
+  - - -
+</code></pre>
+<p>效果如下：</p>
 <hr>
 <hr>
 <hr>
-<h3 id="7-特殊字符"><a href="#7-特殊字符" class="headerlink" title="7,特殊字符"></a>7,特殊字符</h3><figure class="highlight markdown"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&amp;#10084;  </span><br><span class="line">&amp;#9835;  </span><br><span class="line">&amp;#10052;</span><br></pre></td></tr></tbody></table></figure>
+<h3 id="7-特殊字符"><a href="#7-特殊字符" class="headerlink" title="7,特殊字符"></a>7,特殊字符</h3><pre class=" language-lang-markdown"><code class="language-lang-markdown">  &#10084;  
+  &#9835;  
+  &#10052;
+</code></pre>
 <p>效果如下：<br> ❤<br> ♫<br> ❄  </p>
 <p> 想想查看特殊字符对于的Unicode，可以看这个网站：<a href="https://unicode-table.com/cn/" target="_blank" rel="noopener">https://unicode-table.com/cn/</a></p>
-<h3 id="8-emoji表情符号"><a href="#8-emoji表情符号" class="headerlink" title="8.emoji表情符号"></a>8.emoji表情符号</h3><figure class="highlight markdown"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">:smile:</span><br><span class="line">:heart_eyes:</span><br><span class="line">:stuck<span class="emphasis">_out_</span>tongue:</span><br></pre></td></tr></tbody></table></figure>
-<p>效果如下：<br><span class="github-emoji" style="color: transparent;background:no-repeat url(https://github.githubassets.com/images/icons/emoji/unicode/1f604.png?v8) center/contain" data-src="https://github.githubassets.com/images/icons/emoji/unicode/1f604.png?v8">😄</span><br><span class="github-emoji" style="color: transparent;background:no-repeat url(https://github.githubassets.com/images/icons/emoji/unicode/1f60d.png?v8) center/contain" data-src="https://github.githubassets.com/images/icons/emoji/unicode/1f60d.png?v8">😍</span><br><span class="github-emoji" style="color: transparent;background:no-repeat url(https://github.githubassets.com/images/icons/emoji/unicode/1f61b.png?v8) center/contain" data-src="https://github.githubassets.com/images/icons/emoji/unicode/1f61b.png?v8">😛</span></p>
+<h3 id="8-emoji表情符号"><a href="#8-emoji表情符号" class="headerlink" title="8.emoji表情符号"></a>8.emoji表情符号</h3><pre class=" language-lang-markdown"><code class="language-lang-markdown">:smile:
+:heart_eyes:
+:stuck_out_tongue:
+</code></pre>
+<p>效果如下：<br>:smile:<br>:heart_eyes:<br>:stuck_out_tongue:</p>
 <p>更多表情请看:<a href="https://www.webpagefx.com/tools/emoji-cheat-sheet/" target="_blank" rel="noopener">https://www.webpagefx.com/tools/emoji-cheat-sheet/</a></p>
-<h3 id="9-字体-字号-颜色"><a href="#9-字体-字号-颜色" class="headerlink" title="9.字体,字号,颜色"></a>9.字体,字号,颜色</h3><figure class="highlight markdown"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="xml"><span class="tag">&lt;<span class="name">font</span> <span class="attr">face</span>=<span class="string">"微软雅黑"</span>&gt;</span></span>微软雅黑<span class="xml"><span class="tag">&lt;/<span class="name">font</span>&gt;</span></span>  </span><br><span class="line"><span class="xml"><span class="tag">&lt;<span class="name">font</span> <span class="attr">face</span>=<span class="string">"宋体"</span>&gt;</span></span>宋体<span class="xml"><span class="tag">&lt;/<span class="name">font</span>&gt;</span></span>  </span><br><span class="line"><span class="xml"><span class="tag">&lt;<span class="name">font</span> <span class="attr">size</span>=<span class="string">5</span>&gt;</span></span>五号字<span class="xml"><span class="tag">&lt;/<span class="name">font</span>&gt;</span></span>  </span><br><span class="line"><span class="xml"><span class="tag">&lt;<span class="name">font</span> <span class="attr">color</span>=<span class="string">purple</span> &gt;</span></span>我变紫了<span class="xml"><span class="tag">&lt;/<span class="name">font</span>&gt;</span></span></span><br></pre></td></tr></tbody></table></figure>
+<h3 id="9-字体-字号-颜色"><a href="#9-字体-字号-颜色" class="headerlink" title="9.字体,字号,颜色"></a>9.字体,字号,颜色</h3><pre class=" language-lang-markdown"><code class="language-lang-markdown">  <font face="微软雅黑">微软雅黑</font>  
+  <font face="宋体">宋体</font>  
+  <font size=5>五号字</font>  
+  <font color=purple >我变紫了</font>
+</code></pre>
 <p>效果如下：  </p>
 <font face="微软雅黑">微软雅黑</font>  
 <font face="宋体">宋体</font>  
@@ -1449,7 +1498,7 @@
  下面看具体详解
 byte
 byte: 8位的
-默认值位 0  
+默认值是 0  
 取值范围 -128（-2^7） ~ 127（2^7-1）之间。
                         
                     </div>
@@ -1502,8 +1551,16 @@ byte: 8位的
                             编辑器推荐
 atom 官网下载安装即可
 也可以使用在线编辑器例如：菜鸟工具
-1.markdown标题使用 # 号可表示 1-6 级标题123456# 一级## 二级### 三级#### 四级##### 五级###### 六级效果如下:
-一级
+1.markdown标题使用 # 号可表示 1-6 级标题
+# 一级
+## 二级
+### 三级
+#### 四级
+##### 五级
+###### 六级
+
+效果如下:
+
                         
                     </div>
                     <div class="publish-info">
