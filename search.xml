@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>单例模式</title>
+      <link href="/posts/4049607742.html"/>
+      <url>/posts/4049607742.html</url>
+      
+        <content type="html"><![CDATA[<h3 id="单例模式"><a href="#单例模式" class="headerlink" title="单例模式"></a>单例模式</h3><p>单例模式就是只有一个实例，并且她自己负责创建自己的对象，这个类提供了一种访问其唯一的对象的方式，可以直接访问，不需要实例化该类的对象。  </p><p>1、单例类只能有一个实例。<br>2、单例类必须自己创建自己的唯一实例。<br>3、单例类必须给所有其他对象提供这一实例。  </p><p>优点：<br>1、在内存里只有一个实例，减少了内存的开销，尤其是频繁的创建和销毁实例（比如管理学院首页页面缓存）。<br>2、避免对资源的多重占用（比如写文件操作）。<br>缺点：<br>1.没有接口，不能继承，与单一职责原则冲突。<br>2.不适用于多变化的对象。<br>3.如果为了节省资源将数据库连接池对象设计为的单例类，可能会导致共享连接池对象的程序过多而出现连接池溢出。</p><p>创建核：构造方法私有化，private。</p><h4 id="懒汉式-1-线程不安全"><a href="#懒汉式-1-线程不安全" class="headerlink" title="懒汉式-1 [线程不安全]"></a>懒汉式-1 [线程不安全]</h4><pre class=" language-lang-iava"><code class="language-lang-iava">/** * @Description: * @Author: yunshan * @CreateDate: 2020/3/28$ 13:11$ */public class Singleton1 {    private static Singleton1 instance;    private Singleton1() {    }    public static Singleton1 getInstance() {        if (instance == null) {            instance = new Singleton1();        }        return instance;    }}</code></pre><h4 id="懒汉式-2-线程安全"><a href="#懒汉式-2-线程安全" class="headerlink" title="懒汉式-2 [线程安全]"></a>懒汉式-2 [线程安全]</h4><pre class=" language-lang-java"><code class="language-lang-java">/** * @Description: * @Author: yunshan * @CreateDate: 2020/3/28$ 13:16$ */public class Singleton2 {    private static Singleton2 instance;    private Singleton2() {    }    public static synchronized Singleton2 getInstance() {        if (instance == null) {            instance = new Singleton2();        }        return instance;    }}</code></pre><h4 id="饿汉式"><a href="#饿汉式" class="headerlink" title="饿汉式"></a>饿汉式</h4><p>这种方式比较常用，但容易产生垃圾对象。  </p><ul><li>优点：没有加锁，执行效率会提高。        </li><li>缺点：类加载时就初始化，浪费内存。  </li></ul><pre class=" language-lang-java"><code class="language-lang-java">/** * @Description: * @Author: yunshan * @CreateDate: 2020/3/28$ 13:20$ */public class Singleton3 {    private static Singleton3 instance = new Singleton3();    private Singleton3() {    }    public static Singleton3 getInstance() {        return instance;    }}</code></pre><h4 id="双检锁-双重校验锁（DCL，即-double-checked-locking）"><a href="#双检锁-双重校验锁（DCL，即-double-checked-locking）" class="headerlink" title="双检锁/双重校验锁（DCL，即 double-checked locking）"></a>双检锁/双重校验锁（DCL，即 double-checked locking）</h4><p>这种方式采用双锁机制，安全且在多线程情况下能保持高性能。从jdk1.5开始。</p><pre class=" language-lang-java"><code class="language-lang-java">/** * @Description: * @Author: yunshan * @CreateDate: 2020/3/28$ 13:20$ */public class Singleton4 {    private volatile static Singleton4 instance;    private Singleton4() {    }    public static Singleton4 getInstance() {        if (instance == null) {            synchronized (Singleton4.class) {                if (instance == null) {                    instance = new Singleton4();                }            }        }        return instance;    }}</code></pre><h4 id="枚举"><a href="#枚举" class="headerlink" title="枚举"></a>枚举</h4><p>这是实现单例模式的最佳方法。它更简洁，自动支持序列化机制，绝对防止多次实例化 jdk1.5 起</p><pre class=" language-lang-java"><code class="language-lang-java">/** * @Description: * @Author: yunshan * @CreateDate: 2020/3/28$ 13:38$ */public enum  Singleton5 {    INSTANCE;}</code></pre><h4 id="静态内部类单例模式"><a href="#静态内部类单例模式" class="headerlink" title="静态内部类单例模式"></a>静态内部类单例模式</h4><p>只有第一次调用getInstance方法时，虚拟机才加载 Inner 并初始化instance ，只有一个线程可以获得对象的初始化锁，其他线程无法进行初始化，保证对象的唯一性。</p><pre class=" language-lang-java"><code class="language-lang-java">/** * @Description: * @Author: yunshan * @CreateDate: 2020/3/28$ 13:11$ */public class Singleton6 {    private Singleton6() {    }    public static Singleton6 getInstance() {        return Inner.instance;    }    private static class Inner {        private static final Singleton6 instance = new Singleton6();    }}</code></pre><script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
+      
+      
+      <categories>
+          
+          <category> 单例模式 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 单例模式 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>MySQL初见</title>
       <link href="/posts/2042792491.html"/>
       <url>/posts/2042792491.html</url>
