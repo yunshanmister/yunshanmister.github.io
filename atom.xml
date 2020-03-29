@@ -48,7 +48,7 @@
     <link href="www.yunshan.online/posts/2737630781.html"/>
     <id>www.yunshan.online/posts/2737630781.html</id>
     <published>2020-03-28T10:05:21.000Z</published>
-    <updated>2020-03-28T11:23:56.380Z</updated>
+    <updated>2020-03-29T02:30:52.532Z</updated>
     
     <summary type="html">
     
@@ -56,11 +56,7 @@
       
         
         
-          &lt;script&gt;
-        document.querySelectorAll(&#39;.github-emoji&#39;)
-          .forEach(el =&gt; {
-            if (!el.dataset.src) { return; }
-       
+          &lt;pre class=&quot; language-lang-java&quot;&gt;&lt;code class=&quot;language-lang-java&quot;&gt;public final native Class&lt;?&gt;
         
       
     

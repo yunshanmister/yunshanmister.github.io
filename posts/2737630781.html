@@ -872,7 +872,27 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <script>
+                <pre class=" language-lang-java"><code class="language-lang-java">public final native Class<?> getClass();//native方法，用于返回当前运行时对象的Class对象，使用了 final关键字修饰，故不允许子类重写。
+</code></pre>
+<pre class=" language-lang-Java"><code class="language-lang-Java">public native int hashCode() //native方法，用于给对象返回一个hash code值
+</code></pre>
+<pre class=" language-lang-Java"><code class="language-lang-Java">public boolean equals(Object obj)//用于比较两个对象的内存地址是否相等。
+</code></pre>
+<pre class=" language-lang-Java"><code class="language-lang-Java">public String toString()//返回类的名字@实例的哈希码的16进制的字符串。推建Object所有的子类都重写这个方法。
+</code></pre>
+<pre class=" language-lang-Java"><code class="language-lang-Java">public final native void notify()//native方法，并且不能重写。唤醒一个在此对象监视器上等待的线程。如果有多个线程在等待只会任意唤醒一个。
+</code></pre>
+<pre class=" language-lang-Java"><code class="language-lang-Java">public final native void notifyAll()//native方法，并且不能重写。跟notify一样，唯一的区别就是会唤醒 在此对象监视器上等待的所有线程。
+</code></pre>
+<pre class=" language-lang-Java"><code class="language-lang-Java">public final void wait() throws InterruptedException//该方法是一直等待，没有超时时间这个概念
+</code></pre>
+<pre class=" language-lang-Java"><code class="language-lang-Java">public final native void wait(long timeout) throws InterruptedException//native方法，并且不能重写。暂停线程的执行。sleep方法没有释放锁，而wait方法释放了锁 。timeout是等待时间。
+</code></pre>
+<pre class=" language-lang-Java"><code class="language-lang-Java">public final void wait(long timeout, int nanos) throws InterruptedException//多了nanos参数，这个参数表示额外时间。
+</code></pre>
+<pre class=" language-lang-Java"><code class="language-lang-Java">protected void finalize() throws Throwable { }//对象被垃圾回收器回收的时候触发的操作
+</code></pre>
+<script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
             if (!el.dataset.src) { return; }
