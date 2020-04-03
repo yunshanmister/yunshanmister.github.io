@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="www.yunshan.online/"/>
-  <updated>2020-03-31T10:29:49.096Z</updated>
+  <updated>2020-04-03T06:29:48.502Z</updated>
   <id>www.yunshan.online/</id>
   
   <author>
@@ -17,11 +17,67 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>java多线程</title>
+    <link href="www.yunshan.online/posts/297658092.html"/>
+    <id>www.yunshan.online/posts/297658092.html</id>
+    <published>2020-04-01T05:22:32.000Z</published>
+    <updated>2020-04-03T06:29:48.502Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h3 id=&quot;进程与线程的区别&quot;&gt;&lt;a href=&quot;#进程与线程的区别&quot; class=&quot;headerlink&quot; title=&quot;进程与线程的区别&quot;&gt;&lt;/a&gt;进程与线程的区别&lt;/h3&gt;&lt;p&gt;1、进程是资源分配的最小单位，线程是程序执行的最小单位（资源调度的最小单位）  
+        
+      
+    
+    </summary>
+    
+    
+      <category term="Java" scheme="www.yunshan.online/categories/Java/"/>
+    
+    
+      <category term="Java" scheme="www.yunshan.online/tags/Java/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>使用两个两个队列实现栈</title>
+    <link href="www.yunshan.online/posts/3968131440.html"/>
+    <id>www.yunshan.online/posts/3968131440.html</id>
+    <published>2020-04-01T03:49:54.000Z</published>
+    <updated>2020-04-03T06:29:48.503Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;队列是先进先出，栈是先进后出。&lt;/p&gt;
+&lt;p&gt;1.queue1队列为空，queue2 为空。则将 需要入栈的元素先放queue1中， queue1 进栈为” a,b,c,d,e”。&lt;/p&gt;
+&lt;p&gt;2.aqueue1队列目前的元素为” a,b,c,,d,e” 。将
+        
+      
+    
+    </summary>
+    
+    
+      <category term="Java" scheme="www.yunshan.online/categories/Java/"/>
+    
+    
+      <category term="Java" scheme="www.yunshan.online/tags/Java/"/>
+    
+  </entry>
+  
+  <entry>
     <title>java集合框架</title>
     <link href="www.yunshan.online/posts/508182867.html"/>
     <id>www.yunshan.online/posts/508182867.html</id>
     <published>2020-03-31T07:40:53.000Z</published>
-    <updated>2020-03-31T10:29:49.096Z</updated>
+    <updated>2020-03-31T10:30:11.280Z</updated>
     
     <summary type="html">
     

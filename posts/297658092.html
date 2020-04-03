@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="java集合框架, 云山先生">
+    <meta name="keywords" content="java多线程, 云山先生">
     <meta name="description" content="专注于技术,分享生活,分享知识">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>java集合框架 | 云山先生</title>
+    <title>java多线程 | 云山先生</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -708,12 +708,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/20.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/12.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">java集合框架</h1>
+                    <h1 class="description center-align post-title">java多线程</h1>
                 </div>
             </div>
         </div>
@@ -855,7 +855,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2020-03-31
+                    2020-04-01
                 </div>
                 
 
@@ -872,77 +872,218 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h4 id="Collection-接口"><a href="#Collection-接口" class="headerlink" title="Collection 接口"></a>Collection 接口</h4><p>最基本的集合接口。Collection 接口存储一组不唯一，无序的对象。</p>
-<h4 id="List-接口"><a href="#List-接口" class="headerlink" title="List 接口"></a>List 接口</h4><p>List 接口存储一组不唯一，有序（插入顺序）的对象。</p>
-<h4 id="Set"><a href="#Set" class="headerlink" title="Set"></a>Set</h4><p>Set 接口存储一组唯一，无序,不重复的对象。</p>
-<h4 id="Map"><a href="#Map" class="headerlink" title="Map"></a>Map</h4><p>Map 接口存储一组键值对象，提供key（键）到value（值）的映射。</p>
-<h5 id="Question"><a href="#Question" class="headerlink" title="Question:"></a>Question:</h5><p>1.Set和List的区别:</p>
+                <h3 id="进程与线程的区别"><a href="#进程与线程的区别" class="headerlink" title="进程与线程的区别"></a>进程与线程的区别</h3><p>1、进程是资源分配的最小单位，线程是程序执行的最小单位（资源调度的最小单位）   </p>
+<p>2、进程有自己的独立地址空间，每启动一个进程，系统就会为它分配地址空间而线程是共享进程中的数据的，使用相同的地址空间，因此CPU切换一个线程的花费远比进程要小很多，同时创建一个线程的开销也比进程要小很多。   </p>
+<p>3一个线程只能属于一个进程，但是一个进程可以拥有多个线程。多线程处理就是允许一个进程中在同一时刻执行多个任务。</p>
+<h3 id="并发与并行"><a href="#并发与并行" class="headerlink" title="并发与并行"></a>并发与并行</h3><p>并发：是指同一个时间段内多个任务同时都在执行，并且都没有执行结束。并发任务强调在一个时间段内同时执行，而一个时间段由多个单位时间累积而成，所以说并发的多个任务在单位时间内不一定同时在执行 。</p>
+<p>并行：是说在单位时间内多个任务同时在执行 。在多线程编程实践中，线程的个数往往多于CPU的个数，所以一般都称多线程并发编程而不是多线程并行编程。</p>
+<h3 id="线程的生命周期"><a href="#线程的生命周期" class="headerlink" title="线程的生命周期"></a>线程的生命周期</h3><ul>
+<li><p>新建状态:<br>使用 new 关键字和 Thread 类或其子类建立一个线程对象后，该线程对象就处于新建状态。它保持这个状态直到程序 start() 这个线程。</p>
+</li>
+<li><p>就绪状态:<br>当线程对象调用了start()方法之后，该线程就进入就绪状态。就绪状态的线程处于就绪队列中，要等待JVM里线程调度器的调度。</p>
+</li>
+<li><p>运行状态:<br>如果就绪状态的线程获取 CPU 资源，就可以执行 run()，此时线程便处于运行状态。处于运行状态的线程最为复杂，它可以变为阻塞状态、就绪状态和死亡状态。</p>
+</li>
+<li><p>阻塞状态:<br>如果一个线程执行了sleep（睡眠）、suspend（挂起）等方法，失去所占用资源之后，该线程就从运行状态进入阻塞状态。在睡眠时间已到或获得设备资源后可以重新进入就绪状态。可以分为三种：</p>
 <ul>
-<li><p>Set 接口实例存储的是无序的，不重复的数据。List 接口实例存储的是有序的，可以重复的元素。</p>
+<li><p>等待阻塞：运行状态中的线程执行 wait() 方法，使线程进入到等待阻塞状态。</p>
 </li>
-<li><p>Set检索效率低下，删除和插入效率高，插入和删除不会引起元素位置改变</p>
+<li><p>同步阻塞：线程在获取 synchronized 同步锁失败(因为同步锁被其他线程占用)。</p>
 </li>
-<li><p>List和数组类似，可以动态增长，根据实际存储的数据的长度自动增长List的长度。查找元素效率高，插入删除效率低，因为会引起其他元素位置改变</p>
+<li><p>其他阻塞：通过调用线程的 sleep() 或 join() 发出了 I/O 请求时，线程就会进入到阻塞状态。当sleep() 状态超时，join() 等待线程终止或超时，或者 I/O 处理完毕，线程重新转入就绪状态。</p>
 </li>
 </ul>
-<ol>
-<li>Arraylist 与 LinkedList 异同  </li>
-</ol>
-<ul>
-<li>ArrayList 和 LinkedList 都是不同步的，也就是不保证线程安全；</li>
-<li>Arraylist 底层使用的是Object数组；LinkedList 底层使用的是双向链表数据结构</li>
-<li>ArrayList 采用数组存储，所以插入和删除元素的时间复杂度受元素<br>位置的影响。LinkedList 采用链表存储，所以插入，删除元素时间复杂度不受元素位置的影响，都是近似 O（1）而数组为近似 O（n）。</li>
-<li>LinkedList 不支持高效的随机元素访问。ArrayList 支持。</li>
-</ul>
-<p>2.HashMap 和 Hashtable 的区别</p>
-<ul>
-<li><p>HashMap 是非线程安全的，HashTable 是线程安全的；</p>
 </li>
-<li><p>HashMap 要比 HashTable 效率高一点。</p>
-</li>
-<li><p>JDK1.8 以后的 HashMap 在解决哈希冲突时当链表长度大于阈值（默认为8）将链表转化为红黑树，以减少搜索时间。Hashtable 没有这样的机制。</p>
-</li>
-<li><p>HashMap 中，null 可以作为键，这样的键只有一个，可以有一个或多个键所对应的值为 null。但是在 HashTable 中 put 进的键值只要有一个 null，直接抛出 NullPointerException。</p>
-</li>
-<li><p>创建时如果不指定容量初始值，Hashtable 默认的初始大小为<br>11，之后每次扩充，容量变为原来的2n+1。HashMap 默认的初始化大小为16。之后每次扩充，容量变为原来的2倍。时如果给定了容量初始值，那么 Hashtable 会直接使用你给定的大小，而 HashMap 会将其扩充<br>为2的幂次方大小</p>
+<li><p>死亡状态:<br>一个运行状态的线程完成任务或者其他终止条件发生时，该线程就切换到终止状态。</p>
 </li>
 </ul>
-<ol>
-<li>HashSet 和 HashMap 区别</li>
-</ol>
-<div class="table-container">
-<table>
-<thead>
-<tr>
-<th>HashSet</th>
-<th>HashMap</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>实现set接口</td>
-<td>实现Map接口</td>
-</tr>
-<tr>
-<td>存储的为对象</td>
-<td>使用键值对存储</td>
-</tr>
-<tr>
-<td>使用对象来计算hash值，应该使用equals()方法判断对象十分相等</td>
-<td>使用键计算hsah值</td>
-</tr>
-<tr>
-<td>使用add()方法添加元素</td>
-<td>使用put()方法添加元素</td>
-</tr>
-</tbody>
-</table>
-</div>
-<p>3.HashMap的底层实现  </p>
-<p>JDK1.8 之前 HashMap 底层是 数组和链表</p>
-<p>JDK1.8之后在解决哈希冲突时有了较大的变化，当链表长度大于阈值（默认为8）时，将链表转化为红黑树，以减少搜索时间。</p>
-<p>部分常见比较见下图：<br> <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASwAAAEsCAMAAABOo35HAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAC9UExURVlZWdPT07KysmRkZIWFhfT09JmZmWZmZm9vb39/fxkZGUxMTDMzM3p6epCQkKamppubm729venp6cjIyN7e3tbW1s/Pz8LCwnx8fLS0tFZWVoiIiI+Pj6GhoeTk5Glpabu7u93d3evr66CgoJSUlKqqqsnJyeDg4Hd3d8PDw+Xl5bi4uNHR0dvb26Ojo6urq+fn51hYWDg4OCgoKHBwcK2traenp0FBQe7u7vHx8U5OTre3t8zMzHV1df///7GrnpQAAAA/dFJOU///////////////////////////////////////////////////////////////////////////////////AI4mfBcAAAUGSURBVHja7NoJb6M4GMZxY0NCD64kve/pMZ2d3Z297+X7f6zFNmBAMUXa6URl/q9UJSWPUPzrizFWRUlNLgEBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYYIEFAVhggQUWWGBBABZYYIEFFlgQgAUWWGCBBRYEYIEFFlhggQUBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYn6cCIcRXgvX/h9qcIVBqDdbEM8RCxGCB9QqXYRwHYDHBgwXWl8eKZKiESHI3Ba1kWs3fKixcaJUl1YyeBm7Ocq+yLItUiVBGnXxenSHJolIKEcwHq6ikbOX1YGVzQCTN8LPmSLreghUl9sN4Uw7yajMrLC0TZ1ImzqY6FEop0+pIaEN5HaoOxVuwEqFyc4I46uSlzOLqgxlh6UaR9l3VYWl9Fdoxb1Q90KJtu41pwwFW/WHhTtW8i7TafLCqRsk6bsGw63L9qurXRmuIlbT9lDQnlXU+nBFW1Q2qnZbDprWa2tjR90LZFqx1/+Td/HpGWLlrLDvIwTcx6dQ1Vrntbig68cDms3JwbA5Y1azs1ger6sNV/bbIw1jU81MvNAGrl58RVn8ozW+btF08iGFoAlYvP3csfVur1gJBEIA1uBmue5dhZDOyO2epbmgCVi8/I6x0MMHH9pjsTfBhNzQBq5uPZoQlB0uH3DZG4EZqQ26fL3sZq5uf09Ih6qw3i/pm6BZO0qZX7rrUS68Xsbr5ZE4rePMk08pk9aUZugfqppvs6AM1Acvlo/StP+6EbW06z8hJqxbYp2BZPQUnFsLsKuhQdaHqn5ewbF7KXIn0jWO5MqOQ7RaNLPtbNMmmhimj0GUmYLl8Gs0Lq4wyPbTu1l2QKqHSouzs3OlDIslW5SQsnY/NXmFplyNvEuuLV/Tau9BzwiraDUSwXmysztYWWNtL1psXeumgIrDGaqXvBfUuvtqUYI3V2t1wk1e2msFluJJm6zDJXv/fIfjPP7DAAgsssCiwwAILLLDAosACCyywwAKLAgsssMACC6zt9fDz/v75tyOB+98PD2+ORgKffjw4OP1uJPDxl+Xy8v1I4MPF3t7VNyOB4/vF4uzdzrG+39f1kz/w66Guv/yBvw90KX/gZKkr8Qf+2dOV+gNHC12/7RxrabD2/a31bLAO/a11YbAO/K21MFhLf2s9Gqw9f2vdGqzFu11jnVusE2/gxmI9eQOnFuvYG7i0WH7uK4t15w2cWazrXWP9a7H8f/bQYvm/6IPF+sF/pVssf19Ii/WH/0K2WH/uGuvEWC39gSdj9Twy+Rqri5EZx1gt/IE7Y/XoD1wbq9vd3w1PlufnD2OBp+ebm/uxwPHF6emnscDR4vLy41jg7vHq6sNY4Pr27OyYdRaLUrDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssL6u+k+AAQCR9eHtLKvLfwAAAABJRU5ErkJggg==" data-original="https://cdn.jsdelivr.net/gh/yunshanmister/picture/imgsJava集合框架.png" alt=""></p>
+<h3 id="创建线程"><a href="#创建线程" class="headerlink" title="创建线程"></a>创建线程</h3><p>1、继承Thread类<br>Java不支持多继承，如果继承了Thread类，那么就不能再继承其他类。（不推荐使用）</p>
+<pre class=" language-lang-java"><code class="language-lang-java">/**
+ * @Description:
+ * @Author: yunshan
+ * @CreateDate: 2020/4/2$ 14:07$
+ */
+public class ThreadDemo1 extends Thread {
+    private Thread t;
+    private String threadName;
 
+
+    public ThreadDemo1(String name) {
+        super(name);
+        this.threadName = name;
+        System.out.println("Creating: " + threadName);
+    }
+
+    @Override
+    public void run() {
+        super.run();
+        System.out.println("Running: " + threadName);
+        try {
+            for (int i = 5; i > 0; i--) {
+                System.out.println("Thread: " + threadName + ", " + i);
+                Thread.sleep(60);
+            }
+        } catch (InterruptedException e) {
+            System.out.println("Thread " + threadName + " interrupted");
+        }
+        System.out.println("Thread " + threadName + " exiting");
+    }
+
+    public void start() {
+        System.out.println("Starting " + threadName);
+        if (t == null) {
+            t = new Thread(this, threadName);
+            t.start();
+        }
+    }
+}
+`
+</code></pre>
+<p>Test  </p>
+<pre class=" language-lang-java"><code class="language-lang-java">/**
+ * @Description:
+ * @Author: yunshan
+ * @CreateDate: 2020/4/2$ 14:10$
+ */
+public class Test {
+    public static void main(String[] args) {
+        ThreadDemo1 t1 = new ThreadDemo1("Thread-1");
+        t1.start();
+        ThreadDemo1 t2 = new ThreadDemo1("Thread-2");
+        t2.start();
+    }
+}
+</code></pre>
+<p>运行结果：<br>Creating: Thread-1<br>Starting Thread-1<br>Creating: Thread-2<br>Starting Thread-2<br>Running: Thread-1<br>Running: Thread-2<br>Thread: Thread-2, 5<br>Thread: Thread-1, 5<br>Thread: Thread-2, 4<br>Thread: Thread-1, 4<br>Thread: Thread-2, 3<br>Thread: Thread-1, 3<br>Thread: Thread-2, 2<br>Thread: Thread-1, 2<br>Thread: Thread-1, 1<br>Thread: Thread-2, 1<br>Thread Thread-2 exiting<br>Thread Thread-1 exiting  </p>
+<p>Process finished with exit code 0  </p>
+<p>2.实现 Runnable接口  </p>
+<ul>
+<li><p>适合多个相同的程序代码的线程去处理统一资源的情况   </p>
+</li>
+<li><p>可以避免由于java单继承特征带来的局限性   </p>
+</li>
+<li><p>增强开发程序的健壮性，代码可以多个线程共享，代码和数据是独立的</p>
+</li>
+</ul>
+<pre class=" language-lang-java"><code class="language-lang-java">/**
+ * @Description:
+ * @Author: yunshan
+ * @CreateDate: 2020/4/2$ 14:15$
+ */
+public class ThreadDemo2 implements Runnable {
+    private Thread t;
+    private String threadName;
+
+
+    public ThreadDemo2(String name) {
+        this.threadName = name;
+        System.out.println("Creating: " + threadName);
+    }
+
+    public void run() {
+        System.out.println("Running: " + threadName);
+        try {
+            for (int i = 5; i > 0; i--) {
+                System.out.println("Thread: " + threadName + ", " + i);
+                Thread.sleep(60);
+            }
+        } catch (InterruptedException e) {
+            System.out.println("Thread " + threadName + " interrupted");
+        }
+        System.out.println("Thread " + threadName + " exiting");
+    }
+
+    public void start() {
+        System.out.println("Starting " + threadName);
+        if (t == null) {
+            t = new Thread(this, threadName);
+            t.start();
+        }
+    }
+}
+</code></pre>
+<p>Test:</p>
+<pre class=" language-lang-java"><code class="language-lang-java">/**
+ * @Description:
+ * @Author: yunshan
+ * @CreateDate: 2020/4/2$ 14:20$
+ */
+public class Test {
+    public static void main(String[] args) {
+        ThreadDemo2 r1 = new ThreadDemo2("Thread-1");
+        r1.start();
+        ThreadDemo2 r2 = new ThreadDemo2("Thread-2");
+        r2.start();
+    }
+}
+</code></pre>
+<p>运行结果：<br>Creating: Thread-1<br>Starting Thread-1<br>Creating: Thread-2<br>Starting Thread-2<br>Running: Thread-1<br>Thread: Thread-1, 5<br>Running: Thread-2<br>Thread: Thread-2, 5<br>Thread: Thread-1, 4<br>Thread: Thread-2, 4<br>Thread: Thread-1, 3<br>Thread: Thread-2, 3<br>Thread: Thread-1, 2<br>Thread: Thread-2, 2<br>Thread: Thread-2, 1<br>Thread: Thread-1, 1<br>Thread Thread-2 exiting<br>Thread Thread-1 exiting  </p>
+<p>Process finished with exit code 0  </p>
+<p>3.通过 Callable 和 Future 创建线程</p>
+<ul>
+<li><p>创建 Callable 接口的实现类，并实现 call() 方法，该 call() 方法将作为线程执行体，并且有返回值。</p>
+</li>
+<li><p>创建 Callable 实现类的实例，使用 FutureTask 类来包装 Callable 对象，该 FutureTask 对象封装了该 Callable 对象的 call() 方法的返回值。</p>
+</li>
+<li><p>使用 FutureTask 对象作为 Thread 对象的 target 创建并启动新线程。</p>
+</li>
+<li><p>调用 FutureTask 对象的 get() 方法来获得子线程执行结束后的返回值。</p>
+</li>
+</ul>
+<pre class=" language-lang-java"><code class="language-lang-java">/**
+ * @Description:
+ * @Author: yunshan
+ * @CreateDate: 2020/4/2$ 14:30$
+ */
+public class ThreadDemo3 implements Callable<Integer> {
+
+    @Override
+    public Integer call() throws Exception {
+        int i = 0;
+        for (; i < 100; i++) {
+            System.out.println(Thread.currentThread().getName() + " " + i);
+        }
+        return null;
+    }
+
+    public static void main(String[] args) {
+        ThreadDemo3 d3 = new ThreadDemo3();
+        FutureTask<Integer> ft = new FutureTask<>(d3);
+        for (int i = 0; i < 100; i++) {
+            System.out.println(Thread.currentThread().getName() + " i值： " + i);
+            if (i == 20) {
+                new Thread(ft, "有返回值的线程").start();
+            }
+        }
+        try {
+            System.out.println("子线程的返回值：" + ft.get());
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        } catch (ExecutionException e) {
+            e.printStackTrace();
+        }
+    }
+}
+</code></pre>
+<script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>
             </div>
             <hr/>
 
@@ -967,7 +1108,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="www.yunshan.online/posts/508182867.html">www.yunshan.online/posts/508182867.html</a>
+                    <a href="www.yunshan.online/posts/297658092.html">www.yunshan.online/posts/297658092.html</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -1435,9 +1576,61 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
+            <div class="card">
+                <a href="/posts/297658092.html">
+                    <div class="card-image">
+                        
+                        
+                        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASwAAAEsCAMAAABOo35HAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAC9UExURVlZWdPT07KysmRkZIWFhfT09JmZmWZmZm9vb39/fxkZGUxMTDMzM3p6epCQkKamppubm729venp6cjIyN7e3tbW1s/Pz8LCwnx8fLS0tFZWVoiIiI+Pj6GhoeTk5Glpabu7u93d3evr66CgoJSUlKqqqsnJyeDg4Hd3d8PDw+Xl5bi4uNHR0dvb26Ojo6urq+fn51hYWDg4OCgoKHBwcK2traenp0FBQe7u7vHx8U5OTre3t8zMzHV1df///7GrnpQAAAA/dFJOU///////////////////////////////////////////////////////////////////////////////////AI4mfBcAAAUGSURBVHja7NoJb6M4GMZxY0NCD64kve/pMZ2d3Z297+X7f6zFNmBAMUXa6URl/q9UJSWPUPzrizFWRUlNLgEBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYYIEFAVhggQUWWGBBABZYYIEFFlgQgAUWWGCBBRYEYIEFFlhggQUBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYn6cCIcRXgvX/h9qcIVBqDdbEM8RCxGCB9QqXYRwHYDHBgwXWl8eKZKiESHI3Ba1kWs3fKixcaJUl1YyeBm7Ocq+yLItUiVBGnXxenSHJolIKEcwHq6ikbOX1YGVzQCTN8LPmSLreghUl9sN4Uw7yajMrLC0TZ1ImzqY6FEop0+pIaEN5HaoOxVuwEqFyc4I46uSlzOLqgxlh6UaR9l3VYWl9Fdoxb1Q90KJtu41pwwFW/WHhTtW8i7TafLCqRsk6bsGw63L9qurXRmuIlbT9lDQnlXU+nBFW1Q2qnZbDprWa2tjR90LZFqx1/+Td/HpGWLlrLDvIwTcx6dQ1Vrntbig68cDms3JwbA5Y1azs1ger6sNV/bbIw1jU81MvNAGrl58RVn8ozW+btF08iGFoAlYvP3csfVur1gJBEIA1uBmue5dhZDOyO2epbmgCVi8/I6x0MMHH9pjsTfBhNzQBq5uPZoQlB0uH3DZG4EZqQ26fL3sZq5uf09Ih6qw3i/pm6BZO0qZX7rrUS68Xsbr5ZE4rePMk08pk9aUZugfqppvs6AM1Acvlo/StP+6EbW06z8hJqxbYp2BZPQUnFsLsKuhQdaHqn5ewbF7KXIn0jWO5MqOQ7RaNLPtbNMmmhimj0GUmYLl8Gs0Lq4wyPbTu1l2QKqHSouzs3OlDIslW5SQsnY/NXmFplyNvEuuLV/Tau9BzwiraDUSwXmysztYWWNtL1psXeumgIrDGaqXvBfUuvtqUYI3V2t1wk1e2msFluJJm6zDJXv/fIfjPP7DAAgsssCiwwAILLLDAosACCyywwAKLAgsssMACC6zt9fDz/v75tyOB+98PD2+ORgKffjw4OP1uJPDxl+Xy8v1I4MPF3t7VNyOB4/vF4uzdzrG+39f1kz/w66Guv/yBvw90KX/gZKkr8Qf+2dOV+gNHC12/7RxrabD2/a31bLAO/a11YbAO/K21MFhLf2s9Gqw9f2vdGqzFu11jnVusE2/gxmI9eQOnFuvYG7i0WH7uK4t15w2cWazrXWP9a7H8f/bQYvm/6IPF+sF/pVssf19Ii/WH/0K2WH/uGuvEWC39gSdj9Twy+Rqri5EZx1gt/IE7Y/XoD1wbq9vd3w1PlufnD2OBp+ebm/uxwPHF6emnscDR4vLy41jg7vHq6sNY4Pr27OyYdRaLUrDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssL6u+k+AAQCR9eHtLKvLfwAAAABJRU5ErkJggg==" data-original="/medias/featureimages/12.jpg" class="responsive-img" alt="java多线程">
+                        
+                        <span class="card-title">java多线程</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            进程与线程的区别1、进程是资源分配的最小单位，线程是程序执行的最小单位（资源调度的最小单位）   
+2、进程有自己的独立地址空间，每启动一个进程，系统就会为它分配地址空间而线程是共享进程中的数据的，使用相同的地址空间，因此CPU切换一个线程
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-04-01
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Java/" class="post-category">
+                                    Java
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Java/">
+                        <span class="chip bg-color">Java</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
             <div class="card">
                 <a href="/posts/3968131440.html">
                     <div class="card-image">
@@ -1457,60 +1650,8 @@
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2020-04-01
-                        </span>
-                        <span class="publish-author">
-                            
-                            <i class="fas fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/Java/" class="post-category">
-                                    Java
-                                </a>
-                            
-                            
-                        </span>
-                    </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/Java/">
-                        <span class="chip bg-color">Java</span>
-                    </a>
-                    
-                </div>
-                
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
-            </div>
-            <div class="card">
-                <a href="/posts/2188762947.html">
-                    <div class="card-image">
-                        
-                        
-                        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASwAAAEsCAMAAABOo35HAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAC9UExURVlZWdPT07KysmRkZIWFhfT09JmZmWZmZm9vb39/fxkZGUxMTDMzM3p6epCQkKamppubm729venp6cjIyN7e3tbW1s/Pz8LCwnx8fLS0tFZWVoiIiI+Pj6GhoeTk5Glpabu7u93d3evr66CgoJSUlKqqqsnJyeDg4Hd3d8PDw+Xl5bi4uNHR0dvb26Ojo6urq+fn51hYWDg4OCgoKHBwcK2traenp0FBQe7u7vHx8U5OTre3t8zMzHV1df///7GrnpQAAAA/dFJOU///////////////////////////////////////////////////////////////////////////////////AI4mfBcAAAUGSURBVHja7NoJb6M4GMZxY0NCD64kve/pMZ2d3Z297+X7f6zFNmBAMUXa6URl/q9UJSWPUPzrizFWRUlNLgEBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYYIEFAVhggQUWWGBBABZYYIEFFlgQgAUWWGCBBRYEYIEFFlhggQUBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYn6cCIcRXgvX/h9qcIVBqDdbEM8RCxGCB9QqXYRwHYDHBgwXWl8eKZKiESHI3Ba1kWs3fKixcaJUl1YyeBm7Ocq+yLItUiVBGnXxenSHJolIKEcwHq6ikbOX1YGVzQCTN8LPmSLreghUl9sN4Uw7yajMrLC0TZ1ImzqY6FEop0+pIaEN5HaoOxVuwEqFyc4I46uSlzOLqgxlh6UaR9l3VYWl9Fdoxb1Q90KJtu41pwwFW/WHhTtW8i7TafLCqRsk6bsGw63L9qurXRmuIlbT9lDQnlXU+nBFW1Q2qnZbDprWa2tjR90LZFqx1/+Td/HpGWLlrLDvIwTcx6dQ1Vrntbig68cDms3JwbA5Y1azs1ger6sNV/bbIw1jU81MvNAGrl58RVn8ozW+btF08iGFoAlYvP3csfVur1gJBEIA1uBmue5dhZDOyO2epbmgCVi8/I6x0MMHH9pjsTfBhNzQBq5uPZoQlB0uH3DZG4EZqQ26fL3sZq5uf09Ih6qw3i/pm6BZO0qZX7rrUS68Xsbr5ZE4rePMk08pk9aUZugfqppvs6AM1Acvlo/StP+6EbW06z8hJqxbYp2BZPQUnFsLsKuhQdaHqn5ewbF7KXIn0jWO5MqOQ7RaNLPtbNMmmhimj0GUmYLl8Gs0Lq4wyPbTu1l2QKqHSouzs3OlDIslW5SQsnY/NXmFplyNvEuuLV/Tau9BzwiraDUSwXmysztYWWNtL1psXeumgIrDGaqXvBfUuvtqUYI3V2t1wk1e2msFluJJm6zDJXv/fIfjPP7DAAgsssCiwwAILLLDAosACCyywwAKLAgsssMACC6zt9fDz/v75tyOB+98PD2+ORgKffjw4OP1uJPDxl+Xy8v1I4MPF3t7VNyOB4/vF4uzdzrG+39f1kz/w66Guv/yBvw90KX/gZKkr8Qf+2dOV+gNHC12/7RxrabD2/a31bLAO/a11YbAO/K21MFhLf2s9Gqw9f2vdGqzFu11jnVusE2/gxmI9eQOnFuvYG7i0WH7uK4t15w2cWazrXWP9a7H8f/bQYvm/6IPF+sF/pVssf19Ii/WH/0K2WH/uGuvEWC39gSdj9Twy+Rqri5EZx1gt/IE7Y/XoD1wbq9vd3w1PlufnD2OBp+ebm/uxwPHF6emnscDR4vLy41jg7vHq6sNY4Pr27OyYdRaLUrDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssL6u+k+AAQCR9eHtLKvLfwAAAABJRU5ErkJggg==" data-original="/medias/featureimages/12.jpg" class="responsive-img" alt="接口和抽象类的区别">
-                        
-                        <span class="card-title">接口和抽象类的区别</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            接口和抽象类的区别抽象类1、抽象类使用abstract修饰；   
-2、抽象类不能实例化，即不能使用new关键字来实例化对象；
-3、含有抽象方法（使用abstract关键字修饰的方法）的类是抽象类，必须使用abstract关键字修饰；  
-
-                        
-                    </div>
-                    <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-03-31
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-04-01
                             </span>
                         <span class="publish-author">
                             
