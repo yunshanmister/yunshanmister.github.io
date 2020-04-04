@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>java8新特性</title>
+      <link href="/posts/4095242466.html"/>
+      <url>/posts/4095242466.html</url>
+      
+        <content type="html"><![CDATA[<h3 id="Lambda-表达式（闭包）"><a href="#Lambda-表达式（闭包）" class="headerlink" title="Lambda 表达式（闭包）"></a>Lambda 表达式（闭包）</h3><p>语法格式如下：</p><pre><code>(parameters) -&gt; expression或(parameters) -&gt;{ statements; }</code></pre><p>lambda表达式的重要特征:</p><ul><li>可选类型声明：不需要声明参数类型，编译器可以统一识别参数值。</li><li>可选的参数圆括号：一个参数无需定义圆括号，但多个参数需要定义圆括号。</li><li>可选的大括号：如果主体包含了一个语句，就不需要使用大括号。</li><li>可选的返回关键字：如果主体只有一个表达式返回值则编译器会自动返回值，大括号需要指定明表达式返回了一个数值。</li></ul><p>例：  </p><pre class=" language-lang-java"><code class="language-lang-java">// 1. 不需要参数,返回值为 3  () -&gt; 3// 2. 接收一个参数(数字类型),返回其8倍的值  x -&gt; 8 * x  // 3. 接受2个参数(数字),并返回他们的差值  (x, y) -&gt; x – y  // 4. 接收2个int型整数,返回他们的和  (int x, int y) -&gt; x + y  // 5. 接受一个 string 对象,并在控制台打印,不返回任何值(看起来像是返回void)  (String str) -&gt; System.out.print(str)</code></pre><p>双冒号（::）操作符是 Java 中的方法引用。使用时目标引用放在::之前，目标引用提供的方法名称放在::之后。<br>例：</p><pre class=" language-lang-java"><code class="language-lang-java">Person::getName;</code></pre><h4 id="Lambda-表达式常用示例"><a href="#Lambda-表达式常用示例" class="headerlink" title="Lambda 表达式常用示例:"></a>Lambda 表达式常用示例:</h4><p>1.创建线程  </p><pre class=" language-lang-java"><code class="language-lang-java">/** * @Description: * @Author: yunshan * @CreateDate: 2020/4/3$ 11:11$ */public class Lambda {    public static void main(String[] args) {        Thread t = new Thread(() -&gt; {            for (int i = 0; i &lt; 100; i++) {                System.out.println(i + ":" + i);            }        });        t.start();    }}</code></pre><p>2.遍历集合</p><pre class=" language-lang-java"><code class="language-lang-java">/** * @Description: * @Author: yunshan * @CreateDate: 2020/4/3$ 11:20$ */public class Lambda {    public static void main(String[] args) {        ArrayList<integer> list = new ArrayList&lt;&gt;();        Collections.addAll(list, 1,2,3,4,5);        //lambda表达式 方法引用        list.forEach(System.out::println);    }}</integer></code></pre><p>3.删除集合中的元素</p><pre class=" language-lang-java"><code class="language-lang-java">/** * @Description: * @Author: yunshan * @CreateDate: 2020/4/3$ 11:27$ */public class Lambda {    public static void main(String[] args) {        ArrayList<string> list = new ArrayList&lt;&gt;();        list.add("A");        list.add("B");        list.add("C");        list.add("D");        list.add("E");        list.removeIf(e -&gt; e.equals("A"));        //通过 foreach 遍历，查看是否已经删除        list.forEach(System.out::println);    }}</string></code></pre><script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
+      
+      
+      <categories>
+          
+          <category> Java </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Java </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>java多线程</title>
       <link href="/posts/297658092.html"/>
       <url>/posts/297658092.html</url>

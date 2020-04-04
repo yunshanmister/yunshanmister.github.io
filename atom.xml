@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="www.yunshan.online/"/>
-  <updated>2020-04-03T06:29:48.502Z</updated>
+  <updated>2020-04-04T03:30:24.752Z</updated>
   <id>www.yunshan.online/</id>
   
   <author>
@@ -15,6 +15,33 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>java8新特性</title>
+    <link href="www.yunshan.online/posts/4095242466.html"/>
+    <id>www.yunshan.online/posts/4095242466.html</id>
+    <published>2020-04-03T06:51:38.000Z</published>
+    <updated>2020-04-04T03:30:24.752Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h3 id=&quot;Lambda-表达式（闭包）&quot;&gt;&lt;a href=&quot;#Lambda-表达式（闭包）&quot; class=&quot;headerlink&quot; title=&quot;Lambda 表达式（闭包）&quot;&gt;&lt;/a&gt;Lambda
+        
+      
+    
+    </summary>
+    
+    
+      <category term="Java" scheme="www.yunshan.online/categories/Java/"/>
+    
+    
+      <category term="Java" scheme="www.yunshan.online/tags/Java/"/>
+    
+  </entry>
   
   <entry>
     <title>java多线程</title>
