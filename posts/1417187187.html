@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="java8新特性, 云山先生">
+    <meta name="keywords" content="工厂模式, 云山先生">
     <meta name="description" content="专注于技术,分享生活,分享知识">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>java8新特性 | 云山先生</title>
+    <title>工厂模式 | 云山先生</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -708,12 +708,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/8.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/19.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">java8新特性</h1>
+                    <h1 class="description center-align post-title">工厂模式</h1>
                 </div>
             </div>
         </div>
@@ -830,8 +830,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/Java/">
-                                <span class="chip bg-color">Java</span>
+                            <a href="/tags/%E5%B7%A5%E5%8E%82%E6%A8%A1%E5%BC%8F/">
+                                <span class="chip bg-color">工厂模式</span>
                             </a>
                         
                     </div>
@@ -842,8 +842,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/Java/" class="post-category">
-                                Java
+                            <a href="/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" class="post-category">
+                                设计模式
                             </a>
                         
                     </div>
@@ -855,7 +855,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2020-04-03
+                    2020-04-09
                 </div>
                 
 
@@ -872,88 +872,264 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h3 id="Lambda-表达式（闭包）"><a href="#Lambda-表达式（闭包）" class="headerlink" title="Lambda 表达式（闭包）"></a>Lambda 表达式（闭包）</h3><p>语法格式如下：</p>
-<pre><code>(parameters) -&gt; expression
-或
-(parameters) -&gt;{ statements; }
-</code></pre><p>lambda表达式的重要特征:</p>
+                <h3 id="简单介绍"><a href="#简单介绍" class="headerlink" title="简单介绍"></a>简单介绍</h3><p>工厂模式属于创建型模式，主要是定义一个对象的接口，让其子类自己决定实例化哪一个工厂类，工厂模式使其创建过程延迟到子类进行。</p>
+<p>优点：</p>
+<p>1.一个调用者想创建一个对象，只要知道其名称就可以了。</p>
+<p>2.扩展性高，如果想增加一个产品，只要拓展一个工厂类就可以。</p>
+<p>3.可以屏蔽产品的具体实现，调用者只需要关心产品的接口。</p>
+<p>4.具有解耦的作用，降低了代码的重复。</p>
+<p>缺点：</p>
+<p>每次增加一个产品，需要增加一个具体的实现类，和工厂类。</p>
+<p>工厂类的使用场景：</p>
 <ul>
-<li>可选类型声明：不需要声明参数类型，编译器可以统一识别参数值。</li>
-<li>可选的参数圆括号：一个参数无需定义圆括号，但多个参数需要定义圆括号。</li>
-<li>可选的大括号：如果主体包含了一个语句，就不需要使用大括号。</li>
-<li>可选的返回关键字：如果主体只有一个表达式返回值则编译器会自动返回值，大括号需要指定明表达式返回了一个数值。</li>
+<li><p>数据库访问</p>
+</li>
+<li><p>Spring中通过getBean(“xxx”)获取Bean</p>
+</li>
+<li><p>JMS中使用连接工厂创建一个连接对象</p>
+</li>
 </ul>
-<p>例：  </p>
-<pre class=" language-lang-java"><code class="language-lang-java">// 1. 不需要参数,返回值为 3  
-() -&gt; 3
-
-// 2. 接收一个参数(数字类型),返回其8倍的值  
-x -&gt; 8 * x  
-
-// 3. 接受2个参数(数字),并返回他们的差值  
-(x, y) -&gt; x – y  
-
-// 4. 接收2个int型整数,返回他们的和  
-(int x, int y) -&gt; x + y  
-
-// 5. 接受一个 string 对象,并在控制台打印,不返回任何值(看起来像是返回void)  
-(String str) -&gt; System.out.print(str)
+<h4 id="简单工厂模式【静态工厂方法模式】"><a href="#简单工厂模式【静态工厂方法模式】" class="headerlink" title="简单工厂模式【静态工厂方法模式】"></a>简单工厂模式【静态工厂方法模式】</h4><p>创建一个厨师，可以各种菜：鱼，鸡，虾。</p>
+<p>1.创建Cook接口</p>
+<pre class=" language-lang-java"><code class="language-lang-java">public interface Cook {
+    public void cook();
+}
 </code></pre>
-<p>双冒号（::）操作符是 Java 中的方法引用。使用时目标引用放在::之前，目标引用提供的方法名称放在::之后。<br>例：</p>
-<pre class=" language-lang-java"><code class="language-lang-java">Person::getName;
-</code></pre>
-<h4 id="Lambda-表达式常用示例"><a href="#Lambda-表达式常用示例" class="headerlink" title="Lambda 表达式常用示例:"></a>Lambda 表达式常用示例:</h4><p>1.创建线程  </p>
-<pre class=" language-lang-java"><code class="language-lang-java">/**
- * @Description:
- * @Author: yunshan
- * @CreateDate: 2020/4/3$ 11:11$
- */
-public class Lambda {
-    public static void main(String[] args) {
-        Thread t = new Thread(() -&gt; {
-            for (int i = 0; i &lt; 100; i++) {
-                System.out.println(i + ":" + i);
-            }
-        });
-        t.start();
+<p>2.创建具体的实现类</p>
+<p>鱼：</p>
+<pre class=" language-lang-java"><code class="language-lang-java">public class Fish implements Cook {
+    @Override
+    public void cook() {
+        System.out.println("Cook Fish");
     }
 }
 </code></pre>
-<p>2.遍历集合</p>
-<pre class=" language-lang-java"><code class="language-lang-java">/**
- * @Description:
- * @Author: yunshan
- * @CreateDate: 2020/4/3$ 11:20$
- */
-public class Lambda {
-    public static void main(String[] args) {
-        ArrayList<integer> list = new ArrayList&lt;&gt;();
-        Collections.addAll(list, 1,2,3,4,5);
-        //lambda表达式 方法引用
-        list.forEach(System.out::println);
+<p>鸡：</p>
+<pre class=" language-lang-java"><code class="language-lang-java">public class Chicken implements Cook {
+    @Override
+    public void cook() {
+        System.out.println("Cook Chicken");
     }
 }
-</integer></code></pre>
-<p>3.删除集合中的元素</p>
-<pre class=" language-lang-java"><code class="language-lang-java">/**
- * @Description:
- * @Author: yunshan
- * @CreateDate: 2020/4/3$ 11:27$
- */
-public class Lambda {
-    public static void main(String[] args) {
-        ArrayList<string> list = new ArrayList&lt;&gt;();
-        list.add("A");
-        list.add("B");
-        list.add("C");
-        list.add("D");
-        list.add("E");
-        list.removeIf(e -&gt; e.equals("A"));
-        //通过 foreach 遍历，查看是否已经删除
-        list.forEach(System.out::println);
+</code></pre>
+<p>虾：</p>
+<pre class=" language-lang-java"><code class="language-lang-java">public class Shrimp implements Cook {
+    @Override
+    public void cook() {
+        System.out.println("Cook Shrimp");
     }
 }
-</string></code></pre>
+</code></pre>
+<p>3.创建工厂类</p>
+<pre class=" language-lang-java"><code class="language-lang-java">public class CookFactory {
+    public static Cook cooking(String type) {
+        if (type == null) {
+            return null;
+        }
+        if (type.equalsIgnoreCase("FISH")) {
+            return new Fish();
+        }
+        if (type.equalsIgnoreCase("SHRIMP")) {
+            return new Shrimp();
+        }
+        if (type.equalsIgnoreCase("CHICKEN")) {
+            return new Chicken();
+        }
+        return null;
+    }
+}
+</code></pre>
+<p>4.测试</p>
+<pre class=" language-lang-java"><code class="language-lang-java">public class Test {
+    public static void main(String[] args) {
+        Cook fish = CookFactory.cooking("fish");
+        fish.cook();
+        Cook shrimp = CookFactory.cooking("shrimp");
+        shrimp.cook();
+        Cook chicken = CookFactory.cooking("chicken");
+        chicken.cook();
+    }
+}
+</code></pre>
+<p>输出结果如下：</p>
+<p>Cook Fish<br>Cook Shrimp<br>Cook Chicken</p>
+<p>上面示例存在一个问题，如果我们新增具体的实现类的话，就要更改工厂类中的cooking()方法。这个问题我们可以使用反射机制进行解决。</p>
+<pre class=" language-lang-java"><code class="language-lang-java">public class CookFactoryImprove {
+    public static Object getClass(Class<!--? extends Cook--> clazz){
+        Object obj = null;
+        try{
+            obj = Class.forName(clazz.getName()).newInstance();
+        } catch (IllegalAccessException e) {
+            e.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        } catch (InstantiationException e) {
+            e.printStackTrace();
+        }
+        return obj;
+    }
+}
+</code></pre>
+<p>测试</p>
+<pre class=" language-lang-java"><code class="language-lang-java">public class Test {
+    public static void main(String[] args) {
+        Cook fish = (Cook) CookFactoryImprove.getClass(Fish.class);
+        fish.cook();
+        Cook shrimp = (Cook) CookFactoryImprove.getClass(Shrimp.class);
+        shrimp.cook();
+        Cook chicken = (Cook) CookFactoryImprove.getClass(Chicken.class);
+        chicken.cook();
+    }
+}
+</code></pre>
+<p>输出结果如下：</p>
+<p>Cook Fish<br>Cook Shrimp<br>Cook Chicken</p>
+<h4 id="工厂方法模式"><a href="#工厂方法模式" class="headerlink" title="工厂方法模式"></a>工厂方法模式</h4><p>工厂方法模式是对每一个对象都有一个与之对应的工厂</p>
+<p>工厂方法模式主要是由： 抽象工厂， 具体工厂， 抽象产品 ，具体产品组成。</p>
+<p>争对简单工厂模式升级我们只需要增加一个抽象工厂，和对他的实现即可。</p>
+<p>1.抽象工厂</p>
+<pre class=" language-lang-java"><code class="language-lang-java">public interface Factory {
+    public Cook getCook();
+}
+</code></pre>
+<p>2.对工厂的具体实现</p>
+<p>鱼</p>
+<pre class=" language-lang-java"><code class="language-lang-java">public class FishFactory implements Factory {
+    @Override
+    public Cook getCook() {
+        return new Fish();
+    }
+}
+</code></pre>
+<p>虾</p>
+<pre class=" language-lang-java"><code class="language-lang-java">public class ShrimpFactory implements Factory {
+    @Override
+    public Cook getCook() {
+        return new Shrimp();
+    }
+}
+</code></pre>
+<p>鸡</p>
+<pre class=" language-lang-java"><code class="language-lang-java">public class ChickenFactory implements Factory {
+    @Override
+    public Cook getCook() {
+        return new Chicken();
+    }
+}
+</code></pre>
+<p>3.测试</p>
+<pre class=" language-lang-java"><code class="language-lang-java">public class Test {
+    public static void main(String[] args) {
+        Factory fishFactory = new FishFactory();
+        Cook fish = fishFactory.getCook();
+        fish.cook();
+        Factory shrimpFactory = new ShrimpFactory();
+        Cook shrimp = shrimpFactory.getCook();
+        shrimp.cook();
+        Factory chickenFactory = new FishFactory();
+        Cook chicken = chickenFactory.getCook();
+        chicken.cook();
+    }
+}
+</code></pre>
+<p>输出结果如下：</p>
+<p>Cook Fish<br>Cook Shrimp<br>Cook Chicken</p>
+<h4 id="抽象工厂模式【Kit模式】"><a href="#抽象工厂模式【Kit模式】" class="headerlink" title="抽象工厂模式【Kit模式】"></a>抽象工厂模式【Kit模式】</h4><p>提供一个创建一系列相关或相互依赖对象的接口，而无须指定它们具体的类。抽象工厂模式可以向客户端提供一个接口，使客户端在不必指定产品的具体情况下，创建多个产品族中的产品对象。<br>详解看图：</p>
+<p><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASwAAAEsCAMAAABOo35HAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAC9UExURVlZWdPT07KysmRkZIWFhfT09JmZmWZmZm9vb39/fxkZGUxMTDMzM3p6epCQkKamppubm729venp6cjIyN7e3tbW1s/Pz8LCwnx8fLS0tFZWVoiIiI+Pj6GhoeTk5Glpabu7u93d3evr66CgoJSUlKqqqsnJyeDg4Hd3d8PDw+Xl5bi4uNHR0dvb26Ojo6urq+fn51hYWDg4OCgoKHBwcK2traenp0FBQe7u7vHx8U5OTre3t8zMzHV1df///7GrnpQAAAA/dFJOU///////////////////////////////////////////////////////////////////////////////////AI4mfBcAAAUGSURBVHja7NoJb6M4GMZxY0NCD64kve/pMZ2d3Z297+X7f6zFNmBAMUXa6URl/q9UJSWPUPzrizFWRUlNLgEBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYYIEFAVhggQUWWGBBABZYYIEFFlgQgAUWWGCBBRYEYIEFFlhggQUBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYn6cCIcRXgvX/h9qcIVBqDdbEM8RCxGCB9QqXYRwHYDHBgwXWl8eKZKiESHI3Ba1kWs3fKixcaJUl1YyeBm7Ocq+yLItUiVBGnXxenSHJolIKEcwHq6ikbOX1YGVzQCTN8LPmSLreghUl9sN4Uw7yajMrLC0TZ1ImzqY6FEop0+pIaEN5HaoOxVuwEqFyc4I46uSlzOLqgxlh6UaR9l3VYWl9Fdoxb1Q90KJtu41pwwFW/WHhTtW8i7TafLCqRsk6bsGw63L9qurXRmuIlbT9lDQnlXU+nBFW1Q2qnZbDprWa2tjR90LZFqx1/+Td/HpGWLlrLDvIwTcx6dQ1Vrntbig68cDms3JwbA5Y1azs1ger6sNV/bbIw1jU81MvNAGrl58RVn8ozW+btF08iGFoAlYvP3csfVur1gJBEIA1uBmue5dhZDOyO2epbmgCVi8/I6x0MMHH9pjsTfBhNzQBq5uPZoQlB0uH3DZG4EZqQ26fL3sZq5uf09Ih6qw3i/pm6BZO0qZX7rrUS68Xsbr5ZE4rePMk08pk9aUZugfqppvs6AM1Acvlo/StP+6EbW06z8hJqxbYp2BZPQUnFsLsKuhQdaHqn5ewbF7KXIn0jWO5MqOQ7RaNLPtbNMmmhimj0GUmYLl8Gs0Lq4wyPbTu1l2QKqHSouzs3OlDIslW5SQsnY/NXmFplyNvEuuLV/Tau9BzwiraDUSwXmysztYWWNtL1psXeumgIrDGaqXvBfUuvtqUYI3V2t1wk1e2msFluJJm6zDJXv/fIfjPP7DAAgsssCiwwAILLLDAosACCyywwAKLAgsssMACC6zt9fDz/v75tyOB+98PD2+ORgKffjw4OP1uJPDxl+Xy8v1I4MPF3t7VNyOB4/vF4uzdzrG+39f1kz/w66Guv/yBvw90KX/gZKkr8Qf+2dOV+gNHC12/7RxrabD2/a31bLAO/a11YbAO/K21MFhLf2s9Gqw9f2vdGqzFu11jnVusE2/gxmI9eQOnFuvYG7i0WH7uK4t15w2cWazrXWP9a7H8f/bQYvm/6IPF+sF/pVssf19Ii/WH/0K2WH/uGuvEWC39gSdj9Twy+Rqri5EZx1gt/IE7Y/XoD1wbq9vd3w1PlufnD2OBp+ebm/uxwPHF6emnscDR4vLy41jg7vHq6sNY4Pr27OyYdRaLUrDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssL6u+k+AAQCR9eHtLKvLfwAAAABJRU5ErkJggg==" data-original="https://cdn.jsdelivr.net/gh/yunshanmister/picture/imgs1586436377(1" alt="">.jpg)</p>
+<p>这个我使用水果工厂举例</p>
+<p>1.创建水果接口，水果工厂接口</p>
+<pre class=" language-lang-java"><code class="language-lang-java">public interface Fruit {
+    public void get();
+}
+</code></pre>
+<pre class=" language-lang-java"><code class="language-lang-java">public interface FruitFactory {
+    public Fruit getAppple();
+
+    public Fruit getPeach();
+}
+</code></pre>
+<p>2.创建具体的水果抽象类</p>
+<pre class=" language-lang-java"><code class="language-lang-java">public abstract class Apple implements Fruit{
+    public abstract void get();
+}
+</code></pre>
+<pre class=" language-lang-java"><code class="language-lang-java">public abstract class Peach implements Fruit {
+    public abstract void get();
+}
+</code></pre>
+<p>3.创建具体的水果类，水果分为1，2两个等级。</p>
+<pre class=" language-lang-java"><code class="language-lang-java">public class Apple_1 extends Apple {
+    @Override
+    public void get() {
+        System.out.println("生产一级苹果");
+    }
+}
+</code></pre>
+<pre class=" language-lang-java"><code class="language-lang-java">public class Apple_2 extends Apple {
+    @Override
+    public void get() {
+        System.out.println("生产二级苹果");
+    }
+}
+</code></pre>
+<pre class=" language-lang-java"><code class="language-lang-java">public class Peach_1 implements Fruit {
+    @Override
+    public void get() {
+        System.out.println("生产一级梨子");
+    }
+}
+</code></pre>
+<pre class=" language-lang-java"><code class="language-lang-java">public class Peach_2 implements Fruit {
+    @Override
+    public void get() {
+        System.out.println("生产二级梨子");
+    }
+}
+</code></pre>
+<p>4.创建一级水果和二级水果的一类工厂和二类工厂</p>
+<pre class=" language-lang-java"><code class="language-lang-java">public class FruitFactory_1 implements FruitFactory {
+    @Override
+    public Fruit getAppple() {
+        return new Apple_1();
+    }
+
+    @Override
+    public Fruit getPeach() {
+        return new Apple_1();
+    }
+}
+</code></pre>
+<pre class=" language-lang-java"><code class="language-lang-java">public class FruitFactory_2 implements FruitFactory {
+    @Override
+    public Fruit getAppple() {
+        return new Apple_2();
+    }
+
+    @Override
+    public Fruit getPeach() {
+        return new Apple_2();
+    }
+}
+</code></pre>
+<p>5.测试</p>
+<pre class=" language-lang-java"><code class="language-lang-java">public class Test {
+    public static void main(String[] args) {
+        FruitFactory factory1 = new FruitFactory_1();
+        FruitFactory factory2 = new FruitFactory_2();
+
+        Fruit apple_1 = factory1.getAppple();
+        apple_1.get();
+        Fruit apple_2 = factory2.getAppple();
+        apple_2.get();
+        Fruit peach_1 = factory1.getPeach();
+        peach_1.get();
+        Fruit peach_2 = factory2.getPeach();
+        peach_2.get();
+    }
+}
+</code></pre>
+<p>输出结果如下：</p>
+<p>生产一级苹果<br>生产二级苹果<br>生产一级苹果<br>生产二级苹果  </p>
 <script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
@@ -997,7 +1173,7 @@ public class Lambda {
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="www.yunshan.online/posts/4095242466.html">www.yunshan.online/posts/4095242466.html</a>
+                    <a href="www.yunshan.online/posts/1417187187.html">www.yunshan.online/posts/1417187187.html</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -1035,8 +1211,8 @@ public class Lambda {
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/Java/">
-                                    <span class="chip bg-color">Java</span>
+                                <a href="/tags/%E5%B7%A5%E5%8E%82%E6%A8%A1%E5%BC%8F/">
+                                    <span class="chip bg-color">工厂模式</span>
                                 </a>
                             
                         </div>
@@ -1465,9 +1641,10 @@ public class Lambda {
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
                 <a href="/posts/1417187187.html">
                     <div class="card-image">
@@ -1488,9 +1665,9 @@ public class Lambda {
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2020-04-09
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-04-09
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -1503,6 +1680,7 @@ public class Lambda {
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
@@ -1521,25 +1699,30 @@ public class Lambda {
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/posts/297658092.html">
+                <a href="/posts/4095242466.html">
                     <div class="card-image">
                         
                         
-                        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASwAAAEsCAMAAABOo35HAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAC9UExURVlZWdPT07KysmRkZIWFhfT09JmZmWZmZm9vb39/fxkZGUxMTDMzM3p6epCQkKamppubm729venp6cjIyN7e3tbW1s/Pz8LCwnx8fLS0tFZWVoiIiI+Pj6GhoeTk5Glpabu7u93d3evr66CgoJSUlKqqqsnJyeDg4Hd3d8PDw+Xl5bi4uNHR0dvb26Ojo6urq+fn51hYWDg4OCgoKHBwcK2traenp0FBQe7u7vHx8U5OTre3t8zMzHV1df///7GrnpQAAAA/dFJOU///////////////////////////////////////////////////////////////////////////////////AI4mfBcAAAUGSURBVHja7NoJb6M4GMZxY0NCD64kve/pMZ2d3Z297+X7f6zFNmBAMUXa6URl/q9UJSWPUPzrizFWRUlNLgEBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYYIEFAVhggQUWWGBBABZYYIEFFlgQgAUWWGCBBRYEYIEFFlhggQUBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYn6cCIcRXgvX/h9qcIVBqDdbEM8RCxGCB9QqXYRwHYDHBgwXWl8eKZKiESHI3Ba1kWs3fKixcaJUl1YyeBm7Ocq+yLItUiVBGnXxenSHJolIKEcwHq6ikbOX1YGVzQCTN8LPmSLreghUl9sN4Uw7yajMrLC0TZ1ImzqY6FEop0+pIaEN5HaoOxVuwEqFyc4I46uSlzOLqgxlh6UaR9l3VYWl9Fdoxb1Q90KJtu41pwwFW/WHhTtW8i7TafLCqRsk6bsGw63L9qurXRmuIlbT9lDQnlXU+nBFW1Q2qnZbDprWa2tjR90LZFqx1/+Td/HpGWLlrLDvIwTcx6dQ1Vrntbig68cDms3JwbA5Y1azs1ger6sNV/bbIw1jU81MvNAGrl58RVn8ozW+btF08iGFoAlYvP3csfVur1gJBEIA1uBmue5dhZDOyO2epbmgCVi8/I6x0MMHH9pjsTfBhNzQBq5uPZoQlB0uH3DZG4EZqQ26fL3sZq5uf09Ih6qw3i/pm6BZO0qZX7rrUS68Xsbr5ZE4rePMk08pk9aUZugfqppvs6AM1Acvlo/StP+6EbW06z8hJqxbYp2BZPQUnFsLsKuhQdaHqn5ewbF7KXIn0jWO5MqOQ7RaNLPtbNMmmhimj0GUmYLl8Gs0Lq4wyPbTu1l2QKqHSouzs3OlDIslW5SQsnY/NXmFplyNvEuuLV/Tau9BzwiraDUSwXmysztYWWNtL1psXeumgIrDGaqXvBfUuvtqUYI3V2t1wk1e2msFluJJm6zDJXv/fIfjPP7DAAgsssCiwwAILLLDAosACCyywwAKLAgsssMACC6zt9fDz/v75tyOB+98PD2+ORgKffjw4OP1uJPDxl+Xy8v1I4MPF3t7VNyOB4/vF4uzdzrG+39f1kz/w66Guv/yBvw90KX/gZKkr8Qf+2dOV+gNHC12/7RxrabD2/a31bLAO/a11YbAO/K21MFhLf2s9Gqw9f2vdGqzFu11jnVusE2/gxmI9eQOnFuvYG7i0WH7uK4t15w2cWazrXWP9a7H8f/bQYvm/6IPF+sF/pVssf19Ii/WH/0K2WH/uGuvEWC39gSdj9Twy+Rqri5EZx1gt/IE7Y/XoD1wbq9vd3w1PlufnD2OBp+ebm/uxwPHF6emnscDR4vLy41jg7vHq6sNY4Pr27OyYdRaLUrDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssL6u+k+AAQCR9eHtLKvLfwAAAABJRU5ErkJggg==" data-original="/medias/featureimages/12.jpg" class="responsive-img" alt="java多线程">
+                        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASwAAAEsCAMAAABOo35HAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAC9UExURVlZWdPT07KysmRkZIWFhfT09JmZmWZmZm9vb39/fxkZGUxMTDMzM3p6epCQkKamppubm729venp6cjIyN7e3tbW1s/Pz8LCwnx8fLS0tFZWVoiIiI+Pj6GhoeTk5Glpabu7u93d3evr66CgoJSUlKqqqsnJyeDg4Hd3d8PDw+Xl5bi4uNHR0dvb26Ojo6urq+fn51hYWDg4OCgoKHBwcK2traenp0FBQe7u7vHx8U5OTre3t8zMzHV1df///7GrnpQAAAA/dFJOU///////////////////////////////////////////////////////////////////////////////////AI4mfBcAAAUGSURBVHja7NoJb6M4GMZxY0NCD64kve/pMZ2d3Z297+X7f6zFNmBAMUXa6URl/q9UJSWPUPzrizFWRUlNLgEBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYYIEFAVhggQUWWGBBABZYYIEFFlgQgAUWWGCBBRYEYIEFFlhggQUBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYn6cCIcRXgvX/h9qcIVBqDdbEM8RCxGCB9QqXYRwHYDHBgwXWl8eKZKiESHI3Ba1kWs3fKixcaJUl1YyeBm7Ocq+yLItUiVBGnXxenSHJolIKEcwHq6ikbOX1YGVzQCTN8LPmSLreghUl9sN4Uw7yajMrLC0TZ1ImzqY6FEop0+pIaEN5HaoOxVuwEqFyc4I46uSlzOLqgxlh6UaR9l3VYWl9Fdoxb1Q90KJtu41pwwFW/WHhTtW8i7TafLCqRsk6bsGw63L9qurXRmuIlbT9lDQnlXU+nBFW1Q2qnZbDprWa2tjR90LZFqx1/+Td/HpGWLlrLDvIwTcx6dQ1Vrntbig68cDms3JwbA5Y1azs1ger6sNV/bbIw1jU81MvNAGrl58RVn8ozW+btF08iGFoAlYvP3csfVur1gJBEIA1uBmue5dhZDOyO2epbmgCVi8/I6x0MMHH9pjsTfBhNzQBq5uPZoQlB0uH3DZG4EZqQ26fL3sZq5uf09Ih6qw3i/pm6BZO0qZX7rrUS68Xsbr5ZE4rePMk08pk9aUZugfqppvs6AM1Acvlo/StP+6EbW06z8hJqxbYp2BZPQUnFsLsKuhQdaHqn5ewbF7KXIn0jWO5MqOQ7RaNLPtbNMmmhimj0GUmYLl8Gs0Lq4wyPbTu1l2QKqHSouzs3OlDIslW5SQsnY/NXmFplyNvEuuLV/Tau9BzwiraDUSwXmysztYWWNtL1psXeumgIrDGaqXvBfUuvtqUYI3V2t1wk1e2msFluJJm6zDJXv/fIfjPP7DAAgsssCiwwAILLLDAosACCyywwAKLAgsssMACC6zt9fDz/v75tyOB+98PD2+ORgKffjw4OP1uJPDxl+Xy8v1I4MPF3t7VNyOB4/vF4uzdzrG+39f1kz/w66Guv/yBvw90KX/gZKkr8Qf+2dOV+gNHC12/7RxrabD2/a31bLAO/a11YbAO/K21MFhLf2s9Gqw9f2vdGqzFu11jnVusE2/gxmI9eQOnFuvYG7i0WH7uK4t15w2cWazrXWP9a7H8f/bQYvm/6IPF+sF/pVssf19Ii/WH/0K2WH/uGuvEWC39gSdj9Twy+Rqri5EZx1gt/IE7Y/XoD1wbq9vd3w1PlufnD2OBp+ebm/uxwPHF6emnscDR4vLy41jg7vHq6sNY4Pr27OyYdRaLUrDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssL6u+k+AAQCR9eHtLKvLfwAAAABJRU5ErkJggg==" data-original="/medias/featureimages/8.jpg" class="responsive-img" alt="java8新特性">
                         
-                        <span class="card-title">java多线程</span>
+                        <span class="card-title">java8新特性</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            进程与线程的区别1、进程是资源分配的最小单位，线程是程序执行的最小单位（资源调度的最小单位）   
-2、进程有自己的独立地址空间，每启动一个进程，系统就会为它分配地址空间而线程是共享进程中的数据的，使用相同的地址空间，因此CPU切换一个线程
+                            Lambda 表达式（闭包）语法格式如下：
+(parameters) -&gt; expression
+或
+(parameters) -&gt;{ statements; }
+lambda表达式的重要特征:
+
+可选类型声明：不需要声明参数类
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-04-01
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-04-03
                             </span>
                         <span class="publish-author">
                             
