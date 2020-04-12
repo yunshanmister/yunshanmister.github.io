@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="www.yunshan.online/"/>
-  <updated>2020-04-11T05:39:13.055Z</updated>
+  <updated>2020-04-12T09:55:42.840Z</updated>
   <id>www.yunshan.online/</id>
   
   <author>
@@ -17,11 +17,93 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>Maven-eclipse</title>
+    <link href="www.yunshan.online/posts/2979006148.html"/>
+    <id>www.yunshan.online/posts/2979006148.html</id>
+    <published>2020-04-12T08:27:49.000Z</published>
+    <updated>2020-04-12T09:55:42.840Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h3 id=&quot;Maven-eclpse&quot;&gt;&lt;a href=&quot;#Maven-eclpse&quot; class=&quot;headerlink&quot; title=&quot;Maven-eclpse&quot;&gt;&lt;/a&gt;Maven-eclpse&lt;/h3&gt;&lt;p&gt;打开
+        
+      
+    
+    </summary>
+    
+    
+      <category term="常用工具" scheme="www.yunshan.online/categories/%E5%B8%B8%E7%94%A8%E5%B7%A5%E5%85%B7/"/>
+    
+    
+      <category term="Maven" scheme="www.yunshan.online/tags/Maven/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Redis安装</title>
+    <link href="www.yunshan.online/posts/3388403801.html"/>
+    <id>www.yunshan.online/posts/3388403801.html</id>
+    <published>2020-04-12T03:37:42.000Z</published>
+    <updated>2020-04-12T08:19:45.343Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h3 id=&quot;Redis初见&quot;&gt;&lt;a href=&quot;#Redis初见&quot; class=&quot;headerlink&quot; title=&quot;Redis初见&quot;&gt;&lt;/a&gt;Redis初见&lt;/h3&gt;&lt;p&gt;&lt;img
+        
+      
+    
+    </summary>
+    
+    
+      <category term="数据库" scheme="www.yunshan.online/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
+    
+    
+      <category term="Redis" scheme="www.yunshan.online/tags/Redis/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Maven</title>
+    <link href="www.yunshan.online/posts/120011996.html"/>
+    <id>www.yunshan.online/posts/120011996.html</id>
+    <published>2020-04-11T11:13:47.000Z</published>
+    <updated>2020-04-12T08:31:58.030Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;Maven是 Apache 下的一个纯 Java 开发的开源项目。Maven 是一个项目管理工具，可以对 Java 项目进行构建、依赖管理。&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://maven.apache.org/&quot; target=&quot;_blank&quot;
+        
+      
+    
+    </summary>
+    
+    
+      <category term="常用工具" scheme="www.yunshan.online/categories/%E5%B8%B8%E7%94%A8%E5%B7%A5%E5%85%B7/"/>
+    
+    
+      <category term="Maven" scheme="www.yunshan.online/tags/Maven/"/>
+    
+  </entry>
+  
+  <entry>
     <title>三次握手</title>
     <link href="www.yunshan.online/posts/2704598409.html"/>
     <id>www.yunshan.online/posts/2704598409.html</id>
     <published>2020-04-10T11:13:16.000Z</published>
-    <updated>2020-04-11T05:39:13.055Z</updated>
+    <updated>2020-04-11T11:06:29.609Z</updated>
     
     <summary type="html">
     
@@ -48,7 +130,7 @@
     <link href="www.yunshan.online/posts/857853134.html"/>
     <id>www.yunshan.online/posts/857853134.html</id>
     <published>2020-04-10T02:37:31.000Z</published>
-    <updated>2020-04-11T11:01:38.738Z</updated>
+    <updated>2020-04-11T11:06:29.608Z</updated>
     
     <summary type="html">
     
@@ -76,7 +158,7 @@
     <link href="www.yunshan.online/posts/40308402.html"/>
     <id>www.yunshan.online/posts/40308402.html</id>
     <published>2020-04-09T13:27:02.000Z</published>
-    <updated>2020-04-10T03:47:04.478Z</updated>
+    <updated>2020-04-11T11:06:29.608Z</updated>
     
     <summary type="html">
     
@@ -469,89 +551,6 @@
         
         
           &lt;h3 id=&quot;java基本数据类型&quot;&gt;&lt;a href=&quot;#java基本数据类型&quot; class=&quot;headerlink&quot;
-        
-      
-    
-    </summary>
-    
-    
-      <category term="Java" scheme="www.yunshan.online/categories/Java/"/>
-    
-    
-      <category term="Java" scheme="www.yunshan.online/tags/Java/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>markdown高级技巧</title>
-    <link href="www.yunshan.online/posts/1949351614.html"/>
-    <id>www.yunshan.online/posts/1949351614.html</id>
-    <published>2020-03-26T09:34:10.000Z</published>
-    <updated>2020-03-27T01:56:00.947Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h2 id=&quot;markdown高级技巧&quot;&gt;&lt;a href=&quot;#markdown高级技巧&quot; class=&quot;headerlink&quot;
-        
-      
-    
-    </summary>
-    
-    
-      <category term="标记语言" scheme="www.yunshan.online/categories/%E6%A0%87%E8%AE%B0%E8%AF%AD%E8%A8%80/"/>
-    
-    
-      <category term="markdown" scheme="www.yunshan.online/tags/markdown/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>markdown基本操作</title>
-    <link href="www.yunshan.online/posts/1576564115.html"/>
-    <id>www.yunshan.online/posts/1576564115.html</id>
-    <published>2020-03-26T08:01:30.000Z</published>
-    <updated>2020-03-26T12:31:22.362Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;p&gt;编辑器推荐&lt;/p&gt;
-&lt;p&gt;atom &lt;a href=&quot;https://atom.io/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;官网&lt;/a&gt;下载安装即可&lt;/p&gt;
-&lt;p&gt;也可以使用在线编辑器例如：&lt;a
-        
-      
-    
-    </summary>
-    
-    
-      <category term="标记语言" scheme="www.yunshan.online/categories/%E6%A0%87%E8%AE%B0%E8%AF%AD%E8%A8%80/"/>
-    
-    
-      <category term="markdown" scheme="www.yunshan.online/tags/markdown/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>java基础概念</title>
-    <link href="www.yunshan.online/posts/2814024099.html"/>
-    <id>www.yunshan.online/posts/2814024099.html</id>
-    <published>2020-03-26T06:42:28.000Z</published>
-    <updated>2020-03-27T05:45:36.262Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h3 id=&quot;java基本语法&quot;&gt;&lt;a href=&quot;#java基本语法&quot; class=&quot;headerlink&quot;
         
       
     
