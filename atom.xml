@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="www.yunshan.online/"/>
-  <updated>2020-04-12T09:55:42.840Z</updated>
+  <updated>2020-04-13T06:55:46.504Z</updated>
   <id>www.yunshan.online/</id>
   
   <author>
@@ -17,11 +17,67 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>线程并发库</title>
+    <link href="www.yunshan.online/posts/28792959.html"/>
+    <id>www.yunshan.online/posts/28792959.html</id>
+    <published>2020-04-12T13:24:07.000Z</published>
+    <updated>2020-04-13T06:55:46.504Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h3 id=&quot;线程池&quot;&gt;&lt;a href=&quot;#线程池&quot; class=&quot;headerlink&quot; title=&quot;线程池&quot;&gt;&lt;/a&gt;线程池&lt;/h3&gt;&lt;p&gt;线程池主要是为了限制系统中执行线程的数量&lt;/p&gt;
+&lt;p&gt;面试常问：&lt;/p&gt;
+&lt;h3 id=&quot;为什么要使用线程池？&quot;&gt;&lt;a
+        
+      
+    
+    </summary>
+    
+    
+      <category term="Java" scheme="www.yunshan.online/categories/Java/"/>
+    
+    
+      <category term="Java" scheme="www.yunshan.online/tags/Java/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Redis数据类型</title>
+    <link href="www.yunshan.online/posts/950473165.html"/>
+    <id>www.yunshan.online/posts/950473165.html</id>
+    <published>2020-04-12T12:21:43.000Z</published>
+    <updated>2020-04-13T13:05:03.557Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;Redis数据类型&quot;&gt;&lt;a href=&quot;#Redis数据类型&quot; class=&quot;headerlink&quot; title=&quot;Redis数据类型&quot;&gt;&lt;/a&gt;Redis数据类型&lt;/h2&gt;&lt;h3 id=&quot;String【字符串】&quot;&gt;&lt;a href=&quot;#String【字符串】&quot;
+        
+      
+    
+    </summary>
+    
+    
+      <category term="数据库" scheme="www.yunshan.online/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
+    
+    
+      <category term="Redis" scheme="www.yunshan.online/tags/Redis/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Maven-eclipse</title>
     <link href="www.yunshan.online/posts/2979006148.html"/>
     <id>www.yunshan.online/posts/2979006148.html</id>
     <published>2020-04-12T08:27:49.000Z</published>
-    <updated>2020-04-12T09:55:42.840Z</updated>
+    <updated>2020-04-12T12:06:51.253Z</updated>
     
     <summary type="html">
     
@@ -48,7 +104,7 @@
     <link href="www.yunshan.online/posts/3388403801.html"/>
     <id>www.yunshan.online/posts/3388403801.html</id>
     <published>2020-04-12T03:37:42.000Z</published>
-    <updated>2020-04-12T08:19:45.343Z</updated>
+    <updated>2020-04-13T12:20:30.619Z</updated>
     
     <summary type="html">
     
@@ -75,7 +131,7 @@
     <link href="www.yunshan.online/posts/120011996.html"/>
     <id>www.yunshan.online/posts/120011996.html</id>
     <published>2020-04-11T11:13:47.000Z</published>
-    <updated>2020-04-12T08:31:58.030Z</updated>
+    <updated>2020-04-12T12:06:51.268Z</updated>
     
     <summary type="html">
     
@@ -507,60 +563,6 @@
     
     
       <category term="mysql" scheme="www.yunshan.online/tags/mysql/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>java修饰符</title>
-    <link href="www.yunshan.online/posts/3662788247.html"/>
-    <id>www.yunshan.online/posts/3662788247.html</id>
-    <published>2020-03-28T02:20:06.000Z</published>
-    <updated>2020-03-28T04:21:35.787Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h3 id=&quot;java的访问控制修饰符&quot;&gt;&lt;a href=&quot;#java的访问控制修饰符&quot; class=&quot;headerlink&quot;
-        
-      
-    
-    </summary>
-    
-    
-      <category term="Java" scheme="www.yunshan.online/categories/Java/"/>
-    
-    
-      <category term="Java" scheme="www.yunshan.online/tags/Java/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>java基本数据类型及装箱拆箱操作</title>
-    <link href="www.yunshan.online/posts/2294371988.html"/>
-    <id>www.yunshan.online/posts/2294371988.html</id>
-    <published>2020-03-27T03:32:18.000Z</published>
-    <updated>2020-03-27T07:01:38.072Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h3 id=&quot;java基本数据类型&quot;&gt;&lt;a href=&quot;#java基本数据类型&quot; class=&quot;headerlink&quot;
-        
-      
-    
-    </summary>
-    
-    
-      <category term="Java" scheme="www.yunshan.online/categories/Java/"/>
-    
-    
-      <category term="Java" scheme="www.yunshan.online/tags/Java/"/>
     
   </entry>
   
