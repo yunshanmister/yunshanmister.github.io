@@ -4,11 +4,11 @@
   
     
     <entry>
-      <title>servlet总结</title>
-      <link href="/posts/2798356820.html"/>
-      <url>/posts/2798356820.html</url>
+      <title>Servlet过滤器</title>
+      <link href="/posts/4023865989.html"/>
+      <url>/posts/4023865989.html</url>
       
-        <content type="html"><![CDATA[<script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
+        <content type="html"><![CDATA[<h3 id="过滤器【Filter】"><a href="#过滤器【Filter】" class="headerlink" title="过滤器【Filter】"></a>过滤器【Filter】</h3><p>过滤器就是对所有web资源进行一个过滤，所谓的过滤指的是对于Web资源做一些自己的配置。比如控制权限，设置字符过滤，加密设置等。</p><p>过滤器的前世今生！</p><p>过滤器是一个Servlet组件。来自于一种设计模式责任链模式【也叫过滤器模式】</p><h3 id="在Web项目中使用过滤器"><a href="#在Web项目中使用过滤器" class="headerlink" title="在Web项目中使用过滤器"></a>在Web项目中使用过滤器</h3><p>1.实现Filter接口</p><pre class=" language-lang-java"><code class="language-lang-java">/** * @Description: * @Author: yunshan * @CreateDate: 2020/4/17$ 14:48$ */public class MyFilter implements Filter {    @Override    public void init(FilterConfig filterConfig) throws ServletException {        System.out.println("初始化过滤器");    }    @Override    public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain) throws IOException, ServletException {        //对request和response进行一些预处理。如下设置字符，消息头等        servletRequest.setCharacterEncoding("UTF-8");        servletResponse.setCharacterEncoding("UTF-8");        servletResponse.setContentType("text/html;charset=UTF-8");        //ChainFilter链：它可以指向下一个资源，如果还有过滤器，则继续进行下一次的过滤，如果没有过滤器，则会指向资源（servlet）。        filterChain.doFilter(servletRequest,servletResponse);    }    @Override    public void destroy() {        System.out.println("过滤器被销毁了");    }}</code></pre><p>2.</p><script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
       
       
       <categories>
@@ -20,7 +20,57 @@
       
         <tags>
             
-            <tag> Java </tag>
+            <tag> JavaWeb </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>http常见的状态码</title>
+      <link href="/posts/2565018538.html"/>
+      <url>/posts/2565018538.html</url>
+      
+        <content type="html"><![CDATA[<ul><li><p>200 OK 客户端请求成功，一般用于GET与POST请求</p></li><li><p>301 Moved Permanently（永久移除)，请求的 URL 已移走。Response 中应该包含一个 Location URL, 说明资 源现在所处的位置</p></li><li><p>302 found 重定向</p></li><li><p>400 Bad Request 客户端请求有语法错误，不能被服务器所理解</p></li><li><p>401 Unauthorized 请求未经授权，这个状态代码必须和 WWW-Authenticate 报头域一起使用</p></li><li><p>403 Forbidden 服务器收到请求，但是拒绝提供服务</p></li><li><p>404 Not Found 请求资源不存在。</p></li><li><p>500 Internal Server Error 服务器发生不可预期的错误</p></li><li><p>503 Server Unavailable 服务器当前不能处理客户端的请求，一段时间后可能恢复正常</p></li></ul><script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
+      
+      
+      <categories>
+          
+          <category> Java </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> JavWeb </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>servlet总结</title>
+      <link href="/posts/2798356820.html"/>
+      <url>/posts/2798356820.html</url>
+      
+        <content type="html"><![CDATA[<h3 id="Servlet"><a href="#Servlet" class="headerlink" title="Servlet"></a>Servlet</h3><p> Java Servlet 是运行在 Web 服务器或应用服务器上的程序,主要使用来开发动态web。</p><p> Servlet主要作用：</p><ul><li><p>读取客户端发送的显式的数据</p></li><li><p>读取客户端发送的隐式的 HTTP 请求数据</p></li><li><p>接受并处理数据</p></li><li><p>给客户端发送数据包括显示的数据和隐式的HTTP响应。</p></li></ul><h3 id="Servlet-创建方式"><a href="#Servlet-创建方式" class="headerlink" title="Servlet 创建方式"></a>Servlet 创建方式</h3><p>1.实现 <code>Servlet</code> 接口</p><pre class=" language-lang-java"><code class="language-lang-java">/** * @Description: * @Author: yunshan * @CreateDate: 2020/4/15$ 18:27$ */public class MyServlet_1 implements Servlet {    @Override    public void init(ServletConfig servletConfig) throws ServletException {    }    @Override    public ServletConfig getServletConfig() {        return null;    }    @Override    public void service(ServletRequest servletRequest, ServletResponse servletResponse) throws ServletException, IOException {    }    @Override    public String getServletInfo() {        return null;    }    @Override    public void destroy() {    }}</code></pre><p>2.继承 <code>GenericServlet</code> 类</p><pre class=" language-lang-java"><code class="language-lang-java">/** * @Description: * @Author: yunshan * @CreateDate: 2020/4/15$ 18:45$ */public class MyServlet_2 extends GenericServlet {    @Override    public void service(ServletRequest servletRequest, ServletResponse servletResponse) throws ServletException, IOException {    }}</code></pre><p>3.继承 <code>HttpServlet</code> 方法</p><p>最常使用的一种方法。HttpServlet 扩展了 GenericServlet 类，而 GenericServlet 类又实现了 Servlet 类和 ServletConfig 类。</p><pre class=" language-lang-java"><code class="language-lang-java">/** * @Description: * @Author: yunshan * @CreateDate: 2020/4/15$ 20:21$ */public class MyServlet_3 extends HttpServlet {    @Override    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {        super.doGet(req, resp);    }    @Override    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {        super.doPost(req, resp);    }}</code></pre><h3 id="GenericServlet和HttpServlet的区别"><a href="#GenericServlet和HttpServlet的区别" class="headerlink" title="GenericServlet和HttpServlet的区别"></a>GenericServlet和HttpServlet的区别</h3><p>HttpServlet 继承自 GenericServlet。GenericServlet 是一个 Serlvet， 是 Servlet 接口和 ServletConfig 接口的实现类. 但是一个抽象类. 其中的 service 方法为抽象方法。</p><h3 id="Servlet生命周期"><a href="#Servlet生命周期" class="headerlink" title="Servlet生命周期"></a>Servlet生命周期</h3><p><code>init()</code> -&gt; <code>service()</code> -&gt; <code>destory()</code> -&gt; <code>servlet由垃圾回收器回收</code></p><p>init()方法：只在第一次创建Servlet被调用一次</p><p>service()方法：service() 方法是执行实际任务的主要方法。Web 服务器调用 service() 方法来处理来自客户端（浏览器）的请求，并把格式化的响应写回给客户端。service() 方法由容器调用，service 方法在适当的时候调用 doGet、doPost、doPut、doDelete 等方法。</p><ul><li><p>doGet() 方法<br>GET 请求来自于一个 URL 的正常请求，或者来自于一个未指定 METHOD 的 HTML 表单，它由 doGet() 方法处理。</p></li><li><p>doPost() 方法<br>POST 请求来自于一个特别指定了 METHOD 为 POST 的 HTML 表单，它由 doPost() 方法处理。</p></li></ul><p>destroy() 方法：destroy() 方法在 Servlet 生命周期结束时只会被调用一次。</p><script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
+      
+      
+      <categories>
+          
+          <category> Java </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> servlet </tag>
             
         </tags>
       
@@ -558,7 +608,7 @@
       <link href="/posts/2042792491.html"/>
       <url>/posts/2042792491.html</url>
       
-        <content type="html"><![CDATA[<h3 id="MySQL数据库"><a href="#MySQL数据库" class="headerlink" title="MySQL数据库"></a>MySQL数据库</h3><ul><li>MySQL 是一个关系型数据库管理系统。</li><li>MySQL 是开源的，所以你不需要支付额外的费用。</li><li>MySQL 支持大型的数据库。可以处理拥有上千万条记录的大型数据库。</li><li>MySQL 使用标准的 SQL 数据语言形式。MySQL 可以运行于多个系统上，并且支持多种语言。</li></ul><h3 id="MySQL创建数据库"><a href="#MySQL创建数据库" class="headerlink" title="MySQL创建数据库"></a>MySQL创建数据库</h3><p>建库语法如下：  </p><pre class=" language-lang-SQL"><code class="language-lang-SQL">CREATE DATABASE 数据库名;</code></pre><h3 id="MySQL-删除数据库"><a href="#MySQL-删除数据库" class="headerlink" title="MySQL 删除数据库"></a>MySQL 删除数据库</h3><p>从删库到跑路！！！<font color="red">此命令有风险删除须谨慎</font></p><p>删库命令如下：</p><pre class=" language-lang-SQL"><code class="language-lang-SQL">DROP DATABASE 数据库名;</code></pre><h3 id="MySQL-查看数据库列表"><a href="#MySQL-查看数据库列表" class="headerlink" title="MySQL 查看数据库列表"></a>MySQL 查看数据库列表</h3><pre class=" language-lang-SQL"><code class="language-lang-SQL">SHOW DATABASES;</code></pre><h3 id="MySQL-选择数据库"><a href="#MySQL-选择数据库" class="headerlink" title="MySQL 选择数据库"></a>MySQL 选择数据库</h3><p>你可以使用SQL命令来选择指定的数据库。</p><pre class=" language-lang-SQL"><code class="language-lang-SQL">USE 数据库名;</code></pre><h3 id="MySQL备份数据库"><a href="#MySQL备份数据库" class="headerlink" title="MySQL备份数据库"></a>MySQL备份数据库</h3><pre class=" language-lang-SQL"><code class="language-lang-SQL">mysqldump -uroot -p密码 数据库名 &gt; D:/备份文件名.sql</code></pre><script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
+        <content type="html"><![CDATA[<h3 id="MySQL数据库"><a href="#MySQL数据库" class="headerlink" title="MySQL数据库"></a>MySQL数据库</h3><ul><li>MySQL 是一个关系型数据库管理系统。</li><li>MySQL 是开源的，所以你不需要支付额外的费用。</li><li>MySQL 支持大型的数据库。可以处理拥有上千万条记录的大型数据库。</li><li>MySQL 使用标准的 SQL 数据语言形式。MySQL 可以运行于多个系统上，并且支持多种语言。</li></ul><h3 id="MySQL创建数据库"><a href="#MySQL创建数据库" class="headerlink" title="MySQL创建数据库"></a>MySQL创建数据库</h3><p>建库语法如下：  </p><pre class=" language-lang-SQL"><code class="language-lang-SQL">CREATE DATABASE 数据库名;</code></pre><h3 id="MySQL-删除数据库"><a href="#MySQL-删除数据库" class="headerlink" title="MySQL 删除数据库"></a>MySQL 删除数据库</h3><p>从删库到跑路！！！<font color="red">此命令有风险删除须谨慎</font></p><p>删库命令如下：</p><pre class=" language-lang-SQL"><code class="language-lang-SQL">DROP DATABASE 数据库名;</code></pre><h3 id="MySQL-查看数据库列表"><a href="#MySQL-查看数据库列表" class="headerlink" title="MySQL 查看数据库列表"></a>MySQL 查看数据库列表</h3><pre class=" language-lang-SQL"><code class="language-lang-SQL">SHOW DATABASES;</code></pre><h3 id="MySQL-选择数据库"><a href="#MySQL-选择数据库" class="headerlink" title="MySQL 选择数据库"></a>MySQL 选择数据库</h3><p>你可以使用SQL命令来选择指定的数据库。</p><pre class=" language-lang-SQL"><code class="language-lang-SQL">USE 数据库名;</code></pre><h3 id="MySQL备份数据库"><a href="#MySQL备份数据库" class="headerlink" title="MySQL备份数据库"></a>MySQL备份数据库</h3><pre class=" language-lang-SQL"><code class="language-lang-SQL">mysqldump -uroot -p密码 数据库名 &gt; D:/备份文件名.sql</code></pre><h3 id="Mysql还原备份"><a href="#Mysql还原备份" class="headerlink" title="Mysql还原备份"></a>Mysql还原备份</h3><pre class=" language-lang-SQL"><code class="language-lang-SQL">mysql -uroot -p 库名 &lt;文件.sql</code></pre><script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
       
       
       <categories>

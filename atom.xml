@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="www.yunshan.online/"/>
-  <updated>2020-04-15T10:15:39.209Z</updated>
+  <updated>2020-04-17T10:49:16.368Z</updated>
   <id>www.yunshan.online/</id>
   
   <author>
@@ -17,11 +17,11 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>servlet总结</title>
-    <link href="www.yunshan.online/posts/2798356820.html"/>
-    <id>www.yunshan.online/posts/2798356820.html</id>
-    <published>2020-04-15T10:15:39.000Z</published>
-    <updated>2020-04-15T10:15:39.209Z</updated>
+    <title>Servlet过滤器</title>
+    <link href="www.yunshan.online/posts/4023865989.html"/>
+    <id>www.yunshan.online/posts/4023865989.html</id>
+    <published>2020-04-17T02:16:04.000Z</published>
+    <updated>2020-04-17T10:49:16.368Z</updated>
     
     <summary type="html">
     
@@ -29,11 +29,7 @@
       
         
         
-          &lt;script&gt;
-        document.querySelectorAll(&#39;.github-emoji&#39;)
-          .forEach(el =&gt; {
-            if (!el.dataset.src) { return; }
-       
+          &lt;h3 id=&quot;过滤器【Filter】&quot;&gt;&lt;a href=&quot;#过滤器【Filter】&quot; class=&quot;headerlink&quot;
         
       
     
@@ -43,7 +39,64 @@
       <category term="Java" scheme="www.yunshan.online/categories/Java/"/>
     
     
-      <category term="Java" scheme="www.yunshan.online/tags/Java/"/>
+      <category term="JavaWeb" scheme="www.yunshan.online/tags/JavaWeb/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>http常见的状态码</title>
+    <link href="www.yunshan.online/posts/2565018538.html"/>
+    <id>www.yunshan.online/posts/2565018538.html</id>
+    <published>2020-04-15T13:13:16.000Z</published>
+    <updated>2020-04-16T01:10:44.202Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;ul&gt;
+&lt;li&gt;&lt;p&gt;200 OK 客户端请求成功，一般用于GET与POST请求&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;301 Moved Permanently（永久移除)，请求的 URL 已移走。Response 中应该包含一个 Location URL, 说明资
+        
+      
+    
+    </summary>
+    
+    
+      <category term="Java" scheme="www.yunshan.online/categories/Java/"/>
+    
+    
+      <category term="JavWeb" scheme="www.yunshan.online/tags/JavWeb/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>servlet总结</title>
+    <link href="www.yunshan.online/posts/2798356820.html"/>
+    <id>www.yunshan.online/posts/2798356820.html</id>
+    <published>2020-04-15T10:15:39.000Z</published>
+    <updated>2020-04-17T01:51:40.496Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h3 id=&quot;Servlet&quot;&gt;&lt;a href=&quot;#Servlet&quot; class=&quot;headerlink&quot; title=&quot;Servlet&quot;&gt;&lt;/a&gt;Servlet&lt;/h3&gt;&lt;p&gt; Java Servlet 是运行在 Web
+        
+      
+    
+    </summary>
+    
+    
+      <category term="Java" scheme="www.yunshan.online/categories/Java/"/>
+    
+    
+      <category term="servlet" scheme="www.yunshan.online/tags/servlet/"/>
     
   </entry>
   
@@ -52,7 +105,7 @@
     <link href="www.yunshan.online/posts/903299391.html"/>
     <id>www.yunshan.online/posts/903299391.html</id>
     <published>2020-04-15T07:18:30.000Z</published>
-    <updated>2020-04-15T10:06:12.938Z</updated>
+    <updated>2020-04-15T10:40:22.669Z</updated>
     
     <summary type="html">
     
@@ -501,60 +554,6 @@
         
           &lt;p&gt;&lt;a href=&quot;https://www.oracle.com/java/technologies/javase-downloads.html&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;oracle官网&lt;/a&gt;&lt;/p&gt;
 &lt;h3
-        
-      
-    
-    </summary>
-    
-    
-      <category term="Java" scheme="www.yunshan.online/categories/Java/"/>
-    
-    
-      <category term="Java" scheme="www.yunshan.online/tags/Java/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>冒泡排序</title>
-    <link href="www.yunshan.online/posts/350679531.html"/>
-    <id>www.yunshan.online/posts/350679531.html</id>
-    <published>2020-03-28T10:44:02.000Z</published>
-    <updated>2020-03-28T11:26:20.727Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h3 id=&quot;冒泡排序算法&quot;&gt;&lt;a href=&quot;#冒泡排序算法&quot; class=&quot;headerlink&quot; title=&quot;冒泡排序算法&quot;&gt;&lt;/a&gt;冒泡排序算法&lt;/h3&gt;&lt;p&gt;冒泡排序：
-        
-      
-    
-    </summary>
-    
-    
-      <category term="算法" scheme="www.yunshan.online/categories/%E7%AE%97%E6%B3%95/"/>
-    
-    
-      <category term="排序" scheme="www.yunshan.online/tags/%E6%8E%92%E5%BA%8F/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Object常用方法总结</title>
-    <link href="www.yunshan.online/posts/2737630781.html"/>
-    <id>www.yunshan.online/posts/2737630781.html</id>
-    <published>2020-03-28T10:05:21.000Z</published>
-    <updated>2020-03-29T02:30:52.532Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;pre class=&quot; language-lang-java&quot;&gt;&lt;code class=&quot;language-lang-java&quot;&gt;public final native Class&lt;?&gt;
         
       
     
