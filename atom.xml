@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="www.yunshan.online/"/>
-  <updated>2020-04-17T10:49:16.368Z</updated>
+  <updated>2020-04-18T02:24:41.265Z</updated>
   <id>www.yunshan.online/</id>
   
   <author>
@@ -17,11 +17,69 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>MySQL事务</title>
+    <link href="www.yunshan.online/posts/261182303.html"/>
+    <id>www.yunshan.online/posts/261182303.html</id>
+    <published>2020-04-17T14:02:33.000Z</published>
+    <updated>2020-04-18T02:24:41.265Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;script&gt;
+        document.querySelectorAll(&#39;.github-emoji&#39;)
+          .forEach(el =&gt; {
+            if (!el.dataset.src) { return; }
+       
+        
+      
+    
+    </summary>
+    
+    
+      <category term="数据库" scheme="www.yunshan.online/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
+    
+    
+      <category term="Mysql" scheme="www.yunshan.online/tags/Mysql/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Servlet异常处理</title>
+    <link href="www.yunshan.online/posts/352264091.html"/>
+    <id>www.yunshan.online/posts/352264091.html</id>
+    <published>2020-04-17T12:22:09.000Z</published>
+    <updated>2020-04-17T13:57:10.178Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h3 id=&quot;Servlet异常处理&quot;&gt;&lt;a href=&quot;#Servlet异常处理&quot; class=&quot;headerlink&quot; title=&quot;Servlet异常处理&quot;&gt;&lt;/a&gt;Servlet异常处理&lt;/h3&gt;&lt;p&gt;当一个 Servlet 抛出一个异常时，Web 容器在使用了
+        
+      
+    
+    </summary>
+    
+    
+      <category term="Java" scheme="www.yunshan.online/categories/Java/"/>
+    
+    
+      <category term="JavaWeb" scheme="www.yunshan.online/tags/JavaWeb/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Servlet过滤器</title>
     <link href="www.yunshan.online/posts/4023865989.html"/>
     <id>www.yunshan.online/posts/4023865989.html</id>
     <published>2020-04-17T02:16:04.000Z</published>
-    <updated>2020-04-17T10:49:16.368Z</updated>
+    <updated>2020-04-18T02:26:55.902Z</updated>
     
     <summary type="html">
     
@@ -44,11 +102,11 @@
   </entry>
   
   <entry>
-    <title>http常见的状态码</title>
+    <title>HTTP常见的状态码</title>
     <link href="www.yunshan.online/posts/2565018538.html"/>
     <id>www.yunshan.online/posts/2565018538.html</id>
     <published>2020-04-15T13:13:16.000Z</published>
-    <updated>2020-04-16T01:10:44.202Z</updated>
+    <updated>2020-04-18T02:28:02.076Z</updated>
     
     <summary type="html">
     
@@ -69,16 +127,16 @@
       <category term="Java" scheme="www.yunshan.online/categories/Java/"/>
     
     
-      <category term="JavWeb" scheme="www.yunshan.online/tags/JavWeb/"/>
+      <category term="JavaWeb" scheme="www.yunshan.online/tags/JavaWeb/"/>
     
   </entry>
   
   <entry>
-    <title>servlet总结</title>
+    <title>servlet创建</title>
     <link href="www.yunshan.online/posts/2798356820.html"/>
     <id>www.yunshan.online/posts/2798356820.html</id>
     <published>2020-04-15T10:15:39.000Z</published>
-    <updated>2020-04-17T01:51:40.496Z</updated>
+    <updated>2020-04-18T02:26:48.391Z</updated>
     
     <summary type="html">
     
@@ -96,7 +154,7 @@
       <category term="Java" scheme="www.yunshan.online/categories/Java/"/>
     
     
-      <category term="servlet" scheme="www.yunshan.online/tags/servlet/"/>
+      <category term="JavaWeb" scheme="www.yunshan.online/tags/JavaWeb/"/>
     
   </entry>
   
@@ -105,7 +163,7 @@
     <link href="www.yunshan.online/posts/903299391.html"/>
     <id>www.yunshan.online/posts/903299391.html</id>
     <published>2020-04-15T07:18:30.000Z</published>
-    <updated>2020-04-15T10:40:22.669Z</updated>
+    <updated>2020-04-18T02:25:43.631Z</updated>
     
     <summary type="html">
     
@@ -120,10 +178,10 @@
     </summary>
     
     
-      <category term="Java" scheme="www.yunshan.online/categories/Java/"/>
+      <category term="数据库" scheme="www.yunshan.online/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
     
     
-      <category term="Java" scheme="www.yunshan.online/tags/Java/"/>
+      <category term="Mysql" scheme="www.yunshan.online/tags/Mysql/"/>
     
   </entry>
   
@@ -324,7 +382,7 @@
     <link href="www.yunshan.online/posts/857853134.html"/>
     <id>www.yunshan.online/posts/857853134.html</id>
     <published>2020-04-10T02:37:31.000Z</published>
-    <updated>2020-04-15T09:14:56.445Z</updated>
+    <updated>2020-04-18T02:24:46.490Z</updated>
     
     <summary type="html">
     
@@ -343,7 +401,7 @@
       <category term="数据库" scheme="www.yunshan.online/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
     
     
-      <category term="mysql" scheme="www.yunshan.online/tags/mysql/"/>
+      <category term="Mysql" scheme="www.yunshan.online/tags/Mysql/"/>
     
   </entry>
   
@@ -352,7 +410,7 @@
     <link href="www.yunshan.online/posts/40308402.html"/>
     <id>www.yunshan.online/posts/40308402.html</id>
     <published>2020-04-09T13:27:02.000Z</published>
-    <updated>2020-04-11T11:06:29.608Z</updated>
+    <updated>2020-04-18T02:26:00.545Z</updated>
     
     <summary type="html">
     
@@ -371,7 +429,7 @@
       <category term="数据库" scheme="www.yunshan.online/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
     
     
-      <category term="mysql" scheme="www.yunshan.online/tags/mysql/"/>
+      <category term="Mysql" scheme="www.yunshan.online/tags/Mysql/"/>
     
   </entry>
   
@@ -499,61 +557,6 @@
         
         
           &lt;h4 id=&quot;Collection-接口&quot;&gt;&lt;a href=&quot;#Collection-接口&quot; class=&quot;headerlink&quot; title=&quot;Collection 接口&quot;&gt;&lt;/a&gt;Collection 接口&lt;/h4&gt;&lt;p&gt;最基本的集合接口。Collection
-        
-      
-    
-    </summary>
-    
-    
-      <category term="Java" scheme="www.yunshan.online/categories/Java/"/>
-    
-    
-      <category term="Java" scheme="www.yunshan.online/tags/Java/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>接口和抽象类的区别</title>
-    <link href="www.yunshan.online/posts/2188762947.html"/>
-    <id>www.yunshan.online/posts/2188762947.html</id>
-    <published>2020-03-31T03:41:30.000Z</published>
-    <updated>2020-03-31T07:28:27.515Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h3 id=&quot;接口和抽象类的区别&quot;&gt;&lt;a href=&quot;#接口和抽象类的区别&quot; class=&quot;headerlink&quot; title=&quot;接口和抽象类的区别&quot;&gt;&lt;/a&gt;接口和抽象类的区别&lt;/h3&gt;&lt;h6 id=&quot;抽象类&quot;&gt;&lt;a href=&quot;#抽象类&quot;
-        
-      
-    
-    </summary>
-    
-    
-      <category term="Java" scheme="www.yunshan.online/categories/Java/"/>
-    
-    
-      <category term="Java" scheme="www.yunshan.online/tags/Java/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>String类</title>
-    <link href="www.yunshan.online/posts/1559452841.html"/>
-    <id>www.yunshan.online/posts/1559452841.html</id>
-    <published>2020-03-29T03:01:51.000Z</published>
-    <updated>2020-03-30T03:27:12.274Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;p&gt;&lt;a href=&quot;https://www.oracle.com/java/technologies/javase-downloads.html&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;oracle官网&lt;/a&gt;&lt;/p&gt;
-&lt;h3
         
       
     
