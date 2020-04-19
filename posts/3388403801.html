@@ -161,8 +161,8 @@
     };
     loaded();
 })()
- </script><meta name="generator" content="Hexo 4.2.0"><link rel="stylesheet" href="/css/prism.css" type="text/css"><link rel="alternate" href="/atom.xml" title="云山先生" type="application/atom+xml">
-<style type="text/css" lang="css">
+ </script><meta name="generator" content="Hexo 4.2.0"><link rel="alternate" href="/atom.xml" title="云山先生" type="application/atom+xml">
+<link rel="stylesheet" href="/css/prism.css" type="text/css"><style type="text/css" lang="css">
     #loading-container{
         position: fixed;
         top: 0;
@@ -919,6 +919,10 @@ $ ./redis-server
 <p>启动方法二: 后端模式启动【推荐使用】</p>
 <pre class=" language-lang-Linux"><code class="language-lang-Linux">$ cd /usr/local/redis/redis/bin
 $ ./redis-server redis.conf
+</code></pre>
+<p>使用 <code>ps</code> 或 <code>netstat</code> 查看redis服务是否正常启动</p>
+<pre class=" language-lang-Linux"><code class="language-lang-Linux">ps aux | grep redis-server
+netstat -tunple | grep 6379
 </code></pre>
 <h3 id="关闭Redis"><a href="#关闭Redis" class="headerlink" title="关闭Redis"></a>关闭Redis</h3><p>首先进入redis安装目录</p>
 <pre class=" language-lang-Linux"><code class="language-lang-Linux">$ cd /usr/local/redis/redis/bin
