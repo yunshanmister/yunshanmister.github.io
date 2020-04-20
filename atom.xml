@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="www.yunshan.online/"/>
-  <updated>2020-04-19T13:57:25.253Z</updated>
+  <updated>2020-04-20T06:26:11.988Z</updated>
   <id>www.yunshan.online/</id>
   
   <author>
@@ -15,6 +15,33 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>JDBC编程</title>
+    <link href="www.yunshan.online/posts/24370523.html"/>
+    <id>www.yunshan.online/posts/24370523.html</id>
+    <published>2020-04-20T02:22:45.000Z</published>
+    <updated>2020-04-20T06:26:11.988Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h3 id=&quot;JDBC简单介绍&quot;&gt;&lt;a href=&quot;#JDBC简单介绍&quot; class=&quot;headerlink&quot; title=&quot;JDBC简单介绍&quot;&gt;&lt;/a&gt;JDBC简单介绍&lt;/h3&gt;&lt;p&gt;JDBC【Java DataBase
+        
+      
+    
+    </summary>
+    
+    
+      <category term="Java" scheme="www.yunshan.online/categories/Java/"/>
+    
+    
+      <category term="jdbc" scheme="www.yunshan.online/tags/jdbc/"/>
+    
+  </entry>
   
   <entry>
     <title>JSP九大隐式对象</title>
@@ -349,7 +376,7 @@
     <link href="www.yunshan.online/posts/28792959.html"/>
     <id>www.yunshan.online/posts/28792959.html</id>
     <published>2020-04-12T13:24:07.000Z</published>
-    <updated>2020-04-13T13:09:41.264Z</updated>
+    <updated>2020-04-20T06:23:18.990Z</updated>
     
     <summary type="html">
     
@@ -369,7 +396,7 @@
       <category term="Java" scheme="www.yunshan.online/categories/Java/"/>
     
     
-      <category term="Java" scheme="www.yunshan.online/tags/Java/"/>
+      <category term="java" scheme="www.yunshan.online/tags/java/"/>
     
   </entry>
   
@@ -524,34 +551,6 @@
         
           &lt;h3 id=&quot;数据表准备&quot;&gt;&lt;a href=&quot;#数据表准备&quot; class=&quot;headerlink&quot; title=&quot;数据表准备&quot;&gt;&lt;/a&gt;数据表准备&lt;/h3&gt;&lt;p&gt;1.创建学生信息表&lt;/p&gt;
 &lt;pre class=&quot; language-lang-SQL&quot;&gt;&lt;code
-        
-      
-    
-    </summary>
-    
-    
-      <category term="数据库" scheme="www.yunshan.online/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
-    
-    
-      <category term="Mysql" scheme="www.yunshan.online/tags/Mysql/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>mysql数据库表操作</title>
-    <link href="www.yunshan.online/posts/40308402.html"/>
-    <id>www.yunshan.online/posts/40308402.html</id>
-    <published>2020-04-09T13:27:02.000Z</published>
-    <updated>2020-04-18T02:26:00.545Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h3 id=&quot;MySQL创建表&quot;&gt;&lt;a href=&quot;#MySQL创建表&quot; class=&quot;headerlink&quot; title=&quot;MySQL创建表&quot;&gt;&lt;/a&gt;MySQL创建表&lt;/h3&gt;&lt;p&gt;通用语法：&lt;/p&gt;
-&lt;pre class=&quot;
         
       
     

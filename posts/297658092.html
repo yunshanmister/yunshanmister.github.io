@@ -830,8 +830,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/Java/">
-                                <span class="chip bg-color">Java</span>
+                            <a href="/tags/java/">
+                                <span class="chip bg-color">java</span>
                             </a>
                         
                     </div>
@@ -919,7 +919,7 @@ public class ThreadDemo1 extends Thread {
         super.run();
         System.out.println("Running: " + threadName);
         try {
-            for (int i = 5; i > 0; i--) {
+            for (int i = 5; i &gt; 0; i--) {
                 System.out.println("Thread: " + threadName + ", " + i);
                 Thread.sleep(60);
             }
@@ -983,7 +983,7 @@ public class ThreadDemo2 implements Runnable {
     public void run() {
         System.out.println("Running: " + threadName);
         try {
-            for (int i = 5; i > 0; i--) {
+            for (int i = 5; i &gt; 0; i--) {
                 System.out.println("Thread: " + threadName + ", " + i);
                 Thread.sleep(60);
             }
@@ -1035,12 +1035,12 @@ public class Test {
  * @Author: yunshan
  * @CreateDate: 2020/4/2$ 14:30$
  */
-public class ThreadDemo3 implements Callable<Integer> {
+public class ThreadDemo3 implements Callable<integer> {
 
     @Override
     public Integer call() throws Exception {
         int i = 0;
-        for (; i < 100; i++) {
+        for (; i &lt; 100; i++) {
             System.out.println(Thread.currentThread().getName() + " " + i);
         }
         return null;
@@ -1048,8 +1048,8 @@ public class ThreadDemo3 implements Callable<Integer> {
 
     public static void main(String[] args) {
         ThreadDemo3 d3 = new ThreadDemo3();
-        FutureTask<Integer> ft = new FutureTask<>(d3);
-        for (int i = 0; i < 100; i++) {
+        FutureTask<integer> ft = new FutureTask&lt;&gt;(d3);
+        for (int i = 0; i &lt; 100; i++) {
             System.out.println(Thread.currentThread().getName() + " i值： " + i);
             if (i == 20) {
                 new Thread(ft, "有返回值的线程").start();
@@ -1064,7 +1064,7 @@ public class ThreadDemo3 implements Callable<Integer> {
         }
     }
 }
-</code></pre>
+</integer></integer></code></pre>
 <script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
@@ -1146,8 +1146,8 @@ public class ThreadDemo3 implements Callable<Integer> {
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/Java/">
-                                    <span class="chip bg-color">Java</span>
+                                <a href="/tags/java/">
+                                    <span class="chip bg-color">java</span>
                                 </a>
                             
                         </div>
@@ -1620,8 +1620,8 @@ lambda表达式的重要特征:
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Java/">
-                        <span class="chip bg-color">Java</span>
+                    <a href="/tags/java/">
+                        <span class="chip bg-color">java</span>
                     </a>
                     
                 </div>
@@ -1671,8 +1671,8 @@ lambda表达式的重要特征:
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Java/">
-                        <span class="chip bg-color">Java</span>
+                    <a href="/tags/java/">
+                        <span class="chip bg-color">java</span>
                     </a>
                     
                 </div>
