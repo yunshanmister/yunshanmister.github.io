@@ -885,8 +885,7 @@
 <h4 id="JSP-语法"><a href="#JSP-语法" class="headerlink" title="JSP 语法"></a>JSP 语法</h4><pre class=" language-lang-jsp"><code class="language-lang-jsp"><% 代码片段 %>
 </code></pre>
 <p>以上代码片段中可以包含的是任意量的Java语句，变量，方法或表达式。当然也可以编写与其等价的XLM语句类似于下面</p>
-<p>``<br>示例：</p>
-<p><jsp:scriptlet>代码片段&lt;/jsp:scriptlet&gt;<br>``</jsp:scriptlet></p>
+<p><code>&lt;jsp:scriptlet&gt;代码片段&lt;/jsp:scriptlet&gt;</code></p>
 <h4 id="JSP常用指令"><a href="#JSP常用指令" class="headerlink" title="JSP常用指令"></a>JSP常用指令</h4><p>JSP的三种指令</p>
 <ol>
 <li><code>&lt;%@ page ... %&gt;</code> 用来定义网页依赖属性，比如error页面、缓存需求等等，一个JSP页面可以包含多个page指令。</li>
@@ -904,16 +903,14 @@
 </code></pre>
 <h4 id="JSP-动作元素"><a href="#JSP-动作元素" class="headerlink" title="JSP 动作元素"></a>JSP 动作元素</h4><p>JSP动作元素在请求处理阶段起作用。</p>
 <p>动作元素语法</p>
-<pre class=" language-lang-jsp"><code class="language-lang-jsp">示例：
-<jsp:action_name attribute="value" />
-</code></pre>
+<p><code>&lt;jsp:action_name attribute="value" /&gt;</code></p>
 <p>常见动作元素</p>
 <p>1.<code>&lt;jsp:include&gt;</code>动作元素用来包含静态和动态的文件。</p>
-<p>``<br>示例：</p>
-<p><jsp:include page="相对 URL 地址" flush="true"><br>``<br>page表示相对路径URL地址，flush表示是否刷新缓存区。</jsp:include></p>
+<p><code>&lt;jsp:include page="相对 URL 地址" flush="true" /&gt;</code></p>
+<p>page表示相对路径URL地址，flush表示是否刷新缓存区。</p>
 <p>2.<code>&lt;jsp:forward&gt;</code> 动作元素把请求转到另外的页面。</p>
-<p>``<br>示例：</p>
-<p><jsp:forward page="相对 URL 地址"><br>``<br>page表示的是一个相对URL。page的值既可以直接给出，也可以在请求的时候动态计算，可以是一个JSP页面或者一个 Java Servlet.</jsp:forward></p>
+<p><code>&lt;jsp:forward page="相对 URL 地址" /&gt;</code></p>
+<p>page表示的是一个相对URL。page的值既可以直接给出，也可以在请求的时候动态计算，可以是一个JSP页面或者一个 Java Servlet.</p>
 <script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
