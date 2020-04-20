@@ -882,40 +882,36 @@
 <li><p>销毁阶段：调用与JSP对应的servlet实例的销毁方法，然后销毁servlet实例</p>
 </li>
 </ul>
-<h4 id="JSP-语法"><a href="#JSP-语法" class="headerlink" title="JSP 语法"></a>JSP 语法</h4><pre class=" language-lang-java"><code class="language-lang-java"><% 代码片段 %>
+<h4 id="JSP-语法"><a href="#JSP-语法" class="headerlink" title="JSP 语法"></a>JSP 语法</h4><pre class=" language-lang-jsp"><code class="language-lang-jsp"><% 代码片段 %>
 </code></pre>
-<p>以上代码片段中可以包含的是任意量的Java语句，变量，方法或表达式。当然也可以编写与其等价的XLM语句类似于下面</p>
-<pre class=" language-lang-java"><code class="language-lang-java"><jsp:scriptlet>
-   代码片段
-</jsp:scriptlet>
-</code></pre>
+<p>以上代码片段中可以包含的是任意量的Java语句，变量，方法或表达式。当然也可以编写与其等价的XLM语句类似于下</p>
+<p>``</p>
+<p><jsp:scriptlet><br>   代码片段<br>&lt;/jsp:scriptlet&gt;<br>``</jsp:scriptlet></p>
 <h4 id="JSP常用指令"><a href="#JSP常用指令" class="headerlink" title="JSP常用指令"></a>JSP常用指令</h4><p>JSP的三种指令</p>
-<ol>
-<li><code>&lt;%@ page ... %&gt;</code> 用来定义网页依赖属性，比如error页面、缓存需求等等，一个JSP页面可以包含多个page指令。</li>
-</ol>
+<p>1.<code>&lt;%@ page ... %&gt;</code> 用来定义网页依赖属性，比如error页面、缓存需求等等，一个JSP页面可以包含多个page指令。</p>
 <p>Page指令的语法格式：</p>
-<pre class=" language-lang-java"><code class="language-lang-java"><%@ page attribute="value" %>
+<pre class=" language-lang-jsp"><code class="language-lang-jsp"><%@ page attribute="value" %>
 </code></pre>
 <p>2.&lt;%@ include … %&gt;Include指令通过include指令来包含其他文件。被包含的文件可以是JSP文件、HTML文件或文本文件。</p>
 <p>Include指令的语法格式如下：</p>
-<pre class=" language-lang-java"><code class="language-lang-java"><%@ include file="文件相对 url 地址" %>
+<pre class=" language-lang-jsp"><code class="language-lang-jsp"><%@ include file="文件相对 url 地址" %>
 </code></pre>
 <p>3.&lt;%@ taglib … %&gt;Taglib指令引入一个自定义标签集合的定义，包括库路径、自定义标签。</p>
 <p>Taglib指令的语法：</p>
-<pre class=" language-lang-java"><code class="language-lang-java"><%@ taglib uri="uri" prefix="prefixOfTag" %>
+<pre class=" language-lang-jsp"><code class="language-lang-jsp"><%@ taglib uri="uri" prefix="prefixOfTag" %>
 </code></pre>
 <h4 id="JSP-动作元素"><a href="#JSP-动作元素" class="headerlink" title="JSP 动作元素"></a>JSP 动作元素</h4><p>JSP动作元素在请求处理阶段起作用。</p>
 <p>动作元素语法</p>
-<pre class=" language-lang-java"><code class="language-lang-java"><jsp:action_name attribute="value" />
-</code></pre>
+<p>``</p>
+<p><jsp:action_name attribute="value"><br>``</jsp:action_name></p>
 <p>常见动作元素</p>
 <p>1.<jsp:include>动作元素用来包含静态和动态的文件。</jsp:include></p>
-<pre class=" language-lang-java"><code class="language-lang-java"><jsp:include page="相对 URL 地址" flush="true" />
-</code></pre>
+<p>``</p>
+<p><jsp:include page="相对 URL 地址" flush="true"><br>``</jsp:include></p>
 <p>page表示相对路径URL地址，flush表示是否刷新缓存区。</p>
 <p>2.<jsp:forward> 动作元素把请求转到另外的页面。</jsp:forward></p>
-<pre class=" language-lang-java"><code class="language-lang-java"><jsp:forward page="相对 URL 地址" />
-</code></pre>
+<p>``</p>
+<p><jsp:forward page="相对 URL 地址"><br>``</jsp:forward></p>
 <p>page表示的是一个相对URL。page的值既可以直接给出，也可以在请求的时候动态计算，可以是一个JSP页面或者一个 Java Servlet.</p>
 <script>
         document.querySelectorAll('.github-emoji')
