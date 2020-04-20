@@ -967,7 +967,7 @@
 <h5 id="自动装箱的弊端"><a href="#自动装箱的弊端" class="headerlink" title="自动装箱的弊端"></a>自动装箱的弊端</h5><p>在一个循环中进行自动装箱操作的情况，如下面的例子就会创建多余的对象，影响程序的性能。</p>
 <pre class=" language-lang-java"><code class="language-lang-java">public static void main(String[] args) {
      Integer s = 0;
-     for (int i = 0; i &lt; 10000; i++) {
+     for (int i = 0; i < 10000; i++) {
          s += i;
      }
  }

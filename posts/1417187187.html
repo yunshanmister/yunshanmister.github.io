@@ -955,7 +955,7 @@
 <p>Cook Fish<br>Cook Shrimp<br>Cook Chicken</p>
 <p>上面示例存在一个问题，如果我们新增具体的实现类的话，就要更改工厂类中的cooking()方法。这个问题我们可以使用反射机制进行解决。</p>
 <pre class=" language-lang-java"><code class="language-lang-java">public class CookFactoryImprove {
-    public static Object getClass(Class<!--? extends Cook--> clazz){
+    public static Object getClass(Class<? extends Cook> clazz){
         Object obj = null;
         try{
             obj = Class.forName(clazz.getName()).newInstance();

@@ -885,19 +885,19 @@
 </ul>
 <p>例：  </p>
 <pre class=" language-lang-java"><code class="language-lang-java">// 1. 不需要参数,返回值为 3  
-() -&gt; 3
+() -> 3
 
 // 2. 接收一个参数(数字类型),返回其8倍的值  
-x -&gt; 8 * x  
+x -> 8 * x  
 
 // 3. 接受2个参数(数字),并返回他们的差值  
-(x, y) -&gt; x – y  
+(x, y) -> x – y  
 
 // 4. 接收2个int型整数,返回他们的和  
-(int x, int y) -&gt; x + y  
+(int x, int y) -> x + y  
 
 // 5. 接受一个 string 对象,并在控制台打印,不返回任何值(看起来像是返回void)  
-(String str) -&gt; System.out.print(str)
+(String str) -> System.out.print(str)
 </code></pre>
 <p>双冒号（::）操作符是 Java 中的方法引用。使用时目标引用放在::之前，目标引用提供的方法名称放在::之后。<br>例：</p>
 <pre class=" language-lang-java"><code class="language-lang-java">Person::getName;
@@ -910,8 +910,8 @@ x -&gt; 8 * x
  */
 public class Lambda {
     public static void main(String[] args) {
-        Thread t = new Thread(() -&gt; {
-            for (int i = 0; i &lt; 100; i++) {
+        Thread t = new Thread(() -> {
+            for (int i = 0; i < 100; i++) {
                 System.out.println(i + ":" + i);
             }
         });
@@ -927,13 +927,13 @@ public class Lambda {
  */
 public class Lambda {
     public static void main(String[] args) {
-        ArrayList<integer> list = new ArrayList&lt;&gt;();
+        ArrayList<Integer> list = new ArrayList<>();
         Collections.addAll(list, 1,2,3,4,5);
         //lambda表达式 方法引用
         list.forEach(System.out::println);
     }
 }
-</integer></code></pre>
+</code></pre>
 <p>3.删除集合中的元素</p>
 <pre class=" language-lang-java"><code class="language-lang-java">/**
  * @Description:
@@ -942,18 +942,18 @@ public class Lambda {
  */
 public class Lambda {
     public static void main(String[] args) {
-        ArrayList<string> list = new ArrayList&lt;&gt;();
+        ArrayList<String> list = new ArrayList<>();
         list.add("A");
         list.add("B");
         list.add("C");
         list.add("D");
         list.add("E");
-        list.removeIf(e -&gt; e.equals("A"));
+        list.removeIf(e -> e.equals("A"));
         //通过 foreach 遍历，查看是否已经删除
         list.forEach(System.out::println);
     }
 }
-</string></code></pre>
+</code></pre>
 <script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {

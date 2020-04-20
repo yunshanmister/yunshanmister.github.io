@@ -874,57 +874,57 @@
             <div id="articleContent">
                 <h2 id="Redis数据类型"><a href="#Redis数据类型" class="headerlink" title="Redis数据类型"></a>Redis数据类型</h2><h3 id="String【字符串】"><a href="#String【字符串】" class="headerlink" title="String【字符串】"></a>String【字符串】</h3><p>String数据结构是简单的key-value类型，value其实不仅是String，也可以是数字。string 类型是 Redis 最基本的数据类型，string 类型的值最大能存储 512MB。你可以用它存储 json 格式或 JPEG 图片格式的字符串。</p>
 <p>1.存储简单的Key-Value</p>
-<pre class=" language-lang-redis"><code class="language-lang-redis">127.0.0.1:6379&gt; SET yunshan 云山
+<pre class=" language-lang-redis"><code class="language-lang-redis">127.0.0.1:6379> SET yunshan 云山
 OK
-127.0.0.1:6379&gt; GET yunshan
+127.0.0.1:6379> GET yunshan
 云山
 </code></pre>
 <p>如果出现中文乱码【其实不是我们存储的中文显示】只需要在启动时在 <code>redis-cli</code>后面加上 <code>--raw</code> 即可。</p>
 <h3 id="Hash【哈希】"><a href="#Hash【哈希】" class="headerlink" title="Hash【哈希】"></a>Hash【哈希】</h3><p>hash 的 Key 是一个唯一值，Value 部分是一个 hashmap 的结构。Hash 是一个 String 类型的 field 和 value 的映射表，hash 特别适合用于存储对象。</p>
 <p>例如存储一个user对象[json格式]</p>
-<pre class=" language-lang-redis"><code class="language-lang-redis">127.0.0.1:6379&gt; HMSET user:1 name yunshan email yunshan@yunshan.com
+<pre class=" language-lang-redis"><code class="language-lang-redis">127.0.0.1:6379> HMSET user:1 name yunshan email yunshan@yunshan.com
 OK
-127.0.0.1:6379&gt; HGET user:1 name
+127.0.0.1:6379> HGET user:1 name
 yunshan
-127.0.0.1:6379&gt; HGET user:1 email
+127.0.0.1:6379> HGET user:1 email
 yunshan@yunshan.com
 </code></pre>
 <h3 id="List【列表】"><a href="#List【列表】" class="headerlink" title="List【列表】"></a>List【列表】</h3><p>list 是按照插入顺序排序的字符串链表，可以在头部和尾部插入新的元素。和双向链表一样。插入元素的时候，key不存在时会新建一个链表，删除元素时如果元素全部被删除则key也会被移除。</p>
-<pre class=" language-lang-redis"><code class="language-lang-redis">127.0.0.1:6379&gt; LPUSH dbms redis
+<pre class=" language-lang-redis"><code class="language-lang-redis">127.0.0.1:6379> LPUSH dbms redis
 1
-127.0.0.1:6379&gt; LPUSH dbms mysql
+127.0.0.1:6379> LPUSH dbms mysql
 2
-127.0.0.1:6379&gt; LPUSH dbms oracle
+127.0.0.1:6379> LPUSH dbms oracle
 3
-127.0.0.1:6379&gt; LRANGE dbms 0 5
+127.0.0.1:6379> LRANGE dbms 0 5
 oracle
 mysql
 redis
-127.0.0.1:6379&gt;
+127.0.0.1:6379>
 </code></pre>
 <p>可以使用在消息队列，最新内容这些方面。</p>
 <h3 id="Set【集合】"><a href="#Set【集合】" class="headerlink" title="Set【集合】"></a>Set【集合】</h3><p>Set 是 string 类型的无序不重复集合。对Set类型数据删除，添加等操作时间复杂度为 <code>O(1)</code><br>Set 类型提供了多个 Set 之间的聚合运算，如求交集、并集、补集，这些操作在 Redis 内部完成，效率很高。</p>
-<pre class=" language-lang-redis"><code class="language-lang-redis">127.0.0.1:6379&gt; SADD dbms redis
+<pre class=" language-lang-redis"><code class="language-lang-redis">127.0.0.1:6379> SADD dbms redis
 1
-127.0.0.1:6379&gt; SADD dbms mysql
+127.0.0.1:6379> SADD dbms mysql
 1
-127.0.0.1:6379&gt; SADD dbms oracle
+127.0.0.1:6379> SADD dbms oracle
 1
-127.0.0.1:6379&gt; SMEMBERS dbms
+127.0.0.1:6379> SMEMBERS dbms
 oracle
 mysql
 redis
-127.0.0.1:6379&gt;
+127.0.0.1:6379>
 </code></pre>
 <h3 id="Zset【Sorted-Set：有序集合】"><a href="#Zset【Sorted-Set：有序集合】" class="headerlink" title="Zset【Sorted Set：有序集合】"></a>Zset【Sorted Set：有序集合】</h3><p> zset 和 set 一样也是string类型元素的集合,且是有序不重复的集合。原因是每个元素都会关联一个double类型的分数。redis正是通过分数来为集合中的成员进行从小到大的排序。</p>
 <p>例如排序成绩   </p>
-<pre class=" language-lang-redis"><code class="language-lang-redis">127.0.0.1:6379&gt; ZADD score 90 tom 75 marry 80 jack
+<pre class=" language-lang-redis"><code class="language-lang-redis">127.0.0.1:6379> ZADD score 90 tom 75 marry 80 jack
 3
-127.0.0.1:6379&gt; ZREVRANGE score 0 1000
+127.0.0.1:6379> ZREVRANGE score 0 1000
 tom
 jack
 marry
-127.0.0.1:6379&gt;
+127.0.0.1:6379>
 </code></pre>
 <script>
         document.querySelectorAll('.github-emoji')
