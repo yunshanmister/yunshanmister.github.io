@@ -830,8 +830,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/Maven/">
-                                <span class="chip bg-color">Maven</span>
+                            <a href="/tags/maven/">
+                                <span class="chip bg-color">maven</span>
                             </a>
                         
                     </div>
@@ -943,7 +943,7 @@ export PATH=${PATH}:${MAVEN_HOME}/bin
 <h3 id="Maven仓库"><a href="#Maven仓库" class="headerlink" title="Maven仓库"></a>Maven仓库</h3><p>1.本地仓库<br>Maven 的本地仓库，在安装 Maven 后并不会创建，它是在第一次执行 maven 命令的时候才被创建。运行 Maven 的时候，Maven 所需要的任何构件都是直接从本地仓库获取的。如果本地仓库没有，它会首先尝试从远程仓库下载构件至本地仓库，然后再使用本地仓库的构件。</p>
 <p>默认位置在： 用户目录下一个路径名为 .m2/respository/ 的目录。</p>
 <p>配置自己的路径：在maven目录下的conf目录里面有个settings.xml的配置文件在里面配置</p>
-<pre class=" language-lang-xml"><code class="language-lang-xml"><localrepository>E:/repository</localrepository>
+<pre class=" language-lang-xml"><code class="language-lang-xml"><localRepository>E:/repository</localRepository>
 </code></pre>
 <p>2.中央仓库 [<a href="http://search.maven.org/#browse" target="_blank" rel="noopener">http://search.maven.org/#browse</a>]<br>Maven 中央仓库是由 Maven 社区提供的仓库，其中包含了大量常用的库。这个仓库由 Maven 社区管理。不需要配置。需要通过网络才能访问。</p>
 <p>3.远程仓库<br>是开发人员自己定制仓库，包含了所需要的代码库或者其他工程中用到的 jar 文件。</p>
@@ -951,7 +951,7 @@ export PATH=${PATH}:${MAVEN_HOME}/bin
 <pre class=" language-lang-xml"><code class="language-lang-xml"><!--  配置阿里云  -->
     <mirror>
        <id>nexus-aliyun</id>
-       <mirrorof>*</mirrorof>
+       <mirrorOf>*</mirrorOf>
        <name>Nexus aliyun</name>
        <url>http://maven.aliyun.com/nexus/content/groups/public</url>
     </mirror>
@@ -961,7 +961,7 @@ export PATH=${PATH}:${MAVEN_HOME}/bin
       <id>CN</id>  
       <name>OSChina Central</name>
       <url>http://maven.oschina.net/content/groups/public</url>  
-      <mirrorof>central</mirrorof><!--表示匹配原仓库的请求都转到镜像仓库-->
+      <mirrorOf>central</mirrorOf><!--表示匹配原仓库的请求都转到镜像仓库-->
 </mirror>
 </code></pre>
 <h3 id="Maven常用插件"><a href="#Maven常用插件" class="headerlink" title="Maven常用插件"></a>Maven常用插件</h3><p>以下是我经常用到的插件</p>
@@ -1009,8 +1009,8 @@ export PATH=${PATH}:${MAVEN_HOME}/bin
 <pre class=" language-lang-xml"><code class="language-lang-xml"><build>
   <plugins>
       <plugin>
-          <groupid>org.apache.tomcat.maven</groupid>
-          <artifactid>tomcat7-maven-plugin</artifactid>
+          <groupId>org.apache.tomcat.maven</groupId>
+          <artifactId>tomcat7-maven-plugin</artifactId>
           <version>2.2</version>
           <configuration>
             <!-- 指定端口 -->
@@ -1026,8 +1026,8 @@ export PATH=${PATH}:${MAVEN_HOME}/bin
 <p>例如：</p>
 <pre class=" language-lang-xml"><code class="language-lang-xml"><dependencies>
       <dependency>
-         <groupid>junit</groupid>
-         <artifactid>junit</artifactid>
+         <groupId>junit</groupId>
+         <artifactId>junit</artifactId>
          <version>4.13</version>
          <scope>test</scope>
       </dependency>
@@ -1035,7 +1035,7 @@ export PATH=${PATH}:${MAVEN_HOME}/bin
 </code></pre>
 <p>也可以集中定义版本号例如：</p>
 <pre class=" language-lang-xml"><code class="language-lang-xml"><properties>
-  <project.build.sourceencoding>UTF-8</project.build.sourceencoding>
+  <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
   <maven.compiler.source>1.8</maven.compiler.source>
   <maven.compiler.target>1.8</maven.compiler.target>
   <spring.version>5.0.2.RELEASE</spring.version>
@@ -1043,8 +1043,8 @@ export PATH=${PATH}:${MAVEN_HOME}/bin
 
 <dependencies>
   <dependency>
-    <groupid>org.springframework</groupid>
-    <artifactid>spring-context</artifactid>
+    <groupId>org.springframework</groupId>
+    <artifactId>spring-context</artifactId>
     <version>${spring.version}</version>
   </dependency>
 </dependencies>
@@ -1130,8 +1130,8 @@ export PATH=${PATH}:${MAVEN_HOME}/bin
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/Maven/">
-                                    <span class="chip bg-color">Maven</span>
+                                <a href="/tags/maven/">
+                                    <span class="chip bg-color">maven</span>
                                 </a>
                             
                         </div>
