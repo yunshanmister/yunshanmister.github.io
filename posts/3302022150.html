@@ -884,11 +884,16 @@
 </ul>
 <h4 id="JSP-语法"><a href="#JSP-语法" class="headerlink" title="JSP 语法"></a>JSP 语法</h4><pre class=" language-lang-jsp"><code class="language-lang-jsp"><% 代码片段 %>
 </code></pre>
-<p>以上代码片段中可以包含的是任意量的Java语句，变量，方法或表达式。当然也可以编写与其等价的XLM语句类似于下</p>
-<p>``</p>
-<p><jsp:scriptlet><br>   代码片段<br>&lt;/jsp:scriptlet&gt;<br>``</jsp:scriptlet></p>
+<p>以上代码片段中可以包含的是任意量的Java语句，变量，方法或表达式。当然也可以编写与其等价的XLM语句类似于下面</p>
+<pre class=" language-lang-jsp"><code class="language-lang-jsp">示例：
+<jsp:scriptlet>
+   代码片段
+</jsp:scriptlet>
+</code></pre>
 <h4 id="JSP常用指令"><a href="#JSP常用指令" class="headerlink" title="JSP常用指令"></a>JSP常用指令</h4><p>JSP的三种指令</p>
-<p>1.<code>&lt;%@ page ... %&gt;</code> 用来定义网页依赖属性，比如error页面、缓存需求等等，一个JSP页面可以包含多个page指令。</p>
+<ol>
+<li><code>&lt;%@ page ... %&gt;</code> 用来定义网页依赖属性，比如error页面、缓存需求等等，一个JSP页面可以包含多个page指令。</li>
+</ol>
 <p>Page指令的语法格式：</p>
 <pre class=" language-lang-jsp"><code class="language-lang-jsp"><%@ page attribute="value" %>
 </code></pre>
@@ -902,16 +907,19 @@
 </code></pre>
 <h4 id="JSP-动作元素"><a href="#JSP-动作元素" class="headerlink" title="JSP 动作元素"></a>JSP 动作元素</h4><p>JSP动作元素在请求处理阶段起作用。</p>
 <p>动作元素语法</p>
-<p>``</p>
-<p><jsp:action_name attribute="value"><br>``</jsp:action_name></p>
+<pre class=" language-lang-jsp"><code class="language-lang-jsp">示例：
+<jsp:action_name attribute="value" />
+</code></pre>
 <p>常见动作元素</p>
-<p>1.<jsp:include>动作元素用来包含静态和动态的文件。</jsp:include></p>
-<p>``</p>
-<p><jsp:include page="相对 URL 地址" flush="true"><br>``</jsp:include></p>
+<p>1.<code>&lt;jsp:include&gt;</code>动作元素用来包含静态和动态的文件。</p>
+<pre class=" language-lang-jsp"><code class="language-lang-jsp">示例：
+<jsp:include page="相对 URL 地址" flush="true" />
+</code></pre>
 <p>page表示相对路径URL地址，flush表示是否刷新缓存区。</p>
-<p>2.<jsp:forward> 动作元素把请求转到另外的页面。</jsp:forward></p>
-<p>``</p>
-<p><jsp:forward page="相对 URL 地址"><br>``</jsp:forward></p>
+<p>2.<code>&lt;jsp:forward&gt;</code> 动作元素把请求转到另外的页面。</p>
+<pre class=" language-lang-jsp"><code class="language-lang-jsp">示例：
+<jsp:forward page="相对 URL 地址" />
+</code></pre>
 <p>page表示的是一个相对URL。page的值既可以直接给出，也可以在请求的时候动态计算，可以是一个JSP页面或者一个 Java Servlet.</p>
 <script>
         document.querySelectorAll('.github-emoji')
