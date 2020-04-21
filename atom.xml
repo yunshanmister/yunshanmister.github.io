@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="www.yunshan.online/"/>
-  <updated>2020-04-21T11:34:52.945Z</updated>
+  <updated>2020-04-21T11:08:20.765Z</updated>
   <id>www.yunshan.online/</id>
   
   <author>
@@ -15,34 +15,6 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
-  
-  <entry>
-    <title>aaa</title>
-    <link href="www.yunshan.online/posts/4027020077.html"/>
-    <id>www.yunshan.online/posts/4027020077.html</id>
-    <published>2020-04-21T11:21:33.000Z</published>
-    <updated>2020-04-21T11:34:52.945Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;pre class=&quot; language-lang-xml&quot;&gt;&lt;code class=&quot;language-lang-xml&quot;&gt;    &lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
-&lt;beans
-        
-      
-    
-    </summary>
-    
-    
-      <category term="Java" scheme="www.yunshan.online/categories/Java/"/>
-    
-    
-      <category term="java" scheme="www.yunshan.online/tags/java/"/>
-    
-  </entry>
   
   <entry>
     <title>Spring-DI</title>
@@ -560,6 +532,35 @@
     
     
       <category term="四次挥手" scheme="www.yunshan.online/tags/%E5%9B%9B%E6%AC%A1%E6%8C%A5%E6%89%8B/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>线程池</title>
+    <link href="www.yunshan.online/posts/28792959.html"/>
+    <id>www.yunshan.online/posts/28792959.html</id>
+    <published>2020-04-12T13:24:07.000Z</published>
+    <updated>2020-04-20T06:23:18.990Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h3 id=&quot;线程池&quot;&gt;&lt;a href=&quot;#线程池&quot; class=&quot;headerlink&quot; title=&quot;线程池&quot;&gt;&lt;/a&gt;线程池&lt;/h3&gt;&lt;p&gt;线程池主要是为了限制系统中执行线程的数量&lt;/p&gt;
+&lt;p&gt;面试常问：&lt;/p&gt;
+&lt;h3 id=&quot;为什么要使用线程池？&quot;&gt;&lt;a
+        
+      
+    
+    </summary>
+    
+    
+      <category term="Java" scheme="www.yunshan.online/categories/Java/"/>
+    
+    
+      <category term="java" scheme="www.yunshan.online/tags/java/"/>
     
   </entry>
   
