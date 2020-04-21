@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="Spring-DI, 云山先生">
+    <meta name="keywords" content="Spring-AOP, 云山先生">
     <meta name="description" content="专注于技术,分享生活,分享知识">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>Spring-DI | 云山先生</title>
+    <title>Spring-AOP | 云山先生</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -708,12 +708,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/19.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/14.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">Spring-DI</h1>
+                    <h1 class="description center-align post-title">Spring-AOP</h1>
                 </div>
             </div>
         </div>
@@ -872,238 +872,7 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h3 id="DI-Dependency-Injection"><a href="#DI-Dependency-Injection" class="headerlink" title="DI[Dependency Injection]"></a>DI[Dependency Injection]</h3><p>依赖注入，指容器复制创建和维护对象之间的依赖关系，而不是通过对象本身复制自己的创建和解决自己的依赖。控制反转是通过依赖注入实现的。</p>
-<h4 id="set-方法注入"><a href="#set-方法注入" class="headerlink" title="set 方法注入"></a>set 方法注入</h4><h4 id="构造函数的依赖注入"><a href="#构造函数的依赖注入" class="headerlink" title="构造函数的依赖注入"></a>构造函数的依赖注入</h4><p>构造函数参数解析：</p>
-<pre class=" language-lang-java"><code class="language-lang-java">public class Person {
-
-    private String name;
-
-    private Integer age;
-
-    private List<String> list;
-
-    private Set<String> set;
-
-    private Map<String,String> map;
-
-    private Properties properties;
-
-    private Dog dog;
-
-    private Fish fish;
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public void setAge(Integer age) {
-        this.age = age;
-    }
-
-    public void setList(List<String> list) {
-        this.list = list;
-    }
-
-    public void setSet(Set<String> set) {
-        this.set = set;
-    }
-
-    public void setMap(Map<String, String> map) {
-        this.map = map;
-    }
-
-    public void setProperties(Properties properties) {
-        this.properties = properties;
-    }
-
-    public void setDog(Dog dog) {
-        this.dog = dog;
-    }
-
-    public void setFish(Fish fish) {
-        this.fish = fish;
-    }
-
-    @Override
-    public String toString() {
-        return "Person{" +
-                "name='" + name + '\'' +
-                ", age=" + age +
-                ", list=" + list +
-                ", set=" + set +
-                ", map=" + map +
-                ", properties=" + properties +
-                ", dog=" + dog +
-                ", fish=" + fish +
-                '}';
-    }
-}
-</code></pre>
-<pre class=" language-lang-java"><code class="language-lang-java">public class Dog {
-
-    private String name;
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    @Override
-    public String toString() {
-        return "Dog{" +
-                "name='" + name + '\'' +
-                '}';
-    }
-}
-</code></pre>
-<pre class=" language-lang-java"><code class="language-lang-java">public class Fish {
-
-    private String color;
-
-    public void setColor(String color) {
-        this.color = color;
-    }
-
-    @Override
-    public String toString() {
-        return "Fish{" +
-                "color='" + color + '\'' +
-                '}';
-    }
-}
-</code></pre>
-<p>beans.xml配置</p>
-<pre><code>&lt;?xml version="1.0" encoding="UTF-8"?&gt;
-&lt;beans xmlns="http://www.springframework.org/schema/beans"
-       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       xsi:schemaLocation="http://www.springframework.org/schema/beans
-    http://www.springframework.org/schema/beans/spring-beans-3.0.xsd"&gt;
-
-
-    &lt;bean name="person" class="com.yunshan.spring.Person"&gt;
-        &lt;property name="name" value="tom"/&gt;
-        &lt;property name="age" value="202010"/&gt;
-        &lt;property name="list"&gt;
-            &lt;list&gt;
-                &lt;value&gt;book&lt;/value&gt;
-                &lt;value&gt;music&lt;/value&gt;
-                &lt;value&gt;game&lt;/value&gt;
-            &lt;/list&gt;
-        &lt;/property&gt;
-        &lt;property name="set"&gt;
-            &lt;set&gt;
-                &lt;value&gt;三国演义&lt;/value&gt;
-                &lt;value&gt;西游记&lt;/value&gt;
-                &lt;value&gt;水浒传&lt;/value&gt;
-                &lt;value&gt;红楼梦&lt;/value&gt;
-            &lt;/set&gt;
-        &lt;/property&gt;
-        &lt;property name="map"&gt;
-            &lt;map&gt;
-                &lt;entry key="1" value="鱼"&gt;&lt;/entry&gt;
-                &lt;entry key="2" value="猫"&gt;&lt;/entry&gt;
-                &lt;entry key="3" value="狗"&gt;&lt;/entry&gt;
-            &lt;/map&gt;
-        &lt;/property&gt;
-        &lt;property name="properties"&gt;
-            &lt;props&gt;
-                &lt;prop key="4"&gt;4&lt;/prop&gt;
-                &lt;prop key="5"&gt;5&lt;/prop&gt;
-                &lt;prop key="6"&gt;6&lt;/prop&gt;
-            &lt;/props&gt;
-        &lt;/property&gt;
-        &lt;!-- 内部bean--&gt;
-        &lt;property name="fish"&gt;
-            &lt;bean id="color" class="com.yunshan.spring.Fish"&gt;
-                &lt;property name="color" value="红色"/&gt;
-            &lt;/bean&gt;
-        &lt;/property&gt;
-        &lt;!--引入外部bean--&gt;
-        &lt;property name="dog" ref="dog"&gt;&lt;/property&gt;
-    &lt;/bean&gt;
-
-    &lt;bean id="dog" class="com.yunshan.spring.Dog"&gt;
-        &lt;property name="name" value="哈士奇"/&gt;
-    &lt;/bean&gt;
-&lt;/beans&gt;
-</code></pre><p>测试类：</p>
-<pre class=" language-lang-java"><code class="language-lang-java">@Test
-public void test(){
-        ApplicationContext context = new ClassPathXmlApplicationContext("beans.xml");
-        Person person = (Person) context.getBean("person");
-        System.out.println(person);
-
-}
-</code></pre>
-<p>结果如下：</p>
-<p>Person{name=’tom’, age=202010, list=[book, music, game], set=[三国演义, 西游记, 水浒传, 红楼梦], map={1=鱼, 2=猫, 3=狗}, properties={4=4, 5=5, 6=6}, dog=Dog{name=’哈士奇’}, fish=Fish{color=’红色’}}</p>
-<h4 id="基于构造函数的注入"><a href="#基于构造函数的注入" class="headerlink" title="基于构造函数的注入"></a>基于构造函数的注入</h4><pre class=" language-lang-java"><code class="language-lang-java">public class Student {
-
-    private Integer id ;
-    private String name;
-    private Dog dog;
-
-    public Student(Integer id, String name, Dog dog) {
-        this.id = id;
-        this.name = name;
-        this.dog = dog;
-    }
-
-    @Override
-    public String toString() {
-        return "Student{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", dog=" + dog +
-                '}';
-    }
-}
-</code></pre>
-<p>Dog类依旧是上面的Dog类</p>
-<p>beans.xml配置</p>
-<pre><code>&lt;?xml version="1.0" encoding="UTF-8"?&gt;
-&lt;beans xmlns="http://www.springframework.org/schema/beans"
-       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       xsi:schemaLocation="http://www.springframework.org/schema/beans
-    http://www.springframework.org/schema/beans/spring-beans-3.0.xsd"&gt;
-
-    &lt;!--index:为构造方法的第几个参数 进行配置
-        name:为构造方法的哪个名字的参数进行配置
-             index 和 name 可以配置任何一个或同时配置 但要求一旦配置必须正确。推荐优先使用index方式配置 防止没有源码造成name无法匹配到对应参数
-       type:该构造方法参数的类型
-       value:该构造方法参数的值 ,用来指定基本值
-       ref:该构造方法参数的值,用来指定引用其他bean的值--&gt;
-    &lt;bean name="student" class="com.yunshan.spring.Student"&gt;
-         &lt;constructor-arg index="0" name="id" value="202020"/&gt;
-         &lt;constructor-arg index="1" type="java.lang.String" value="Lisa"/&gt;
-         &lt;constructor-arg name="dog" ref="dog"/&gt;
-    &lt;/bean&gt;
-
-    &lt;bean id="dog" class="com.yunshan.spring.Dog"&gt;
-        &lt;property name="name" value="阿拉斯加"&gt;&lt;/property&gt;
-    &lt;/bean&gt;
-
-&lt;/beans&gt;
-</code></pre><p>测试类：</p>
-<pre class=" language-lang-java"><code class="language-lang-java">@Test
- public void test(){
-     ApplicationContext context = new ClassPathXmlApplicationContext("beans.xml");
-     Student student = (Student) context.getBean("student");
-     System.out.println(student);
-
-}
-</code></pre>
-<p>结果如下：</p>
-<p>Student{id=202020, name=’Lisa’, dog=Dog{name=’阿拉斯加’}}</p>
-<h4 id="自动装配"><a href="#自动装配" class="headerlink" title="自动装配"></a>自动装配</h4><p>使用autowire设定自动装配：</p>
-<ul>
-<li><p>byName:根据javabean中需要注入的属性的名字 ，在spring容器中找对应id的<bean>将该<bean>的对象复制给 当前的属性</bean></bean></p>
-</li>
-<li><p>byType:根据javabean中需要注入的属性的类型，在spring容器中找对应class类型的<bean>将该<bean>的对象复制给 当前的属性</bean></bean></p>
-</li>
-<li><p>byType方式 根据类型进行匹配，可能匹配到多个<bean>,此时会抛出异常。而byName是通过id来寻找<bean>，id没有重复，不会出现这种问题，所以推荐使用byName方式</bean></bean></p>
-</li>
-</ul>
-<script>
+                <script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
             if (!el.dataset.src) { return; }
@@ -1146,7 +915,7 @@ public void test(){
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="www.yunshan.online/posts/2130298637.html">www.yunshan.online/posts/2130298637.html</a>
+                    <a href="www.yunshan.online/posts/2536988270.html">www.yunshan.online/posts/2536988270.html</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -1614,9 +1383,10 @@ public void test(){
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
                 <a href="/posts/2536988270.html">
                     <div class="card-image">
@@ -1637,9 +1407,9 @@ public void test(){
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2020-04-21
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-04-21
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -1652,6 +1422,7 @@ public void test(){
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
@@ -1670,21 +1441,21 @@ public void test(){
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/posts/496651784.html">
+                <a href="/posts/2130298637.html">
                     <div class="card-image">
                         
                         
-                        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASwAAAEsCAMAAABOo35HAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAC9UExURVlZWdPT07KysmRkZIWFhfT09JmZmWZmZm9vb39/fxkZGUxMTDMzM3p6epCQkKamppubm729venp6cjIyN7e3tbW1s/Pz8LCwnx8fLS0tFZWVoiIiI+Pj6GhoeTk5Glpabu7u93d3evr66CgoJSUlKqqqsnJyeDg4Hd3d8PDw+Xl5bi4uNHR0dvb26Ojo6urq+fn51hYWDg4OCgoKHBwcK2traenp0FBQe7u7vHx8U5OTre3t8zMzHV1df///7GrnpQAAAA/dFJOU///////////////////////////////////////////////////////////////////////////////////AI4mfBcAAAUGSURBVHja7NoJb6M4GMZxY0NCD64kve/pMZ2d3Z297+X7f6zFNmBAMUXa6URl/q9UJSWPUPzrizFWRUlNLgEBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYYIEFAVhggQUWWGBBABZYYIEFFlgQgAUWWGCBBRYEYIEFFlhggQUBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYn6cCIcRXgvX/h9qcIVBqDdbEM8RCxGCB9QqXYRwHYDHBgwXWl8eKZKiESHI3Ba1kWs3fKixcaJUl1YyeBm7Ocq+yLItUiVBGnXxenSHJolIKEcwHq6ikbOX1YGVzQCTN8LPmSLreghUl9sN4Uw7yajMrLC0TZ1ImzqY6FEop0+pIaEN5HaoOxVuwEqFyc4I46uSlzOLqgxlh6UaR9l3VYWl9Fdoxb1Q90KJtu41pwwFW/WHhTtW8i7TafLCqRsk6bsGw63L9qurXRmuIlbT9lDQnlXU+nBFW1Q2qnZbDprWa2tjR90LZFqx1/+Td/HpGWLlrLDvIwTcx6dQ1Vrntbig68cDms3JwbA5Y1azs1ger6sNV/bbIw1jU81MvNAGrl58RVn8ozW+btF08iGFoAlYvP3csfVur1gJBEIA1uBmue5dhZDOyO2epbmgCVi8/I6x0MMHH9pjsTfBhNzQBq5uPZoQlB0uH3DZG4EZqQ26fL3sZq5uf09Ih6qw3i/pm6BZO0qZX7rrUS68Xsbr5ZE4rePMk08pk9aUZugfqppvs6AM1Acvlo/StP+6EbW06z8hJqxbYp2BZPQUnFsLsKuhQdaHqn5ewbF7KXIn0jWO5MqOQ7RaNLPtbNMmmhimj0GUmYLl8Gs0Lq4wyPbTu1l2QKqHSouzs3OlDIslW5SQsnY/NXmFplyNvEuuLV/Tau9BzwiraDUSwXmysztYWWNtL1psXeumgIrDGaqXvBfUuvtqUYI3V2t1wk1e2msFluJJm6zDJXv/fIfjPP7DAAgsssCiwwAILLLDAosACCyywwAKLAgsssMACC6zt9fDz/v75tyOB+98PD2+ORgKffjw4OP1uJPDxl+Xy8v1I4MPF3t7VNyOB4/vF4uzdzrG+39f1kz/w66Guv/yBvw90KX/gZKkr8Qf+2dOV+gNHC12/7RxrabD2/a31bLAO/a11YbAO/K21MFhLf2s9Gqw9f2vdGqzFu11jnVusE2/gxmI9eQOnFuvYG7i0WH7uK4t15w2cWazrXWP9a7H8f/bQYvm/6IPF+sF/pVssf19Ii/WH/0K2WH/uGuvEWC39gSdj9Twy+Rqri5EZx1gt/IE7Y/XoD1wbq9vd3w1PlufnD2OBp+ebm/uxwPHF6emnscDR4vLy41jg7vHq6sNY4Pr27OyYdRaLUrDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssL6u+k+AAQCR9eHtLKvLfwAAAABJRU5ErkJggg==" data-original="/medias/featureimages/19.jpg" class="responsive-img" alt="Spring-IOC">
+                        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASwAAAEsCAMAAABOo35HAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAC9UExURVlZWdPT07KysmRkZIWFhfT09JmZmWZmZm9vb39/fxkZGUxMTDMzM3p6epCQkKamppubm729venp6cjIyN7e3tbW1s/Pz8LCwnx8fLS0tFZWVoiIiI+Pj6GhoeTk5Glpabu7u93d3evr66CgoJSUlKqqqsnJyeDg4Hd3d8PDw+Xl5bi4uNHR0dvb26Ojo6urq+fn51hYWDg4OCgoKHBwcK2traenp0FBQe7u7vHx8U5OTre3t8zMzHV1df///7GrnpQAAAA/dFJOU///////////////////////////////////////////////////////////////////////////////////AI4mfBcAAAUGSURBVHja7NoJb6M4GMZxY0NCD64kve/pMZ2d3Z297+X7f6zFNmBAMUXa6URl/q9UJSWPUPzrizFWRUlNLgEBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYYIEFAVhggQUWWGBBABZYYIEFFlgQgAUWWGCBBRYEYIEFFlhggQUBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYn6cCIcRXgvX/h9qcIVBqDdbEM8RCxGCB9QqXYRwHYDHBgwXWl8eKZKiESHI3Ba1kWs3fKixcaJUl1YyeBm7Ocq+yLItUiVBGnXxenSHJolIKEcwHq6ikbOX1YGVzQCTN8LPmSLreghUl9sN4Uw7yajMrLC0TZ1ImzqY6FEop0+pIaEN5HaoOxVuwEqFyc4I46uSlzOLqgxlh6UaR9l3VYWl9Fdoxb1Q90KJtu41pwwFW/WHhTtW8i7TafLCqRsk6bsGw63L9qurXRmuIlbT9lDQnlXU+nBFW1Q2qnZbDprWa2tjR90LZFqx1/+Td/HpGWLlrLDvIwTcx6dQ1Vrntbig68cDms3JwbA5Y1azs1ger6sNV/bbIw1jU81MvNAGrl58RVn8ozW+btF08iGFoAlYvP3csfVur1gJBEIA1uBmue5dhZDOyO2epbmgCVi8/I6x0MMHH9pjsTfBhNzQBq5uPZoQlB0uH3DZG4EZqQ26fL3sZq5uf09Ih6qw3i/pm6BZO0qZX7rrUS68Xsbr5ZE4rePMk08pk9aUZugfqppvs6AM1Acvlo/StP+6EbW06z8hJqxbYp2BZPQUnFsLsKuhQdaHqn5ewbF7KXIn0jWO5MqOQ7RaNLPtbNMmmhimj0GUmYLl8Gs0Lq4wyPbTu1l2QKqHSouzs3OlDIslW5SQsnY/NXmFplyNvEuuLV/Tau9BzwiraDUSwXmysztYWWNtL1psXeumgIrDGaqXvBfUuvtqUYI3V2t1wk1e2msFluJJm6zDJXv/fIfjPP7DAAgsssCiwwAILLLDAosACCyywwAKLAgsssMACC6zt9fDz/v75tyOB+98PD2+ORgKffjw4OP1uJPDxl+Xy8v1I4MPF3t7VNyOB4/vF4uzdzrG+39f1kz/w66Guv/yBvw90KX/gZKkr8Qf+2dOV+gNHC12/7RxrabD2/a31bLAO/a11YbAO/K21MFhLf2s9Gqw9f2vdGqzFu11jnVusE2/gxmI9eQOnFuvYG7i0WH7uK4t15w2cWazrXWP9a7H8f/bQYvm/6IPF+sF/pVssf19Ii/WH/0K2WH/uGuvEWC39gSdj9Twy+Rqri5EZx1gt/IE7Y/XoD1wbq9vd3w1PlufnD2OBp+ebm/uxwPHF6emnscDR4vLy41jg7vHq6sNY4Pr27OyYdRaLUrDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssL6u+k+AAQCR9eHtLKvLfwAAAABJRU5ErkJggg==" data-original="/medias/featureimages/19.jpg" class="responsive-img" alt="Spring-DI">
                         
-                        <span class="card-title">Spring-IOC</span>
+                        <span class="card-title">Spring-DI</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            IOC [Inversion of Control]Spring BeanFactory 容器Spring 的 BeanFactory 容器。这是一个最简单的容器，它主要的功能是为DI【依赖注入】提供支持。
-代码示例：
-1.导入spring
+                            DI[Dependency Injection]依赖注入，指容器复制创建和维护对象之间的依赖关系，而不是通过对象本身复制自己的创建和解决自己的依赖。控制反转是通过依赖注入实现的。
+set 方法注入构造函数的依赖注入构造函数参数解析：
+pub
                         
                     </div>
                     <div class="publish-info">
