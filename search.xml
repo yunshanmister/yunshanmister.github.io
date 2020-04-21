@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>aaa</title>
+      <link href="/posts/4027020077.html"/>
+      <url>/posts/4027020077.html</url>
+      
+        <content type="html"><![CDATA[<pre class=" language-lang-xml"><code class="language-lang-xml">    <?xml version="1.0" encoding="UTF-8"?><beans xmlns="http://www.springframework.org/schema/beans"       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"       xsi:schemaLocation="http://www.springframework.org/schema/beans    http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">    <bean id="helloSpring" class="com.yunshan.spring.HelloSpring">        <property name="message" value="Hello Spring!"/>    </bean></beans></code></pre><pre class=" language-lang-html"><code class="language-lang-html"><a></<a></code></pre><pre class=" language-lang-html"><code class="language-lang-html">    <a>bgfbf</<a></code></pre><pre class=" language-lang-html"><code class="language-lang-html">    <a>saca</<a><p>asfa</p></code></pre><script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
+      
+      
+      <categories>
+          
+          <category> Java </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> java </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Spring-DI</title>
       <link href="/posts/2130298637.html"/>
       <url>/posts/2130298637.html</url>
