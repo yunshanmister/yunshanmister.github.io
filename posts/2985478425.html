@@ -897,19 +897,17 @@
 <h4 id="属性（properties）"><a href="#属性（properties）" class="headerlink" title="属性（properties）"></a>属性（properties）</h4><p>这些属性可以在外部进行配置，并可以进行动态替换。你既可以在典型的 Java 属性文件中配置这些属性，也可以在 properties 元素的子元素中设置。</p>
 <p>配置示例</p>
 <p>例子中的 username 和 password 将会由 properties 元素中设置的相应值来替换。 driver 和 url 属性将会由config.properties 文件中对应的值来替换。</p>
-<pre class=" language-lang-xml"><code class="language-lang-xml"><properties resource="org/mybatis/example/config.properties">
-  <property name="username" value="dev_user"/>
-  <property name="password" value="F2Fa3!33TYyg"/>
-</properties>
-</code></pre>
-<pre class=" language-lang-xml"><code class="language-lang-xml"><dataSource type="POOLED">
-  <property name="driver" value="${driver}"/>
-  <property name="url" value="${url}"/>
-  <property name="username" value="${username}"/>
-  <property name="password" value="${password}"/>
-</dataSource>
-</code></pre>
-<p>也可以在 SqlSessionFactoryBuilder.build() 方法中传入属性值。例如：</p>
+<pre><code>&lt;properties resource="org/mybatis/example/config.properties"&gt;
+  &lt;property name="username" value="dev_user"/&gt;
+  &lt;property name="password" value="F2Fa3!33TYyg"/&gt;
+&lt;/properties&gt;
+</code></pre><pre><code>&lt;dataSource type="POOLED"&gt;
+  &lt;property name="driver" value="${driver}"/&gt;
+  &lt;property name="url" value="${url}"/&gt;
+  &lt;property name="username" value="${username}"/&gt;
+  &lt;property name="password" value="${password}"/&gt;
+&lt;/dataSource&gt;
+</code></pre><p>也可以在 SqlSessionFactoryBuilder.build() 方法中传入属性值。例如：</p>
 <pre class=" language-lang-java"><code class="language-lang-java">SqlSessionFactory factory = new SqlSessionFactoryBuilder().build(reader, props);
 
 SqlSessionFactory factory = new SqlSessionFactoryBuilder().build(reader, environment, props);
@@ -923,18 +921,16 @@ SqlSessionFactory factory = new SqlSessionFactoryBuilder().build(reader, environ
 <p>从 MyBatis 3.4.2 开始，你可以为占位符指定一个默认值。</p>
 <p>例如：</p>
 <p>要启用这个特性,首先要开启</p>
-<pre class=" language-lang-xml"><code class="language-lang-xml"><properties resource="org/mybatis/example/config.properties">
-  <!-- ... -->
-  <property name="org.apache.ibatis.parsing.PropertyParser.enable-default-value" value="true"/> <!-- 启用默认值特性 -->
-</properties>
-</code></pre>
-<p>然后使用：</p>
-<pre class=" language-lang-xml"><code class="language-lang-xml"><dataSource type="POOLED">
-  <!-- ... -->
-  <property name="username" value="${username:ut_user}"/> <!-- 如果属性 'username' 没有被配置，'username' 属性的值将为 'ut_user' -->
-</dataSource>
-</code></pre>
-<h4 id="设置（settings）"><a href="#设置（settings）" class="headerlink" title="设置（settings）"></a>设置（settings）</h4><p>常用settings</p>
+<pre><code>&lt;properties resource="org/mybatis/example/config.properties"&gt;
+  &lt;!-- ... --&gt;
+  &lt;property name="org.apache.ibatis.parsing.PropertyParser.enable-default-value" value="true"/&gt; &lt;!-- 启用默认值特性 --&gt;
+&lt;/properties&gt;
+</code></pre><p>然后使用：</p>
+<pre><code>&lt;dataSource type="POOLED"&gt;
+  &lt;!-- ... --&gt;
+  &lt;property name="username" value="${username:ut_user}"/&gt; &lt;!-- 如果属性 'username' 没有被配置，'username' 属性的值将为 'ut_user' --&gt;
+&lt;/dataSource&gt;
+</code></pre><h4 id="设置（settings）"><a href="#设置（settings）" class="headerlink" title="设置（settings）"></a>设置（settings）</h4><p>常用settings</p>
 <div class="table-container">
 <table>
 <thead>
@@ -962,17 +958,15 @@ SqlSessionFactory factory = new SqlSessionFactoryBuilder().build(reader, environ
 </table>
 </div>
 <h4 id="类型别名（typeAliases）"><a href="#类型别名（typeAliases）" class="headerlink" title="类型别名（typeAliases）"></a>类型别名（typeAliases）</h4><p>类型别名可为 Java 类型设置一个缩写名字。 它仅用于 XML 配置，意在降低冗余的全限定类名书写。例如：</p>
-<pre class=" language-lang-xml"><code class="language-lang-xml"><typeAliases>
-    <typeAlias type="com.yunshan.pojo.User" alias="User"/>
-</typeAliases>
-</code></pre>
-<p>但是这要给每个类去配置，解决方案如下：</p>
-<pre class=" language-lang-xml"><code class="language-lang-xml"><typeAliases>
-    <!--type:实体类的全路径。alias:别名，通常首字母大写-->
-    <package name="com.zpc.mybatis.pojo"/>
-</typeAliases>
-</code></pre>
-<p>mybatis为常见的 Java 类型内建的类型别名。它们都是不区分大小写的。</p>
+<pre><code>&lt;typeAliases&gt;
+    &lt;typeAlias type="com.yunshan.pojo.User" alias="User"/&gt;
+&lt;/typeAliases&gt;
+</code></pre><p>但是这要给每个类去配置，解决方案如下：</p>
+<pre><code>&lt;typeAliases&gt;
+    &lt;!--type:实体类的全路径。alias:别名，通常首字母大写--&gt;
+    &lt;package name="com.zpc.mybatis.pojo"/&gt;
+&lt;/typeAliases&gt;
+</code></pre><p>mybatis为常见的 Java 类型内建的类型别名。它们都是不区分大小写的。</p>
 <h4 id="类型处理器（typeHandlers）"><a href="#类型处理器（typeHandlers）" class="headerlink" title="类型处理器（typeHandlers）"></a>类型处理器（typeHandlers）</h4><p>MyBatis 在设置预处理语句（PreparedStatement）中的参数或从结果集中取出一个值时， 都会用类型处理器将获取到的值以合适的方式转换成 Java 类型。可以重写类型处理器或创建你自己的类型处理器来处理不支持的或非标准的类型。</p>
 <h4 id="对象工厂（objectFactory）"><a href="#对象工厂（objectFactory）" class="headerlink" title="对象工厂（objectFactory）"></a>对象工厂（objectFactory）</h4><p>MyBatis 创建结果对象的新实例时，它都会使用一个对象工（ObjectFactory）实例来完成实例化工作。 默认的对象工厂需要做的仅仅是实例化目标类，要么通过默认无参构造方法，要么通过存在的参数映射来调用带有参数的构造方法。 如果想覆盖对象工厂的默认行为，可以通过创建自己的对象工厂来实现。</p>
 <h4 id="插件（plugins）"><a href="#插件（plugins）" class="headerlink" title="插件（plugins）"></a>插件（plugins）</h4><p>MyBatis 允许你在映射语句执行过程中的某一点进行拦截调用。默认情况下，MyBatis 允许使用插件来拦截的方法调用包括：</p>
@@ -998,39 +992,37 @@ SqlSessionFactory factory = new SqlSessionFactoryBuilder().build(reader, environ
 <li><p>数据源的配置（比如：type=”POOLED”）。</p>
 </li>
 </ul>
-<pre class=" language-lang-xml"><code class="language-lang-xml"><environments default="development">
-  <environment id="development">
-    <transactionManager type="JDBC">
-      <property name="..." value="..."/>
-    </transactionManager>
-    <dataSource type="POOLED">
-      <property name="driver" value="${driver}"/>
-      <property name="url" value="${url}"/>
-      <property name="username" value="${username}"/>
-      <property name="password" value="${password}"/>
-    </dataSource>
-  </environment>
-</environments>
-</code></pre>
-<h4 id="映射器（mappers）"><a href="#映射器（mappers）" class="headerlink" title="映射器（mappers）"></a>映射器（mappers）</h4><p>告诉 MyBatis 到哪里去找到这些语句</p>
-<pre class=" language-lang-xml"><code class="language-lang-xml"><!-- 使用相对于类路径的资源引用 -->
-<mappers>
-  <mapper resource="org/mybatis/builder/AuthorMapper.xml"/>
-</mappers>
-<!-- 使用完全限定资源定位符（URL） -->
-<mappers>
-  <mapper url="file:///var/mappers/AuthorMapper.xml"/>
-</mappers>
-<!-- 使用映射器接口实现类的完全限定类名 -->
-<mappers>
-  <mapper class="org.mybatis.builder.AuthorMapper"/>
-</mappers>
-<!-- 将包内的映射器接口实现全部注册为映射器 -->
-<mappers>
-  <package name="org.mybatis.builder"/>
-</mappers>
-</code></pre>
-<script>
+<pre><code>&lt;environments default="development"&gt;
+  &lt;environment id="development"&gt;
+    &lt;transactionManager type="JDBC"&gt;
+      &lt;property name="..." value="..."/&gt;
+    &lt;/transactionManager&gt;
+    &lt;dataSource type="POOLED"&gt;
+      &lt;property name="driver" value="${driver}"/&gt;
+      &lt;property name="url" value="${url}"/&gt;
+      &lt;property name="username" value="${username}"/&gt;
+      &lt;property name="password" value="${password}"/&gt;
+    &lt;/dataSource&gt;
+  &lt;/environment&gt;
+&lt;/environments&gt;
+</code></pre><h4 id="映射器（mappers）"><a href="#映射器（mappers）" class="headerlink" title="映射器（mappers）"></a>映射器（mappers）</h4><p>告诉 MyBatis 到哪里去找到这些语句</p>
+<pre><code>&lt;!-- 使用相对于类路径的资源引用 --&gt;
+&lt;mappers&gt;
+  &lt;mapper resource="org/mybatis/builder/AuthorMapper.xml"/&gt;
+&lt;/mappers&gt;
+&lt;!-- 使用完全限定资源定位符（URL） --&gt;
+&lt;mappers&gt;
+  &lt;mapper url="file:///var/mappers/AuthorMapper.xml"/&gt;
+&lt;/mappers&gt;
+&lt;!-- 使用映射器接口实现类的完全限定类名 --&gt;
+&lt;mappers&gt;
+  &lt;mapper class="org.mybatis.builder.AuthorMapper"/&gt;
+&lt;/mappers&gt;
+&lt;!-- 将包内的映射器接口实现全部注册为映射器 --&gt;
+&lt;mappers&gt;
+  &lt;package name="org.mybatis.builder"/&gt;
+&lt;/mappers&gt;
+</code></pre><script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
             if (!el.dataset.src) { return; }

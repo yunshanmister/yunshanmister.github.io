@@ -900,41 +900,39 @@ CREATE TABLE `tb_user`  (
 INSERT INTO `tb_user` VALUES (1, 'user', 18, '女', '2000-05-01', '西安', '2020-04-20 12:46:09');
 </code></pre>
 <p>2.导入依赖</p>
-<pre class=" language-lang-xml"><code class="language-lang-xml"><dependency>
-  <groupId>mysql</groupId>
-  <artifactId>mysql-connector-java</artifactId>
-  <version>${mysql.version}</version>
-</dependency>
-<dependency>
-  <groupId>org.mybatis</groupId>
-  <artifactId>mybatis</artifactId>
-  <version>${mybatis.version}</version>
-</dependency>
-</code></pre>
-<p>3.配置全局配置文件 - mybatis-config.xml</p>
-<pre class=" language-lang-xml"><code class="language-lang-xml"><?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE configuration
+<pre><code>&lt;dependency&gt;
+  &lt;groupId&gt;mysql&lt;/groupId&gt;
+  &lt;artifactId&gt;mysql-connector-java&lt;/artifactId&gt;
+  &lt;version&gt;${mysql.version}&lt;/version&gt;
+&lt;/dependency&gt;
+&lt;dependency&gt;
+  &lt;groupId&gt;org.mybatis&lt;/groupId&gt;
+  &lt;artifactId&gt;mybatis&lt;/artifactId&gt;
+  &lt;version&gt;${mybatis.version}&lt;/version&gt;
+&lt;/dependency&gt;
+</code></pre><p>3.配置全局配置文件 - mybatis-config.xml</p>
+<pre><code>&lt;?xml version="1.0" encoding="UTF-8" ?&gt;
+&lt;!DOCTYPE configuration
         PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
-        "http://mybatis.org/dtd/mybatis-3-config.dtd">
-<configuration>
-    <!-- 环境，可以配置多个，default：指定采用哪个环境 -->
-    <environments default="test">
-        <!-- id：唯一标识 -->
-        <environment id="test">
-            <!-- 事务管理器，JDBC类型的事务管理器 -->
-            <transactionManager type="JDBC" />
-            <!-- 数据源，池类型的数据源 -->
-            <dataSource type="POOLED">
-                <property name="driver" value="com.mysql.jdbc.Driver" />
-                <property name="url" value="jdbc:mysql://127.0.0.1:3306/test?characterEncoding=utf-8" />
-                <property name="username" value="root" />
-                <property name="password" value="zmh1211" />
-            </dataSource>
-        </environment>
-    </environments>
-</configuration>
-</code></pre>
-<p>4.写pojo类</p>
+        "http://mybatis.org/dtd/mybatis-3-config.dtd"&gt;
+&lt;configuration&gt;
+    &lt;!-- 环境，可以配置多个，default：指定采用哪个环境 --&gt;
+    &lt;environments default="test"&gt;
+        &lt;!-- id：唯一标识 --&gt;
+        &lt;environment id="test"&gt;
+            &lt;!-- 事务管理器，JDBC类型的事务管理器 --&gt;
+            &lt;transactionManager type="JDBC" /&gt;
+            &lt;!-- 数据源，池类型的数据源 --&gt;
+            &lt;dataSource type="POOLED"&gt;
+                &lt;property name="driver" value="com.mysql.jdbc.Driver" /&gt;
+                &lt;property name="url" value="jdbc:mysql://127.0.0.1:3306/test?characterEncoding=utf-8" /&gt;
+                &lt;property name="username" value="root" /&gt;
+                &lt;property name="password" value="zmh1211" /&gt;
+            &lt;/dataSource&gt;
+        &lt;/environment&gt;
+    &lt;/environments&gt;
+&lt;/configuration&gt;
+</code></pre><p>4.写pojo类</p>
 <pre class=" language-lang-java"><code class="language-lang-java">public class TbUser {
     private Integer id;
 
@@ -1021,43 +1019,41 @@ INSERT INTO `tb_user` VALUES (1, 'user', 18, '女', '2000-05-01', '西安', '202
 }
 </code></pre>
 <p>5.配置 - TbUserMapper.xml</p>
-<pre class=" language-lang-xml"><code class="language-lang-xml"><?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<!-- mapper:根标签，namespace：命名空间，随便写，一般为了保证命名空间唯一写类的全限定名 -->
-<mapper namespace="com.yunshan.mapper.TbUserMapper">
-  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultType="com.yunshan.pojo.">
+<pre><code>&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd"&gt;
+&lt;!-- mapper:根标签，namespace：命名空间，随便写，一般为了保证命名空间唯一写类的全限定名 --&gt;
+&lt;mapper namespace="com.yunshan.mapper.TbUserMapper"&gt;
+  &lt;select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultType="com.yunshan.pojo."&gt;
     select *from user where id = #{id}
-  </select>
-</mapper>
-</code></pre>
-<ol>
-<li>sqlMapConfig配置文件中要引入映射文件   <pre class=" language-lang-xml"><code class="language-lang-xml"><?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE configuration
+  &lt;/select&gt;
+&lt;/mapper&gt;
+</code></pre><ol>
+<li>sqlMapConfig配置文件中要引入映射文件   <pre><code>&lt;?xml version="1.0" encoding="UTF-8" ?&gt;
+&lt;!DOCTYPE configuration
      PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
-     "http://mybatis.org/dtd/mybatis-3-config.dtd">
-<configuration>
- <!-- 环境，可以配置多个，default：指定采用哪个环境 -->
- <environments default="test">
-     <!-- id：唯一标识 -->
-     <environment id="test">
-         <!-- 事务管理器，JDBC类型的事务管理器 -->
-         <transactionManager type="JDBC"/>
-         <!-- 数据源，池类型的数据源 -->
-         <dataSource type="POOLED">
-             <property name="driver" value="com.mysql.jdbc.Driver"/>
-             <property name="url" value="jdbc:mysql://127.0.0.1:3306/test?characterEncoding=utf-8"/>
-             <property name="username" value="root"/>
-             <property name="password" value="zmh1211"/>
-         </dataSource>
-     </environment>
- </environments>
- <!--  sqlMapConfig配置文件中要引入映射文件   -->
- <mappers>
-     <mapper resource="mapper/TbUserMapper.xml"/>
- </mappers>
-</configuration>
-</code></pre>
-6.测试程序，简单的操作<pre class=" language-lang-java"><code class="language-lang-java">@Test
+     "http://mybatis.org/dtd/mybatis-3-config.dtd"&gt;
+&lt;configuration&gt;
+ &lt;!-- 环境，可以配置多个，default：指定采用哪个环境 --&gt;
+ &lt;environments default="test"&gt;
+     &lt;!-- id：唯一标识 --&gt;
+     &lt;environment id="test"&gt;
+         &lt;!-- 事务管理器，JDBC类型的事务管理器 --&gt;
+         &lt;transactionManager type="JDBC"/&gt;
+         &lt;!-- 数据源，池类型的数据源 --&gt;
+         &lt;dataSource type="POOLED"&gt;
+             &lt;property name="driver" value="com.mysql.jdbc.Driver"/&gt;
+             &lt;property name="url" value="jdbc:mysql://127.0.0.1:3306/test?characterEncoding=utf-8"/&gt;
+             &lt;property name="username" value="root"/&gt;
+             &lt;property name="password" value="zmh1211"/&gt;
+         &lt;/dataSource&gt;
+     &lt;/environment&gt;
+ &lt;/environments&gt;
+ &lt;!--  sqlMapConfig配置文件中要引入映射文件   --&gt;
+ &lt;mappers&gt;
+     &lt;mapper resource="mapper/TbUserMapper.xml"/&gt;
+ &lt;/mappers&gt;
+&lt;/configuration&gt;
+</code></pre>6.测试程序，简单的操作<pre class=" language-lang-java"><code class="language-lang-java">@Test
 public void test() throws IOException {
      String resource = "mybatis-config.xml";
      //加配置文件
