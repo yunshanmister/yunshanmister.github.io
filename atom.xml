@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="www.yunshan.online/"/>
-  <updated>2020-04-22T08:13:51.057Z</updated>
+  <updated>2020-04-23T10:38:51.117Z</updated>
   <id>www.yunshan.online/</id>
   
   <author>
@@ -17,11 +17,92 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>Mybatis动态SQL</title>
+    <link href="www.yunshan.online/posts/1156382316.html"/>
+    <id>www.yunshan.online/posts/1156382316.html</id>
+    <published>2020-04-23T10:23:16.000Z</published>
+    <updated>2020-04-23T10:38:51.117Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h3 id=&quot;MyBatis-动态SQL&quot;&gt;&lt;a href=&quot;#MyBatis-动态SQL&quot; class=&quot;headerlink&quot; title=&quot;MyBatis 动态SQL&quot;&gt;&lt;/a&gt;MyBatis 动态SQL&lt;/h3&gt;&lt;p&gt;动态 SQL 元素和使用 JSTL 或其他类似基于
+        
+      
+    
+    </summary>
+    
+    
+      <category term="Java" scheme="www.yunshan.online/categories/Java/"/>
+    
+    
+      <category term="mybatis" scheme="www.yunshan.online/tags/mybatis/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Spring事务管理</title>
+    <link href="www.yunshan.online/posts/1982416368.html"/>
+    <id>www.yunshan.online/posts/1982416368.html</id>
+    <published>2020-04-22T13:48:15.000Z</published>
+    <updated>2020-04-23T10:19:09.188Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h3 id=&quot;Spring-编程式事务管理&quot;&gt;&lt;a href=&quot;#Spring-编程式事务管理&quot; class=&quot;headerlink&quot; title=&quot;Spring 编程式事务管理&quot;&gt;&lt;/a&gt;Spring 编程式事务管理&lt;/h3&gt;&lt;p&gt;通过Transaction
+        
+      
+    
+    </summary>
+    
+    
+      <category term="Java" scheme="www.yunshan.online/categories/Java/"/>
+    
+    
+      <category term="spring" scheme="www.yunshan.online/tags/spring/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>mybatis映射文件详解</title>
+    <link href="www.yunshan.online/posts/2303684642.html"/>
+    <id>www.yunshan.online/posts/2303684642.html</id>
+    <published>2020-04-22T12:03:12.000Z</published>
+    <updated>2020-04-23T06:03:35.906Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h3 id=&quot;Mybatis映射文件&quot;&gt;&lt;a href=&quot;#Mybatis映射文件&quot; class=&quot;headerlink&quot; title=&quot;Mybatis映射文件&quot;&gt;&lt;/a&gt;Mybatis映射文件&lt;/h3&gt;&lt;p&gt;SQL
+        
+      
+    
+    </summary>
+    
+    
+      <category term="Java" scheme="www.yunshan.online/categories/Java/"/>
+    
+    
+      <category term="mybatis" scheme="www.yunshan.online/tags/mybatis/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Spring-JDBC</title>
     <link href="www.yunshan.online/posts/887790741.html"/>
     <id>www.yunshan.online/posts/887790741.html</id>
     <published>2020-04-22T07:26:39.000Z</published>
-    <updated>2020-04-22T08:13:51.057Z</updated>
+    <updated>2020-04-22T08:14:40.787Z</updated>
     
     <summary type="html">
     
@@ -477,90 +558,6 @@
     
     
       <category term="servlet" scheme="www.yunshan.online/tags/servlet/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>HTTP常见的状态码</title>
-    <link href="www.yunshan.online/posts/2565018538.html"/>
-    <id>www.yunshan.online/posts/2565018538.html</id>
-    <published>2020-04-15T13:13:16.000Z</published>
-    <updated>2020-04-19T09:09:02.267Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;ul&gt;
-&lt;li&gt;&lt;p&gt;200 OK 客户端请求成功，一般用于GET与POST请求&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;301 Moved Permanently（永久移除)，请求的 URL 已移走。Response 中应该包含一个 Location URL, 说明资
-        
-      
-    
-    </summary>
-    
-    
-      <category term="JavaWeb" scheme="www.yunshan.online/categories/JavaWeb/"/>
-    
-    
-      <category term="http状态码" scheme="www.yunshan.online/tags/http%E7%8A%B6%E6%80%81%E7%A0%81/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Servlet创建</title>
-    <link href="www.yunshan.online/posts/2798356820.html"/>
-    <id>www.yunshan.online/posts/2798356820.html</id>
-    <published>2020-04-15T10:15:39.000Z</published>
-    <updated>2020-04-20T06:44:57.506Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h3 id=&quot;Servlet&quot;&gt;&lt;a href=&quot;#Servlet&quot; class=&quot;headerlink&quot; title=&quot;Servlet&quot;&gt;&lt;/a&gt;Servlet&lt;/h3&gt;&lt;p&gt; Java Servlet 是运行在 Web
-        
-      
-    
-    </summary>
-    
-    
-      <category term="Java" scheme="www.yunshan.online/categories/Java/"/>
-    
-    
-      <category term="servlet" scheme="www.yunshan.online/tags/servlet/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>MySQL多表连接查询</title>
-    <link href="www.yunshan.online/posts/903299391.html"/>
-    <id>www.yunshan.online/posts/903299391.html</id>
-    <published>2020-04-15T07:18:30.000Z</published>
-    <updated>2020-04-20T06:33:54.592Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h3 id=&quot;表关系&quot;&gt;&lt;a href=&quot;#表关系&quot; class=&quot;headerlink&quot; title=&quot;表关系&quot;&gt;&lt;/a&gt;表关系&lt;/h3&gt;&lt;h5 id=&quot;一对多【多对一】关系&quot;&gt;&lt;a href=&quot;#一对多【多对一】关系&quot; class=&quot;headerlink&quot;
-        
-      
-    
-    </summary>
-    
-    
-      <category term="数据库" scheme="www.yunshan.online/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
-    
-    
-      <category term="mysql" scheme="www.yunshan.online/tags/mysql/"/>
     
   </entry>
   

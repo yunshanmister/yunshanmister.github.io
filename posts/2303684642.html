@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="Servlet过滤器, 云山先生">
+    <meta name="keywords" content="mybatis映射文件详解, 云山先生">
     <meta name="description" content="专注于技术,分享生活,分享知识">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>Servlet过滤器 | 云山先生</title>
+    <title>mybatis映射文件详解 | 云山先生</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -708,12 +708,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/6.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/21.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">Servlet过滤器</h1>
+                    <h1 class="description center-align post-title">mybatis映射文件详解</h1>
                 </div>
             </div>
         </div>
@@ -830,8 +830,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/servlet/">
-                                <span class="chip bg-color">servlet</span>
+                            <a href="/tags/mybatis/">
+                                <span class="chip bg-color">mybatis</span>
                             </a>
                         
                     </div>
@@ -855,7 +855,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2020-04-17
+                    2020-04-22
                 </div>
                 
 
@@ -872,93 +872,444 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h3 id="过滤器【Filter】"><a href="#过滤器【Filter】" class="headerlink" title="过滤器【Filter】"></a>过滤器【Filter】</h3><p>过滤器就是对所有web资源进行一个过滤，所谓的过滤指的是对于Web资源做一些自己的配置。比如控制权限，设置字符过滤，加密设置等。</p>
-<p>过滤器的前世今生！</p>
-<p>过滤器是一个Servlet组件。来自于一种设计模式责任链模式【也叫过滤器模式】</p>
-<h3 id="在Web项目中使用过滤器"><a href="#在Web项目中使用过滤器" class="headerlink" title="在Web项目中使用过滤器"></a>在Web项目中使用过滤器</h3><p>1.实现Filter接口</p>
-<pre class=" language-lang-java"><code class="language-lang-java">/**
- * @Description:
- * @Author: yunshan
- * @CreateDate: 2020/4/17$ 14:48$
- */
-public class MyFilter implements Filter {
-    @Override
-    public void init(FilterConfig filterConfig) throws ServletException {
-        System.out.println("初始化过滤器");
-    }
+                <h3 id="Mybatis映射文件"><a href="#Mybatis映射文件" class="headerlink" title="Mybatis映射文件"></a>Mybatis映射文件</h3><p>SQL 映射文件只有很少的几个顶级元素（按照应被定义的顺序列出）：</p>
+<ul>
+<li><p><code>cache</code> – 该命名空间的缓存配置。</p>
+</li>
+<li><p><code>cache-ref</code> – 引用其它命名空间的缓存配置。</p>
+</li>
+<li><p><code>resultMap</code> – 描述如何从数据库结果集中加载对象，是最复杂也是最强大的元素。</p>
+</li>
+<li><p><del><code>parameterMap</code> – 老式风格的参数映射。此元素已被废弃，并可能在将来被移除！请使用行内参数映射。文档中不会介绍此元素。</del></p>
+</li>
+<li><p><code>sql</code> – 可被其它语句引用的可重用语句块。</p>
+</li>
+<li><p><code>insert</code>– 映射插入语句。</p>
+</li>
+<li><p><code>update</code> – 映射更新语句。</p>
+</li>
+<li><p><code>delete</code> – 映射删除语句。</p>
+</li>
+<li><p><code>select</code> – 映射查询语句。</p>
+</li>
+</ul>
+<h4 id="select"><a href="#select" class="headerlink" title="select"></a>select</h4><p>MyBatis 的基本原则之一是：在每个插入、更新或删除操作之间，通常会执行多个查询操作。</p>
+<pre><code>&lt;select id="selectPerson" parameterType="int" resultType="hashmap"&gt;
+  SELECT * FROM PERSON WHERE ID = #{id}
+&lt;/select&gt;
+</code></pre><p>接受一个 int（或 Integer）类型的参数，并返回一个 HashMap 类型的对象，其中的键是列名，值便是结果行中的对应值。</p>
+<p>注意参数符号：<code>#{id}</code>这就告诉 MyBatis 创建一个预处理语句（PreparedStatement）参数，在 JDBC 中，这样的一个参数在 SQL 中会由一个“?”来标识，并被传递到一个新的预处理语句中。</p>
+<p>select 元素允许你配置很多属性来配置每条语句的行为细节。</p>
+<pre><code>&lt;select
+  id="selectPerson"
+  parameterType="int"
+  parameterMap="deprecated"
+  resultType="hashmap"
+  resultMap="personResultMap"
+  flushCache="false"
+  useCache="true"
+  timeout="10"
+  fetchSize="256"
+  statementType="PREPARED"
+  resultSetType="FORWARD_ONLY"&gt;
+</code></pre><h4 id="Select-元素的属性"><a href="#Select-元素的属性" class="headerlink" title="Select 元素的属性"></a>Select 元素的属性</h4><div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:left">属性</th>
+<th style="text-align:left">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><code>id</code></td>
+<td style="text-align:left">在命名空间中唯一的标识符，可以被用来引用这条语句。</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>parameterType</code></td>
+<td style="text-align:left">将会传入这条语句的参数的类全限定名或别名。这个属性是可选的，因为 MyBatis 可以通过类型处理器（TypeHandler）推断出具体传入语句的参数，默认值为未设置（unset）。</td>
+</tr>
+<tr>
+<td style="text-align:left"><del><code>parameterMap</code></del></td>
+<td style="text-align:left"><del>用于引用外部 parameterMap 的属性，目前已被废弃。请使用行内参数映射和 parameterType 属性</del>。~~</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>resultType</code></td>
+<td style="text-align:left">期望从这条语句中返回结果的类全限定名或别名。 注意，如果返回的是集合，那应该设置为集合包含的类型，而不是集合本身的类型。 resultType 和 resultMap 之间只能同时使用一个。</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>resultMap</code></td>
+<td style="text-align:left">对外部 resultMap 的命名引用。结果映射是 MyBatis 最强大的特性，如果你对其理解透彻，许多复杂的映射问题都能迎刃而解。 resultType 和 resultMap 之间只能同时使用一个。</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>flushCache</code></td>
+<td style="text-align:left">将其设置为 true 后，只要语句被调用，都会导致本地缓存和二级缓存被清空，默认值：false。</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>useCache</code></td>
+<td style="text-align:left">将其设置为 true 后，将会导致本条语句的结果被二级缓存缓存起来，默认值：对 select 元素为 true。</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>timeout</code></td>
+<td style="text-align:left">这个设置是在抛出异常之前，驱动程序等待数据库返回请求结果的秒数。默认值为未设置（unset）（依赖数据库驱动）。</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>fetchSize</code></td>
+<td style="text-align:left">这是一个给驱动的建议值，尝试让驱动程序每次批量返回的结果行数等于这个设置值。 默认值为未设置（unset）（依赖驱动）。</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>statementType</code></td>
+<td style="text-align:left">可选 STATEMENT，PREPARED 或 CALLABLE。这会让 MyBatis 分别使用 Statement，PreparedStatement 或 CallableStatement，默认值：PREPARED。</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>resultSetType</code></td>
+<td style="text-align:left">FORWARD_ONLY，SCROLL_SENSITIVE, SCROLL_INSENSITIVE 或 DEFAULT（等价于 unset） 中的一个，默认值为 unset （依赖数据库驱动）。</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>databaseId</code></td>
+<td style="text-align:left">如果配置了数据库厂商标识（databaseIdProvider），MyBatis 会加载所有不带 databaseId 或匹配当前 databaseId 的语句；如果带和不带的语句都有，则不带的会被忽略。</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>resultOrdered</code></td>
+<td style="text-align:left">这个设置仅针对嵌套结果 select 语句：如果为 true，将会假设包含了嵌套结果集或是分组，当返回一个主结果行时，就不会产生对前面结果集的引用。 这就使得在获取嵌套结果集的时候不至于内存不够用。默认值：false。</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>resultSets</code></td>
+<td style="text-align:left">这个设置仅适用于多结果集的情况。它将列出语句执行后返回的结果集并赋予每个结果集一个名称，多个名称之间以逗号分隔。</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h4 id="insert-update-和-delete"><a href="#insert-update-和-delete" class="headerlink" title="insert, update 和 delete"></a>insert, update 和 delete</h4><pre><code>&lt;insert
+  id="insertAuthor"
+  parameterType="domain.blog.Author"
+  flushCache="true"
+  statementType="PREPARED"
+  keyProperty=""
+  keyColumn=""
+  useGeneratedKeys=""
+  timeout="20"&gt;
 
-    @Override
-    public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain) throws IOException, ServletException {
-        //对request和response进行一些预处理。如下设置字符，消息头等
-        servletRequest.setCharacterEncoding("UTF-8");
-        servletResponse.setCharacterEncoding("UTF-8");
-        servletResponse.setContentType("text/html;charset=UTF-8");
-        //ChainFilter链：它可以指向下一个资源，如果还有过滤器，则继续进行下一次的过滤，如果没有过滤器，则会指向资源（servlet）。
-        filterChain.doFilter(servletRequest,servletResponse);
-    }
+&lt;update
+  id="updateAuthor"
+  parameterType="domain.blog.Author"
+  flushCache="true"
+  statementType="PREPARED"
+  timeout="20"&gt;
 
-    @Override
-    public void destroy() {
-        System.out.println("过滤器被销毁了");
-    }
-}
-</code></pre>
-<p>2.在 <code>web.xml</code> 中配置文件</p>
-<pre class=" language-lang-xml"><code class="language-lang-xml">!--配置过滤器-->
-   <filter>
-       <filter-name>MyFilter</filter-name>
-       <filter-class>com.yunshan.blog.MyFilter</filter-class>
-   </filter>
+&lt;delete
+  id="deleteAuthor"
+  parameterType="domain.blog.Author"
+  flushCache="true"
+  statementType="PREPARED"
+  timeout="20"&gt;
+</code></pre><h4 id="Insert-Update-Delete-元素的属性"><a href="#Insert-Update-Delete-元素的属性" class="headerlink" title="Insert, Update, Delete 元素的属性"></a>Insert, Update, Delete 元素的属性</h4><div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:left">属性</th>
+<th style="text-align:left">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><code>id</code></td>
+<td style="text-align:left">在命名空间中唯一的标识符，可以被用来引用这条语句。</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>parameterType</code></td>
+<td style="text-align:left">将会传入这条语句的参数的类全限定名或别名。这个属性是可选的，因为 MyBatis 可以通过类型处理器（TypeHandler）推断出具体传入语句的参数，默认值为未设置（unset）。</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>parameterMap</code></td>
+<td style="text-align:left">用于引用外部 parameterMap 的属性，目前已被废弃。请使用行内参数映射和 parameterType 属性。</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>flushCache</code></td>
+<td style="text-align:left">将其设置为 true 后，只要语句被调用，都会导致本地缓存和二级缓存被清空，默认值：（对 insert、update 和 delete 语句）true。</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>timeout</code></td>
+<td style="text-align:left">这个设置是在抛出异常之前，驱动程序等待数据库返回请求结果的秒数。默认值为未设置（unset）（依赖数据库驱动）。</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>statementType</code></td>
+<td style="text-align:left">可选 STATEMENT，PREPARED 或 CALLABLE。这会让 MyBatis 分别使用 Statement，PreparedStatement 或 CallableStatement，默认值：PREPARED。</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>useGeneratedKeys</code></td>
+<td style="text-align:left">（仅适用于 insert 和 update）这会令 MyBatis 使用 JDBC 的 getGeneratedKeys 方法来取出由数据库内部生成的主键（比如：像 MySQL 和 SQL Server 这样的关系型数据库管理系统的自动递增字段），默认值：false。</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>keyProperty</code></td>
+<td style="text-align:left">（仅适用于 insert 和 update）指定能够唯一识别对象的属性，MyBatis 会使用 getGeneratedKeys 的返回值或 insert 语句的 selectKey 子元素设置它的值，默认值：未设置（unset）。如果生成列不止一个，可以用逗号分隔多个属性名称。</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>keyColumn</code></td>
+<td style="text-align:left">（仅适用于 insert 和 update）设置生成键值在表中的列名，在某些数据库（像 PostgreSQL）中，当主键列不是表中的第一列的时候，是必须设置的。如果生成列不止一个，可以用逗号分隔多个属性名称。</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>databaseId</code></td>
+<td style="text-align:left">如果配置了数据库厂商标识（databaseIdProvider），MyBatis 会加载所有不带 databaseId 或匹配当前 databaseId 的语句；如果带和不带的语句都有，则不带的会被忽略。</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>下面是 insert，update 和 delete 语句的示例：</p>
+<pre><code>&lt;insert id="insertAuthor"&gt;
+  insert into Author (id,username,password,email,bio)
+  values (#{id},#{username},#{password},#{email},#{bio})
+&lt;/insert&gt;
 
-   <!--映射过滤器-->
-   <filter-mapping>
-       <filter-name>MyFilter</filter-name>
-       <!--“/*”表示拦截所有的请求 -->
-       <url-pattern>/*</url-pattern>
-   </filter-mapping>
-</code></pre>
-<p>你也可以创建多个过滤器，他们的执行顺序为 <code>web.xml</code> 里面配置的  <code>filter-mapping</code> 元素的顺序</p>
-<p>配置节点解析：<br>web.xml配置各节点说明</p>
-<ul>
-<li><p><code>&lt;filter&gt;</code>指定一个过滤器。</p>
-<ul>
-<li><p><code>&lt;filter-name&gt;</code> 用于为过滤器指定一个名字，该元素的内容不能为空。</p>
-</li>
-<li><p><code>&lt;filter-class&gt;</code> 元素用于指定过滤器的完整的限定类名。</p>
-</li>
-<li><p><code>&lt;init-param&gt;</code> 元素用于为过滤器指定初始化参数</p>
-<ul>
-<li>子元素 <code>&lt;param-name&gt;</code> 指定参数的名字，<code>&lt;param-value&gt;</code> 指定参数的值。</li>
+&lt;update id="updateAuthor"&gt;
+  update Author set
+    username = #{username},
+    password = #{password},
+    email = #{email},
+    bio = #{bio}
+  where id = #{id}
+&lt;/update&gt;
+
+&lt;delete id="deleteAuthor"&gt;
+  delete from Author where id = #{id}
+&lt;/delete&gt;
+</code></pre><p>如果你的数据库支持自动生成主键的字段（比如 MySQL 和 SQL Server），那么你可以设置 useGeneratedKeys=”true”，然后再把 keyProperty 设置为目标属性就 OK 了。</p>
+<p>如果你的数据库还支持多行插入, 你也可以传入一个 Author 数组或集合，并返回自动生成的主键。</p>
+<pre><code>&lt;insert id="insertAuthor" useGeneratedKeys="true"
+    keyProperty="id"&gt;
+  insert into Author (username, password, email, bio) values
+  &lt;foreach item="item" collection="list" separator=","&gt;
+    (#{item.username}, #{item.password}, #{item.email}, #{item.bio})
+  &lt;/foreach&gt;
+&lt;/insert&gt;
+</code></pre><p>对于不支持自动生成主键列的数据库和可能不支持自动生成主键的 JDBC 驱动，MyBatis 有另外一种方法来生成主键。</p>
+<pre><code>&lt;insert id="insertAuthor"&gt;
+  &lt;selectKey keyProperty="id" resultType="int" order="BEFORE"&gt;
+    select CAST(RANDOM()*1000000 as INTEGER) a from SYSIBM.SYSDUMMY1
+  &lt;/selectKey&gt;
+  insert into Author
+    (id, username, password, email,bio, favourite_section)
+  values
+    (#{id}, #{username}, #{password}, #{email}, #{bio}, #{favouriteSection,jdbcType=VARCHAR})
+&lt;/insert&gt;
+</code></pre><p>在上面的示例中，首先会运行 selectKey 元素中的语句，并设置 Author 的 id，然后才会调用插入语句。这样就实现了数据库自动生成主键类似的行为，同时保持了 Java 代码的简洁。</p>
+<p>selectKey 元素描述如下：</p>
+<pre><code>&lt;selectKey
+  keyProperty="id"
+  resultType="int"
+  order="BEFORE"
+  statementType="PREPARED"&gt;
+</code></pre><h4 id="selectKey-元素的属性"><a href="#selectKey-元素的属性" class="headerlink" title="selectKey 元素的属性"></a>selectKey 元素的属性</h4><div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:left">属性</th>
+<th style="text-align:left">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><code>keyProperty</code></td>
+<td style="text-align:left">selectKey 语句结果应该被设置到的目标属性。如果生成列不止一个，可以用逗号分隔多个属性名称。</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>keyColumn</code></td>
+<td style="text-align:left">返回结果集中生成列属性的列名。如果生成列不止一个，可以用逗号分隔多个属性名称。</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>resultType</code></td>
+<td style="text-align:left">结果的类型。通常 MyBatis 可以推断出来，但是为了更加准确，写上也不会有什么问题。MyBatis 允许将任何简单类型用作主键的类型，包括字符串。如果生成列不止一个，则可以使用包含期望属性的 Object 或 Map。</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>order</code></td>
+<td style="text-align:left">可以设置为 BEFORE 或 AFTER。如果设置为 BEFORE，那么它首先会生成主键，设置 keyProperty 再执行插入语句。如果设置为 AFTER，那么先执行插入语句，然后是 selectKey 中的语句 - 这和 Oracle 数据库的行为相似，在插入语句内部可能有嵌入索引调用。</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>statementType</code></td>
+<td style="text-align:left">和前面一样，MyBatis 支持 STATEMENT，PREPARED 和 CALLABLE 类型的映射语句，分别代表 Statement, PreparedStatement 和 CallableStatement 类型。</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h4 id="sql"><a href="#sql" class="headerlink" title="sql"></a>sql</h4><p>这个元素可以用来定义可重用的 SQL 代码片段，以便在其它语句中使用。</p>
+<pre><code>&lt;sql id="userColumns"&gt; ${alias}.id,${alias}.username,${alias}.password &lt;/sql&gt;
+</code></pre><p>这个 SQL 片段可以在其它语句中使用，例如：</p>
+<pre><code>&lt;select id="selectUsers" resultType="map"&gt;
+  select
+    &lt;include refid="userColumns"&gt;&lt;property name="alias" value="t1"/&gt;&lt;/include&gt;,
+    &lt;include refid="userColumns"&gt;&lt;property name="alias" value="t2"/&gt;&lt;/include&gt;
+  from some_table t1
+    cross join some_table t2
+&lt;/select&gt;
+</code></pre><p>也可以在 include 元素的 refid 属性或内部语句中使用属性值，例如：</p>
+<pre><code>&lt;sql id="sometable"&gt;
+  ${prefix}Table
+&lt;/sql&gt;
+
+&lt;sql id="someinclude"&gt;
+  from
+    &lt;include refid="${include_target}"/&gt;
+&lt;/sql&gt;
+
+&lt;select id="select" resultType="map"&gt;
+  select
+    field1, field2, field3
+  &lt;include refid="someinclude"&gt;
+    &lt;property name="prefix" value="Some"/&gt;
+    &lt;property name="include_target" value="sometable"/&gt;
+  &lt;/include&gt;
+&lt;/select&gt;
+</code></pre><p>由于参数类型（parameterType）会被自动设置为 int，这个参数可以随意命名。原始类型或简单数据类型（比如 Integer 和 String）因为没有其它属性，会用它们的值来作为参数。 然而，如果传入一个复杂的对象，行为就会有点不一样了。比如：</p>
+<pre><code>&lt;insert id="insertUser" parameterType="User"&gt;
+  insert into users (id, username, password)
+  values (#{id}, #{username}, #{password})
+&lt;/insert&gt;
+</code></pre><p>如果 User 类型的参数对象传递到了语句中，会查找 id、username 和 password 属性，然后将它们的值传入预处理语句的参数中。</p>
+<h4 id="字符串替换"><a href="#字符串替换" class="headerlink" title="字符串替换"></a>字符串替换</h4><p>默认情况下，使用 #{} 参数语法时，MyBatis 会创建 PreparedStatement 参数占位符，并通过占位符安全地设置参数。 这样做更安全，更迅速，通常也是首选做法，不过有时你就是想直接在 SQL 语句中直接插入一个不转义的字符串。 比如 ORDER BY 子句，这时候你可以：<code>ORDER BY ${columnName}</code>这样，MyBatis 就不会修改或转义该字符串了。但是这种方式接受从用户输出的内容并提供给语句中不变的字符串是不安全的，会导致潜在的 SQL 注入攻击，因此要么不允许用户输入这些字段，要么自行转义并检验。</p>
+<h4 id="结果映射"><a href="#结果映射" class="headerlink" title="结果映射"></a>结果映射</h4><p><code>resultMap</code> 元素是 MyBatis 中最重要最强大的元素。它可以让你从 90% 的 JDBC ResultSets 数据提取代码中解放出来，并在一些情形下允许你进行一些 JDBC 不支持的操作。实际上，在为一些比如连接的复杂语句编写映射代码的时候，一份 resultMap 能够代替实现同等功能的数千行代码。ResultMap 的设计思想是，对简单的语句做到零配置，对于复杂一点的语句，只需要描述语句之间的关系就行了。</p>
+<p>你的程序更可能会使用 JavaBean 或 POJO（Plain Old Java Objects，普通老式 Java 对象）作为领域模型。MyBatis 对两者都提供了支持。</p>
+<p>假如javaBean有三个属性id,name这些属性会对应到 select 语句中的列名。<br>这样的一个 JavaBean 可以被映射到 ResultSet，就像映射到 HashMap 一样简单。</p>
+<pre><code>&lt;select id="selectUsers" resultType="com.someapp.model.User"&gt;
+  select id, username
+  from some_table
+  where id = #{id}
+&lt;/select&gt;
+</code></pre><p>型别名是你的好帮手。使用它们，你就可以不用输入类的全限定名了。比如：</p>
+<pre><code>&lt;!-- mybatis-config.xml 中 --&gt;
+&lt;typeAlias type="com.someapp.model.User" alias="User"/&gt;
+
+&lt;!-- SQL 映射 XML 中 --&gt;
+&lt;select id="selectUsers" resultType="User"&gt;
+  select id, username, hashedPassword
+  from some_table
+  where id = #{id}
+&lt;/select&gt;
+</code></pre><p>在这些情况下，MyBatis 会在幕后自动创建一个 ResultMap，再根据属性名来映射列到 JavaBean 的属性上。如果列名和属性名不能匹配上，可以在 SELECT 语句中设置列别名（这是一个基本的 SQL 特性）来完成匹配。比如：</p>
+<pre><code>&lt;select id="selectUsers" resultType="User"&gt;
+  select
+    user_id             as "id",
+    user_name           as "userName",
+    hashed_password     as "hashedPassword"
+  from some_table
+  where id = #{id}
+&lt;/select&gt;
+</code></pre><p>外部 <code>resultMap</code></p>
+<pre><code>&lt;resultMap id="userResultMap" type="User"&gt;
+  &lt;id property="id" column="user_id" /&gt;
+  &lt;result property="username" column="user_name"/&gt;
+  &lt;result property="password" column="hashed_password"/&gt;
+&lt;/resultMap&gt;
+</code></pre><p>然后在引用它的语句中设置 resultMap 属性就行了（注意我们去掉了 resultType 属性）。比如:</p>
+<pre><code>&lt;select id="selectUsers" resultMap="userResultMap"&gt;
+  select user_id, user_name, hashed_password
+  from some_table
+  where id = #{id}
+&lt;/select&gt;
+</code></pre><h4 id="高级结果映射"><a href="#高级结果映射" class="headerlink" title="高级结果映射"></a>高级结果映射</h4><p>MyBatis 创建时的一个思想是：数据库不可能永远是你所想或所需的那个样子。 我们希望每个数据库都具备良好的第三范式或 BCNF 范式， 而 ResultMap 就是 MyBatis 对这个问题的答案。</p>
+<pre><code>&lt;!-- 非常复杂的语句 --&gt;
+&lt;select id="selectBlogDetails" resultMap="detailedBlogResultMap"&gt;
+  select
+       B.id as blog_id,
+       B.title as blog_title,
+       B.author_id as blog_author_id,
+       A.id as author_id,
+       A.username as author_username,
+       A.password as author_password,
+       A.email as author_email,
+       A.bio as author_bio,
+       A.favourite_section as author_favourite_section,
+       P.id as post_id,
+       P.blog_id as post_blog_id,
+       P.author_id as post_author_id,
+       P.created_on as post_created_on,
+       P.section as post_section,
+       P.subject as post_subject,
+       P.draft as draft,
+       P.body as post_body,
+       C.id as comment_id,
+       C.post_id as comment_post_id,
+       C.name as comment_name,
+       C.comment as comment_text,
+       T.id as tag_id,
+       T.name as tag_name
+  from Blog B
+       left outer join Author A on B.author_id = A.id
+       left outer join Post P on B.id = P.blog_id
+       left outer join Comment C on P.id = C.post_id
+       left outer join Post_Tag PT on PT.post_id = P.id
+       left outer join Tag T on PT.tag_id = T.id
+  where B.id = #{id}
+&lt;/select&gt;
+</code></pre><p>你可能想把它映射到一个智能的对象模型，这个对象表示了一篇博客，它由某位作者所写，有很多的博文，每篇博文有零或多条的评论和标签。 我们先来看看下面这个完整的例子，它是一个非常复杂的结果映射（假设作者，博客，博文，评论和标签都是类型别名）。 不用紧张，我们会一步一步地来说明。虽然它看起来令人望而生畏，但其实非常简单。</p>
+<pre><code>&lt;!-- 非常复杂的结果映射 --&gt;
+&lt;resultMap id="detailedBlogResultMap" type="Blog"&gt;
+  &lt;constructor&gt;
+    &lt;idArg column="blog_id" javaType="int"/&gt;
+  &lt;/constructor&gt;
+  &lt;result property="title" column="blog_title"/&gt;
+  &lt;association property="author" javaType="Author"&gt;
+    &lt;id property="id" column="author_id"/&gt;
+    &lt;result property="username" column="author_username"/&gt;
+    &lt;result property="password" column="author_password"/&gt;
+    &lt;result property="email" column="author_email"/&gt;
+    &lt;result property="bio" column="author_bio"/&gt;
+    &lt;result property="favouriteSection" column="author_favourite_section"/&gt;
+  &lt;/association&gt;
+  &lt;collection property="posts" ofType="Post"&gt;
+    &lt;id property="id" column="post_id"/&gt;
+    &lt;result property="subject" column="post_subject"/&gt;
+    &lt;association property="author" javaType="Author"/&gt;
+    &lt;collection property="comments" ofType="Comment"&gt;
+      &lt;id property="id" column="comment_id"/&gt;
+    &lt;/collection&gt;
+    &lt;collection property="tags" ofType="Tag" &gt;
+      &lt;id property="id" column="tag_id"/&gt;
+    &lt;/collection&gt;
+    &lt;discriminator javaType="int" column="draft"&gt;
+      &lt;case value="1" resultType="DraftPost"/&gt;
+    &lt;/discriminator&gt;
+  &lt;/collection&gt;
+&lt;/resultMap&gt;
+</code></pre><h4 id="结果映射（resultMap）"><a href="#结果映射（resultMap）" class="headerlink" title="结果映射（resultMap）"></a>结果映射（resultMap）</h4><ul>
+<li>constructor - 用于在实例化类时，注入结果到构造方法中<ul>
+<li>idArg - ID 参数；标记出作为 ID 的结果可以帮助提高整体性能</li>
+<li>arg - 将被注入到构造方法的一个普通结果</li>
 </ul>
 </li>
-<li><p>在过滤器中，可以使用FilterConfig接口对象来访问初始化参数。</p>
+<li>id – 一个 ID 结果；标记出作为 ID 的结果可以帮助提高整体性能</li>
+<li>result – 注入到字段或 JavaBean 属性的普通结果</li>
+<li>association – 一个复杂类型的关联；许多结果将包装成这种类型<ul>
+<li>嵌套结果映射 – 关联可以是 resultMap 元素，或是对其它结果映射的引用</li>
+</ul>
+</li>
+<li>collection – 一个复杂类型的集合<ul>
+<li>嵌套结果映射 – 集合可以是 resultMap 元素，或是对其它结果映射的引用</li>
+</ul>
+</li>
+<li>discriminator – 使用结果值来决定使用哪个 resultMap<ul>
+<li>case – 基于某些值的结果映射<ul>
+<li>嵌套结果映射 – case 也是一个结果映射，因此具有相同的结构和元素；或者引用其它的结果映射</li>
+</ul>
 </li>
 </ul>
 </li>
-<li><p><code>&lt;filter-mapping&gt;</code>元素用于设置一个 <code>Filter</code> 所负责拦截的资源。一个Filter拦截的资源可通过两种方式来指定：Servlet 名称和资源访问的请求路径<br><code>&lt;filter-name&gt;</code>子元素用于设置<code>filter</code>的注册名称。该值必须是在<code>&lt;filter&gt;</code>元素中声明过的过滤器的名字</p>
+</ul>
+<h4 id="缓存"><a href="#缓存" class="headerlink" title="缓存"></a>缓存</h4><p>MyBatis 内置了一个强大的事务性查询缓存机制，它可以非常方便地配置和定制。<br><code>&lt;cache/&gt;</code></p>
 <ul>
-<li><p><code>&lt;url-pattern&gt;</code> 设置 filter 所拦截的请求路径(过滤器关联的URL样式)</p>
-</li>
-<li><p><code>&lt;servlet-name&gt;</code>指定过滤器所拦截的Servlet名称。</p>
-</li>
+<li>映射语句文件中的所有 select 语句的结果将会被缓存。</li>
+<li>映射语句文件中的所有 insert、update 和 delete 语句会刷新缓存。</li>
+<li>缓存会使用最近最少使用算法（LRU, Least Recently Used）算法来清除不需要的缓存。</li>
+<li>缓存不会定时进行刷新（也就是说，没有刷新间隔）。</li>
+<li>缓存会保存列表或对象（无论查询方法返回哪种）的 1024 个引用。</li>
+<li>缓存会被视为读/写缓存，这意味着获取到的对象并不是共享的，可以安全地被调用者修改，而不干扰其他调用者或线程所做的潜在修改。</li>
 </ul>
-</li>
-<li><p><code>&lt;dispatcher&gt;</code>指定过滤器所拦截的资源被 Servlet 容器调用的方式，可以是<code>REQUEST</code>,<code>INCLUDE</code>,<code>FORWARD</code>和<code>ERROR</code>之一，默认<code>REQUEST</code>。用户可以设置多个<code>&lt;dispatcher&gt;</code>子元素用来指定 Filter 对资源的多种调用方式进行拦截。</p>
-</li>
-<li><p><code>&lt;dispatcher&gt;</code>子元素可以设置的值及其意义</p>
-<ul>
-<li><p><code>REQUEST</code>：当用户直接访问页面时，Web容器将会调用过滤器。如果目标资源是通过RequestDispatcher的include()或forward()方法访问时，那么该过滤器就不会被调用。</p>
-</li>
-<li><p><code>INCLUDE</code>：如果目标资源是通过RequestDispatcher的include()方法访问时，那么该过滤器将被调用。除此之外，该过滤器不会被调用。</p>
-</li>
-<li><p><code>FORWARD</code>：如果目标资源是通过RequestDispatcher的forward()方法访问时，那么该过滤器将被调用，除此之外，该过滤器不会被调用。</p>
-</li>
-<li><p><code>ERROR</code>：如果目标资源是通过声明式异常处理机制调用时，那么该过滤器将被调用。除此之外，过滤器不会被调用。</p>
-</li>
-</ul>
-</li>
-</ul>
-<script>
+<p>这些属性可以通过 cache 元素的属性来修改。比如：</p>
+<pre><code>&lt;cache
+  eviction="FIFO"
+  flushInterval="60000"
+  size="512"
+  readOnly="true"/&gt;
+</code></pre><script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
             if (!el.dataset.src) { return; }
@@ -1001,7 +1352,7 @@ public class MyFilter implements Filter {
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="www.yunshan.online/posts/4023865989.html">www.yunshan.online/posts/4023865989.html</a>
+                    <a href="www.yunshan.online/posts/2303684642.html">www.yunshan.online/posts/2303684642.html</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -1039,8 +1390,8 @@ public class MyFilter implements Filter {
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/servlet/">
-                                    <span class="chip bg-color">servlet</span>
+                                <a href="/tags/mybatis/">
+                                    <span class="chip bg-color">mybatis</span>
                                 </a>
                             
                         </div>
@@ -1473,24 +1824,27 @@ public class MyFilter implements Filter {
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/posts/352264091.html">
+                <a href="/posts/1982416368.html">
                     <div class="card-image">
                         
                         
-                        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASwAAAEsCAMAAABOo35HAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAC9UExURVlZWdPT07KysmRkZIWFhfT09JmZmWZmZm9vb39/fxkZGUxMTDMzM3p6epCQkKamppubm729venp6cjIyN7e3tbW1s/Pz8LCwnx8fLS0tFZWVoiIiI+Pj6GhoeTk5Glpabu7u93d3evr66CgoJSUlKqqqsnJyeDg4Hd3d8PDw+Xl5bi4uNHR0dvb26Ojo6urq+fn51hYWDg4OCgoKHBwcK2traenp0FBQe7u7vHx8U5OTre3t8zMzHV1df///7GrnpQAAAA/dFJOU///////////////////////////////////////////////////////////////////////////////////AI4mfBcAAAUGSURBVHja7NoJb6M4GMZxY0NCD64kve/pMZ2d3Z297+X7f6zFNmBAMUXa6URl/q9UJSWPUPzrizFWRUlNLgEBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYYIEFAVhggQUWWGBBABZYYIEFFlgQgAUWWGCBBRYEYIEFFlhggQUBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYn6cCIcRXgvX/h9qcIVBqDdbEM8RCxGCB9QqXYRwHYDHBgwXWl8eKZKiESHI3Ba1kWs3fKixcaJUl1YyeBm7Ocq+yLItUiVBGnXxenSHJolIKEcwHq6ikbOX1YGVzQCTN8LPmSLreghUl9sN4Uw7yajMrLC0TZ1ImzqY6FEop0+pIaEN5HaoOxVuwEqFyc4I46uSlzOLqgxlh6UaR9l3VYWl9Fdoxb1Q90KJtu41pwwFW/WHhTtW8i7TafLCqRsk6bsGw63L9qurXRmuIlbT9lDQnlXU+nBFW1Q2qnZbDprWa2tjR90LZFqx1/+Td/HpGWLlrLDvIwTcx6dQ1Vrntbig68cDms3JwbA5Y1azs1ger6sNV/bbIw1jU81MvNAGrl58RVn8ozW+btF08iGFoAlYvP3csfVur1gJBEIA1uBmue5dhZDOyO2epbmgCVi8/I6x0MMHH9pjsTfBhNzQBq5uPZoQlB0uH3DZG4EZqQ26fL3sZq5uf09Ih6qw3i/pm6BZO0qZX7rrUS68Xsbr5ZE4rePMk08pk9aUZugfqppvs6AM1Acvlo/StP+6EbW06z8hJqxbYp2BZPQUnFsLsKuhQdaHqn5ewbF7KXIn0jWO5MqOQ7RaNLPtbNMmmhimj0GUmYLl8Gs0Lq4wyPbTu1l2QKqHSouzs3OlDIslW5SQsnY/NXmFplyNvEuuLV/Tau9BzwiraDUSwXmysztYWWNtL1psXeumgIrDGaqXvBfUuvtqUYI3V2t1wk1e2msFluJJm6zDJXv/fIfjPP7DAAgsssCiwwAILLLDAosACCyywwAKLAgsssMACC6zt9fDz/v75tyOB+98PD2+ORgKffjw4OP1uJPDxl+Xy8v1I4MPF3t7VNyOB4/vF4uzdzrG+39f1kz/w66Guv/yBvw90KX/gZKkr8Qf+2dOV+gNHC12/7RxrabD2/a31bLAO/a11YbAO/K21MFhLf2s9Gqw9f2vdGqzFu11jnVusE2/gxmI9eQOnFuvYG7i0WH7uK4t15w2cWazrXWP9a7H8f/bQYvm/6IPF+sF/pVssf19Ii/WH/0K2WH/uGuvEWC39gSdj9Twy+Rqri5EZx1gt/IE7Y/XoD1wbq9vd3w1PlufnD2OBp+ebm/uxwPHF6emnscDR4vLy41jg7vHq6sNY4Pr27OyYdRaLUrDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssL6u+k+AAQCR9eHtLKvLfwAAAABJRU5ErkJggg==" data-original="/medias/featureimages/3.jpg" class="responsive-img" alt="Servlet异常处理">
+                        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASwAAAEsCAMAAABOo35HAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAC9UExURVlZWdPT07KysmRkZIWFhfT09JmZmWZmZm9vb39/fxkZGUxMTDMzM3p6epCQkKamppubm729venp6cjIyN7e3tbW1s/Pz8LCwnx8fLS0tFZWVoiIiI+Pj6GhoeTk5Glpabu7u93d3evr66CgoJSUlKqqqsnJyeDg4Hd3d8PDw+Xl5bi4uNHR0dvb26Ojo6urq+fn51hYWDg4OCgoKHBwcK2traenp0FBQe7u7vHx8U5OTre3t8zMzHV1df///7GrnpQAAAA/dFJOU///////////////////////////////////////////////////////////////////////////////////AI4mfBcAAAUGSURBVHja7NoJb6M4GMZxY0NCD64kve/pMZ2d3Z297+X7f6zFNmBAMUXa6URl/q9UJSWPUPzrizFWRUlNLgEBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYYIEFAVhggQUWWGBBABZYYIEFFlgQgAUWWGCBBRYEYIEFFlhggQUBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYn6cCIcRXgvX/h9qcIVBqDdbEM8RCxGCB9QqXYRwHYDHBgwXWl8eKZKiESHI3Ba1kWs3fKixcaJUl1YyeBm7Ocq+yLItUiVBGnXxenSHJolIKEcwHq6ikbOX1YGVzQCTN8LPmSLreghUl9sN4Uw7yajMrLC0TZ1ImzqY6FEop0+pIaEN5HaoOxVuwEqFyc4I46uSlzOLqgxlh6UaR9l3VYWl9Fdoxb1Q90KJtu41pwwFW/WHhTtW8i7TafLCqRsk6bsGw63L9qurXRmuIlbT9lDQnlXU+nBFW1Q2qnZbDprWa2tjR90LZFqx1/+Td/HpGWLlrLDvIwTcx6dQ1Vrntbig68cDms3JwbA5Y1azs1ger6sNV/bbIw1jU81MvNAGrl58RVn8ozW+btF08iGFoAlYvP3csfVur1gJBEIA1uBmue5dhZDOyO2epbmgCVi8/I6x0MMHH9pjsTfBhNzQBq5uPZoQlB0uH3DZG4EZqQ26fL3sZq5uf09Ih6qw3i/pm6BZO0qZX7rrUS68Xsbr5ZE4rePMk08pk9aUZugfqppvs6AM1Acvlo/StP+6EbW06z8hJqxbYp2BZPQUnFsLsKuhQdaHqn5ewbF7KXIn0jWO5MqOQ7RaNLPtbNMmmhimj0GUmYLl8Gs0Lq4wyPbTu1l2QKqHSouzs3OlDIslW5SQsnY/NXmFplyNvEuuLV/Tau9BzwiraDUSwXmysztYWWNtL1psXeumgIrDGaqXvBfUuvtqUYI3V2t1wk1e2msFluJJm6zDJXv/fIfjPP7DAAgsssCiwwAILLLDAosACCyywwAKLAgsssMACC6zt9fDz/v75tyOB+98PD2+ORgKffjw4OP1uJPDxl+Xy8v1I4MPF3t7VNyOB4/vF4uzdzrG+39f1kz/w66Guv/yBvw90KX/gZKkr8Qf+2dOV+gNHC12/7RxrabD2/a31bLAO/a11YbAO/K21MFhLf2s9Gqw9f2vdGqzFu11jnVusE2/gxmI9eQOnFuvYG7i0WH7uK4t15w2cWazrXWP9a7H8f/bQYvm/6IPF+sF/pVssf19Ii/WH/0K2WH/uGuvEWC39gSdj9Twy+Rqri5EZx1gt/IE7Y/XoD1wbq9vd3w1PlufnD2OBp+ebm/uxwPHF6emnscDR4vLy41jg7vHq6sNY4Pr27OyYdRaLUrDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssL6u+k+AAQCR9eHtLKvLfwAAAABJRU5ErkJggg==" data-original="/medias/featureimages/8.jpg" class="responsive-img" alt="Spring事务管理">
                         
-                        <span class="card-title">Servlet异常处理</span>
+                        <span class="card-title">Spring事务管理</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            Servlet异常处理当一个 Servlet 抛出一个异常时，Web 容器在使用了 exception-type 元素的 web.xml 中搜索与抛出异常类型相匹配的配置。必须在 web.xml 中使用 error-page 元素来指定对特
+                            Spring 编程式事务管理通过Transaction Template手动管理事务，实际应用中很少使用
+创建数据库
+DROP TABLE IF EXISTS `tb_account`;
+CREATE TABLE `tb_account` 
                         
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2020-04-17
+                            <i class="far fa-clock fa-fw icon-date"></i>2020-04-22
                         </span>
                         <span class="publish-author">
                             
@@ -1507,8 +1861,8 @@ public class MyFilter implements Filter {
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/servlet/">
-                        <span class="chip bg-color">servlet</span>
+                    <a href="/tags/spring/">
+                        <span class="chip bg-color">spring</span>
                     </a>
                     
                 </div>
@@ -1522,36 +1876,31 @@ public class MyFilter implements Filter {
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/posts/2565018538.html">
+                <a href="/posts/887790741.html">
                     <div class="card-image">
                         
                         
-                        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASwAAAEsCAMAAABOo35HAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAC9UExURVlZWdPT07KysmRkZIWFhfT09JmZmWZmZm9vb39/fxkZGUxMTDMzM3p6epCQkKamppubm729venp6cjIyN7e3tbW1s/Pz8LCwnx8fLS0tFZWVoiIiI+Pj6GhoeTk5Glpabu7u93d3evr66CgoJSUlKqqqsnJyeDg4Hd3d8PDw+Xl5bi4uNHR0dvb26Ojo6urq+fn51hYWDg4OCgoKHBwcK2traenp0FBQe7u7vHx8U5OTre3t8zMzHV1df///7GrnpQAAAA/dFJOU///////////////////////////////////////////////////////////////////////////////////AI4mfBcAAAUGSURBVHja7NoJb6M4GMZxY0NCD64kve/pMZ2d3Z297+X7f6zFNmBAMUXa6URl/q9UJSWPUPzrizFWRUlNLgEBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYYIEFAVhggQUWWGBBABZYYIEFFlgQgAUWWGCBBRYEYIEFFlhggQUBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYn6cCIcRXgvX/h9qcIVBqDdbEM8RCxGCB9QqXYRwHYDHBgwXWl8eKZKiESHI3Ba1kWs3fKixcaJUl1YyeBm7Ocq+yLItUiVBGnXxenSHJolIKEcwHq6ikbOX1YGVzQCTN8LPmSLreghUl9sN4Uw7yajMrLC0TZ1ImzqY6FEop0+pIaEN5HaoOxVuwEqFyc4I46uSlzOLqgxlh6UaR9l3VYWl9Fdoxb1Q90KJtu41pwwFW/WHhTtW8i7TafLCqRsk6bsGw63L9qurXRmuIlbT9lDQnlXU+nBFW1Q2qnZbDprWa2tjR90LZFqx1/+Td/HpGWLlrLDvIwTcx6dQ1Vrntbig68cDms3JwbA5Y1azs1ger6sNV/bbIw1jU81MvNAGrl58RVn8ozW+btF08iGFoAlYvP3csfVur1gJBEIA1uBmue5dhZDOyO2epbmgCVi8/I6x0MMHH9pjsTfBhNzQBq5uPZoQlB0uH3DZG4EZqQ26fL3sZq5uf09Ih6qw3i/pm6BZO0qZX7rrUS68Xsbr5ZE4rePMk08pk9aUZugfqppvs6AM1Acvlo/StP+6EbW06z8hJqxbYp2BZPQUnFsLsKuhQdaHqn5ewbF7KXIn0jWO5MqOQ7RaNLPtbNMmmhimj0GUmYLl8Gs0Lq4wyPbTu1l2QKqHSouzs3OlDIslW5SQsnY/NXmFplyNvEuuLV/Tau9BzwiraDUSwXmysztYWWNtL1psXeumgIrDGaqXvBfUuvtqUYI3V2t1wk1e2msFluJJm6zDJXv/fIfjPP7DAAgsssCiwwAILLLDAosACCyywwAKLAgsssMACC6zt9fDz/v75tyOB+98PD2+ORgKffjw4OP1uJPDxl+Xy8v1I4MPF3t7VNyOB4/vF4uzdzrG+39f1kz/w66Guv/yBvw90KX/gZKkr8Qf+2dOV+gNHC12/7RxrabD2/a31bLAO/a11YbAO/K21MFhLf2s9Gqw9f2vdGqzFu11jnVusE2/gxmI9eQOnFuvYG7i0WH7uK4t15w2cWazrXWP9a7H8f/bQYvm/6IPF+sF/pVssf19Ii/WH/0K2WH/uGuvEWC39gSdj9Twy+Rqri5EZx1gt/IE7Y/XoD1wbq9vd3w1PlufnD2OBp+ebm/uxwPHF6emnscDR4vLy41jg7vHq6sNY4Pr27OyYdRaLUrDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssL6u+k+AAQCR9eHtLKvLfwAAAABJRU5ErkJggg==" data-original="/medias/featureimages/21.jpg" class="responsive-img" alt="HTTP常见的状态码">
+                        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASwAAAEsCAMAAABOo35HAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAC9UExURVlZWdPT07KysmRkZIWFhfT09JmZmWZmZm9vb39/fxkZGUxMTDMzM3p6epCQkKamppubm729venp6cjIyN7e3tbW1s/Pz8LCwnx8fLS0tFZWVoiIiI+Pj6GhoeTk5Glpabu7u93d3evr66CgoJSUlKqqqsnJyeDg4Hd3d8PDw+Xl5bi4uNHR0dvb26Ojo6urq+fn51hYWDg4OCgoKHBwcK2traenp0FBQe7u7vHx8U5OTre3t8zMzHV1df///7GrnpQAAAA/dFJOU///////////////////////////////////////////////////////////////////////////////////AI4mfBcAAAUGSURBVHja7NoJb6M4GMZxY0NCD64kve/pMZ2d3Z297+X7f6zFNmBAMUXa6URl/q9UJSWPUPzrizFWRUlNLgEBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYYIEFAVhggQUWWGBBABZYYIEFFlgQgAUWWGCBBRYEYIEFFlhggQUBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYn6cCIcRXgvX/h9qcIVBqDdbEM8RCxGCB9QqXYRwHYDHBgwXWl8eKZKiESHI3Ba1kWs3fKixcaJUl1YyeBm7Ocq+yLItUiVBGnXxenSHJolIKEcwHq6ikbOX1YGVzQCTN8LPmSLreghUl9sN4Uw7yajMrLC0TZ1ImzqY6FEop0+pIaEN5HaoOxVuwEqFyc4I46uSlzOLqgxlh6UaR9l3VYWl9Fdoxb1Q90KJtu41pwwFW/WHhTtW8i7TafLCqRsk6bsGw63L9qurXRmuIlbT9lDQnlXU+nBFW1Q2qnZbDprWa2tjR90LZFqx1/+Td/HpGWLlrLDvIwTcx6dQ1Vrntbig68cDms3JwbA5Y1azs1ger6sNV/bbIw1jU81MvNAGrl58RVn8ozW+btF08iGFoAlYvP3csfVur1gJBEIA1uBmue5dhZDOyO2epbmgCVi8/I6x0MMHH9pjsTfBhNzQBq5uPZoQlB0uH3DZG4EZqQ26fL3sZq5uf09Ih6qw3i/pm6BZO0qZX7rrUS68Xsbr5ZE4rePMk08pk9aUZugfqppvs6AM1Acvlo/StP+6EbW06z8hJqxbYp2BZPQUnFsLsKuhQdaHqn5ewbF7KXIn0jWO5MqOQ7RaNLPtbNMmmhimj0GUmYLl8Gs0Lq4wyPbTu1l2QKqHSouzs3OlDIslW5SQsnY/NXmFplyNvEuuLV/Tau9BzwiraDUSwXmysztYWWNtL1psXeumgIrDGaqXvBfUuvtqUYI3V2t1wk1e2msFluJJm6zDJXv/fIfjPP7DAAgsssCiwwAILLLDAosACCyywwAKLAgsssMACC6zt9fDz/v75tyOB+98PD2+ORgKffjw4OP1uJPDxl+Xy8v1I4MPF3t7VNyOB4/vF4uzdzrG+39f1kz/w66Guv/yBvw90KX/gZKkr8Qf+2dOV+gNHC12/7RxrabD2/a31bLAO/a11YbAO/K21MFhLf2s9Gqw9f2vdGqzFu11jnVusE2/gxmI9eQOnFuvYG7i0WH7uK4t15w2cWazrXWP9a7H8f/bQYvm/6IPF+sF/pVssf19Ii/WH/0K2WH/uGuvEWC39gSdj9Twy+Rqri5EZx1gt/IE7Y/XoD1wbq9vd3w1PlufnD2OBp+ebm/uxwPHF6emnscDR4vLy41jg7vHq6sNY4Pr27OyYdRaLUrDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssL6u+k+AAQCR9eHtLKvLfwAAAABJRU5ErkJggg==" data-original="/medias/featureimages/11.jpg" class="responsive-img" alt="Spring-JDBC">
                         
-                        <span class="card-title">HTTP常见的状态码</span>
+                        <span class="card-title">Spring-JDBC</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            
-200 OK 客户端请求成功，一般用于GET与POST请求
-
-301 Moved Permanently（永久移除)，请求的 URL 已移走。Response 中应该包含一个 Location URL, 说明资 源现在所处的位置
-
-302
+                            Spring JdbcTemplate框架JDBCTemplate继承了基类JdbcAccessor和接口类JdbcOperation。在基类JdbcAccessor的设计中，对DataSource数据源进行管理和配。在JdbcOperat
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-04-15
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-04-22
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/JavaWeb/" class="post-category">
-                                    JavaWeb
+                            <a href="/categories/Java/" class="post-category">
+                                    Java
                                 </a>
                             
                             
@@ -1561,8 +1910,12 @@ public class MyFilter implements Filter {
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/http%E7%8A%B6%E6%80%81%E7%A0%81/">
-                        <span class="chip bg-color">http状态码</span>
+                    <a href="/tags/jdbc/">
+                        <span class="chip bg-color">jdbc</span>
+                    </a>
+                    
+                    <a href="/tags/spring/">
+                        <span class="chip bg-color">spring</span>
                     </a>
                     
                 </div>
