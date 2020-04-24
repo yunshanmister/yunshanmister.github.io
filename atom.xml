@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="www.yunshan.online/"/>
-  <updated>2020-04-23T10:38:51.117Z</updated>
+  <updated>2020-04-24T06:12:38.733Z</updated>
   <id>www.yunshan.online/</id>
   
   <author>
@@ -17,11 +17,182 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>Mysql性能优化</title>
+    <link href="www.yunshan.online/posts/4149379325.html"/>
+    <id>www.yunshan.online/posts/4149379325.html</id>
+    <published>2020-04-24T08:10:22.000Z</published>
+    <updated>2020-04-24T06:12:38.733Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;script&gt;
+        document.querySelectorAll(&#39;.github-emoji&#39;)
+          .forEach(el =&gt; {
+            if (!el.dataset.src) { return; }
+       
+        
+      
+    
+    </summary>
+    
+    
+      <category term="数据库" scheme="www.yunshan.online/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
+    
+    
+      <category term="mysql" scheme="www.yunshan.online/tags/mysql/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>重定向和请求转发的区别</title>
+    <link href="www.yunshan.online/posts/1014927162.html"/>
+    <id>www.yunshan.online/posts/1014927162.html</id>
+    <published>2020-04-24T06:05:20.000Z</published>
+    <updated>2020-04-24T06:06:24.631Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;本质区别：转发是服务器行为，重定向是客户端行为。&lt;/p&gt;
+&lt;p&gt;重定向特点：两次请求，浏览器地址发生变化，可以访问自己 web 之外的资源，传输的数据会丢失。&lt;/p&gt;
+&lt;p&gt;请求转发特点：一次强求，浏览器地址不变，访问的是自己本身的 web
+        
+      
+    
+    </summary>
+    
+    
+      <category term="JavaWeb" scheme="www.yunshan.online/categories/JavaWeb/"/>
+    
+    
+      <category term="http" scheme="www.yunshan.online/tags/http/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>GET和POST的区别</title>
+    <link href="www.yunshan.online/posts/1977709099.html"/>
+    <id>www.yunshan.online/posts/1977709099.html</id>
+    <published>2020-04-24T05:47:56.000Z</published>
+    <updated>2020-04-24T06:04:20.696Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h3 id=&quot;GET和POST的区别&quot;&gt;&lt;a href=&quot;#GET和POST的区别&quot; class=&quot;headerlink&quot; title=&quot;GET和POST的区别&quot;&gt;&lt;/a&gt;GET和POST的区别&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;GET 请求的数据会附在 URL
+        
+      
+    
+    </summary>
+    
+    
+      <category term="JavaWeb" scheme="www.yunshan.online/categories/JavaWeb/"/>
+    
+    
+      <category term="http" scheme="www.yunshan.online/tags/http/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>JSP标准标签库</title>
+    <link href="www.yunshan.online/posts/3472095508.html"/>
+    <id>www.yunshan.online/posts/3472095508.html</id>
+    <published>2020-04-24T03:40:00.000Z</published>
+    <updated>2020-04-24T05:45:33.698Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h3 id=&quot;JSP标准标签库&quot;&gt;&lt;a href=&quot;#JSP标准标签库&quot; class=&quot;headerlink&quot; title=&quot;JSP标准标签库&quot;&gt;&lt;/a&gt;JSP标准标签库&lt;/h3&gt;&lt;h4 id=&quot;EL【Expression-Language】表达式&quot;&gt;&lt;a
+        
+      
+    
+    </summary>
+    
+    
+      <category term="JavaWeb" scheme="www.yunshan.online/categories/JavaWeb/"/>
+    
+    
+      <category term="jstl" scheme="www.yunshan.online/tags/jstl/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>SQL注入</title>
+    <link href="www.yunshan.online/posts/3879016411.html"/>
+    <id>www.yunshan.online/posts/3879016411.html</id>
+    <published>2020-04-23T11:01:37.000Z</published>
+    <updated>2020-04-24T03:35:35.131Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h3 id=&quot;SQL注入&quot;&gt;&lt;a href=&quot;#SQL注入&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+    
+      <category term="数据库" scheme="www.yunshan.online/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
+    
+    
+      <category term="sql" scheme="www.yunshan.online/tags/sql/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Cookie和Session</title>
+    <link href="www.yunshan.online/posts/3910775500.html"/>
+    <id>www.yunshan.online/posts/3910775500.html</id>
+    <published>2020-04-23T10:51:12.000Z</published>
+    <updated>2020-04-24T02:33:03.075Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h3 id=&quot;Cookie和Session的异同&quot;&gt;&lt;a href=&quot;#Cookie和Session的异同&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+    
+      <category term="JavaWeb" scheme="www.yunshan.online/categories/JavaWeb/"/>
+    
+    
+      <category term="cookie" scheme="www.yunshan.online/tags/cookie/"/>
+    
+      <category term="session" scheme="www.yunshan.online/tags/session/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Mybatis动态SQL</title>
     <link href="www.yunshan.online/posts/1156382316.html"/>
     <id>www.yunshan.online/posts/1156382316.html</id>
     <published>2020-04-23T10:23:16.000Z</published>
-    <updated>2020-04-23T10:38:51.117Z</updated>
+    <updated>2020-04-23T10:41:30.935Z</updated>
     
     <summary type="html">
     
@@ -48,7 +219,7 @@
     <link href="www.yunshan.online/posts/1982416368.html"/>
     <id>www.yunshan.online/posts/1982416368.html</id>
     <published>2020-04-22T13:48:15.000Z</published>
-    <updated>2020-04-23T10:19:09.188Z</updated>
+    <updated>2020-04-23T10:41:30.934Z</updated>
     
     <summary type="html">
     
@@ -75,7 +246,7 @@
     <link href="www.yunshan.online/posts/2303684642.html"/>
     <id>www.yunshan.online/posts/2303684642.html</id>
     <published>2020-04-22T12:03:12.000Z</published>
-    <updated>2020-04-23T06:03:35.906Z</updated>
+    <updated>2020-04-23T10:41:30.936Z</updated>
     
     <summary type="html">
     
@@ -395,169 +566,6 @@
     
     
       <category term="jsp" scheme="www.yunshan.online/tags/jsp/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Redis命令-String</title>
-    <link href="www.yunshan.online/posts/2999899094.html"/>
-    <id>www.yunshan.online/posts/2999899094.html</id>
-    <published>2020-04-19T07:21:57.000Z</published>
-    <updated>2020-04-20T06:50:54.298Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h4 id=&quot;字符串命令&quot;&gt;&lt;a href=&quot;#字符串命令&quot; class=&quot;headerlink&quot; title=&quot;字符串命令&quot;&gt;&lt;/a&gt;字符串命令&lt;/h4&gt;&lt;p&gt;1.&lt;code&gt;SET key value&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;设置指定 key
-        
-      
-    
-    </summary>
-    
-    
-      <category term="数据库" scheme="www.yunshan.online/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
-    
-    
-      <category term="redis" scheme="www.yunshan.online/tags/redis/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>快速排序</title>
-    <link href="www.yunshan.online/posts/4286605504.html"/>
-    <id>www.yunshan.online/posts/4286605504.html</id>
-    <published>2020-04-18T08:54:32.000Z</published>
-    <updated>2020-04-19T13:57:25.266Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h3 id=&quot;快速排序算法&quot;&gt;&lt;a href=&quot;#快速排序算法&quot; class=&quot;headerlink&quot;
-        
-      
-    
-    </summary>
-    
-    
-      <category term="算法" scheme="www.yunshan.online/categories/%E7%AE%97%E6%B3%95/"/>
-    
-    
-      <category term="快速排序" scheme="www.yunshan.online/tags/%E5%BF%AB%E9%80%9F%E6%8E%92%E5%BA%8F/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>MySQL索引</title>
-    <link href="www.yunshan.online/posts/1135024868.html"/>
-    <id>www.yunshan.online/posts/1135024868.html</id>
-    <published>2020-04-18T04:39:32.000Z</published>
-    <updated>2020-04-20T06:43:38.464Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h3 id=&quot;MySQL索引&quot;&gt;&lt;a href=&quot;#MySQL索引&quot; class=&quot;headerlink&quot; title=&quot;MySQL索引&quot;&gt;&lt;/a&gt;MySQL索引&lt;/h3&gt;&lt;h4 id=&quot;索引简介&quot;&gt;&lt;a href=&quot;#索引简介&quot; class=&quot;headerlink&quot;
-        
-      
-    
-    </summary>
-    
-    
-      <category term="数据库" scheme="www.yunshan.online/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
-    
-    
-      <category term="mysql" scheme="www.yunshan.online/tags/mysql/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>MySQL事务</title>
-    <link href="www.yunshan.online/posts/261182303.html"/>
-    <id>www.yunshan.online/posts/261182303.html</id>
-    <published>2020-04-17T14:02:33.000Z</published>
-    <updated>2020-04-20T06:43:56.154Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h3 id=&quot;MySQL事务&quot;&gt;&lt;a href=&quot;#MySQL事务&quot; class=&quot;headerlink&quot; title=&quot;MySQL事务&quot;&gt;&lt;/a&gt;MySQL事务&lt;/h3&gt;&lt;p&gt;MySQL
-        
-      
-    
-    </summary>
-    
-    
-      <category term="数据库" scheme="www.yunshan.online/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
-    
-    
-      <category term="mysql" scheme="www.yunshan.online/tags/mysql/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Servlet异常处理</title>
-    <link href="www.yunshan.online/posts/352264091.html"/>
-    <id>www.yunshan.online/posts/352264091.html</id>
-    <published>2020-04-17T12:22:09.000Z</published>
-    <updated>2020-04-20T06:45:14.255Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h3 id=&quot;Servlet异常处理&quot;&gt;&lt;a href=&quot;#Servlet异常处理&quot; class=&quot;headerlink&quot; title=&quot;Servlet异常处理&quot;&gt;&lt;/a&gt;Servlet异常处理&lt;/h3&gt;&lt;p&gt;当一个 Servlet 抛出一个异常时，Web 容器在使用了
-        
-      
-    
-    </summary>
-    
-    
-      <category term="Java" scheme="www.yunshan.online/categories/Java/"/>
-    
-    
-      <category term="servlet" scheme="www.yunshan.online/tags/servlet/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Servlet过滤器</title>
-    <link href="www.yunshan.online/posts/4023865989.html"/>
-    <id>www.yunshan.online/posts/4023865989.html</id>
-    <published>2020-04-17T02:16:04.000Z</published>
-    <updated>2020-04-20T06:45:05.765Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h3 id=&quot;过滤器【Filter】&quot;&gt;&lt;a href=&quot;#过滤器【Filter】&quot; class=&quot;headerlink&quot;
-        
-      
-    
-    </summary>
-    
-    
-      <category term="Java" scheme="www.yunshan.online/categories/Java/"/>
-    
-    
-      <category term="servlet" scheme="www.yunshan.online/tags/servlet/"/>
     
   </entry>
   
