@@ -872,7 +872,70 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <script>
+                <h3 id="Mysql性能优化"><a href="#Mysql性能优化" class="headerlink" title="Mysql性能优化"></a>Mysql性能优化</h3><h4 id="Mysql数据库的优化技术"><a href="#Mysql数据库的优化技术" class="headerlink" title="Mysql数据库的优化技术"></a>Mysql数据库的优化技术</h4><h6 id="1-表的设计要符合三范式"><a href="#1-表的设计要符合三范式" class="headerlink" title="1.表的设计要符合三范式"></a>1.表的设计要符合三范式</h6><p>第一范式：1NF是对属性的原子性约束，要求属性也就是列具有原子性，不可再分解。</p>
+<p>第二范式：2NF是对记录的惟一性约束，要求记录有惟一标识，即实体的惟一性。</p>
+<p>第三范式：3NF是对字段冗余性的约束，它要求字段没有冗余。 没有冗余的数据库设计可以做到。</p>
+<h6 id="2-添加适当索引-index"><a href="#2-添加适当索引-index" class="headerlink" title="2.添加适当索引(index)"></a>2.添加适当索引(index)</h6><p>四种: 普通索引、主键索引、唯一索引unique、全文索引</p>
+<h6 id="3-分库分表技术"><a href="#3-分库分表技术" class="headerlink" title="3.分库分表技术"></a>3.分库分表技术</h6><p>1、垂直（纵向）切分<br>垂直分库就是根据业务耦合性，将关联度低的不同表存储在不同的数据库。   </p>
+<p>垂直分表是基于数据库中的”列”进行，某个表字段较多，可以新建一张扩展表，将不经常用或字段长度较大的字段拆分出去到扩展表中。数据库以行为单位将数据加载到内存中，这样表中字段长度较短且访问频率较高，内存能加载更多的数据，命中率更高，减少了磁盘IO，从而提升了数据库性能。</p>
+<p>结果：优点：解决业务系统层面的耦合，业务清晰。与微服务的治理类似，也能对不同业务的数据进行分级管理、维护、监控、扩展等。高并发场景下，垂直切分一定程度的提升IO、数据库连接数、单机硬件资源的瓶颈。缺点：部分表无法join，只能通过接口聚合方式解决，提升了开发的复杂度。分布式事务处理复杂。依然存在单表数据量过大的问题。</p>
+<p>2、水平（横向）切分</p>
+<p>水平切分分为库内分表和分库分表，是根据表内数据内在的逻辑关系，将同一个表按不同的条件分散到多个数据库或多个表中，每个表中只包含一部分数据，从而使得单个表的数据量变小，达到分布式的效果。</p>
+<p>库内分表只解决了单一表数据量过大的问题，但没有将表分布到不同机器的库上</p>
+<p>结果：优点：不存在单库数据量过大、高并发的性能瓶颈，提升系统稳定性和负载能力。应用端改造较小，不需要拆分业务模块。<br>缺点：跨分片的事务一致性难以保证。跨库的join关联查询性能较差<br>。数据多次扩展难度和维护量极大。</p>
+<p>对于分库分表一般采用第三方工具，sharding-jdbc（当当）;TSharding（蘑菇街）;Atlas（奇虎360）;Cobar（阿里巴巴）;MyCAT（基于Cobar）;Oceanus（58同城）;Vitess（谷歌）;</p>
+<h6 id="4-读写分离"><a href="#4-读写分离" class="headerlink" title="4.读写分离"></a>4.读写分离</h6><p>主从复制：当主服务器有写入<code>insert/update/delete</code>语句时候，从服务器自动获取<br>读写分离：<code>insert/update/delete</code>语句操作一台服务器，select操作另一个服务器</p>
+<h6 id="5-存储过程"><a href="#5-存储过程" class="headerlink" title="5.存储过程"></a>5.存储过程</h6><p>存储过程思想就是数据库 SQL 语言层面的代码封装与重用。</p>
+<p>优点：<br>存储过程可封装，并隐藏复杂的商业逻辑。存储过程可以回传值，并可以接受参数。存储过程无法使用 SELECT 指令来运行，因为它是子程序，与查看表，数据表或用户定义函数不同。存储过程可以用在数据检验，强制实行商业逻辑等。<br>缺点：<br>存储过程，往往定制化于特定的数据库上，因为支持的编程语言不同。当切换到其他厂商的数据库系统时，需要重写原有的存储过程。存储过程的性能调校与撰写，受限于各种数据库系统。</p>
+<h6 id="6-对mysql配置优化"><a href="#6-对mysql配置优化" class="headerlink" title="6.对mysql配置优化"></a>6.对mysql配置优化</h6><p>配置最大并发数my.ini, 调整缓存大小</p>
+<h6 id="7-mysql服务器硬件升级"><a href="#7-mysql服务器硬件升级" class="headerlink" title="7.mysql服务器硬件升级"></a>7.mysql服务器硬件升级</h6><h6 id="8-定时的去清除不需要的数据-定时进行碎片整理"><a href="#8-定时的去清除不需要的数据-定时进行碎片整理" class="headerlink" title="8.定时的去清除不需要的数据,定时进行碎片整理"></a>8.定时的去清除不需要的数据,定时进行碎片整理</h6><h4 id="SQL语句优化"><a href="#SQL语句优化" class="headerlink" title="SQL语句优化"></a>SQL语句优化</h4><p>使用<code>SHOW STATUS</code>语句查询一些Mysql数据库的性能参数</p>
+<p><code>SHOW STATUS LIKE 'value';</code></p>
+<p>其中，<code>value</code>是要查询的参数值，一些常用的性能参数如下：</p>
+<ul>
+<li>Connections，连接mysql服务器的次数。</li>
+<li>Uptime，mysql服务器的上线时间。</li>
+<li>Slow_queries,慢查询的次数。</li>
+<li>Com_select，查询操作的次数。</li>
+<li>Com_insert，插入操作的次数。</li>
+<li>Com_update，更新操作的次数。</li>
+<li>Com_delete，删除操作的次数。</li>
+</ul>
+<p>SQL语句优化-explain分析问题</p>
+<p><code>Explain select * from emp where ename="wsrcla"</code></p>
+<p>会产生如下信息：</p>
+<ul>
+<li><code>id</code>: <code>SELECT</code>识别符。这是<code>SELECT</code>的查询序列号</li>
+<li><code>select_type</code>:表示查询的类型。会有已下可能：<ul>
+<li><code>PRIMARY</code>:子查询中最外层查询</li>
+<li><code>SUBQUERY</code>: 子查询内层第一个SELECT，结果不依赖于外部查询</li>
+<li><code>DEPENDENT SUBQUERY</code>:子查询内层第一个SELECT，依赖于外部查询</li>
+<li><code>UNION</code>:UNION语句中第二个SELECT开始后面所有SELECT，</li>
+<li><code>SIMPLE</code>：简单的 select 查询,不使用 union 及子查询</li>
+<li><code>UNION</code> ：UNION 中的第二个或随后的 select 查询,不依赖于外部查询的结果集</li>
+</ul>
+</li>
+<li>table:输出结果集的表</li>
+<li>type:表示表的连接类型<ul>
+<li><code>ALL</code>：完整的表扫描 通常不好</li>
+<li><code>system</code>：表仅有一行(=系统表)。这是<code>const</code>联接类型的一个特</li>
+<li><code>const</code>：表最多有一个匹配行</li>
+</ul>
+</li>
+<li><code>possible_keys</code>:表示查询时，可能使用的索引,如果没有任何索引显示  null</li>
+<li>key:表示实际使用的索引</li>
+<li>key_len:索引字段的长度</li>
+<li>rows:扫描出的行数(估算的行数)</li>
+<li>Extra:执行情况的描述和说明<ul>
+<li><code>No tables</code> ：<code>Query</code>语句中使用<code>FROM DUAL</code> 或不含任何<code>FROM</code>子句</li>
+<li><code>Using filesort</code> ：当<code>Query</code>中包含 <code>ORDER BY</code> 操作，而且无法利用索引完成排序，</li>
+<li><code>Impossible WHERE noticed after reading const tables: MYSQL Query Optimizer</code>通过收集统计信息不可能存在结果</li>
+<li><code>Using temporary</code>：某些操作必须使用临时表，常见 <code>GROUP BY  ; ORDER BY</code></li>
+<li><code>Using where</code>：不用读取表中所有信息，仅通过索引就可以获取所需数据;</li>
+</ul>
+</li>
+</ul>
+<p>文章来自：    <a href="http://www.cnblogs.com/jiekzou/" target="_blank" rel="noopener">http://www.cnblogs.com/jiekzou/</a> 的学习与整理。</p>
+<script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
             if (!el.dataset.src) { return; }
@@ -1383,33 +1446,34 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="far fa-dot-circle"></i>&nbsp;本篇
-            </div>
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/posts/4149379325.html">
+                <a href="/posts/1455417405.html">
                     <div class="card-image">
                         
                         
-                        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASwAAAEsCAMAAABOo35HAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAC9UExURVlZWdPT07KysmRkZIWFhfT09JmZmWZmZm9vb39/fxkZGUxMTDMzM3p6epCQkKamppubm729venp6cjIyN7e3tbW1s/Pz8LCwnx8fLS0tFZWVoiIiI+Pj6GhoeTk5Glpabu7u93d3evr66CgoJSUlKqqqsnJyeDg4Hd3d8PDw+Xl5bi4uNHR0dvb26Ojo6urq+fn51hYWDg4OCgoKHBwcK2traenp0FBQe7u7vHx8U5OTre3t8zMzHV1df///7GrnpQAAAA/dFJOU///////////////////////////////////////////////////////////////////////////////////AI4mfBcAAAUGSURBVHja7NoJb6M4GMZxY0NCD64kve/pMZ2d3Z297+X7f6zFNmBAMUXa6URl/q9UJSWPUPzrizFWRUlNLgEBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYYIEFAVhggQUWWGBBABZYYIEFFlgQgAUWWGCBBRYEYIEFFlhggQUBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYn6cCIcRXgvX/h9qcIVBqDdbEM8RCxGCB9QqXYRwHYDHBgwXWl8eKZKiESHI3Ba1kWs3fKixcaJUl1YyeBm7Ocq+yLItUiVBGnXxenSHJolIKEcwHq6ikbOX1YGVzQCTN8LPmSLreghUl9sN4Uw7yajMrLC0TZ1ImzqY6FEop0+pIaEN5HaoOxVuwEqFyc4I46uSlzOLqgxlh6UaR9l3VYWl9Fdoxb1Q90KJtu41pwwFW/WHhTtW8i7TafLCqRsk6bsGw63L9qurXRmuIlbT9lDQnlXU+nBFW1Q2qnZbDprWa2tjR90LZFqx1/+Td/HpGWLlrLDvIwTcx6dQ1Vrntbig68cDms3JwbA5Y1azs1ger6sNV/bbIw1jU81MvNAGrl58RVn8ozW+btF08iGFoAlYvP3csfVur1gJBEIA1uBmue5dhZDOyO2epbmgCVi8/I6x0MMHH9pjsTfBhNzQBq5uPZoQlB0uH3DZG4EZqQ26fL3sZq5uf09Ih6qw3i/pm6BZO0qZX7rrUS68Xsbr5ZE4rePMk08pk9aUZugfqppvs6AM1Acvlo/StP+6EbW06z8hJqxbYp2BZPQUnFsLsKuhQdaHqn5ewbF7KXIn0jWO5MqOQ7RaNLPtbNMmmhimj0GUmYLl8Gs0Lq4wyPbTu1l2QKqHSouzs3OlDIslW5SQsnY/NXmFplyNvEuuLV/Tau9BzwiraDUSwXmysztYWWNtL1psXeumgIrDGaqXvBfUuvtqUYI3V2t1wk1e2msFluJJm6zDJXv/fIfjPP7DAAgsssCiwwAILLLDAosACCyywwAKLAgsssMACC6zt9fDz/v75tyOB+98PD2+ORgKffjw4OP1uJPDxl+Xy8v1I4MPF3t7VNyOB4/vF4uzdzrG+39f1kz/w66Guv/yBvw90KX/gZKkr8Qf+2dOV+gNHC12/7RxrabD2/a31bLAO/a11YbAO/K21MFhLf2s9Gqw9f2vdGqzFu11jnVusE2/gxmI9eQOnFuvYG7i0WH7uK4t15w2cWazrXWP9a7H8f/bQYvm/6IPF+sF/pVssf19Ii/WH/0K2WH/uGuvEWC39gSdj9Twy+Rqri5EZx1gt/IE7Y/XoD1wbq9vd3w1PlufnD2OBp+ebm/uxwPHF6emnscDR4vLy41jg7vHq6sNY4Pr27OyYdRaLUrDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssL6u+k+AAQCR9eHtLKvLfwAAAABJRU5ErkJggg==" data-original="/medias/featureimages/6.jpg" class="responsive-img" alt="Mysql性能优化">
+                        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASwAAAEsCAMAAABOo35HAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAC9UExURVlZWdPT07KysmRkZIWFhfT09JmZmWZmZm9vb39/fxkZGUxMTDMzM3p6epCQkKamppubm729venp6cjIyN7e3tbW1s/Pz8LCwnx8fLS0tFZWVoiIiI+Pj6GhoeTk5Glpabu7u93d3evr66CgoJSUlKqqqsnJyeDg4Hd3d8PDw+Xl5bi4uNHR0dvb26Ojo6urq+fn51hYWDg4OCgoKHBwcK2traenp0FBQe7u7vHx8U5OTre3t8zMzHV1df///7GrnpQAAAA/dFJOU///////////////////////////////////////////////////////////////////////////////////AI4mfBcAAAUGSURBVHja7NoJb6M4GMZxY0NCD64kve/pMZ2d3Z297+X7f6zFNmBAMUXa6URl/q9UJSWPUPzrizFWRUlNLgEBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYYIEFAVhggQUWWGBBABZYYIEFFlgQgAUWWGCBBRYEYIEFFlhggQUBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYn6cCIcRXgvX/h9qcIVBqDdbEM8RCxGCB9QqXYRwHYDHBgwXWl8eKZKiESHI3Ba1kWs3fKixcaJUl1YyeBm7Ocq+yLItUiVBGnXxenSHJolIKEcwHq6ikbOX1YGVzQCTN8LPmSLreghUl9sN4Uw7yajMrLC0TZ1ImzqY6FEop0+pIaEN5HaoOxVuwEqFyc4I46uSlzOLqgxlh6UaR9l3VYWl9Fdoxb1Q90KJtu41pwwFW/WHhTtW8i7TafLCqRsk6bsGw63L9qurXRmuIlbT9lDQnlXU+nBFW1Q2qnZbDprWa2tjR90LZFqx1/+Td/HpGWLlrLDvIwTcx6dQ1Vrntbig68cDms3JwbA5Y1azs1ger6sNV/bbIw1jU81MvNAGrl58RVn8ozW+btF08iGFoAlYvP3csfVur1gJBEIA1uBmue5dhZDOyO2epbmgCVi8/I6x0MMHH9pjsTfBhNzQBq5uPZoQlB0uH3DZG4EZqQ26fL3sZq5uf09Ih6qw3i/pm6BZO0qZX7rrUS68Xsbr5ZE4rePMk08pk9aUZugfqppvs6AM1Acvlo/StP+6EbW06z8hJqxbYp2BZPQUnFsLsKuhQdaHqn5ewbF7KXIn0jWO5MqOQ7RaNLPtbNMmmhimj0GUmYLl8Gs0Lq4wyPbTu1l2QKqHSouzs3OlDIslW5SQsnY/NXmFplyNvEuuLV/Tau9BzwiraDUSwXmysztYWWNtL1psXeumgIrDGaqXvBfUuvtqUYI3V2t1wk1e2msFluJJm6zDJXv/fIfjPP7DAAgsssCiwwAILLLDAosACCyywwAKLAgsssMACC6zt9fDz/v75tyOB+98PD2+ORgKffjw4OP1uJPDxl+Xy8v1I4MPF3t7VNyOB4/vF4uzdzrG+39f1kz/w66Guv/yBvw90KX/gZKkr8Qf+2dOV+gNHC12/7RxrabD2/a31bLAO/a11YbAO/K21MFhLf2s9Gqw9f2vdGqzFu11jnVusE2/gxmI9eQOnFuvYG7i0WH7uK4t15w2cWazrXWP9a7H8f/bQYvm/6IPF+sF/pVssf19Ii/WH/0K2WH/uGuvEWC39gSdj9Twy+Rqri5EZx1gt/IE7Y/XoD1wbq9vd3w1PlufnD2OBp+ebm/uxwPHF6emnscDR4vLy41jg7vHq6sNY4Pr27OyYdRaLUrDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssL6u+k+AAQCR9eHtLKvLfwAAAABJRU5ErkJggg==" data-original="/medias/featureimages/1.jpg" class="responsive-img" alt="Redis命令—-Hash">
                         
-                        <span class="card-title">Mysql性能优化</span>
+                        <span class="card-title">Redis命令—-Hash</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            
-        document.querySelectorAll('.github-emoji')
-          .forEach(el => {
-            if (!el.dataset.src) { return
+                            哈希（Hash）命令1.HDEL key field1 [field2]
+删除一个或多个哈希表字段,返回被成功删除字段的数量，不包括被忽略的字段。
+基本语法
+HDEL KEY_NAME FIELD1.. FIELDN
+
+2.HEXISTS 
                         
                     </div>
                     <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-04-24
-                            </span>
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2020-04-25
+                        </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -1422,12 +1486,11 @@
                         </span>
                     </div>
                 </div>
-
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/mysql/">
-                        <span class="chip bg-color">mysql</span>
+                    <a href="/tags/redis/">
+                        <span class="chip bg-color">redis</span>
                     </a>
                     
                 </div>
