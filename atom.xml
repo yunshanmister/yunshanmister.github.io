@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="www.yunshan.online/"/>
-  <updated>2020-04-25T09:50:01.000Z</updated>
+  <updated>2020-04-26T13:14:47.579Z</updated>
   <id>www.yunshan.online/</id>
   
   <author>
@@ -17,11 +17,38 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>Linux常用命令</title>
+    <link href="www.yunshan.online/posts/3505242605.html"/>
+    <id>www.yunshan.online/posts/3505242605.html</id>
+    <published>2020-04-25T09:53:41.000Z</published>
+    <updated>2020-04-26T13:14:47.579Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h3 id=&quot;Linux常用命令&quot;&gt;&lt;a href=&quot;#Linux常用命令&quot; class=&quot;headerlink&quot; title=&quot;Linux常用命令&quot;&gt;&lt;/a&gt;Linux常用命令&lt;/h3&gt;&lt;h6 id=&quot;vi-vim命令&quot;&gt;&lt;a href=&quot;#vi-vim命令&quot;
+        
+      
+    
+    </summary>
+    
+    
+      <category term="操作系统" scheme="www.yunshan.online/categories/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/"/>
+    
+    
+      <category term="linux" scheme="www.yunshan.online/tags/linux/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Redis命令—-Hash</title>
     <link href="www.yunshan.online/posts/1455417405.html"/>
     <id>www.yunshan.online/posts/1455417405.html</id>
     <published>2020-04-25T09:20:33.000Z</published>
-    <updated>2020-04-25T09:50:01.000Z</updated>
+    <updated>2020-04-25T09:51:21.876Z</updated>
     
     <summary type="html">
     
@@ -535,33 +562,6 @@
     
     
       <category term="jdbc" scheme="www.yunshan.online/tags/jdbc/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>JSP九大隐式对象</title>
-    <link href="www.yunshan.online/posts/3394202970.html"/>
-    <id>www.yunshan.online/posts/3394202970.html</id>
-    <published>2020-04-19T13:20:55.000Z</published>
-    <updated>2020-04-20T06:34:48.257Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h3 id=&quot;JSP九大隐式对象【内置对象】&quot;&gt;&lt;a href=&quot;#JSP九大隐式对象【内置对象】&quot; class=&quot;headerlink&quot; title=&quot;JSP九大隐式对象【内置对象】&quot;&gt;&lt;/a&gt;JSP九大隐式对象【内置对象】&lt;/h3&gt;&lt;h4
-        
-      
-    
-    </summary>
-    
-    
-      <category term="JavaWeb" scheme="www.yunshan.online/categories/JavaWeb/"/>
-    
-    
-      <category term="jsp" scheme="www.yunshan.online/tags/jsp/"/>
     
   </entry>
   

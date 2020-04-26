@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="Redis命令—-Hash, 云山先生">
+    <meta name="keywords" content="Linux常用命令, 云山先生">
     <meta name="description" content="专注于技术,分享生活,分享知识">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>Redis命令—-Hash | 云山先生</title>
+    <title>Linux常用命令 | 云山先生</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -708,12 +708,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/1.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/19.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">Redis命令—-Hash</h1>
+                    <h1 class="description center-align post-title">Linux常用命令</h1>
                 </div>
             </div>
         </div>
@@ -830,8 +830,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/redis/">
-                                <span class="chip bg-color">redis</span>
+                            <a href="/tags/linux/">
+                                <span class="chip bg-color">linux</span>
                             </a>
                         
                     </div>
@@ -842,8 +842,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/" class="post-category">
-                                数据库
+                            <a href="/categories/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" class="post-category">
+                                操作系统
                             </a>
                         
                     </div>
@@ -872,70 +872,126 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h4 id="哈希（Hash）命令"><a href="#哈希（Hash）命令" class="headerlink" title="哈希（Hash）命令"></a>哈希（Hash）命令</h4><p>1.<code>HDEL key field1 [field2]</code></p>
-<p>删除一个或多个哈希表字段,返回被成功删除字段的数量，不包括被忽略的字段。</p>
-<p>基本语法</p>
-<pre class=" language-lang-redis"><code class="language-lang-redis">HDEL KEY_NAME FIELD1.. FIELDN
+                <h3 id="Linux常用命令"><a href="#Linux常用命令" class="headerlink" title="Linux常用命令"></a>Linux常用命令</h3><h6 id="vi-vim命令"><a href="#vi-vim命令" class="headerlink" title="vi/vim命令"></a>vi/vim命令</h6><p><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASwAAAEsCAMAAABOo35HAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAC9UExURVlZWdPT07KysmRkZIWFhfT09JmZmWZmZm9vb39/fxkZGUxMTDMzM3p6epCQkKamppubm729venp6cjIyN7e3tbW1s/Pz8LCwnx8fLS0tFZWVoiIiI+Pj6GhoeTk5Glpabu7u93d3evr66CgoJSUlKqqqsnJyeDg4Hd3d8PDw+Xl5bi4uNHR0dvb26Ojo6urq+fn51hYWDg4OCgoKHBwcK2traenp0FBQe7u7vHx8U5OTre3t8zMzHV1df///7GrnpQAAAA/dFJOU///////////////////////////////////////////////////////////////////////////////////AI4mfBcAAAUGSURBVHja7NoJb6M4GMZxY0NCD64kve/pMZ2d3Z297+X7f6zFNmBAMUXa6URl/q9UJSWPUPzrizFWRUlNLgEBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYYIEFAVhggQUWWGBBABZYYIEFFlgQgAUWWGCBBRYEYIEFFlhggQUBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYn6cCIcRXgvX/h9qcIVBqDdbEM8RCxGCB9QqXYRwHYDHBgwXWl8eKZKiESHI3Ba1kWs3fKixcaJUl1YyeBm7Ocq+yLItUiVBGnXxenSHJolIKEcwHq6ikbOX1YGVzQCTN8LPmSLreghUl9sN4Uw7yajMrLC0TZ1ImzqY6FEop0+pIaEN5HaoOxVuwEqFyc4I46uSlzOLqgxlh6UaR9l3VYWl9Fdoxb1Q90KJtu41pwwFW/WHhTtW8i7TafLCqRsk6bsGw63L9qurXRmuIlbT9lDQnlXU+nBFW1Q2qnZbDprWa2tjR90LZFqx1/+Td/HpGWLlrLDvIwTcx6dQ1Vrntbig68cDms3JwbA5Y1azs1ger6sNV/bbIw1jU81MvNAGrl58RVn8ozW+btF08iGFoAlYvP3csfVur1gJBEIA1uBmue5dhZDOyO2epbmgCVi8/I6x0MMHH9pjsTfBhNzQBq5uPZoQlB0uH3DZG4EZqQ26fL3sZq5uf09Ih6qw3i/pm6BZO0qZX7rrUS68Xsbr5ZE4rePMk08pk9aUZugfqppvs6AM1Acvlo/StP+6EbW06z8hJqxbYp2BZPQUnFsLsKuhQdaHqn5ewbF7KXIn0jWO5MqOQ7RaNLPtbNMmmhimj0GUmYLl8Gs0Lq4wyPbTu1l2QKqHSouzs3OlDIslW5SQsnY/NXmFplyNvEuuLV/Tau9BzwiraDUSwXmysztYWWNtL1psXeumgIrDGaqXvBfUuvtqUYI3V2t1wk1e2msFluJJm6zDJXv/fIfjPP7DAAgsssCiwwAILLLDAosACCyywwAKLAgsssMACC6zt9fDz/v75tyOB+98PD2+ORgKffjw4OP1uJPDxl+Xy8v1I4MPF3t7VNyOB4/vF4uzdzrG+39f1kz/w66Guv/yBvw90KX/gZKkr8Qf+2dOV+gNHC12/7RxrabD2/a31bLAO/a11YbAO/K21MFhLf2s9Gqw9f2vdGqzFu11jnVusE2/gxmI9eQOnFuvYG7i0WH7uK4t15w2cWazrXWP9a7H8f/bQYvm/6IPF+sF/pVssf19Ii/WH/0K2WH/uGuvEWC39gSdj9Twy+Rqri5EZx1gt/IE7Y/XoD1wbq9vd3w1PlufnD2OBp+ebm/uxwPHF6emnscDR4vLy41jg7vHq6sNY4Pr27OyYdRaLUrDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssL6u+k+AAQCR9eHtLKvLfwAAAABJRU5ErkJggg==" data-original="https://cdn.jsdelivr.net/gh/yunshanmister/picture/imgs08ff2ea07bb5488d909af0244b097347.png" alt=""></p>
+<h6 id="yum命令"><a href="#yum命令" class="headerlink" title="yum命令"></a>yum命令</h6><p>基于RPM包管理，能够从指定的服务器自动下载RPM包并且安装，可以自动处理依赖性关系，并且一次安装所有依赖的软体包，无须繁琐地一次次下载、安装。</p>
+<h6 id="cd命令-【change-directory】"><a href="#cd命令-【change-directory】" class="headerlink" title="cd命令 【change directory】"></a><code>cd</code>命令 【change directory】</h6><p>用于切换当前用户所在的路径，其中路径可以是绝对路径也可以是相对路径。</p>
+<p>切换到上一层目录：</p>
+<pre class=" language-lang-linux"><code class="language-lang-linux">cd ../
 </code></pre>
-<p>2.<code>HEXISTS key field</code></p>
-<p>查看哈希表 key 中，指定的字段是否存在。如果哈希表含有给定字段，返回 1 。 如果哈希表不含有给定字段，或 key 不存在，返回 0 。</p>
-<p>基本语法</p>
-<pre class=" language-lang-redis"><code class="language-lang-redis">HEXISTS KEY_NAME FIELD_NAME
+<p>切换到根目录:</p>
+<pre class=" language-lang-linux"><code class="language-lang-linux">cd /
 </code></pre>
-<p>3.<code>HGET key field</code></p>
-<p>获取存储在哈希表中指定字段的值。返回给定字段的值。如果给定的字段或 key 不存在时，返回 nil 。</p>
-<p>基本语法</p>
-<pre class=" language-lang-redis"><code class="language-lang-redis">HGET KEY_NAME FIELD_NAME
+<p>切换到<code>home</code>目录</p>
+<pre class=" language-lang-linux"><code class="language-lang-linux">cd ~
 </code></pre>
-<p>4.<code>HGETALL key</code></p>
-<p>获取在哈希表中指定 key 的所有字段和值。以列表形式返回哈希表的字段及字段值。 若 key 不存在，返回空列表。</p>
-<p>基本语法</p>
-<pre class=" language-lang-redis"><code class="language-lang-redis">HGETALL KEY_NAME
+<h6 id="ls命令-【list】"><a href="#ls命令-【list】" class="headerlink" title="ls命令 【list】"></a>ls命令 【list】</h6><p>常用参数：</p>
+<pre class=" language-lang-linux"><code class="language-lang-linux">-a 列出目录所有文件，包含以.开始的隐藏文件
+-A 列出除.及..的其它文件
+-r 反序排列
+-t 以文件修改时间排序
+-S 以文件大小排序
+-h 以易读大小显示
+-l 除了文件名之外，还将文件的权限、所有者、文件大小等信息详细列出来
 </code></pre>
-<p>5.<code>HINCRBY key field increment</code></p>
-<p>为哈希表 key 中的指定字段的整数值加上增量 increment 。返回执行 HINCRBY 命令之后，哈希表中字段的值。</p>
-<p>基本语法</p>
-<pre class=" language-lang-redis"><code class="language-lang-redis">HINCRBY KEY_NAME FIELD_NAME INCR_BY_NUMBER
+<h6 id="pwd-命令"><a href="#pwd-命令" class="headerlink" title="pwd 命令"></a>pwd 命令</h6><p>用于查看当前工作目录路径。</p>
+<h6 id="rm-命令-【remove】"><a href="#rm-命令-【remove】" class="headerlink" title="rm 命令 【remove】"></a>rm 命令 【remove】</h6><p>用于删除文件或文件夹</p>
+<p>常用参数：</p>
+<pre class=" language-lang-linux"><code class="language-lang-linux">-r 表示删除目录，也可以用于删除文件
+-f 表示强制删除，不需要确认。
 </code></pre>
-<p>6.<code>HINCRBYFLOAT key field increment</code></p>
-<p>为哈希表 key 中的指定字段的浮点数值加上增量 increment 。</p>
-<p>基本语法</p>
-<pre class=" language-lang-redis"><code class="language-lang-redis">HINCRBYFLOAT key field increment
+<h6 id="mv-命令"><a href="#mv-命令" class="headerlink" title="mv 命令"></a>mv 命令</h6><p>移动文件或修改文件名</p>
+<p>改名：将a.txt改名为b.txt</p>
+<pre class=" language-lang-linux"><code class="language-lang-linux">mv a.txt b.txt
 </code></pre>
-<p>7.<code>HKEYS key</code></p>
-<p>获取所有哈希表中的字段。返回包含哈希表中所有域（field）列表。 当 key 不存在时，返回一个空列表。</p>
-<p>基本语法</p>
-<pre class=" language-lang-redis"><code class="language-lang-redis">HKEYS key
+<p>将a.txt移动到txt目录下：</p>
+<pre class=" language-lang-linux"><code class="language-lang-linux">mv a.txt /txt
 </code></pre>
-<p>8.<code>HMGET key field1 [field2]</code></p>
-<p>获取所有给定字段的值。如果指定的字段不存在于哈希表，那么返回一个 nil 值。</p>
-<p>基本语法</p>
-<pre class=" language-lang-redis"><code class="language-lang-redis">HMGET KEY_NAME FIELD1...FIELDN
+<h6 id="cp-命令【copy】"><a href="#cp-命令【copy】" class="headerlink" title="cp 命令【copy】"></a>cp 命令【copy】</h6><p>将源文件复制至目标文件，或将多个源文件复制至目标目录。</p>
+<p>常用参数：</p>
+<pre class=" language-lang-linux"><code class="language-lang-linux">-i 提示
+-r 复制目录及目录内所有项目
+-a 复制的文件与原文件时间一样
 </code></pre>
-<p>9.<code>HMSET key field1 value1 [field2 value2 ]</code></p>
-<p>同时将多个 field-value (域-值)对设置到哈希表 key 中。此命令会覆盖哈希表中已存在的字段。如果哈希表不存在，会创建一个空哈希表，并执行 HMSET 操作。如果命令执行成功，返回 OK 。</p>
-<p>基本语法</p>
-<pre class=" language-lang-redis"><code class="language-lang-redis">HMSET KEY_NAME FIELD1 VALUE1 ...FIELDN VALUEN
+<h6 id="cat-命令【concatenate-】"><a href="#cat-命令【concatenate-】" class="headerlink" title="cat 命令【concatenate 】"></a>cat 命令【concatenate 】</h6><p>查看整个文件内容</p>
+<pre class=" language-lang-linux"><code class="language-lang-linux">cat filename
 </code></pre>
-<p>10.<code>HLEN key</code></p>
-<p>获取哈希表中字段的数量。返回哈希表中字段的数量。 当 key 不存在时，返回 0 。</p>
-<p>基本语法</p>
-<pre class=" language-lang-redis"><code class="language-lang-redis">HLEN KEY_NAME
+<p>从磁盘创建一个新的文件</p>
+<pre class=" language-lang-linux"><code class="language-lang-linux">cat > filename
 </code></pre>
-<p>11.<code>HSET key field value</code></p>
-<p>将哈希表 key 中的字段 field 的值设为 value 。如果哈希表不存在，一个新的哈希表被创建并进行 HSET 操作。如果字段已经存在于哈希表中，旧值将被覆盖。如果字段是哈希表中的一个新建字段，并且值设置成功，返回 1 。 如果哈希表中域字段已经存在且旧值已被新值覆盖，返回 0 。</p>
-<p>基本语法</p>
-<pre class=" language-lang-redis"><code class="language-lang-redis">HSET KEY_NAME FIELD VALUE
+<p>将几个文件合并为一个文件</p>
+<pre class=" language-lang-linux"><code class="language-lang-linux">cat file1 file2 > file
 </code></pre>
-<p>12.<code>HSETNX key field value</code></p>
-<p>只有在字段 field 不存在时，设置哈希表字段的值。如果哈希表不存在，一个新的哈希表被创建并进行 HSET 操作。如果字段已经存在于哈希表中，操作无效。如果 key 不存在，一个新哈希表被创建并执行 HSETNX 命令。设置成功，返回 1 。 如果给定字段已经存在且没有操作被执行，返回 0 。</p>
-<p>基本语法</p>
-<pre class=" language-lang-redis"><code class="language-lang-redis">HSETNX KEY_NAME FIELD VALUE
+<p>参数：</p>
+<pre class=" language-lang-linux"><code class="language-lang-linux">-b 对非空输出行号
+-n 输出所有行号
 </code></pre>
-<p>13.<code>HVALS key</code></p>
-<p>获取哈希表中所有值</p>
-<p>基本语法</p>
-<pre class=" language-lang-redis"><code class="language-lang-redis">HVALS KEY_NAME FIELD VALUE
+<h6 id="chmod-命令"><a href="#chmod-命令" class="headerlink" title="chmod 命令"></a>chmod 命令</h6><p>用于改变 linux 系统文件或目录的访问权限。用它控制文件或目录的访问权限。</p>
+<p>常用参数：</p>
+<pre class=" language-lang-linux"><code class="language-lang-linux">-c 当发生改变时，报告处理信息
+-R 处理指定目录以及其子目录下所有文件
+</code></pre>
+<p>权限范围：</p>
+<pre class=" language-lang-linux"><code class="language-lang-linux">u ：目录或者文件的当前的用户
+g ：目录或者文件的当前的群组
+o ：除了目录或者文件的当前用户或群组之外的用户或者群组
+a ：所有的用户及群组
+</code></pre>
+<p>权限代号：</p>
+<pre class=" language-lang-linux"><code class="language-lang-linux">r ：读权限，用数字4表示
+w ：写权限，用数字2表示
+x ：执行权限，用数字1表示
+- ：删除权限，用数字0表示
+s ：特殊权限
+</code></pre>
+<h6 id="tar-命令"><a href="#tar-命令" class="headerlink" title="tar 命令"></a>tar 命令</h6><p>用来压缩和解压文件。tar 本身不具有压缩功能，只具有打包功能，有关压缩及解压是调用其它的功能来完成。</p>
+<p>常用参数：</p>
+<pre class=" language-lang-linux"><code class="language-lang-linux">-c 建立新的压缩文件
+-f 指定压缩文件
+-r 添加文件到已经压缩文件包中
+-u 添加改了和现有的文件到压缩包中
+-x 从压缩包中抽取文件
+-t 显示压缩文件中的内容
+-z 支持gzip压缩
+-j 支持bzip2压缩
+-Z 支持compress解压文件
+-v 显示操作过程
+</code></pre>
+<h6 id="grep-命令"><a href="#grep-命令" class="headerlink" title="grep 命令"></a>grep 命令</h6><p>强大的文本搜索命令,<code>grep</code> 的工作方式是这样的，它在一个或多个文件中搜索字符串模板。如果模板包括空格，则必须被引用，模板后的所有字符串被看作文件名。搜索的结果被送到标准输出，不影响原文件内容。</p>
+<p>常用参数：</p>
+<pre class=" language-lang-linux"><code class="language-lang-linux">-A n --after-context显示匹配字符后n行
+-B n --before-context显示匹配字符前n行
+-C n --context 显示匹配字符前后n行
+-c --count 计算符合样式的列数
+-i 忽略大小写
+-l 只列出文件内容符合指定的样式的文件名称
+-f 从文件中读取关键词
+-n 显示匹配内容的所在文件中行数
+-R 递归查找文件夹
+</code></pre>
+<p>查找指定进程</p>
+<pre class=" language-lang-linux"><code class="language-lang-linux">ps -ef | grep redis
+`
+</code></pre>
+<p>从文件中读取关键词</p>
+<pre class=" language-lang-linux"><code class="language-lang-linux">cat test1.txt | grep -f key.log
+</code></pre>
+<h6 id="ps-命令【process-status】"><a href="#ps-命令【process-status】" class="headerlink" title="ps 命令【process status】"></a>ps 命令【process status】</h6><p>来查看当前运行的进程状态</p>
+<p>ps 工具标识进程的5种状态码:</p>
+<pre class=" language-lang-linux"><code class="language-lang-linux">D 不可中断 uninterruptible sleep (usually IO)
+R 运行 runnable (on run queue)
+S 中断 sleeping
+T 停止 traced or stopped
+Z 僵死 a defunct (”zombie”) process
+</code></pre>
+<p>常用参数：</p>
+<pre class=" language-lang-linux"><code class="language-lang-linux">-A 显示所有进程
+a 显示所有进程
+-a 显示同一终端下所有进程
+c 显示进程真实名称
+e 显示环境变量
+f 显示进程间的关系
+r 显示当前终端运行的进程
+-aux 显示所有包含其它使用的进程
 </code></pre>
 <script>
         document.querySelectorAll('.github-emoji')
@@ -980,7 +1036,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="www.yunshan.online/posts/1455417405.html">www.yunshan.online/posts/1455417405.html</a>
+                    <a href="www.yunshan.online/posts/3505242605.html">www.yunshan.online/posts/3505242605.html</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -1018,8 +1074,8 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/redis/">
-                                    <span class="chip bg-color">redis</span>
+                                <a href="/tags/linux/">
+                                    <span class="chip bg-color">linux</span>
                                 </a>
                             
                         </div>
@@ -1448,9 +1504,10 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
                 <a href="/posts/3505242605.html">
                     <div class="card-image">
@@ -1470,9 +1527,9 @@ cd命令 【change directory】用
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2020-04-25
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-04-25
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -1485,6 +1542,7 @@ cd命令 【change directory】用
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
@@ -1503,26 +1561,29 @@ cd命令 【change directory】用
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/posts/4149379325.html">
+                <a href="/posts/1455417405.html">
                     <div class="card-image">
                         
                         
-                        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASwAAAEsCAMAAABOo35HAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAC9UExURVlZWdPT07KysmRkZIWFhfT09JmZmWZmZm9vb39/fxkZGUxMTDMzM3p6epCQkKamppubm729venp6cjIyN7e3tbW1s/Pz8LCwnx8fLS0tFZWVoiIiI+Pj6GhoeTk5Glpabu7u93d3evr66CgoJSUlKqqqsnJyeDg4Hd3d8PDw+Xl5bi4uNHR0dvb26Ojo6urq+fn51hYWDg4OCgoKHBwcK2traenp0FBQe7u7vHx8U5OTre3t8zMzHV1df///7GrnpQAAAA/dFJOU///////////////////////////////////////////////////////////////////////////////////AI4mfBcAAAUGSURBVHja7NoJb6M4GMZxY0NCD64kve/pMZ2d3Z297+X7f6zFNmBAMUXa6URl/q9UJSWPUPzrizFWRUlNLgEBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYYIEFAVhggQUWWGBBABZYYIEFFlgQgAUWWGCBBRYEYIEFFlhggQUBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYn6cCIcRXgvX/h9qcIVBqDdbEM8RCxGCB9QqXYRwHYDHBgwXWl8eKZKiESHI3Ba1kWs3fKixcaJUl1YyeBm7Ocq+yLItUiVBGnXxenSHJolIKEcwHq6ikbOX1YGVzQCTN8LPmSLreghUl9sN4Uw7yajMrLC0TZ1ImzqY6FEop0+pIaEN5HaoOxVuwEqFyc4I46uSlzOLqgxlh6UaR9l3VYWl9Fdoxb1Q90KJtu41pwwFW/WHhTtW8i7TafLCqRsk6bsGw63L9qurXRmuIlbT9lDQnlXU+nBFW1Q2qnZbDprWa2tjR90LZFqx1/+Td/HpGWLlrLDvIwTcx6dQ1Vrntbig68cDms3JwbA5Y1azs1ger6sNV/bbIw1jU81MvNAGrl58RVn8ozW+btF08iGFoAlYvP3csfVur1gJBEIA1uBmue5dhZDOyO2epbmgCVi8/I6x0MMHH9pjsTfBhNzQBq5uPZoQlB0uH3DZG4EZqQ26fL3sZq5uf09Ih6qw3i/pm6BZO0qZX7rrUS68Xsbr5ZE4rePMk08pk9aUZugfqppvs6AM1Acvlo/StP+6EbW06z8hJqxbYp2BZPQUnFsLsKuhQdaHqn5ewbF7KXIn0jWO5MqOQ7RaNLPtbNMmmhimj0GUmYLl8Gs0Lq4wyPbTu1l2QKqHSouzs3OlDIslW5SQsnY/NXmFplyNvEuuLV/Tau9BzwiraDUSwXmysztYWWNtL1psXeumgIrDGaqXvBfUuvtqUYI3V2t1wk1e2msFluJJm6zDJXv/fIfjPP7DAAgsssCiwwAILLLDAosACCyywwAKLAgsssMACC6zt9fDz/v75tyOB+98PD2+ORgKffjw4OP1uJPDxl+Xy8v1I4MPF3t7VNyOB4/vF4uzdzrG+39f1kz/w66Guv/yBvw90KX/gZKkr8Qf+2dOV+gNHC12/7RxrabD2/a31bLAO/a11YbAO/K21MFhLf2s9Gqw9f2vdGqzFu11jnVusE2/gxmI9eQOnFuvYG7i0WH7uK4t15w2cWazrXWP9a7H8f/bQYvm/6IPF+sF/pVssf19Ii/WH/0K2WH/uGuvEWC39gSdj9Twy+Rqri5EZx1gt/IE7Y/XoD1wbq9vd3w1PlufnD2OBp+ebm/uxwPHF6emnscDR4vLy41jg7vHq6sNY4Pr27OyYdRaLUrDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssL6u+k+AAQCR9eHtLKvLfwAAAABJRU5ErkJggg==" data-original="/medias/featureimages/6.jpg" class="responsive-img" alt="Mysql性能优化">
+                        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASwAAAEsCAMAAABOo35HAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAC9UExURVlZWdPT07KysmRkZIWFhfT09JmZmWZmZm9vb39/fxkZGUxMTDMzM3p6epCQkKamppubm729venp6cjIyN7e3tbW1s/Pz8LCwnx8fLS0tFZWVoiIiI+Pj6GhoeTk5Glpabu7u93d3evr66CgoJSUlKqqqsnJyeDg4Hd3d8PDw+Xl5bi4uNHR0dvb26Ojo6urq+fn51hYWDg4OCgoKHBwcK2traenp0FBQe7u7vHx8U5OTre3t8zMzHV1df///7GrnpQAAAA/dFJOU///////////////////////////////////////////////////////////////////////////////////AI4mfBcAAAUGSURBVHja7NoJb6M4GMZxY0NCD64kve/pMZ2d3Z297+X7f6zFNmBAMUXa6URl/q9UJSWPUPzrizFWRUlNLgEBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYYIEFAVhggQUWWGBBABZYYIEFFlgQgAUWWGCBBRYEYIEFFlhggQUBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYn6cCIcRXgvX/h9qcIVBqDdbEM8RCxGCB9QqXYRwHYDHBgwXWl8eKZKiESHI3Ba1kWs3fKixcaJUl1YyeBm7Ocq+yLItUiVBGnXxenSHJolIKEcwHq6ikbOX1YGVzQCTN8LPmSLreghUl9sN4Uw7yajMrLC0TZ1ImzqY6FEop0+pIaEN5HaoOxVuwEqFyc4I46uSlzOLqgxlh6UaR9l3VYWl9Fdoxb1Q90KJtu41pwwFW/WHhTtW8i7TafLCqRsk6bsGw63L9qurXRmuIlbT9lDQnlXU+nBFW1Q2qnZbDprWa2tjR90LZFqx1/+Td/HpGWLlrLDvIwTcx6dQ1Vrntbig68cDms3JwbA5Y1azs1ger6sNV/bbIw1jU81MvNAGrl58RVn8ozW+btF08iGFoAlYvP3csfVur1gJBEIA1uBmue5dhZDOyO2epbmgCVi8/I6x0MMHH9pjsTfBhNzQBq5uPZoQlB0uH3DZG4EZqQ26fL3sZq5uf09Ih6qw3i/pm6BZO0qZX7rrUS68Xsbr5ZE4rePMk08pk9aUZugfqppvs6AM1Acvlo/StP+6EbW06z8hJqxbYp2BZPQUnFsLsKuhQdaHqn5ewbF7KXIn0jWO5MqOQ7RaNLPtbNMmmhimj0GUmYLl8Gs0Lq4wyPbTu1l2QKqHSouzs3OlDIslW5SQsnY/NXmFplyNvEuuLV/Tau9BzwiraDUSwXmysztYWWNtL1psXeumgIrDGaqXvBfUuvtqUYI3V2t1wk1e2msFluJJm6zDJXv/fIfjPP7DAAgsssCiwwAILLLDAosACCyywwAKLAgsssMACC6zt9fDz/v75tyOB+98PD2+ORgKffjw4OP1uJPDxl+Xy8v1I4MPF3t7VNyOB4/vF4uzdzrG+39f1kz/w66Guv/yBvw90KX/gZKkr8Qf+2dOV+gNHC12/7RxrabD2/a31bLAO/a11YbAO/K21MFhLf2s9Gqw9f2vdGqzFu11jnVusE2/gxmI9eQOnFuvYG7i0WH7uK4t15w2cWazrXWP9a7H8f/bQYvm/6IPF+sF/pVssf19Ii/WH/0K2WH/uGuvEWC39gSdj9Twy+Rqri5EZx1gt/IE7Y/XoD1wbq9vd3w1PlufnD2OBp+ebm/uxwPHF6emnscDR4vLy41jg7vHq6sNY4Pr27OyYdRaLUrDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssL6u+k+AAQCR9eHtLKvLfwAAAABJRU5ErkJggg==" data-original="/medias/featureimages/1.jpg" class="responsive-img" alt="Redis命令—-Hash">
                         
-                        <span class="card-title">Mysql性能优化</span>
+                        <span class="card-title">Redis命令—-Hash</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            Mysql性能优化Mysql数据库的优化技术1.表的设计要符合三范式第一范式：1NF是对属性的原子性约束，要求属性也就是列具有原子性，不可再分解。
-第二范式：2NF是对记录的惟一性约束，要求记录有惟一标识，即实体的惟一性。
-第三范式：3NF
+                            哈希（Hash）命令1.HDEL key field1 [field2]
+删除一个或多个哈希表字段,返回被成功删除字段的数量，不包括被忽略的字段。
+基本语法
+HDEL KEY_NAME FIELD1.. FIELDN
+
+2.HEXISTS 
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-04-24
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-04-25
                             </span>
                         <span class="publish-author">
                             
@@ -1539,8 +1600,8 @@ cd命令 【change directory】用
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/mysql/">
-                        <span class="chip bg-color">mysql</span>
+                    <a href="/tags/redis/">
+                        <span class="chip bg-color">redis</span>
                     </a>
                     
                 </div>
