@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="Redis命令-Hash, 云山先生">
+    <meta name="keywords" content="Redis-List, 云山先生">
     <meta name="description" content="专注于技术,分享生活,分享知识">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>Redis命令-Hash | 云山先生</title>
+    <title>Redis-List | 云山先生</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -708,12 +708,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/1.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/16.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">Redis命令-Hash</h1>
+                    <h1 class="description center-align post-title">Redis-List</h1>
                 </div>
             </div>
         </div>
@@ -830,8 +830,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/redis/">
-                                <span class="chip bg-color">redis</span>
+                            <a href="/">
+                                <span class="chip bg-color"></span>
                             </a>
                         
                     </div>
@@ -842,8 +842,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/" class="post-category">
-                                数据库
+                            <a href="/" class="post-category">
+                                
                             </a>
                         
                     </div>
@@ -855,7 +855,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2020-04-25
+                    2020-04-30
                 </div>
                 
 
@@ -872,70 +872,97 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h4 id="哈希（Hash）命令"><a href="#哈希（Hash）命令" class="headerlink" title="哈希（Hash）命令"></a>哈希（Hash）命令</h4><p>1.<code>HDEL key field1 [field2]</code></p>
-<p>删除一个或多个哈希表字段,返回被成功删除字段的数量，不包括被忽略的字段。</p>
-<p>基本语法</p>
-<pre class=" language-lang-redis"><code class="language-lang-redis">HDEL KEY_NAME FIELD1.. FIELDN
+                <h3 id="列表-List-命令"><a href="#列表-List-命令" class="headerlink" title="列表(List)命令"></a>列表(List)命令</h3><p>Redis列表是简单的字符串列表，按照插入顺序排序。你可以添加一个元素到列表的头部（左边）或者尾部（右边）<br>一个列表最多可以包含 232 - 1 个元素 (4294967295, 每个列表超过40亿个元素)。</p>
+<p>1.<code>BLPOP key1 [key2 ] timeout</code></p>
+<p>移出并获取列表的第一个元素， 如果列表没有元素会阻塞列表直到等待超时或发现可弹出元素为止。如果列表为空，返回一个 nil 。 否则，返回一个含有两个元素的列表，第一个元素是被弹出元素所属的 key ，第二个元素是被弹出元素的值。</p>
+<p>基本语法：</p>
+<pre class=" language-lang-redis"><code class="language-lang-redis">BLPOP LIST1 LIST2 .. LISTN TIMEOUT
 </code></pre>
-<p>2.<code>HEXISTS key field</code></p>
-<p>查看哈希表 key 中，指定的字段是否存在。如果哈希表含有给定字段，返回 1 。 如果哈希表不含有给定字段，或 key 不存在，返回 0 。</p>
-<p>基本语法</p>
-<pre class=" language-lang-redis"><code class="language-lang-redis">HEXISTS KEY_NAME FIELD_NAME
+<p>2.<code>BRPOP key1 [key2 ] timeout</code></p>
+<p>移出并获取列表的最后一个元素， 如果列表没有元素会阻塞列表直到等待超时或发现可弹出元素为止。假如在指定时间内没有任何元素被弹出，则返回一个 nil 和等待时长。 反之，返回一个含有两个元素的列表，第一个元素是被弹出元素所属的 key ，第二个元素是被弹出元素的值。</p>
+<p>基本语法：</p>
+<pre class=" language-lang-redis"><code class="language-lang-redis">BRPOP LIST1 LIST2 .. LISTN TIMEOUT
 </code></pre>
-<p>3.<code>HGET key field</code></p>
-<p>获取存储在哈希表中指定字段的值。返回给定字段的值。如果给定的字段或 key 不存在时，返回 nil 。</p>
-<p>基本语法</p>
-<pre class=" language-lang-redis"><code class="language-lang-redis">HGET KEY_NAME FIELD_NAME
+<p>3.<code>BRPOPLPUSH source destination timeout</code></p>
+<p>从列表中弹出一个值，将弹出的元素插入到另外一个列表中并返回它； 如果列表没有元素会阻塞列表直到等待超时或发现可弹出元素为止。假如在指定时间内没有任何元素被弹出，则返回一个 nil 和等待时长。 反之，返回一个含有两个元素的列表，第一个元素是被弹出元素的值，第二个元素是等待时长。</p>
+<p>基本语法：</p>
+<pre class=" language-lang-redis"><code class="language-lang-redis">BRPOPLPUSH LIST1 ANOTHER_LIST TIMEOUT
 </code></pre>
-<p>4.<code>HGETALL key</code></p>
-<p>获取在哈希表中指定 key 的所有字段和值。以列表形式返回哈希表的字段及字段值。 若 key 不存在，返回空列表。</p>
-<p>基本语法</p>
-<pre class=" language-lang-redis"><code class="language-lang-redis">HGETALL KEY_NAME
+<p>4.<code>LINDEX key index</code></p>
+<p>命令用于通过索引获取列表中的元素。你也可以使用负数下标，以 -1 表示列表的最后一个元素， -2 表示列表的倒数第二个元素，以此类推。列表中下标为指定索引值的元素。 如果指定索引值不在列表的区间范围内，返回 nil 。</p>
+<p>基本语法：</p>
+<pre class=" language-lang-redis"><code class="language-lang-redis">LINDEX KEY_NAME INDEX_POSITION
 </code></pre>
-<p>5.<code>HINCRBY key field increment</code></p>
-<p>为哈希表 key 中的指定字段的整数值加上增量 increment 。返回执行 HINCRBY 命令之后，哈希表中字段的值。</p>
-<p>基本语法</p>
-<pre class=" language-lang-redis"><code class="language-lang-redis">HINCRBY KEY_NAME FIELD_NAME INCR_BY_NUMBER
+<p>5.<code>LINSERT key BEFORE|AFTER pivot value</code></p>
+<p>在列表的元素前或者后插入元素,当指定元素不存在于列表中时，不执行任何操作。当列表不存在时，被视为空列表，不执行任何操作。如果 key 不是列表类型，返回一个错误。</p>
+<p>基本语法：</p>
+<pre class=" language-lang-redis"><code class="language-lang-redis">LINSERT key BEFORE|AFTER pivot value
 </code></pre>
-<p>6.<code>HINCRBYFLOAT key field increment</code></p>
-<p>为哈希表 key 中的指定字段的浮点数值加上增量 increment 。</p>
-<p>基本语法</p>
-<pre class=" language-lang-redis"><code class="language-lang-redis">HINCRBYFLOAT key field increment
+<p>6.<code>LLEN key</code></p>
+<p>返回列表的长度。 如果列表 key 不存在，则 key 被解释为一个空列表，返回 0 。 如果 key 不是列表类型，返回一个错误。</p>
+<p>基本语法：</p>
+<pre class=" language-lang-redis"><code class="language-lang-redis">LLEN KEY_NAME
 </code></pre>
-<p>7.<code>HKEYS key</code></p>
-<p>获取所有哈希表中的字段。返回包含哈希表中所有域（field）列表。 当 key 不存在时，返回一个空列表。</p>
-<p>基本语法</p>
-<pre class=" language-lang-redis"><code class="language-lang-redis">HKEYS key
+<p>7.<code>LPOP key</code></p>
+<p>用于移除并返回列表的第一个元素。返 当列表 key 不存在时，返回 nil 。</p>
+<p>基本语法：</p>
+<pre class=" language-lang-redis"><code class="language-lang-redis">LPOP KEY_NAME
 </code></pre>
-<p>8.<code>HMGET key field1 [field2]</code></p>
-<p>获取所有给定字段的值。如果指定的字段不存在于哈希表，那么返回一个 nil 值。</p>
-<p>基本语法</p>
-<pre class=" language-lang-redis"><code class="language-lang-redis">HMGET KEY_NAME FIELD1...FIELDN
+<p>8.<code>LPUSH key value1 [value2]</code></p>
+<p>将一个或多个值插入到列表头部。 如果 key 不存在，一个空列表会被创建并执行 LPUSH 操作。 当 key 存在但不是列表类型时，返回一个错误。</p>
+<p>基本语法：</p>
+<pre class=" language-lang-redis"><code class="language-lang-redis">LPUSH KEY_NAME VALUE1.. VALUEN
 </code></pre>
-<p>9.<code>HMSET key field1 value1 [field2 value2 ]</code></p>
-<p>同时将多个 field-value (域-值)对设置到哈希表 key 中。此命令会覆盖哈希表中已存在的字段。如果哈希表不存在，会创建一个空哈希表，并执行 HMSET 操作。如果命令执行成功，返回 OK 。</p>
-<p>基本语法</p>
-<pre class=" language-lang-redis"><code class="language-lang-redis">HMSET KEY_NAME FIELD1 VALUE1 ...FIELDN VALUEN
+<p>9.<code>LPUSHX key value</code><br>将一个值插入到已存在的列表头部，列表不存在时操作无效。返回值是LPUSHX 命令执行之后，列表的长度。</p>
+<p>基本语法：</p>
+<pre class=" language-lang-redis"><code class="language-lang-redis">LPUSHX KEY_NAME VALUE1.. VALUEN
 </code></pre>
-<p>10.<code>HLEN key</code></p>
-<p>获取哈希表中字段的数量。返回哈希表中字段的数量。 当 key 不存在时，返回 0 。</p>
-<p>基本语法</p>
-<pre class=" language-lang-redis"><code class="language-lang-redis">HLEN KEY_NAME
+<p>10.<code>LRANGE key start stop</code></p>
+<p>返回列表中指定区间内的元素，区间以偏移量 START 和 END 指定。 其中 0 表示列表的第一个元素， 1 表示列表的第二个元素，以此类推。 你也可以使用负数下标，以 -1 表示列表的最后一个元素， -2 表示列表的倒数第二个元素，以此类推。</p>
+<p>基本语法：</p>
+<pre class=" language-lang-redis"><code class="language-lang-redis">LRANGE KEY_NAME START END
 </code></pre>
-<p>11.<code>HSET key field value</code></p>
-<p>将哈希表 key 中的字段 field 的值设为 value 。如果哈希表不存在，一个新的哈希表被创建并进行 HSET 操作。如果字段已经存在于哈希表中，旧值将被覆盖。如果字段是哈希表中的一个新建字段，并且值设置成功，返回 1 。 如果哈希表中域字段已经存在且旧值已被新值覆盖，返回 0 。</p>
-<p>基本语法</p>
-<pre class=" language-lang-redis"><code class="language-lang-redis">HSET KEY_NAME FIELD VALUE
+<p>11.<code>LREM key count value</code></p>
+<p>根据参数 COUNT 的值，移除列表中与参数 VALUE 相等的元素。</p>
+<p>COUNT 的值可以是以下几种：</p>
+<ul>
+<li>count &gt; 0 : 从表头开始向表尾搜索，移除与 VALUE 相等的元素，数量为 COUNT 。</li>
+<li>count &lt; 0 : 从表尾开始向表头搜索，移除与 VALUE 相等的元素，数量为 COUNT 的绝对值。</li>
+<li>count = 0 : 移除表中所有与 VALUE 相等的值。</li>
+</ul>
+<p>基本语法：</p>
+<pre class=" language-lang-redis"><code class="language-lang-redis">LREM KEY_NAME COUNT VALUE
 </code></pre>
-<p>12.<code>HSETNX key field value</code></p>
-<p>只有在字段 field 不存在时，设置哈希表字段的值。如果哈希表不存在，一个新的哈希表被创建并进行 HSET 操作。如果字段已经存在于哈希表中，操作无效。如果 key 不存在，一个新哈希表被创建并执行 HSETNX 命令。设置成功，返回 1 。 如果给定字段已经存在且没有操作被执行，返回 0 。</p>
-<p>基本语法</p>
-<pre class=" language-lang-redis"><code class="language-lang-redis">HSETNX KEY_NAME FIELD VALUE
+<p>12.<code>LSET key index value</code></p>
+<p>通过索引来设置元素的值。当索引参数超出范围，或对一个空列表进行 LSET 时，返回一个错误。</p>
+<p>基本语法：</p>
+<pre class=" language-lang-redis"><code class="language-lang-redis">LSET KEY_NAME INDEX VALUE
 </code></pre>
-<p>13.<code>HVALS key</code></p>
-<p>获取哈希表中所有值</p>
-<p>基本语法</p>
-<pre class=" language-lang-redis"><code class="language-lang-redis">HVALS KEY_NAME FIELD VALUE
+<p>13.<code>LTRIM key start stop</code></p>
+<p>对一个列表进行修剪(trim)，就是说，让列表只保留指定区间内的元素，不在指定区间之内的元素都将被删除。下标 0 表示列表的第一个元素，以 1 表示列表的第二个元素，以此类推。 你也可以使用负数下标，以 -1 表示列表的最后一个元素， -2 表示列表的倒数第二个元素，以此类推。</p>
+<p>基本语法：</p>
+<pre class=" language-lang-redis"><code class="language-lang-redis">LTRIM KEY_NAME START STOP
+</code></pre>
+<p>14.<code>RPOP key</code></p>
+<p>用于移除列表的最后一个元素，返回值为移除的元素。当列表不存在时，返回 nil 。</p>
+<p>基本语法：</p>
+<pre class=" language-lang-redis"><code class="language-lang-redis">RPOP KEY_NAME
+</code></pre>
+<p>15.<code>RPOPLPUSH source destination</code></p>
+<p>用于移除列表的最后一个元素，并将该元素添加到另一个列表并返回。</p>
+<p>基本语法：</p>
+<pre class=" language-lang-redis"><code class="language-lang-redis">RPOPLPUSH SOURCE_KEY_NAME DESTINATION_KEY_NAME
+</code></pre>
+<p>16.<code>RPUSH key value1 [value2]</code></p>
+<p>用于将一个或多个值插入到列表的尾部(最右边)。如果列表不存在，一个空列表会被创建并执行 RPUSH 操作。 当列表存在但不是列表类型时，返回一个错误。</p>
+<p>注意：在 Redis 2.4 版本以前的 RPUSH 命令，都只接受单个 value 值。</p>
+<p>基本语法：</p>
+<pre class=" language-lang-redis"><code class="language-lang-redis">RPUSH KEY_NAME VALUE1..VALUEN
+</code></pre>
+<p>17.<code>RPUSHX key value</code></p>
+<p>用于将一个值插入到已存在的列表尾部(最右边)。如果列表不存在，操作无效。</p>
+<p>基本语法：</p>
+<pre class=" language-lang-redis"><code class="language-lang-redis">RPUSHX KEY_NAME VALUE1..VALUEN
 </code></pre>
 <script>
         document.querySelectorAll('.github-emoji')
@@ -980,7 +1007,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="www.yunshan.online/posts/1455417405.html">www.yunshan.online/posts/1455417405.html</a>
+                    <a href="www.yunshan.online/Redis-List.html">www.yunshan.online/Redis-List.html</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -1018,8 +1045,8 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/redis/">
-                                    <span class="chip bg-color">redis</span>
+                                <a href="/">
+                                    <span class="chip bg-color"></span>
                                 </a>
                             
                         </div>
@@ -1448,50 +1475,49 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/posts/3505242605.html">
+                <a href="/Redis-List.html">
                     <div class="card-image">
                         
                         
-                        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASwAAAEsCAMAAABOo35HAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAC9UExURVlZWdPT07KysmRkZIWFhfT09JmZmWZmZm9vb39/fxkZGUxMTDMzM3p6epCQkKamppubm729venp6cjIyN7e3tbW1s/Pz8LCwnx8fLS0tFZWVoiIiI+Pj6GhoeTk5Glpabu7u93d3evr66CgoJSUlKqqqsnJyeDg4Hd3d8PDw+Xl5bi4uNHR0dvb26Ojo6urq+fn51hYWDg4OCgoKHBwcK2traenp0FBQe7u7vHx8U5OTre3t8zMzHV1df///7GrnpQAAAA/dFJOU///////////////////////////////////////////////////////////////////////////////////AI4mfBcAAAUGSURBVHja7NoJb6M4GMZxY0NCD64kve/pMZ2d3Z297+X7f6zFNmBAMUXa6URl/q9UJSWPUPzrizFWRUlNLgEBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYYIEFAVhggQUWWGBBABZYYIEFFlgQgAUWWGCBBRYEYIEFFlhggQUBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYn6cCIcRXgvX/h9qcIVBqDdbEM8RCxGCB9QqXYRwHYDHBgwXWl8eKZKiESHI3Ba1kWs3fKixcaJUl1YyeBm7Ocq+yLItUiVBGnXxenSHJolIKEcwHq6ikbOX1YGVzQCTN8LPmSLreghUl9sN4Uw7yajMrLC0TZ1ImzqY6FEop0+pIaEN5HaoOxVuwEqFyc4I46uSlzOLqgxlh6UaR9l3VYWl9Fdoxb1Q90KJtu41pwwFW/WHhTtW8i7TafLCqRsk6bsGw63L9qurXRmuIlbT9lDQnlXU+nBFW1Q2qnZbDprWa2tjR90LZFqx1/+Td/HpGWLlrLDvIwTcx6dQ1Vrntbig68cDms3JwbA5Y1azs1ger6sNV/bbIw1jU81MvNAGrl58RVn8ozW+btF08iGFoAlYvP3csfVur1gJBEIA1uBmue5dhZDOyO2epbmgCVi8/I6x0MMHH9pjsTfBhNzQBq5uPZoQlB0uH3DZG4EZqQ26fL3sZq5uf09Ih6qw3i/pm6BZO0qZX7rrUS68Xsbr5ZE4rePMk08pk9aUZugfqppvs6AM1Acvlo/StP+6EbW06z8hJqxbYp2BZPQUnFsLsKuhQdaHqn5ewbF7KXIn0jWO5MqOQ7RaNLPtbNMmmhimj0GUmYLl8Gs0Lq4wyPbTu1l2QKqHSouzs3OlDIslW5SQsnY/NXmFplyNvEuuLV/Tau9BzwiraDUSwXmysztYWWNtL1psXeumgIrDGaqXvBfUuvtqUYI3V2t1wk1e2msFluJJm6zDJXv/fIfjPP7DAAgsssCiwwAILLLDAosACCyywwAKLAgsssMACC6zt9fDz/v75tyOB+98PD2+ORgKffjw4OP1uJPDxl+Xy8v1I4MPF3t7VNyOB4/vF4uzdzrG+39f1kz/w66Guv/yBvw90KX/gZKkr8Qf+2dOV+gNHC12/7RxrabD2/a31bLAO/a11YbAO/K21MFhLf2s9Gqw9f2vdGqzFu11jnVusE2/gxmI9eQOnFuvYG7i0WH7uK4t15w2cWazrXWP9a7H8f/bQYvm/6IPF+sF/pVssf19Ii/WH/0K2WH/uGuvEWC39gSdj9Twy+Rqri5EZx1gt/IE7Y/XoD1wbq9vd3w1PlufnD2OBp+ebm/uxwPHF6emnscDR4vLy41jg7vHq6sNY4Pr27OyYdRaLUrDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssL6u+k+AAQCR9eHtLKvLfwAAAABJRU5ErkJggg==" data-original="/medias/featureimages/19.jpg" class="responsive-img" alt="Linux常用命令">
+                        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASwAAAEsCAMAAABOo35HAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAC9UExURVlZWdPT07KysmRkZIWFhfT09JmZmWZmZm9vb39/fxkZGUxMTDMzM3p6epCQkKamppubm729venp6cjIyN7e3tbW1s/Pz8LCwnx8fLS0tFZWVoiIiI+Pj6GhoeTk5Glpabu7u93d3evr66CgoJSUlKqqqsnJyeDg4Hd3d8PDw+Xl5bi4uNHR0dvb26Ojo6urq+fn51hYWDg4OCgoKHBwcK2traenp0FBQe7u7vHx8U5OTre3t8zMzHV1df///7GrnpQAAAA/dFJOU///////////////////////////////////////////////////////////////////////////////////AI4mfBcAAAUGSURBVHja7NoJb6M4GMZxY0NCD64kve/pMZ2d3Z297+X7f6zFNmBAMUXa6URl/q9UJSWPUPzrizFWRUlNLgEBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYYIEFAVhggQUWWGBBABZYYIEFFlgQgAUWWGCBBRYEYIEFFlhggQUBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYn6cCIcRXgvX/h9qcIVBqDdbEM8RCxGCB9QqXYRwHYDHBgwXWl8eKZKiESHI3Ba1kWs3fKixcaJUl1YyeBm7Ocq+yLItUiVBGnXxenSHJolIKEcwHq6ikbOX1YGVzQCTN8LPmSLreghUl9sN4Uw7yajMrLC0TZ1ImzqY6FEop0+pIaEN5HaoOxVuwEqFyc4I46uSlzOLqgxlh6UaR9l3VYWl9Fdoxb1Q90KJtu41pwwFW/WHhTtW8i7TafLCqRsk6bsGw63L9qurXRmuIlbT9lDQnlXU+nBFW1Q2qnZbDprWa2tjR90LZFqx1/+Td/HpGWLlrLDvIwTcx6dQ1Vrntbig68cDms3JwbA5Y1azs1ger6sNV/bbIw1jU81MvNAGrl58RVn8ozW+btF08iGFoAlYvP3csfVur1gJBEIA1uBmue5dhZDOyO2epbmgCVi8/I6x0MMHH9pjsTfBhNzQBq5uPZoQlB0uH3DZG4EZqQ26fL3sZq5uf09Ih6qw3i/pm6BZO0qZX7rrUS68Xsbr5ZE4rePMk08pk9aUZugfqppvs6AM1Acvlo/StP+6EbW06z8hJqxbYp2BZPQUnFsLsKuhQdaHqn5ewbF7KXIn0jWO5MqOQ7RaNLPtbNMmmhimj0GUmYLl8Gs0Lq4wyPbTu1l2QKqHSouzs3OlDIslW5SQsnY/NXmFplyNvEuuLV/Tau9BzwiraDUSwXmysztYWWNtL1psXeumgIrDGaqXvBfUuvtqUYI3V2t1wk1e2msFluJJm6zDJXv/fIfjPP7DAAgsssCiwwAILLLDAosACCyywwAKLAgsssMACC6zt9fDz/v75tyOB+98PD2+ORgKffjw4OP1uJPDxl+Xy8v1I4MPF3t7VNyOB4/vF4uzdzrG+39f1kz/w66Guv/yBvw90KX/gZKkr8Qf+2dOV+gNHC12/7RxrabD2/a31bLAO/a11YbAO/K21MFhLf2s9Gqw9f2vdGqzFu11jnVusE2/gxmI9eQOnFuvYG7i0WH7uK4t15w2cWazrXWP9a7H8f/bQYvm/6IPF+sF/pVssf19Ii/WH/0K2WH/uGuvEWC39gSdj9Twy+Rqri5EZx1gt/IE7Y/XoD1wbq9vd3w1PlufnD2OBp+ebm/uxwPHF6emnscDR4vLy41jg7vHq6sNY4Pr27OyYdRaLUrDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssL6u+k+AAQCR9eHtLKvLfwAAAABJRU5ErkJggg==" data-original="/medias/featureimages/16.jpg" class="responsive-img" alt="Redis-List">
                         
-                        <span class="card-title">Linux常用命令</span>
+                        <span class="card-title">Redis-List</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            Linux常用命令vi/vim命令
-修改hosts文件：
-vi /etc/修改hosts
-
-yum命令基于RPM包管理，能够从指定的服务器自动下载RPM包并且安装，可以自动处理依赖性关系，并且一次安装所有依赖的软体包，无须繁琐地一次次下载、
+                            列表(List)命令Redis列表是简单的字符串列表，按照插入顺序排序。你可以添加一个元素到列表的头部（左边）或者尾部（右边）一个列表最多可以包含 232 - 1 个元素 (4294967295, 每个列表超过40亿个元素)。
+1.BLPO
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2020-04-25
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-04-30
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" class="post-category">
-                                    操作系统
+                            <a href="/" class="post-category">
+                                    
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/linux/">
-                        <span class="chip bg-color">linux</span>
+                    <a href="/">
+                        <span class="chip bg-color"></span>
                     </a>
                     
                 </div>
@@ -1502,47 +1528,47 @@ yum命令基于RPM包管理，能够从指定的服务器自动下载RPM包并�
         
         <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge right-badge text-color">
-                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+                本篇&nbsp;<i class="far fa-dot-circle"></i>
             </div>
             <div class="card">
-                <a href="/posts/4149379325.html">
+                <a href="/Redis-List.html">
                     <div class="card-image">
                         
                         
-                        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASwAAAEsCAMAAABOo35HAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAC9UExURVlZWdPT07KysmRkZIWFhfT09JmZmWZmZm9vb39/fxkZGUxMTDMzM3p6epCQkKamppubm729venp6cjIyN7e3tbW1s/Pz8LCwnx8fLS0tFZWVoiIiI+Pj6GhoeTk5Glpabu7u93d3evr66CgoJSUlKqqqsnJyeDg4Hd3d8PDw+Xl5bi4uNHR0dvb26Ojo6urq+fn51hYWDg4OCgoKHBwcK2traenp0FBQe7u7vHx8U5OTre3t8zMzHV1df///7GrnpQAAAA/dFJOU///////////////////////////////////////////////////////////////////////////////////AI4mfBcAAAUGSURBVHja7NoJb6M4GMZxY0NCD64kve/pMZ2d3Z297+X7f6zFNmBAMUXa6URl/q9UJSWPUPzrizFWRUlNLgEBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYYIEFAVhggQUWWGBBABZYYIEFFlgQgAUWWGCBBRYEYIEFFlhggQUBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYn6cCIcRXgvX/h9qcIVBqDdbEM8RCxGCB9QqXYRwHYDHBgwXWl8eKZKiESHI3Ba1kWs3fKixcaJUl1YyeBm7Ocq+yLItUiVBGnXxenSHJolIKEcwHq6ikbOX1YGVzQCTN8LPmSLreghUl9sN4Uw7yajMrLC0TZ1ImzqY6FEop0+pIaEN5HaoOxVuwEqFyc4I46uSlzOLqgxlh6UaR9l3VYWl9Fdoxb1Q90KJtu41pwwFW/WHhTtW8i7TafLCqRsk6bsGw63L9qurXRmuIlbT9lDQnlXU+nBFW1Q2qnZbDprWa2tjR90LZFqx1/+Td/HpGWLlrLDvIwTcx6dQ1Vrntbig68cDms3JwbA5Y1azs1ger6sNV/bbIw1jU81MvNAGrl58RVn8ozW+btF08iGFoAlYvP3csfVur1gJBEIA1uBmue5dhZDOyO2epbmgCVi8/I6x0MMHH9pjsTfBhNzQBq5uPZoQlB0uH3DZG4EZqQ26fL3sZq5uf09Ih6qw3i/pm6BZO0qZX7rrUS68Xsbr5ZE4rePMk08pk9aUZugfqppvs6AM1Acvlo/StP+6EbW06z8hJqxbYp2BZPQUnFsLsKuhQdaHqn5ewbF7KXIn0jWO5MqOQ7RaNLPtbNMmmhimj0GUmYLl8Gs0Lq4wyPbTu1l2QKqHSouzs3OlDIslW5SQsnY/NXmFplyNvEuuLV/Tau9BzwiraDUSwXmysztYWWNtL1psXeumgIrDGaqXvBfUuvtqUYI3V2t1wk1e2msFluJJm6zDJXv/fIfjPP7DAAgsssCiwwAILLLDAosACCyywwAKLAgsssMACC6zt9fDz/v75tyOB+98PD2+ORgKffjw4OP1uJPDxl+Xy8v1I4MPF3t7VNyOB4/vF4uzdzrG+39f1kz/w66Guv/yBvw90KX/gZKkr8Qf+2dOV+gNHC12/7RxrabD2/a31bLAO/a11YbAO/K21MFhLf2s9Gqw9f2vdGqzFu11jnVusE2/gxmI9eQOnFuvYG7i0WH7uK4t15w2cWazrXWP9a7H8f/bQYvm/6IPF+sF/pVssf19Ii/WH/0K2WH/uGuvEWC39gSdj9Twy+Rqri5EZx1gt/IE7Y/XoD1wbq9vd3w1PlufnD2OBp+ebm/uxwPHF6emnscDR4vLy41jg7vHq6sNY4Pr27OyYdRaLUrDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssL6u+k+AAQCR9eHtLKvLfwAAAABJRU5ErkJggg==" data-original="/medias/featureimages/6.jpg" class="responsive-img" alt="Mysql性能优化">
+                        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASwAAAEsCAMAAABOo35HAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAC9UExURVlZWdPT07KysmRkZIWFhfT09JmZmWZmZm9vb39/fxkZGUxMTDMzM3p6epCQkKamppubm729venp6cjIyN7e3tbW1s/Pz8LCwnx8fLS0tFZWVoiIiI+Pj6GhoeTk5Glpabu7u93d3evr66CgoJSUlKqqqsnJyeDg4Hd3d8PDw+Xl5bi4uNHR0dvb26Ojo6urq+fn51hYWDg4OCgoKHBwcK2traenp0FBQe7u7vHx8U5OTre3t8zMzHV1df///7GrnpQAAAA/dFJOU///////////////////////////////////////////////////////////////////////////////////AI4mfBcAAAUGSURBVHja7NoJb6M4GMZxY0NCD64kve/pMZ2d3Z297+X7f6zFNmBAMUXa6URl/q9UJSWPUPzrizFWRUlNLgEBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYYIEFAVhggQUWWGBBABZYYIEFFlgQgAUWWGCBBRYEYIEFFlhggQUBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYn6cCIcRXgvX/h9qcIVBqDdbEM8RCxGCB9QqXYRwHYDHBgwXWl8eKZKiESHI3Ba1kWs3fKixcaJUl1YyeBm7Ocq+yLItUiVBGnXxenSHJolIKEcwHq6ikbOX1YGVzQCTN8LPmSLreghUl9sN4Uw7yajMrLC0TZ1ImzqY6FEop0+pIaEN5HaoOxVuwEqFyc4I46uSlzOLqgxlh6UaR9l3VYWl9Fdoxb1Q90KJtu41pwwFW/WHhTtW8i7TafLCqRsk6bsGw63L9qurXRmuIlbT9lDQnlXU+nBFW1Q2qnZbDprWa2tjR90LZFqx1/+Td/HpGWLlrLDvIwTcx6dQ1Vrntbig68cDms3JwbA5Y1azs1ger6sNV/bbIw1jU81MvNAGrl58RVn8ozW+btF08iGFoAlYvP3csfVur1gJBEIA1uBmue5dhZDOyO2epbmgCVi8/I6x0MMHH9pjsTfBhNzQBq5uPZoQlB0uH3DZG4EZqQ26fL3sZq5uf09Ih6qw3i/pm6BZO0qZX7rrUS68Xsbr5ZE4rePMk08pk9aUZugfqppvs6AM1Acvlo/StP+6EbW06z8hJqxbYp2BZPQUnFsLsKuhQdaHqn5ewbF7KXIn0jWO5MqOQ7RaNLPtbNMmmhimj0GUmYLl8Gs0Lq4wyPbTu1l2QKqHSouzs3OlDIslW5SQsnY/NXmFplyNvEuuLV/Tau9BzwiraDUSwXmysztYWWNtL1psXeumgIrDGaqXvBfUuvtqUYI3V2t1wk1e2msFluJJm6zDJXv/fIfjPP7DAAgsssCiwwAILLLDAosACCyywwAKLAgsssMACC6zt9fDz/v75tyOB+98PD2+ORgKffjw4OP1uJPDxl+Xy8v1I4MPF3t7VNyOB4/vF4uzdzrG+39f1kz/w66Guv/yBvw90KX/gZKkr8Qf+2dOV+gNHC12/7RxrabD2/a31bLAO/a11YbAO/K21MFhLf2s9Gqw9f2vdGqzFu11jnVusE2/gxmI9eQOnFuvYG7i0WH7uK4t15w2cWazrXWP9a7H8f/bQYvm/6IPF+sF/pVssf19Ii/WH/0K2WH/uGuvEWC39gSdj9Twy+Rqri5EZx1gt/IE7Y/XoD1wbq9vd3w1PlufnD2OBp+ebm/uxwPHF6emnscDR4vLy41jg7vHq6sNY4Pr27OyYdRaLUrDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssL6u+k+AAQCR9eHtLKvLfwAAAABJRU5ErkJggg==" data-original="/medias/featureimages/16.jpg" class="responsive-img" alt="Redis-List">
                         
-                        <span class="card-title">Mysql性能优化</span>
+                        <span class="card-title">Redis-List</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            Mysql性能优化Mysql数据库的优化技术1.表的设计要符合三范式第一范式：1NF是对属性的原子性约束，要求属性也就是列具有原子性，不可再分解。
-第二范式：2NF是对记录的惟一性约束，要求记录有惟一标识，即实体的惟一性。
-第三范式：3NF
+                            列表(List)命令Redis列表是简单的字符串列表，按照插入顺序排序。你可以添加一个元素到列表的头部（左边）或者尾部（右边）一个列表最多可以包含 232 - 1 个元素 (4294967295, 每个列表超过40亿个元素)。
+1.BLPO
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-04-24
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-04-30
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/" class="post-category">
-                                    数据库
+                            <a href="/" class="post-category">
+                                    
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/mysql/">
-                        <span class="chip bg-color">mysql</span>
+                    <a href="/">
+                        <span class="chip bg-color"></span>
                     </a>
                     
                 </div>

@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="Redis-SortedSet, 云山先生">
+    <meta name="keywords" content="Redis命令-Hash, 云山先生">
     <meta name="description" content="专注于技术,分享生活,分享知识">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>Redis-SortedSet | 云山先生</title>
+    <title>Redis命令-Hash | 云山先生</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -708,12 +708,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/21.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/1.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">Redis-SortedSet</h1>
+                    <h1 class="description center-align post-title">Redis命令-Hash</h1>
                 </div>
             </div>
         </div>
@@ -830,8 +830,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/redis/">
-                                <span class="chip bg-color">redis</span>
+                            <a href="/">
+                                <span class="chip bg-color"></span>
                             </a>
                         
                     </div>
@@ -842,8 +842,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/" class="post-category">
-                                数据库
+                            <a href="/" class="post-category">
+                                
                             </a>
                         
                     </div>
@@ -855,7 +855,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2020-04-30
+                    2020-04-25
                 </div>
                 
 
@@ -872,109 +872,70 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h4 id="有序集合-sorted-set-命令"><a href="#有序集合-sorted-set-命令" class="headerlink" title="有序集合(sorted set)命令"></a>有序集合(sorted set)命令</h4><p>1.<code>ZADD key score1 member1 [score2 member2]</code></p>
-<p>用于将一个或多个成员元素及其分数值加入到有序集当中。如果某个成员已经是有序集的成员，那么更新这个成员的分数值，并通过重新插入这个成员元素，来保证该成员在正确的位置上。分数值可以是整数值或双精度浮点数。如果有序集合 key 不存在，则创建一个空的有序集并执行 ZADD 操作。当 key 存在但不是有序集类型时，返回一个错误。</p>
-<p>注意： 在 Redis 2.4 版本以前， ZADD 每次只能添加一个元素。</p>
-<p>基本语法：</p>
-<pre class=" language-lang-redis"><code class="language-lang-redis">ZADD KEY_NAME SCORE1 VALUE1.. SCOREN VALUEN
+                <h4 id="哈希（Hash）命令"><a href="#哈希（Hash）命令" class="headerlink" title="哈希（Hash）命令"></a>哈希（Hash）命令</h4><p>1.<code>HDEL key field1 [field2]</code></p>
+<p>删除一个或多个哈希表字段,返回被成功删除字段的数量，不包括被忽略的字段。</p>
+<p>基本语法</p>
+<pre class=" language-lang-redis"><code class="language-lang-redis">HDEL KEY_NAME FIELD1.. FIELDN
 </code></pre>
-<p>2.<code>ZCARD key</code></p>
-<p>用于计算集合中元素的数量。当 key 存在且是有序集类型时，返回有序集的基数。 当 key 不存在时，返回 0 。</p>
-<p>基本语法：</p>
-<pre class=" language-lang-redis"><code class="language-lang-redis">ZCARD KEY_NAME
+<p>2.<code>HEXISTS key field</code></p>
+<p>查看哈希表 key 中，指定的字段是否存在。如果哈希表含有给定字段，返回 1 。 如果哈希表不含有给定字段，或 key 不存在，返回 0 。</p>
+<p>基本语法</p>
+<pre class=" language-lang-redis"><code class="language-lang-redis">HEXISTS KEY_NAME FIELD_NAME
 </code></pre>
-<p>3.<code>ZCOUNT key min max</code></p>
-<p>用于计算有序集合中指定分数区间的成员数量。</p>
-<p>基本语法：</p>
-<pre class=" language-lang-redis"><code class="language-lang-redis">ZCOUNT key min max
+<p>3.<code>HGET key field</code></p>
+<p>获取存储在哈希表中指定字段的值。返回给定字段的值。如果给定的字段或 key 不存在时，返回 nil 。</p>
+<p>基本语法</p>
+<pre class=" language-lang-redis"><code class="language-lang-redis">HGET KEY_NAME FIELD_NAME
 </code></pre>
-<p>4.<code>ZINCRBY key increment member</code></p>
-<p>对有序集合中指定成员的分数加上增量 increment可以通过传递一个负数值 increment ，让分数减去相应的值，比如 ZINCRBY key -5 member ，就是让 member 的 score 值减去 5 。当 key 不存在，或分数不是 key 的成员时， ZINCRBY key increment member 等同于 ZADD key increment member 。当 key 不是有序集类型时，返回一个错误。分数值可以是整数值或双精度浮点数。</p>
-<p>基本语法：</p>
-<pre class=" language-lang-redis"><code class="language-lang-redis">ZINCRBY key increment member
+<p>4.<code>HGETALL key</code></p>
+<p>获取在哈希表中指定 key 的所有字段和值。以列表形式返回哈希表的字段及字段值。 若 key 不存在，返回空列表。</p>
+<p>基本语法</p>
+<pre class=" language-lang-redis"><code class="language-lang-redis">HGETALL KEY_NAME
 </code></pre>
-<p>5.<code>ZINTERSTORE destination numkeys key [key ...]</code></p>
-<p>计算给定的一个或多个有序集的交集，其中给定 key 的数量必须以 numkeys 参数指定，并将该交集(结果集)储存到 destination 。默认情况下，结果集中某个成员的分数值是所有给定集下该成员分数值之和。</p>
-<p>基本语法：</p>
-<pre class=" language-lang-redis"><code class="language-lang-redis">ZINTERSTORE destination numkeys key [key ...] [WEIGHTS weight [weight ...]] [AGGREGATE SUM|MIN|MAX]
+<p>5.<code>HINCRBY key field increment</code></p>
+<p>为哈希表 key 中的指定字段的整数值加上增量 increment 。返回执行 HINCRBY 命令之后，哈希表中字段的值。</p>
+<p>基本语法</p>
+<pre class=" language-lang-redis"><code class="language-lang-redis">HINCRBY KEY_NAME FIELD_NAME INCR_BY_NUMBER
 </code></pre>
-<p>6.<code>ZLEXCOUNT key min max</code></p>
-<p>计算有序集合中指定字典区间内成员数量。</p>
-<p>基本语法：</p>
-<pre class=" language-lang-redis"><code class="language-lang-redis">ZLEXCOUNT KEY MIN MAX
+<p>6.<code>HINCRBYFLOAT key field increment</code></p>
+<p>为哈希表 key 中的指定字段的浮点数值加上增量 increment 。</p>
+<p>基本语法</p>
+<pre class=" language-lang-redis"><code class="language-lang-redis">HINCRBYFLOAT key field increment
 </code></pre>
-<p>7.<code>ZRANGE key start stop [WITHSCORES]</code></p>
-<p>返回有序集中，指定区间内的成员。其中成员的位置按分数值递增(从小到大)来排序。具有相同分数值的成员按字典序(lexicographical order )来排列。值递减(从大到小)来排列，请使用 ZREVRANGE 命令。下标参数 start 和 stop 都以 0 为底，也就是说，以 0 表示有序集第一个成员，以 1 表示有序集第二个成员，以此类推。你也可以使用负数下标，以 -1 表示最后一个成员， -2 表示倒数第二个成员，以此类推。</p>
-<p>基本语法：</p>
-<pre class=" language-lang-redis"><code class="language-lang-redis">ZRANGE key start stop [WITHSCORES]
+<p>7.<code>HKEYS key</code></p>
+<p>获取所有哈希表中的字段。返回包含哈希表中所有域（field）列表。 当 key 不存在时，返回一个空列表。</p>
+<p>基本语法</p>
+<pre class=" language-lang-redis"><code class="language-lang-redis">HKEYS key
 </code></pre>
-<p>8.<code>ZRANGEBYLEX key min max [LIMIT offset count]</code></p>
-<p>通过字典区间返回有序集合的成员。</p>
-<p>基本语法：</p>
-<pre class=" language-lang-redis"><code class="language-lang-redis">ZRANGEBYLEX key min max [LIMIT offset count]
+<p>8.<code>HMGET key field1 [field2]</code></p>
+<p>获取所有给定字段的值。如果指定的字段不存在于哈希表，那么返回一个 nil 值。</p>
+<p>基本语法</p>
+<pre class=" language-lang-redis"><code class="language-lang-redis">HMGET KEY_NAME FIELD1...FIELDN
 </code></pre>
-<p>9.<code>ZRANGEBYSCORE key min max [WITHSCORES] [LIMIT]</code></p>
-<p>返回有序集合中指定分数区间的成员列表。有序集成员按分数值递增(从小到大)次序排列。具有相同分数值的成员按字典序来排列(该属性是有序集提供的，不需要额外的计算)。默认情况下，区间的取值使用闭区间 (小于等于或大于等于)，你也可以通过给参数前增加 ( 符号来使用可选的开区间 (小于或大于)。</p>
-<p>基本语法：</p>
-<pre class=" language-lang-redis"><code class="language-lang-redis">ZRANGEBYSCORE key min max [WITHSCORES] [LIMIT offset count]
+<p>9.<code>HMSET key field1 value1 [field2 value2 ]</code></p>
+<p>同时将多个 field-value (域-值)对设置到哈希表 key 中。此命令会覆盖哈希表中已存在的字段。如果哈希表不存在，会创建一个空哈希表，并执行 HMSET 操作。如果命令执行成功，返回 OK 。</p>
+<p>基本语法</p>
+<pre class=" language-lang-redis"><code class="language-lang-redis">HMSET KEY_NAME FIELD1 VALUE1 ...FIELDN VALUEN
 </code></pre>
-<p>10.<code>ZRANK key member</code></p>
-<p>返回有序集中指定成员的排名。其中有序集成员按分数值递增(从小到大)顺序排列。</p>
-<p>基本语法：</p>
-<pre class=" language-lang-redis"><code class="language-lang-redis">ZRANK key member
+<p>10.<code>HLEN key</code></p>
+<p>获取哈希表中字段的数量。返回哈希表中字段的数量。 当 key 不存在时，返回 0 。</p>
+<p>基本语法</p>
+<pre class=" language-lang-redis"><code class="language-lang-redis">HLEN KEY_NAME
 </code></pre>
-<p>11.<code>ZREM key member [member ...]</code></p>
-<p>用于移除有序集中的一个或多个成员，不存在的成员将被忽略。当 key 存在但不是有序集类型时，返回一个错误。</p>
-<p>注意： 在 Redis 2.4 版本以前， ZREM 每次只能删除一个元素。</p>
-<p>基本语法：</p>
-<pre class=" language-lang-redis"><code class="language-lang-redis">ZREM key member [member ...]
+<p>11.<code>HSET key field value</code></p>
+<p>将哈希表 key 中的字段 field 的值设为 value 。如果哈希表不存在，一个新的哈希表被创建并进行 HSET 操作。如果字段已经存在于哈希表中，旧值将被覆盖。如果字段是哈希表中的一个新建字段，并且值设置成功，返回 1 。 如果哈希表中域字段已经存在且旧值已被新值覆盖，返回 0 。</p>
+<p>基本语法</p>
+<pre class=" language-lang-redis"><code class="language-lang-redis">HSET KEY_NAME FIELD VALUE
 </code></pre>
-<p>12.<code>ZREMRANGEBYLEX key min max</code></p>
-<p>用于移除有序集合中给定的字典区间的所有成员。</p>
-<p>基本语法：</p>
-<pre class=" language-lang-redis"><code class="language-lang-redis">ZREMRANGEBYLEX key min max
+<p>12.<code>HSETNX key field value</code></p>
+<p>只有在字段 field 不存在时，设置哈希表字段的值。如果哈希表不存在，一个新的哈希表被创建并进行 HSET 操作。如果字段已经存在于哈希表中，操作无效。如果 key 不存在，一个新哈希表被创建并执行 HSETNX 命令。设置成功，返回 1 。 如果给定字段已经存在且没有操作被执行，返回 0 。</p>
+<p>基本语法</p>
+<pre class=" language-lang-redis"><code class="language-lang-redis">HSETNX KEY_NAME FIELD VALUE
 </code></pre>
-<p>13.<code>ZREMRANGEBYRANK key start stop</code></p>
-<p>用于移除有序集中，指定排名(rank)区间内的所有成员。</p>
-<p>基本语法：</p>
-<pre class=" language-lang-redis"><code class="language-lang-redis">ZREMRANGEBYRANK key start stop
-</code></pre>
-<p>14.<code>ZREMRANGEBYSCORE key min max</code></p>
-<p>用于移除有序集中，指定分数（score）区间内的所有成员。</p>
-<p>基本语法：</p>
-<pre class=" language-lang-redis"><code class="language-lang-redis">ZREMRANGEBYSCORE key min max
-</code></pre>
-<p>15.<code>ZREVRANGE key start stop [WITHSCORES]</code></p>
-<p>返回有序集中，指定区间内的成员。其中成员的位置按分数值递减(从大到小)来排列。具有相同分数值的成员按字典序的逆序(reverse lexicographical order)排列。除了成员按分数值递减的次序排列这一点外，<code>ZREVRANGE</code> 命令的其他方面和 ZRANGE 命令一样。</p>
-<p>基本语法：</p>
-<pre class=" language-lang-redis"><code class="language-lang-redis">ZREVRANGE key start stop [WITHSCORES]
-</code></pre>
-<p>16.<code>ZREVRANGEBYSCORE key max min [WITHSCORES]</code></p>
-<p>返回有序集中指定分数区间内的所有的成员。有序集成员按分数值递减(从大到小)的次序排列。具有相同分数值的成员按字典序的逆序(reverse lexicographical order )排列。</p>
-<p>除了成员按分数值递减的次序排列这一点外， <code>ZREVRANGEBYSCORE</code> 命令的其他方面和<code>ZRANGEBYSCORE</code> 命令一样。</p>
-<p>基本语法：</p>
-<pre class=" language-lang-redis"><code class="language-lang-redis">ZREVRANGEBYSCORE key max min [WITHSCORES] [LIMIT offset count]
-</code></pre>
-<p>17.<code>ZREVRANK key member</code></p>
-<p>返回有序集中成员的排名。其中有序集成员按分数值递减(从大到小)排序。排名以 0 为底，也就是说， 分数值最大的成员排名为 0 。使用 ZRANK 命令可以获得成员按分数值递增(从小到大)排列的排名。</p>
-<p>基本语法：</p>
-<pre class=" language-lang-redis"><code class="language-lang-redis">ZREVRANK key member
-</code></pre>
-<p>18.<code>ZSCORE key member</code></p>
-<p>返回有序集中，成员的分数值。 如果成员元素不是有序集 key 的成员，或 key 不存在，返回 nil 。</p>
-<p>基本语法：</p>
-<pre class=" language-lang-redis"><code class="language-lang-redis">ZSCORE key member
-</code></pre>
-<p>19.<code>ZUNIONSTORE destination numkeys key [key ...]</code></p>
-<p>计算给定的一个或多个有序集的并集，其中给定 key 的数量必须以 numkeys 参数指定，并将该并集(结果集)储存到 destination 。</p>
-<p>默认情况下，结果集中某个成员的分数值是所有给定集下该成员分数值之和 。</p>
-<p>基本语法：</p>
-<pre class=" language-lang-redis"><code class="language-lang-redis">ZUNIONSTORE destination numkeys key [key ...] [WEIGHTS weight [weight ...]] [AGGREGATE SUM|MIN|MAX]
-</code></pre>
-<p>20.`ZSCAN key cursor [MATCH pattern] [COUNT count]``</p>
-<p>命令用于迭代有序集合中的元素（包括元素成员和元素分值）</p>
-<p>基本语法：</p>
-<pre class=" language-lang-redis"><code class="language-lang-redis">ZSCAN key cursor [MATCH pattern] [COUNT count]
+<p>13.<code>HVALS key</code></p>
+<p>获取哈希表中所有值</p>
+<p>基本语法</p>
+<pre class=" language-lang-redis"><code class="language-lang-redis">HVALS KEY_NAME FIELD VALUE
 </code></pre>
 <script>
         document.querySelectorAll('.github-emoji')
@@ -1019,7 +980,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="www.yunshan.online/posts/851349237.html">www.yunshan.online/posts/851349237.html</a>
+                    <a href="www.yunshan.online/Redis%E5%91%BD%E4%BB%A4-Hash.html">www.yunshan.online/Redis%E5%91%BD%E4%BB%A4-Hash.html</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -1057,8 +1018,8 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/redis/">
-                                    <span class="chip bg-color">redis</span>
+                                <a href="/">
+                                    <span class="chip bg-color"></span>
                                 </a>
                             
                         </div>
@@ -1487,47 +1448,53 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/posts/298515222.html">
+                <a href="/Redis%E5%91%BD%E4%BB%A4-Hash.html">
                     <div class="card-image">
                         
                         
-                        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASwAAAEsCAMAAABOo35HAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAC9UExURVlZWdPT07KysmRkZIWFhfT09JmZmWZmZm9vb39/fxkZGUxMTDMzM3p6epCQkKamppubm729venp6cjIyN7e3tbW1s/Pz8LCwnx8fLS0tFZWVoiIiI+Pj6GhoeTk5Glpabu7u93d3evr66CgoJSUlKqqqsnJyeDg4Hd3d8PDw+Xl5bi4uNHR0dvb26Ojo6urq+fn51hYWDg4OCgoKHBwcK2traenp0FBQe7u7vHx8U5OTre3t8zMzHV1df///7GrnpQAAAA/dFJOU///////////////////////////////////////////////////////////////////////////////////AI4mfBcAAAUGSURBVHja7NoJb6M4GMZxY0NCD64kve/pMZ2d3Z297+X7f6zFNmBAMUXa6URl/q9UJSWPUPzrizFWRUlNLgEBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYYIEFAVhggQUWWGBBABZYYIEFFlgQgAUWWGCBBRYEYIEFFlhggQUBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYn6cCIcRXgvX/h9qcIVBqDdbEM8RCxGCB9QqXYRwHYDHBgwXWl8eKZKiESHI3Ba1kWs3fKixcaJUl1YyeBm7Ocq+yLItUiVBGnXxenSHJolIKEcwHq6ikbOX1YGVzQCTN8LPmSLreghUl9sN4Uw7yajMrLC0TZ1ImzqY6FEop0+pIaEN5HaoOxVuwEqFyc4I46uSlzOLqgxlh6UaR9l3VYWl9Fdoxb1Q90KJtu41pwwFW/WHhTtW8i7TafLCqRsk6bsGw63L9qurXRmuIlbT9lDQnlXU+nBFW1Q2qnZbDprWa2tjR90LZFqx1/+Td/HpGWLlrLDvIwTcx6dQ1Vrntbig68cDms3JwbA5Y1azs1ger6sNV/bbIw1jU81MvNAGrl58RVn8ozW+btF08iGFoAlYvP3csfVur1gJBEIA1uBmue5dhZDOyO2epbmgCVi8/I6x0MMHH9pjsTfBhNzQBq5uPZoQlB0uH3DZG4EZqQ26fL3sZq5uf09Ih6qw3i/pm6BZO0qZX7rrUS68Xsbr5ZE4rePMk08pk9aUZugfqppvs6AM1Acvlo/StP+6EbW06z8hJqxbYp2BZPQUnFsLsKuhQdaHqn5ewbF7KXIn0jWO5MqOQ7RaNLPtbNMmmhimj0GUmYLl8Gs0Lq4wyPbTu1l2QKqHSouzs3OlDIslW5SQsnY/NXmFplyNvEuuLV/Tau9BzwiraDUSwXmysztYWWNtL1psXeumgIrDGaqXvBfUuvtqUYI3V2t1wk1e2msFluJJm6zDJXv/fIfjPP7DAAgsssCiwwAILLLDAosACCyywwAKLAgsssMACC6zt9fDz/v75tyOB+98PD2+ORgKffjw4OP1uJPDxl+Xy8v1I4MPF3t7VNyOB4/vF4uzdzrG+39f1kz/w66Guv/yBvw90KX/gZKkr8Qf+2dOV+gNHC12/7RxrabD2/a31bLAO/a11YbAO/K21MFhLf2s9Gqw9f2vdGqzFu11jnVusE2/gxmI9eQOnFuvYG7i0WH7uK4t15w2cWazrXWP9a7H8f/bQYvm/6IPF+sF/pVssf19Ii/WH/0K2WH/uGuvEWC39gSdj9Twy+Rqri5EZx1gt/IE7Y/XoD1wbq9vd3w1PlufnD2OBp+ebm/uxwPHF6emnscDR4vLy41jg7vHq6sNY4Pr27OyYdRaLUrDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssL6u+k+AAQCR9eHtLKvLfwAAAABJRU5ErkJggg==" data-original="/medias/featureimages/4.jpg" class="responsive-img" alt="Dubbo基础">
+                        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASwAAAEsCAMAAABOo35HAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAC9UExURVlZWdPT07KysmRkZIWFhfT09JmZmWZmZm9vb39/fxkZGUxMTDMzM3p6epCQkKamppubm729venp6cjIyN7e3tbW1s/Pz8LCwnx8fLS0tFZWVoiIiI+Pj6GhoeTk5Glpabu7u93d3evr66CgoJSUlKqqqsnJyeDg4Hd3d8PDw+Xl5bi4uNHR0dvb26Ojo6urq+fn51hYWDg4OCgoKHBwcK2traenp0FBQe7u7vHx8U5OTre3t8zMzHV1df///7GrnpQAAAA/dFJOU///////////////////////////////////////////////////////////////////////////////////AI4mfBcAAAUGSURBVHja7NoJb6M4GMZxY0NCD64kve/pMZ2d3Z297+X7f6zFNmBAMUXa6URl/q9UJSWPUPzrizFWRUlNLgEBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYYIEFAVhggQUWWGBBABZYYIEFFlgQgAUWWGCBBRYEYIEFFlhggQUBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYn6cCIcRXgvX/h9qcIVBqDdbEM8RCxGCB9QqXYRwHYDHBgwXWl8eKZKiESHI3Ba1kWs3fKixcaJUl1YyeBm7Ocq+yLItUiVBGnXxenSHJolIKEcwHq6ikbOX1YGVzQCTN8LPmSLreghUl9sN4Uw7yajMrLC0TZ1ImzqY6FEop0+pIaEN5HaoOxVuwEqFyc4I46uSlzOLqgxlh6UaR9l3VYWl9Fdoxb1Q90KJtu41pwwFW/WHhTtW8i7TafLCqRsk6bsGw63L9qurXRmuIlbT9lDQnlXU+nBFW1Q2qnZbDprWa2tjR90LZFqx1/+Td/HpGWLlrLDvIwTcx6dQ1Vrntbig68cDms3JwbA5Y1azs1ger6sNV/bbIw1jU81MvNAGrl58RVn8ozW+btF08iGFoAlYvP3csfVur1gJBEIA1uBmue5dhZDOyO2epbmgCVi8/I6x0MMHH9pjsTfBhNzQBq5uPZoQlB0uH3DZG4EZqQ26fL3sZq5uf09Ih6qw3i/pm6BZO0qZX7rrUS68Xsbr5ZE4rePMk08pk9aUZugfqppvs6AM1Acvlo/StP+6EbW06z8hJqxbYp2BZPQUnFsLsKuhQdaHqn5ewbF7KXIn0jWO5MqOQ7RaNLPtbNMmmhimj0GUmYLl8Gs0Lq4wyPbTu1l2QKqHSouzs3OlDIslW5SQsnY/NXmFplyNvEuuLV/Tau9BzwiraDUSwXmysztYWWNtL1psXeumgIrDGaqXvBfUuvtqUYI3V2t1wk1e2msFluJJm6zDJXv/fIfjPP7DAAgsssCiwwAILLLDAosACCyywwAKLAgsssMACC6zt9fDz/v75tyOB+98PD2+ORgKffjw4OP1uJPDxl+Xy8v1I4MPF3t7VNyOB4/vF4uzdzrG+39f1kz/w66Guv/yBvw90KX/gZKkr8Qf+2dOV+gNHC12/7RxrabD2/a31bLAO/a11YbAO/K21MFhLf2s9Gqw9f2vdGqzFu11jnVusE2/gxmI9eQOnFuvYG7i0WH7uK4t15w2cWazrXWP9a7H8f/bQYvm/6IPF+sF/pVssf19Ii/WH/0K2WH/uGuvEWC39gSdj9Twy+Rqri5EZx1gt/IE7Y/XoD1wbq9vd3w1PlufnD2OBp+ebm/uxwPHF6emnscDR4vLy41jg7vHq6sNY4Pr27OyYdRaLUrDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssL6u+k+AAQCR9eHtLKvLfwAAAABJRU5ErkJggg==" data-original="/medias/featureimages/1.jpg" class="responsive-img" alt="Redis命令-Hash">
                         
-                        <span class="card-title">Dubbo基础</span>
+                        <span class="card-title">Redis命令-Hash</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            Dubbo介绍官方网站 : http://dubbo.apache.org/
-Dubbo是阿里巴巴开源的基于 Java 的高性能 RPC（一种远程调用） 分布式服务框架（SOA），致力于提供高性能和透明化的RPC远程服务调用方案，以及SOA
+                            哈希（Hash）命令1.HDEL key field1 [field2]
+删除一个或多个哈希表字段,返回被成功删除字段的数量，不包括被忽略的字段。
+基本语法
+HDEL KEY_NAME FIELD1.. FIELDN
+
+2.HEXISTS 
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2020-04-30
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-04-25
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E5%88%86%E5%B8%83%E5%BC%8F/" class="post-category">
-                                    分布式
+                            <a href="/" class="post-category">
+                                    
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/dubbo/">
-                        <span class="chip bg-color">dubbo</span>
+                    <a href="/">
+                        <span class="chip bg-color"></span>
                     </a>
                     
                 </div>
@@ -1538,46 +1505,51 @@ Dubbo是阿里巴巴开源的基于 Java 的高性能 RPC（一种远程调用�
         
         <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge right-badge text-color">
-                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+                本篇&nbsp;<i class="far fa-dot-circle"></i>
             </div>
             <div class="card">
-                <a href="/posts/3214324279.html">
+                <a href="/Redis%E5%91%BD%E4%BB%A4-Hash.html">
                     <div class="card-image">
                         
                         
-                        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASwAAAEsCAMAAABOo35HAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAC9UExURVlZWdPT07KysmRkZIWFhfT09JmZmWZmZm9vb39/fxkZGUxMTDMzM3p6epCQkKamppubm729venp6cjIyN7e3tbW1s/Pz8LCwnx8fLS0tFZWVoiIiI+Pj6GhoeTk5Glpabu7u93d3evr66CgoJSUlKqqqsnJyeDg4Hd3d8PDw+Xl5bi4uNHR0dvb26Ojo6urq+fn51hYWDg4OCgoKHBwcK2traenp0FBQe7u7vHx8U5OTre3t8zMzHV1df///7GrnpQAAAA/dFJOU///////////////////////////////////////////////////////////////////////////////////AI4mfBcAAAUGSURBVHja7NoJb6M4GMZxY0NCD64kve/pMZ2d3Z297+X7f6zFNmBAMUXa6URl/q9UJSWPUPzrizFWRUlNLgEBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYYIEFAVhggQUWWGBBABZYYIEFFlgQgAUWWGCBBRYEYIEFFlhggQUBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYn6cCIcRXgvX/h9qcIVBqDdbEM8RCxGCB9QqXYRwHYDHBgwXWl8eKZKiESHI3Ba1kWs3fKixcaJUl1YyeBm7Ocq+yLItUiVBGnXxenSHJolIKEcwHq6ikbOX1YGVzQCTN8LPmSLreghUl9sN4Uw7yajMrLC0TZ1ImzqY6FEop0+pIaEN5HaoOxVuwEqFyc4I46uSlzOLqgxlh6UaR9l3VYWl9Fdoxb1Q90KJtu41pwwFW/WHhTtW8i7TafLCqRsk6bsGw63L9qurXRmuIlbT9lDQnlXU+nBFW1Q2qnZbDprWa2tjR90LZFqx1/+Td/HpGWLlrLDvIwTcx6dQ1Vrntbig68cDms3JwbA5Y1azs1ger6sNV/bbIw1jU81MvNAGrl58RVn8ozW+btF08iGFoAlYvP3csfVur1gJBEIA1uBmue5dhZDOyO2epbmgCVi8/I6x0MMHH9pjsTfBhNzQBq5uPZoQlB0uH3DZG4EZqQ26fL3sZq5uf09Ih6qw3i/pm6BZO0qZX7rrUS68Xsbr5ZE4rePMk08pk9aUZugfqppvs6AM1Acvlo/StP+6EbW06z8hJqxbYp2BZPQUnFsLsKuhQdaHqn5ewbF7KXIn0jWO5MqOQ7RaNLPtbNMmmhimj0GUmYLl8Gs0Lq4wyPbTu1l2QKqHSouzs3OlDIslW5SQsnY/NXmFplyNvEuuLV/Tau9BzwiraDUSwXmysztYWWNtL1psXeumgIrDGaqXvBfUuvtqUYI3V2t1wk1e2msFluJJm6zDJXv/fIfjPP7DAAgsssCiwwAILLLDAosACCyywwAKLAgsssMACC6zt9fDz/v75tyOB+98PD2+ORgKffjw4OP1uJPDxl+Xy8v1I4MPF3t7VNyOB4/vF4uzdzrG+39f1kz/w66Guv/yBvw90KX/gZKkr8Qf+2dOV+gNHC12/7RxrabD2/a31bLAO/a11YbAO/K21MFhLf2s9Gqw9f2vdGqzFu11jnVusE2/gxmI9eQOnFuvYG7i0WH7uK4t15w2cWazrXWP9a7H8f/bQYvm/6IPF+sF/pVssf19Ii/WH/0K2WH/uGuvEWC39gSdj9Twy+Rqri5EZx1gt/IE7Y/XoD1wbq9vd3w1PlufnD2OBp+ebm/uxwPHF6emnscDR4vLy41jg7vHq6sNY4Pr27OyYdRaLUrDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssL6u+k+AAQCR9eHtLKvLfwAAAABJRU5ErkJggg==" data-original="/medias/featureimages/0.jpg" class="responsive-img" alt="Redis-Set">
+                        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASwAAAEsCAMAAABOo35HAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAC9UExURVlZWdPT07KysmRkZIWFhfT09JmZmWZmZm9vb39/fxkZGUxMTDMzM3p6epCQkKamppubm729venp6cjIyN7e3tbW1s/Pz8LCwnx8fLS0tFZWVoiIiI+Pj6GhoeTk5Glpabu7u93d3evr66CgoJSUlKqqqsnJyeDg4Hd3d8PDw+Xl5bi4uNHR0dvb26Ojo6urq+fn51hYWDg4OCgoKHBwcK2traenp0FBQe7u7vHx8U5OTre3t8zMzHV1df///7GrnpQAAAA/dFJOU///////////////////////////////////////////////////////////////////////////////////AI4mfBcAAAUGSURBVHja7NoJb6M4GMZxY0NCD64kve/pMZ2d3Z297+X7f6zFNmBAMUXa6URl/q9UJSWPUPzrizFWRUlNLgEBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYYIEFAVhggQUWWGBBABZYYIEFFlgQgAUWWGCBBRYEYIEFFlhggQUBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYn6cCIcRXgvX/h9qcIVBqDdbEM8RCxGCB9QqXYRwHYDHBgwXWl8eKZKiESHI3Ba1kWs3fKixcaJUl1YyeBm7Ocq+yLItUiVBGnXxenSHJolIKEcwHq6ikbOX1YGVzQCTN8LPmSLreghUl9sN4Uw7yajMrLC0TZ1ImzqY6FEop0+pIaEN5HaoOxVuwEqFyc4I46uSlzOLqgxlh6UaR9l3VYWl9Fdoxb1Q90KJtu41pwwFW/WHhTtW8i7TafLCqRsk6bsGw63L9qurXRmuIlbT9lDQnlXU+nBFW1Q2qnZbDprWa2tjR90LZFqx1/+Td/HpGWLlrLDvIwTcx6dQ1Vrntbig68cDms3JwbA5Y1azs1ger6sNV/bbIw1jU81MvNAGrl58RVn8ozW+btF08iGFoAlYvP3csfVur1gJBEIA1uBmue5dhZDOyO2epbmgCVi8/I6x0MMHH9pjsTfBhNzQBq5uPZoQlB0uH3DZG4EZqQ26fL3sZq5uf09Ih6qw3i/pm6BZO0qZX7rrUS68Xsbr5ZE4rePMk08pk9aUZugfqppvs6AM1Acvlo/StP+6EbW06z8hJqxbYp2BZPQUnFsLsKuhQdaHqn5ewbF7KXIn0jWO5MqOQ7RaNLPtbNMmmhimj0GUmYLl8Gs0Lq4wyPbTu1l2QKqHSouzs3OlDIslW5SQsnY/NXmFplyNvEuuLV/Tau9BzwiraDUSwXmysztYWWNtL1psXeumgIrDGaqXvBfUuvtqUYI3V2t1wk1e2msFluJJm6zDJXv/fIfjPP7DAAgsssCiwwAILLLDAosACCyywwAKLAgsssMACC6zt9fDz/v75tyOB+98PD2+ORgKffjw4OP1uJPDxl+Xy8v1I4MPF3t7VNyOB4/vF4uzdzrG+39f1kz/w66Guv/yBvw90KX/gZKkr8Qf+2dOV+gNHC12/7RxrabD2/a31bLAO/a11YbAO/K21MFhLf2s9Gqw9f2vdGqzFu11jnVusE2/gxmI9eQOnFuvYG7i0WH7uK4t15w2cWazrXWP9a7H8f/bQYvm/6IPF+sF/pVssf19Ii/WH/0K2WH/uGuvEWC39gSdj9Twy+Rqri5EZx1gt/IE7Y/XoD1wbq9vd3w1PlufnD2OBp+ebm/uxwPHF6emnscDR4vLy41jg7vHq6sNY4Pr27OyYdRaLUrDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssL6u+k+AAQCR9eHtLKvLfwAAAABJRU5ErkJggg==" data-original="/medias/featureimages/1.jpg" class="responsive-img" alt="Redis命令-Hash">
                         
-                        <span class="card-title">Redis-Set</span>
+                        <span class="card-title">Redis命令-Hash</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            集合(Set)命令1.SADD key member1 [member2]
-将一个或多个成员元素加入到集合中，已经存在于集合的成员元素将被忽略。假如集合 key 不存在，则创建一个只包含添加的元素作成员的集合。当集合 key 不是集合类型时
+                            哈希（Hash）命令1.HDEL key field1 [field2]
+删除一个或多个哈希表字段,返回被成功删除字段的数量，不包括被忽略的字段。
+基本语法
+HDEL KEY_NAME FIELD1.. FIELDN
+
+2.HEXISTS 
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-04-30
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-04-25
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/" class="post-category">
-                                    数据库
+                            <a href="/" class="post-category">
+                                    
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/redis/">
-                        <span class="chip bg-color">redis</span>
+                    <a href="/">
+                        <span class="chip bg-color"></span>
                     </a>
                     
                 </div>
