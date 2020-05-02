@@ -896,13 +896,9 @@ dataLogDir=/root/zookeeper-3.4.6/logs
 <p>关闭：<code>./zkServer.sh stop</code></p>
 <p>查看状态：<code>./zkServer.sh status</code></p>
 <font color="red">注意：需要关闭防火墙。</font>
-```
-service iptables stop
-```
+``service iptables stop``
 永久关闭修改配置开机不启动防火墙
-```
-chkconfig iptables off
-```
+``chkconfig iptables off``
 <font color="red">注意：如果不能成功启动zookeeper，需要删除data目录下的zookeeper_server.pid文件.重新启动</font>
 
 
@@ -1562,13 +1558,13 @@ server.4=192.168.200.14: 2500:2600
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            Dubbo入门程序1.服务端接口创建
+                            Dubbo入门程序点对点模式服务提供端1.服务端接口创建
 public interface ProviderService {
     String hello(String word);
 }
 
-
-        document.querySelectorA
+2.实现接口
+public class Pr
                         
                     </div>
                     <div class="publish-info">
