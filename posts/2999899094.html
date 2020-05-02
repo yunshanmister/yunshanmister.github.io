@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="JSP基础, 云山先生">
+    <meta name="keywords" content="Redis命令-String, 云山先生">
     <meta name="description" content="专注于技术,分享生活,分享知识">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>JSP基础 | 云山先生</title>
+    <title>Redis命令-String | 云山先生</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -708,12 +708,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/5.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/4.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">JSP基础</h1>
+                    <h1 class="description center-align post-title">Redis命令-String</h1>
                 </div>
             </div>
         </div>
@@ -830,8 +830,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/">
-                                <span class="chip bg-color"></span>
+                            <a href="/tags/redis/">
+                                <span class="chip bg-color">redis</span>
                             </a>
                         
                     </div>
@@ -842,8 +842,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/" class="post-category">
-                                
+                            <a href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/" class="post-category">
+                                数据库
                             </a>
                         
                     </div>
@@ -872,45 +872,106 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h4 id="JSP-生命周期"><a href="#JSP-生命周期" class="headerlink" title="JSP 生命周期"></a>JSP 生命周期</h4><ul>
-<li><p>编译阶段：servlet容器编译servlet源文件，生成servlet类</p>
-</li>
-<li><p>初始化阶段：加载与JSP对应的servlet类，创建其实例，并调用它的初始化方法</p>
-</li>
-<li><p>执行阶段：调用与JSP对应的servlet实例的服务方法</p>
-</li>
-<li><p>销毁阶段：调用与JSP对应的servlet实例的销毁方法，然后销毁servlet实例</p>
-</li>
-</ul>
-<h4 id="JSP-语法"><a href="#JSP-语法" class="headerlink" title="JSP 语法"></a>JSP 语法</h4><pre class=" language-lang-jsp"><code class="language-lang-jsp"><% 代码片段 %>
+                <h4 id="字符串命令"><a href="#字符串命令" class="headerlink" title="字符串命令"></a>字符串命令</h4><p>1.<code>SET key value</code></p>
+<p>设置指定 key 的值。</p>
+<p>基本语法</p>
+<pre class=" language-lang-redis"><code class="language-lang-redis">SET KEY_NAME VALUE
 </code></pre>
-<p>以上代码片段中可以包含的是任意量的Java语句，变量，方法或表达式。当然也可以编写与其等价的XLM语句类似于下面</p>
-<p><code>&lt;jsp:scriptlet&gt;代码片段&lt;/jsp:scriptlet&gt;</code></p>
-<h4 id="JSP常用指令"><a href="#JSP常用指令" class="headerlink" title="JSP常用指令"></a>JSP常用指令</h4><p>JSP的三种指令</p>
-<ol>
-<li><code>&lt;%@ page ... %&gt;</code> 用来定义网页依赖属性，比如error页面、缓存需求等等，一个JSP页面可以包含多个page指令。</li>
-</ol>
-<p>Page指令的语法格式：</p>
-<pre class=" language-lang-jsp"><code class="language-lang-jsp"><%@ page attribute="value" %>
+<p>2.<code>GET key value</code></p>
+<p>获取key的值返回 key 的值，如果 key 不存在时，返回 nil。 如果 key 不是字符串类型，那么返回一个错误。</p>
+<p>基本语法</p>
+<pre class=" language-lang-redis"><code class="language-lang-redis">GET KEY_NAME
 </code></pre>
-<p>2.&lt;%@ include … %&gt;Include指令通过include指令来包含其他文件。被包含的文件可以是JSP文件、HTML文件或文本文件。</p>
-<p>Include指令的语法格式如下：</p>
-<pre class=" language-lang-jsp"><code class="language-lang-jsp"><%@ include file="文件相对 url 地址" %>
+<p>3.<code>GETRANGE key start end</code></p>
+<p>返回 key 中字符串值的子字符。</p>
+<p>基本语法</p>
+<pre class=" language-lang-redis"><code class="language-lang-redis">GETRANGE KEY_NAME start end
 </code></pre>
-<p>3.&lt;%@ taglib … %&gt;Taglib指令引入一个自定义标签集合的定义，包括库路径、自定义标签。</p>
-<p>Taglib指令的语法：</p>
-<pre class=" language-lang-jsp"><code class="language-lang-jsp"><%@ taglib uri="uri" prefix="prefixOfTag" %>
+<p>4.<code>GETSET key value</code></p>
+<p>将给定 key 的值设为 value ，并返回 key 的旧值(old value)。</p>
+<p>基本语法</p>
+<pre class=" language-lang-redis"><code class="language-lang-redis">GETSET KEY_NAME VALUE
 </code></pre>
-<h4 id="JSP-动作元素"><a href="#JSP-动作元素" class="headerlink" title="JSP 动作元素"></a>JSP 动作元素</h4><p>JSP动作元素在请求处理阶段起作用。</p>
-<p>动作元素语法</p>
-<p><code>&lt;jsp:action_name attribute="value" /&gt;</code></p>
-<p>常见动作元素</p>
-<p>1.<code>&lt;jsp:include&gt;</code>动作元素用来包含静态和动态的文件。</p>
-<p><code>&lt;jsp:include page="相对 URL 地址" flush="true" /&gt;</code></p>
-<p>page表示相对路径URL地址，flush表示是否刷新缓存区。</p>
-<p>2.<code>&lt;jsp:forward&gt;</code> 动作元素把请求转到另外的页面。</p>
-<p><code>&lt;jsp:forward page="相对 URL 地址" /&gt;</code></p>
-<p>page表示的是一个相对URL。page的值既可以直接给出，也可以在请求的时候动态计算，可以是一个JSP页面或者一个 Java Servlet.</p>
+<p>5.<code>SETBIT key offset value</code></p>
+<p>对 key 所储存的字符串值，设置或清除指定偏移量上的位(bit)。</p>
+<p>基本语法</p>
+<pre class=" language-lang-redis"><code class="language-lang-redis">SETBIT KEY_NAME OFFSET
+</code></pre>
+<p>6.<code>GETBIT key offset</code></p>
+<p>对 key 所储存的字符串值，获取指定偏移量上的位(bit)。当偏移量 OFFSET 比字符串值的长度大，或者 key 不存在时，返回 0 。</p>
+<p>基本语法</p>
+<pre class=" language-lang-redis"><code class="language-lang-redis">GETBIT KEY_NAME OFFSET
+</code></pre>
+<p>7.<code>MGET key1 [key2..]</code></p>
+<p>获取所有(一个或多个)给定 key 的值。有某个 key 不存在，那么这个 key 返回特殊值 nil</p>
+<p>基本语法</p>
+<pre class=" language-lang-redis"><code class="language-lang-redis">MGET KEY1 KEY2 .. KEYN
+</code></pre>
+<p>8.<code>SETEX key seconds value</code></p>
+<p>将值 value 关联到 key ，并将 key 的过期时间设为seconds (以秒为单位)。如果 key 已经存在， SETEX 命令将会替换旧的值。</p>
+<p>基本语法</p>
+<pre class=" language-lang-redis"><code class="language-lang-redis">SETEX KEY_NAME TIMEOUT VALUE
+</code></pre>
+<p>9.SETNX key value</p>
+<p>只有在 key 不存在时设置 key 的值。设置成功，返回 1 。 设置失败，返回 0 。</p>
+<p>基本语法</p>
+<pre class=" language-lang-redis"><code class="language-lang-redis">SETNX KEY_NAME VALUE
+</code></pre>
+<p>10.<code>SETRANGE key offset value</code></p>
+<p>用 value 参数覆写给定 key 所储存的字符串值，从偏移量 offset 开始。返回被修改后的字符串长度。</p>
+<p>基本语法</p>
+<pre class=" language-lang-redis"><code class="language-lang-redis">SETRANGE KEY_NAME OFFSET VALUE
+</code></pre>
+<p>11.<code>STRLEN key</code></p>
+<p>返回 key 所储存的字符串值的长度。当 key 储存的不是字符串值时，返回一个错误。</p>
+<p>基本语法</p>
+<pre class=" language-lang-redis"><code class="language-lang-redis">STRLEN KEY_NAME
+</code></pre>
+<p>12.<code>MSET key value [key value ...]</code></p>
+<p>同时设置一个或多个 key-value 对。</p>
+<p>基本语法</p>
+<pre class=" language-lang-redis"><code class="language-lang-redis">MSET key1 value1 key2 value2 .. keyN valueN
+</code></pre>
+<p>13.<code>MSETNX key value [key value ...]</code></p>
+<p>同时设置一个或多个 key-value 对，当且仅当所有给定 key 都不存在。当所有 key 都成功设置，返回 1 。 如果所有给定 key 都设置失败(至少有一个 key 已经存在)，那么返回 0 。</p>
+<p>基本语法</p>
+<pre class=" language-lang-redis"><code class="language-lang-redis">MSETNX key1 value1 key2 value2 .. keyN valueN
+</code></pre>
+<p>14.<code>PSETEX key milliseconds value</code></p>
+<p>这个命令和 SETEX 命令相似，但它以毫秒为单位设置 key 的生存时间，而不是像 SETEX 命令那样，以秒为单位。</p>
+<p>基本语法</p>
+<pre class=" language-lang-redis"><code class="language-lang-redis">PSETEX key1 EXPIRY_IN_MILLISECONDS value1
+</code></pre>
+<p>15.<code>INCR key</code></p>
+<p>将 key 中储存的数字值增一。返回的是执行 <code>INCR</code> 命令之后 key 的值。</p>
+<p>基本语法</p>
+<pre class=" language-lang-redis"><code class="language-lang-redis">INCR KEY_NAME
+</code></pre>
+<p>16.<code>INCRBY key increment</code></p>
+<p>将 key 所储存的值加上给定的增量值（increment）。返回值是加上指定的增量值之后， key 的值。</p>
+<p>基本语法</p>
+<pre class=" language-lang-redis"><code class="language-lang-redis">INCRBY KEY_NAME INCR_AMOUNT
+</code></pre>
+<p>17.<code>INCRBYFLOAT key increment</code></p>
+<p>将 key 所储存的值加上给定的浮点增量值（increment） 。如果 key 不存在，那么 INCRBYFLOAT 会先将 key 的值设为 0 ，再执行加法操作。返回值是执行命令之后 key 的值。</p>
+<p>基本语法</p>
+<pre class=" language-lang-redis"><code class="language-lang-redis">INCRBYFLOAT KEY_NAME INCR_AMOUNT
+</code></pre>
+<p>18.<code>DECR key</code></p>
+<p>将 key 中储存的数字值减一。如果 key 不存在，那么 key 的值会先被初始化为 0 ，然后再执行 DECR 操作。如果值包含错误的类型，或字符串类型的值不能表示为数字，那么返回一个错误。返回值是执行命令之后 key 的值。</p>
+<p>基本语法</p>
+<pre class=" language-lang-redis"><code class="language-lang-redis">DECR KEY_NAME
+</code></pre>
+<p>19.<code>DECRBY key decrement</code></p>
+<p>key 所储存的值减去给定的减量值（decrement） 。如果 key 不存在，那么 key 的值会先被初始化为 0 ，然后再执行 DECRBY 操作。如果值包含错误的类型，或字符串类型的值不能表示为数字，那么返回一个错误。</p>
+<p>基本语法</p>
+<pre class=" language-lang-redis"><code class="language-lang-redis">DECRBY KEY_NAME DECREMENT_AMOUNT
+</code></pre>
+<p>20.<code>APPEND key value</code></p>
+<p>如果 key 已经存在并且是一个字符串， APPEND 命令将指定的 value 追加到该 key 原来值（value）的末尾。返回值是追加指定值之后， key 中字符串的长度。</p>
+<p>基本语法</p>
+<pre class=" language-lang-redis"><code class="language-lang-redis">APPEND KEY_NAME NEW_VALUE
+</code></pre>
 <script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
@@ -954,7 +1015,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="www.yunshan.online/JSP%E5%9F%BA%E7%A1%80.html">www.yunshan.online/JSP%E5%9F%BA%E7%A1%80.html</a>
+                    <a href="www.yunshan.online/posts/2999899094.html">www.yunshan.online/posts/2999899094.html</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -992,8 +1053,8 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/">
-                                    <span class="chip bg-color"></span>
+                                <a href="/tags/redis/">
+                                    <span class="chip bg-color">redis</span>
                                 </a>
                             
                         </div>
@@ -1422,12 +1483,11 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="far fa-dot-circle"></i>&nbsp;本篇
-            </div>
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/JSP%E5%9F%BA%E7%A1%80.html">
+                <a href="/posts/3302022150.html">
                     <div class="card-image">
                         
                         
@@ -1450,27 +1510,26 @@
                         
                     </div>
                     <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-04-19
-                            </span>
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2020-04-19
+                        </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/" class="post-category">
-                                    
+                            <a href="/categories/JavaWeb/" class="post-category">
+                                    JavaWeb
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
-
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/">
-                        <span class="chip bg-color"></span>
+                    <a href="/tags/jsp/">
+                        <span class="chip bg-color">jsp</span>
                     </a>
                     
                 </div>
@@ -1481,53 +1540,49 @@
         
         <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge right-badge text-color">
-                本篇&nbsp;<i class="far fa-dot-circle"></i>
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/JSP%E5%9F%BA%E7%A1%80.html">
+                <a href="/posts/4286605504.html">
                     <div class="card-image">
                         
                         
-                        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASwAAAEsCAMAAABOo35HAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAC9UExURVlZWdPT07KysmRkZIWFhfT09JmZmWZmZm9vb39/fxkZGUxMTDMzM3p6epCQkKamppubm729venp6cjIyN7e3tbW1s/Pz8LCwnx8fLS0tFZWVoiIiI+Pj6GhoeTk5Glpabu7u93d3evr66CgoJSUlKqqqsnJyeDg4Hd3d8PDw+Xl5bi4uNHR0dvb26Ojo6urq+fn51hYWDg4OCgoKHBwcK2traenp0FBQe7u7vHx8U5OTre3t8zMzHV1df///7GrnpQAAAA/dFJOU///////////////////////////////////////////////////////////////////////////////////AI4mfBcAAAUGSURBVHja7NoJb6M4GMZxY0NCD64kve/pMZ2d3Z297+X7f6zFNmBAMUXa6URl/q9UJSWPUPzrizFWRUlNLgEBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYYIEFAVhggQUWWGBBABZYYIEFFlgQgAUWWGCBBRYEYIEFFlhggQUBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYn6cCIcRXgvX/h9qcIVBqDdbEM8RCxGCB9QqXYRwHYDHBgwXWl8eKZKiESHI3Ba1kWs3fKixcaJUl1YyeBm7Ocq+yLItUiVBGnXxenSHJolIKEcwHq6ikbOX1YGVzQCTN8LPmSLreghUl9sN4Uw7yajMrLC0TZ1ImzqY6FEop0+pIaEN5HaoOxVuwEqFyc4I46uSlzOLqgxlh6UaR9l3VYWl9Fdoxb1Q90KJtu41pwwFW/WHhTtW8i7TafLCqRsk6bsGw63L9qurXRmuIlbT9lDQnlXU+nBFW1Q2qnZbDprWa2tjR90LZFqx1/+Td/HpGWLlrLDvIwTcx6dQ1Vrntbig68cDms3JwbA5Y1azs1ger6sNV/bbIw1jU81MvNAGrl58RVn8ozW+btF08iGFoAlYvP3csfVur1gJBEIA1uBmue5dhZDOyO2epbmgCVi8/I6x0MMHH9pjsTfBhNzQBq5uPZoQlB0uH3DZG4EZqQ26fL3sZq5uf09Ih6qw3i/pm6BZO0qZX7rrUS68Xsbr5ZE4rePMk08pk9aUZugfqppvs6AM1Acvlo/StP+6EbW06z8hJqxbYp2BZPQUnFsLsKuhQdaHqn5ewbF7KXIn0jWO5MqOQ7RaNLPtbNMmmhimj0GUmYLl8Gs0Lq4wyPbTu1l2QKqHSouzs3OlDIslW5SQsnY/NXmFplyNvEuuLV/Tau9BzwiraDUSwXmysztYWWNtL1psXeumgIrDGaqXvBfUuvtqUYI3V2t1wk1e2msFluJJm6zDJXv/fIfjPP7DAAgsssCiwwAILLLDAosACCyywwAKLAgsssMACC6zt9fDz/v75tyOB+98PD2+ORgKffjw4OP1uJPDxl+Xy8v1I4MPF3t7VNyOB4/vF4uzdzrG+39f1kz/w66Guv/yBvw90KX/gZKkr8Qf+2dOV+gNHC12/7RxrabD2/a31bLAO/a11YbAO/K21MFhLf2s9Gqw9f2vdGqzFu11jnVusE2/gxmI9eQOnFuvYG7i0WH7uK4t15w2cWazrXWP9a7H8f/bQYvm/6IPF+sF/pVssf19Ii/WH/0K2WH/uGuvEWC39gSdj9Twy+Rqri5EZx1gt/IE7Y/XoD1wbq9vd3w1PlufnD2OBp+ebm/uxwPHF6emnscDR4vLy41jg7vHq6sNY4Pr27OyYdRaLUrDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssL6u+k+AAQCR9eHtLKvLfwAAAABJRU5ErkJggg==" data-original="/medias/featureimages/5.jpg" class="responsive-img" alt="JSP基础">
+                        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASwAAAEsCAMAAABOo35HAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAC9UExURVlZWdPT07KysmRkZIWFhfT09JmZmWZmZm9vb39/fxkZGUxMTDMzM3p6epCQkKamppubm729venp6cjIyN7e3tbW1s/Pz8LCwnx8fLS0tFZWVoiIiI+Pj6GhoeTk5Glpabu7u93d3evr66CgoJSUlKqqqsnJyeDg4Hd3d8PDw+Xl5bi4uNHR0dvb26Ojo6urq+fn51hYWDg4OCgoKHBwcK2traenp0FBQe7u7vHx8U5OTre3t8zMzHV1df///7GrnpQAAAA/dFJOU///////////////////////////////////////////////////////////////////////////////////AI4mfBcAAAUGSURBVHja7NoJb6M4GMZxY0NCD64kve/pMZ2d3Z297+X7f6zFNmBAMUXa6URl/q9UJSWPUPzrizFWRUlNLgEBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYYIEFAVhggQUWWGBBABZYYIEFFlgQgAUWWGCBBRYEYIEFFlhggQUBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYn6cCIcRXgvX/h9qcIVBqDdbEM8RCxGCB9QqXYRwHYDHBgwXWl8eKZKiESHI3Ba1kWs3fKixcaJUl1YyeBm7Ocq+yLItUiVBGnXxenSHJolIKEcwHq6ikbOX1YGVzQCTN8LPmSLreghUl9sN4Uw7yajMrLC0TZ1ImzqY6FEop0+pIaEN5HaoOxVuwEqFyc4I46uSlzOLqgxlh6UaR9l3VYWl9Fdoxb1Q90KJtu41pwwFW/WHhTtW8i7TafLCqRsk6bsGw63L9qurXRmuIlbT9lDQnlXU+nBFW1Q2qnZbDprWa2tjR90LZFqx1/+Td/HpGWLlrLDvIwTcx6dQ1Vrntbig68cDms3JwbA5Y1azs1ger6sNV/bbIw1jU81MvNAGrl58RVn8ozW+btF08iGFoAlYvP3csfVur1gJBEIA1uBmue5dhZDOyO2epbmgCVi8/I6x0MMHH9pjsTfBhNzQBq5uPZoQlB0uH3DZG4EZqQ26fL3sZq5uf09Ih6qw3i/pm6BZO0qZX7rrUS68Xsbr5ZE4rePMk08pk9aUZugfqppvs6AM1Acvlo/StP+6EbW06z8hJqxbYp2BZPQUnFsLsKuhQdaHqn5ewbF7KXIn0jWO5MqOQ7RaNLPtbNMmmhimj0GUmYLl8Gs0Lq4wyPbTu1l2QKqHSouzs3OlDIslW5SQsnY/NXmFplyNvEuuLV/Tau9BzwiraDUSwXmysztYWWNtL1psXeumgIrDGaqXvBfUuvtqUYI3V2t1wk1e2msFluJJm6zDJXv/fIfjPP7DAAgsssCiwwAILLLDAosACCyywwAKLAgsssMACC6zt9fDz/v75tyOB+98PD2+ORgKffjw4OP1uJPDxl+Xy8v1I4MPF3t7VNyOB4/vF4uzdzrG+39f1kz/w66Guv/yBvw90KX/gZKkr8Qf+2dOV+gNHC12/7RxrabD2/a31bLAO/a11YbAO/K21MFhLf2s9Gqw9f2vdGqzFu11jnVusE2/gxmI9eQOnFuvYG7i0WH7uK4t15w2cWazrXWP9a7H8f/bQYvm/6IPF+sF/pVssf19Ii/WH/0K2WH/uGuvEWC39gSdj9Twy+Rqri5EZx1gt/IE7Y/XoD1wbq9vd3w1PlufnD2OBp+ebm/uxwPHF6emnscDR4vLy41jg7vHq6sNY4Pr27OyYdRaLUrDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssL6u+k+AAQCR9eHtLKvLfwAAAABJRU5ErkJggg==" data-original="/medias/featureimages/9.jpg" class="responsive-img" alt="快速排序">
                         
-                        <span class="card-title">JSP基础</span>
+                        <span class="card-title">快速排序</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            JSP 生命周期
-编译阶段：servlet容器编译servlet源文件，生成servlet类
-
-初始化阶段：加载与JSP对应的servlet类，创建其实例，并调用它的初始化方法
-
-执行阶段：调用与JSP对应的servlet实例的服务方法
+                            快速排序算法快速排序算法是冒泡排序算法的一种改进。采用了一种分治的策略，通常称其为分治法(Divide-and-ConquerMethod)。
+快排的基本思想
+1.以数组的第一个元素为作为基准数,让其他元素和它比较大小,保存在temp中
 
 
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-04-19
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-04-18
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/" class="post-category">
-                                    
+                            <a href="/categories/%E7%AE%97%E6%B3%95/" class="post-category">
+                                    算法
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
-
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/">
-                        <span class="chip bg-color"></span>
+                    <a href="/tags/%E5%BF%AB%E9%80%9F%E6%8E%92%E5%BA%8F/">
+                        <span class="chip bg-color">快速排序</span>
                     </a>
                     
                 </div>

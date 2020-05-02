@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="Redis-Set, 云山先生">
+    <meta name="keywords" content="Redis数据类型, 云山先生">
     <meta name="description" content="专注于技术,分享生活,分享知识">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>Redis-Set | 云山先生</title>
+    <title>Redis数据类型 | 云山先生</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -708,12 +708,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/0.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/1.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">Redis-Set</h1>
+                    <h1 class="description center-align post-title">Redis数据类型</h1>
                 </div>
             </div>
         </div>
@@ -830,8 +830,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/">
-                                <span class="chip bg-color"></span>
+                            <a href="/tags/redis/">
+                                <span class="chip bg-color">redis</span>
                             </a>
                         
                     </div>
@@ -842,8 +842,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/" class="post-category">
-                                
+                            <a href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/" class="post-category">
+                                数据库
                             </a>
                         
                     </div>
@@ -855,7 +855,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2020-04-30
+                    2020-04-12
                 </div>
                 
 
@@ -872,90 +872,59 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h4 id="集合-Set-命令"><a href="#集合-Set-命令" class="headerlink" title="集合(Set)命令"></a>集合(Set)命令</h4><p>1.<code>SADD key member1 [member2]</code></p>
-<p>将一个或多个成员元素加入到集合中，已经存在于集合的成员元素将被忽略。假如集合 key 不存在，则创建一个只包含添加的元素作成员的集合。当集合 key 不是集合类型时，返回一个错误。</p>
-<p>注意：在 Redis2.4 版本以前， SADD 只接受单个成员值。</p>
-<p>基本语法：</p>
-<pre class=" language-lang-redis"><code class="language-lang-redis">SADD KEY_NAME VALUE1..VALUEN
+                <h2 id="Redis数据类型"><a href="#Redis数据类型" class="headerlink" title="Redis数据类型"></a>Redis数据类型</h2><h3 id="String【字符串】"><a href="#String【字符串】" class="headerlink" title="String【字符串】"></a>String【字符串】</h3><p>String数据结构是简单的key-value类型，value其实不仅是String，也可以是数字。string 类型是 Redis 最基本的数据类型，string 类型的值最大能存储 512MB。你可以用它存储 json 格式或 JPEG 图片格式的字符串。</p>
+<p>1.存储简单的Key-Value</p>
+<pre class=" language-lang-redis"><code class="language-lang-redis">127.0.0.1:6379> SET yunshan 云山
+OK
+127.0.0.1:6379> GET yunshan
+云山
 </code></pre>
-<p>2.<code>SCARD key</code></p>
-<p>返回集合中元素的数量。</p>
-<p>基本语法：</p>
-<pre class=" language-lang-redis"><code class="language-lang-redis">SCARD KEY_NA
+<p>如果出现中文乱码【其实不是我们存储的中文显示】只需要在启动时在 <code>redis-cli</code>后面加上 <code>--raw</code> 即可。</p>
+<h3 id="Hash【哈希】"><a href="#Hash【哈希】" class="headerlink" title="Hash【哈希】"></a>Hash【哈希】</h3><p>hash 的 Key 是一个唯一值，Value 部分是一个 hashmap 的结构。Hash 是一个 String 类型的 field 和 value 的映射表，hash 特别适合用于存储对象。</p>
+<p>例如存储一个user对象[json格式]</p>
+<pre class=" language-lang-redis"><code class="language-lang-redis">127.0.0.1:6379> HMSET user:1 name yunshan email yunshan@yunshan.com
+OK
+127.0.0.1:6379> HGET user:1 name
+yunshan
+127.0.0.1:6379> HGET user:1 email
+yunshan@yunshan.com
 </code></pre>
-<p>3.<code>SDIFF key1 [key2]</code></p>
-<p>返回给定集合之间的差集。不存在的集合 key 将视为空集。差集的结果来自前面的 FIRST_KEY ,而不是后面的 OTHER_KEY1，也不是整个 FIRST_KEY OTHER_KEY1..OTHER_KEYN 的差集。</p>
-<p>基本语法：</p>
-<pre class=" language-lang-redis"><code class="language-lang-redis">SDIFF FIRST_KEY OTHER_KEY1..OTHER_KEYN
+<h3 id="List【列表】"><a href="#List【列表】" class="headerlink" title="List【列表】"></a>List【列表】</h3><p>list 是按照插入顺序排序的字符串链表，可以在头部和尾部插入新的元素。和双向链表一样。插入元素的时候，key不存在时会新建一个链表，删除元素时如果元素全部被删除则key也会被移除。</p>
+<pre class=" language-lang-redis"><code class="language-lang-redis">127.0.0.1:6379> LPUSH dbms redis
+1
+127.0.0.1:6379> LPUSH dbms mysql
+2
+127.0.0.1:6379> LPUSH dbms oracle
+3
+127.0.0.1:6379> LRANGE dbms 0 5
+oracle
+mysql
+redis
+127.0.0.1:6379>
 </code></pre>
-<p>4.<code>SDIFFSTORE destination key1 [key2]</code></p>
-<p>将给定集合之间的差集存储在指定的集合中。如果指定的集合 key 已存在，则会被覆盖。</p>
-<p>基本语法：</p>
-<pre class=" language-lang-redis"><code class="language-lang-redis">SDIFFSTORE DESTINATION_KEY KEY1..KEYN
+<p>可以使用在消息队列，最新内容这些方面。</p>
+<h3 id="Set【集合】"><a href="#Set【集合】" class="headerlink" title="Set【集合】"></a>Set【集合】</h3><p>Set 是 string 类型的无序不重复集合。对Set类型数据删除，添加等操作时间复杂度为 <code>O(1)</code><br>Set 类型提供了多个 Set 之间的聚合运算，如求交集、并集、补集，这些操作在 Redis 内部完成，效率很高。</p>
+<pre class=" language-lang-redis"><code class="language-lang-redis">127.0.0.1:6379> SADD dbms redis
+1
+127.0.0.1:6379> SADD dbms mysql
+1
+127.0.0.1:6379> SADD dbms oracle
+1
+127.0.0.1:6379> SMEMBERS dbms
+oracle
+mysql
+redis
+127.0.0.1:6379>
 </code></pre>
-<p>5.<code>SINTER key1 [key2]</code></p>
-<p>返回给定所有给定集合的交集。 不存在的集合 key 被视为空集。 当给定集合当中有一个空集时，结果也为空集(根据集合运算定律)。</p>
-<p>基本语法：</p>
-<pre class=" language-lang-redis"><code class="language-lang-redis">SINTER KEY KEY1..KEYN
-</code></pre>
-<p>6.<code>SINTERSTORE destination key1 [key2]</code></p>
-<p>将给定集合之间的交集存储在指定的集合中。如果指定的集合已经存在，则将其覆盖。</p>
-<p>基本语法：</p>
-<pre class=" language-lang-redis"><code class="language-lang-redis">SINTERSTORE DESTINATION_KEY KEY KEY1..KEYN
-</code></pre>
-<p>7.<code>SISMEMBER key member</code></p>
-<p>命令判断成员元素是否是集合的成员。如果成员元素是集合的成员，返回 1 。 如果成员元素不是集合的成员，或 key 不存在，返回 0 。</p>
-<p>基本语法：</p>
-<pre class=" language-lang-redis"><code class="language-lang-redis">SISMEMBER KEY VALUE
-</code></pre>
-<p>8.<code>SMEMBERS key</code></p>
-<p>返回集合中的所有的成员。 不存在的集合 key 被视为空集合。</p>
-<p>基本语法：</p>
-<pre class=" language-lang-redis"><code class="language-lang-redis">SMEMBERS key
-</code></pre>
-<p>8.<code>SMEMBERS key</code></p>
-<p>返回集合中的所有的成员。 不存在的集合 key 被视为空集合。</p>
-<p>基本语法：</p>
-<pre class=" language-lang-redis"><code class="language-lang-redis">SMEMBERS key
-</code></pre>
-<p>9.<code>SMOVE source destination member</code></p>
-<p>命令将指定成员 member 元素从 source 集合移动到 destination 集合。SMOVE 是原子性操作。</p>
-<p>如果 source 集合不存在或不包含指定的 member 元素，则 SMOVE 命令不执行任何操作，仅返回 0 。否则， member 元素从 source 集合中被移除，并添加到 destination 集合中去。</p>
-<p>当 destination 集合已经包含 member 元素时， SMOVE 命令只是简单地将 source 集合中的 member 元素删除。</p>
-<p>当 source 或 destination 不是集合类型时，返回一个错误。</p>
-<p>基本语法：</p>
-<pre class=" language-lang-redis"><code class="language-lang-redis">SMOVE SOURCE DESTINATION MEMBER
-</code></pre>
-<p>10.<code>SPOP key</code></p>
-<p>用于移除集合中的指定 key 的一个或多个随机元素，移除后会返回移除的元素。</p>
-<p>该命令类似 Srandmember 命令，但 SPOP 将随机元素从集合中移除并返回，而 Srandmember 则仅仅返回随机元素，而不对集合进行任何改动。</p>
-<p>基本语法：</p>
-<pre class=" language-lang-redis"><code class="language-lang-redis">SPOP key [count]
-</code></pre>
-<p>11.<code>SRANDMEMBER key [count]</code></p>
-<p>用于返回集合中的一个随机元素。只提供集合 key 参数时，返回一个元素；如果集合为空，返回 nil 。 如果提供了 count 参数，那么返回一个数组；如果集合为空，返回空数组。</p>
-<p>基本语法：</p>
-<pre class=" language-lang-redis"><code class="language-lang-redis">SRANDMEMBER KEY [count]
-</code></pre>
-<p>12.<code>SREM key member1 [member2]</code></p>
-<p>用于移除集合中的一个或多个成员元素，不存在的成员元素会被忽略。当 key 不是集合类型，返回一个错误。</p>
-<p>基本语法：</p>
-<pre class=" language-lang-redis"><code class="language-lang-redis">SREM KEY MEMBER1..MEMBERN
-</code></pre>
-<p>13.<code>SUNION key1 [key2]</code></p>
-<p>返回给定集合的并集。不存在的集合 key 被视为空集。</p>
-<p>基本语法：</p>
-<pre class=" language-lang-redis"><code class="language-lang-redis">SUNION KEY KEY1..KEYN
-</code></pre>
-<p>14.<code>SUNIONSTORE destination key1 [key2]</code></p>
-<p> 命令将给定集合的并集存储在指定的集合 destination 中。如果 destination 已经存在，则将其覆盖。</p>
-<p>基本语法：</p>
-<pre class=" language-lang-redis"><code class="language-lang-redis">SUNIONSTORE DESTINATION KEY KEY1..KEYN
-</code></pre>
-<p>15.<code>SSCAN key cursor [MATCH pattern] [COUNT count]</code></p>
-<p>用于迭代集合中键的元素。</p>
-<p>基本语法：</p>
-<pre class=" language-lang-redis"><code class="language-lang-redis">SSCAN key cursor [MATCH pattern] [COUNT count]
+<h3 id="Zset【Sorted-Set：有序集合】"><a href="#Zset【Sorted-Set：有序集合】" class="headerlink" title="Zset【Sorted Set：有序集合】"></a>Zset【Sorted Set：有序集合】</h3><p> zset 和 set 一样也是string类型元素的集合,且是有序不重复的集合。原因是每个元素都会关联一个double类型的分数。redis正是通过分数来为集合中的成员进行从小到大的排序。</p>
+<p>例如排序成绩   </p>
+<pre class=" language-lang-redis"><code class="language-lang-redis">127.0.0.1:6379> ZADD score 90 tom 75 marry 80 jack
+3
+127.0.0.1:6379> ZREVRANGE score 0 1000
+tom
+jack
+marry
+127.0.0.1:6379>
 </code></pre>
 <script>
         document.querySelectorAll('.github-emoji')
@@ -1000,7 +969,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="www.yunshan.online/Redis-Set.html">www.yunshan.online/Redis-Set.html</a>
+                    <a href="www.yunshan.online/posts/950473165.html">www.yunshan.online/posts/950473165.html</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -1038,8 +1007,8 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/">
-                                    <span class="chip bg-color"></span>
+                                <a href="/tags/redis/">
+                                    <span class="chip bg-color">redis</span>
                                 </a>
                             
                         </div>
@@ -1468,49 +1437,51 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="far fa-dot-circle"></i>&nbsp;本篇
-            </div>
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/Redis-Set.html">
+                <a href="/posts/28792959.html">
                     <div class="card-image">
                         
                         
-                        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASwAAAEsCAMAAABOo35HAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAC9UExURVlZWdPT07KysmRkZIWFhfT09JmZmWZmZm9vb39/fxkZGUxMTDMzM3p6epCQkKamppubm729venp6cjIyN7e3tbW1s/Pz8LCwnx8fLS0tFZWVoiIiI+Pj6GhoeTk5Glpabu7u93d3evr66CgoJSUlKqqqsnJyeDg4Hd3d8PDw+Xl5bi4uNHR0dvb26Ojo6urq+fn51hYWDg4OCgoKHBwcK2traenp0FBQe7u7vHx8U5OTre3t8zMzHV1df///7GrnpQAAAA/dFJOU///////////////////////////////////////////////////////////////////////////////////AI4mfBcAAAUGSURBVHja7NoJb6M4GMZxY0NCD64kve/pMZ2d3Z297+X7f6zFNmBAMUXa6URl/q9UJSWPUPzrizFWRUlNLgEBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYYIEFAVhggQUWWGBBABZYYIEFFlgQgAUWWGCBBRYEYIEFFlhggQUBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYn6cCIcRXgvX/h9qcIVBqDdbEM8RCxGCB9QqXYRwHYDHBgwXWl8eKZKiESHI3Ba1kWs3fKixcaJUl1YyeBm7Ocq+yLItUiVBGnXxenSHJolIKEcwHq6ikbOX1YGVzQCTN8LPmSLreghUl9sN4Uw7yajMrLC0TZ1ImzqY6FEop0+pIaEN5HaoOxVuwEqFyc4I46uSlzOLqgxlh6UaR9l3VYWl9Fdoxb1Q90KJtu41pwwFW/WHhTtW8i7TafLCqRsk6bsGw63L9qurXRmuIlbT9lDQnlXU+nBFW1Q2qnZbDprWa2tjR90LZFqx1/+Td/HpGWLlrLDvIwTcx6dQ1Vrntbig68cDms3JwbA5Y1azs1ger6sNV/bbIw1jU81MvNAGrl58RVn8ozW+btF08iGFoAlYvP3csfVur1gJBEIA1uBmue5dhZDOyO2epbmgCVi8/I6x0MMHH9pjsTfBhNzQBq5uPZoQlB0uH3DZG4EZqQ26fL3sZq5uf09Ih6qw3i/pm6BZO0qZX7rrUS68Xsbr5ZE4rePMk08pk9aUZugfqppvs6AM1Acvlo/StP+6EbW06z8hJqxbYp2BZPQUnFsLsKuhQdaHqn5ewbF7KXIn0jWO5MqOQ7RaNLPtbNMmmhimj0GUmYLl8Gs0Lq4wyPbTu1l2QKqHSouzs3OlDIslW5SQsnY/NXmFplyNvEuuLV/Tau9BzwiraDUSwXmysztYWWNtL1psXeumgIrDGaqXvBfUuvtqUYI3V2t1wk1e2msFluJJm6zDJXv/fIfjPP7DAAgsssCiwwAILLLDAosACCyywwAKLAgsssMACC6zt9fDz/v75tyOB+98PD2+ORgKffjw4OP1uJPDxl+Xy8v1I4MPF3t7VNyOB4/vF4uzdzrG+39f1kz/w66Guv/yBvw90KX/gZKkr8Qf+2dOV+gNHC12/7RxrabD2/a31bLAO/a11YbAO/K21MFhLf2s9Gqw9f2vdGqzFu11jnVusE2/gxmI9eQOnFuvYG7i0WH7uK4t15w2cWazrXWP9a7H8f/bQYvm/6IPF+sF/pVssf19Ii/WH/0K2WH/uGuvEWC39gSdj9Twy+Rqri5EZx1gt/IE7Y/XoD1wbq9vd3w1PlufnD2OBp+ebm/uxwPHF6emnscDR4vLy41jg7vHq6sNY4Pr27OyYdRaLUrDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssL6u+k+AAQCR9eHtLKvLfwAAAABJRU5ErkJggg==" data-original="/medias/featureimages/0.jpg" class="responsive-img" alt="Redis-Set">
+                        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASwAAAEsCAMAAABOo35HAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAC9UExURVlZWdPT07KysmRkZIWFhfT09JmZmWZmZm9vb39/fxkZGUxMTDMzM3p6epCQkKamppubm729venp6cjIyN7e3tbW1s/Pz8LCwnx8fLS0tFZWVoiIiI+Pj6GhoeTk5Glpabu7u93d3evr66CgoJSUlKqqqsnJyeDg4Hd3d8PDw+Xl5bi4uNHR0dvb26Ojo6urq+fn51hYWDg4OCgoKHBwcK2traenp0FBQe7u7vHx8U5OTre3t8zMzHV1df///7GrnpQAAAA/dFJOU///////////////////////////////////////////////////////////////////////////////////AI4mfBcAAAUGSURBVHja7NoJb6M4GMZxY0NCD64kve/pMZ2d3Z297+X7f6zFNmBAMUXa6URl/q9UJSWPUPzrizFWRUlNLgEBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYYIEFAVhggQUWWGBBABZYYIEFFlgQgAUWWGCBBRYEYIEFFlhggQUBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYn6cCIcRXgvX/h9qcIVBqDdbEM8RCxGCB9QqXYRwHYDHBgwXWl8eKZKiESHI3Ba1kWs3fKixcaJUl1YyeBm7Ocq+yLItUiVBGnXxenSHJolIKEcwHq6ikbOX1YGVzQCTN8LPmSLreghUl9sN4Uw7yajMrLC0TZ1ImzqY6FEop0+pIaEN5HaoOxVuwEqFyc4I46uSlzOLqgxlh6UaR9l3VYWl9Fdoxb1Q90KJtu41pwwFW/WHhTtW8i7TafLCqRsk6bsGw63L9qurXRmuIlbT9lDQnlXU+nBFW1Q2qnZbDprWa2tjR90LZFqx1/+Td/HpGWLlrLDvIwTcx6dQ1Vrntbig68cDms3JwbA5Y1azs1ger6sNV/bbIw1jU81MvNAGrl58RVn8ozW+btF08iGFoAlYvP3csfVur1gJBEIA1uBmue5dhZDOyO2epbmgCVi8/I6x0MMHH9pjsTfBhNzQBq5uPZoQlB0uH3DZG4EZqQ26fL3sZq5uf09Ih6qw3i/pm6BZO0qZX7rrUS68Xsbr5ZE4rePMk08pk9aUZugfqppvs6AM1Acvlo/StP+6EbW06z8hJqxbYp2BZPQUnFsLsKuhQdaHqn5ewbF7KXIn0jWO5MqOQ7RaNLPtbNMmmhimj0GUmYLl8Gs0Lq4wyPbTu1l2QKqHSouzs3OlDIslW5SQsnY/NXmFplyNvEuuLV/Tau9BzwiraDUSwXmysztYWWNtL1psXeumgIrDGaqXvBfUuvtqUYI3V2t1wk1e2msFluJJm6zDJXv/fIfjPP7DAAgsssCiwwAILLLDAosACCyywwAKLAgsssMACC6zt9fDz/v75tyOB+98PD2+ORgKffjw4OP1uJPDxl+Xy8v1I4MPF3t7VNyOB4/vF4uzdzrG+39f1kz/w66Guv/yBvw90KX/gZKkr8Qf+2dOV+gNHC12/7RxrabD2/a31bLAO/a11YbAO/K21MFhLf2s9Gqw9f2vdGqzFu11jnVusE2/gxmI9eQOnFuvYG7i0WH7uK4t15w2cWazrXWP9a7H8f/bQYvm/6IPF+sF/pVssf19Ii/WH/0K2WH/uGuvEWC39gSdj9Twy+Rqri5EZx1gt/IE7Y/XoD1wbq9vd3w1PlufnD2OBp+ebm/uxwPHF6emnscDR4vLy41jg7vHq6sNY4Pr27OyYdRaLUrDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssL6u+k+AAQCR9eHtLKvLfwAAAABJRU5ErkJggg==" data-original="/medias/featureimages/12.jpg" class="responsive-img" alt="线程池">
                         
-                        <span class="card-title">Redis-Set</span>
+                        <span class="card-title">线程池</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            集合(Set)命令1.SADD key member1 [member2]
-将一个或多个成员元素加入到集合中，已经存在于集合的成员元素将被忽略。假如集合 key 不存在，则创建一个只包含添加的元素作成员的集合。当集合 key 不是集合类型时
+                            线程池线程池主要是为了限制系统中执行线程的数量
+面试常问：
+为什么要使用线程池？
+提高响应速度，提高线程的可管理性: 为了减少创建和销毁线程的次数，可以重复使用线程，多任务执行。
+
+降低资源消耗:可以根据系统情况调整执行线程数量，防止消耗过
                         
                     </div>
                     <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-04-30
-                            </span>
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2020-04-12
+                        </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/" class="post-category">
-                                    
+                            <a href="/categories/Java/" class="post-category">
+                                    Java
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
-
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/">
-                        <span class="chip bg-color"></span>
+                    <a href="/tags/java/">
+                        <span class="chip bg-color">java</span>
                     </a>
                     
                 </div>
@@ -1521,47 +1492,48 @@
         
         <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge right-badge text-color">
-                本篇&nbsp;<i class="far fa-dot-circle"></i>
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/Redis-Set.html">
+                <a href="/posts/2979006148.html">
                     <div class="card-image">
                         
                         
-                        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASwAAAEsCAMAAABOo35HAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAC9UExURVlZWdPT07KysmRkZIWFhfT09JmZmWZmZm9vb39/fxkZGUxMTDMzM3p6epCQkKamppubm729venp6cjIyN7e3tbW1s/Pz8LCwnx8fLS0tFZWVoiIiI+Pj6GhoeTk5Glpabu7u93d3evr66CgoJSUlKqqqsnJyeDg4Hd3d8PDw+Xl5bi4uNHR0dvb26Ojo6urq+fn51hYWDg4OCgoKHBwcK2traenp0FBQe7u7vHx8U5OTre3t8zMzHV1df///7GrnpQAAAA/dFJOU///////////////////////////////////////////////////////////////////////////////////AI4mfBcAAAUGSURBVHja7NoJb6M4GMZxY0NCD64kve/pMZ2d3Z297+X7f6zFNmBAMUXa6URl/q9UJSWPUPzrizFWRUlNLgEBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYYIEFAVhggQUWWGBBABZYYIEFFlgQgAUWWGCBBRYEYIEFFlhggQUBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYn6cCIcRXgvX/h9qcIVBqDdbEM8RCxGCB9QqXYRwHYDHBgwXWl8eKZKiESHI3Ba1kWs3fKixcaJUl1YyeBm7Ocq+yLItUiVBGnXxenSHJolIKEcwHq6ikbOX1YGVzQCTN8LPmSLreghUl9sN4Uw7yajMrLC0TZ1ImzqY6FEop0+pIaEN5HaoOxVuwEqFyc4I46uSlzOLqgxlh6UaR9l3VYWl9Fdoxb1Q90KJtu41pwwFW/WHhTtW8i7TafLCqRsk6bsGw63L9qurXRmuIlbT9lDQnlXU+nBFW1Q2qnZbDprWa2tjR90LZFqx1/+Td/HpGWLlrLDvIwTcx6dQ1Vrntbig68cDms3JwbA5Y1azs1ger6sNV/bbIw1jU81MvNAGrl58RVn8ozW+btF08iGFoAlYvP3csfVur1gJBEIA1uBmue5dhZDOyO2epbmgCVi8/I6x0MMHH9pjsTfBhNzQBq5uPZoQlB0uH3DZG4EZqQ26fL3sZq5uf09Ih6qw3i/pm6BZO0qZX7rrUS68Xsbr5ZE4rePMk08pk9aUZugfqppvs6AM1Acvlo/StP+6EbW06z8hJqxbYp2BZPQUnFsLsKuhQdaHqn5ewbF7KXIn0jWO5MqOQ7RaNLPtbNMmmhimj0GUmYLl8Gs0Lq4wyPbTu1l2QKqHSouzs3OlDIslW5SQsnY/NXmFplyNvEuuLV/Tau9BzwiraDUSwXmysztYWWNtL1psXeumgIrDGaqXvBfUuvtqUYI3V2t1wk1e2msFluJJm6zDJXv/fIfjPP7DAAgsssCiwwAILLLDAosACCyywwAKLAgsssMACC6zt9fDz/v75tyOB+98PD2+ORgKffjw4OP1uJPDxl+Xy8v1I4MPF3t7VNyOB4/vF4uzdzrG+39f1kz/w66Guv/yBvw90KX/gZKkr8Qf+2dOV+gNHC12/7RxrabD2/a31bLAO/a11YbAO/K21MFhLf2s9Gqw9f2vdGqzFu11jnVusE2/gxmI9eQOnFuvYG7i0WH7uK4t15w2cWazrXWP9a7H8f/bQYvm/6IPF+sF/pVssf19Ii/WH/0K2WH/uGuvEWC39gSdj9Twy+Rqri5EZx1gt/IE7Y/XoD1wbq9vd3w1PlufnD2OBp+ebm/uxwPHF6emnscDR4vLy41jg7vHq6sNY4Pr27OyYdRaLUrDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssL6u+k+AAQCR9eHtLKvLfwAAAABJRU5ErkJggg==" data-original="/medias/featureimages/0.jpg" class="responsive-img" alt="Redis-Set">
+                        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASwAAAEsCAMAAABOo35HAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAC9UExURVlZWdPT07KysmRkZIWFhfT09JmZmWZmZm9vb39/fxkZGUxMTDMzM3p6epCQkKamppubm729venp6cjIyN7e3tbW1s/Pz8LCwnx8fLS0tFZWVoiIiI+Pj6GhoeTk5Glpabu7u93d3evr66CgoJSUlKqqqsnJyeDg4Hd3d8PDw+Xl5bi4uNHR0dvb26Ojo6urq+fn51hYWDg4OCgoKHBwcK2traenp0FBQe7u7vHx8U5OTre3t8zMzHV1df///7GrnpQAAAA/dFJOU///////////////////////////////////////////////////////////////////////////////////AI4mfBcAAAUGSURBVHja7NoJb6M4GMZxY0NCD64kve/pMZ2d3Z297+X7f6zFNmBAMUXa6URl/q9UJSWPUPzrizFWRUlNLgEBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYYIEFAVhggQUWWGBBABZYYIEFFlgQgAUWWGCBBRYEYIEFFlhggQUBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYn6cCIcRXgvX/h9qcIVBqDdbEM8RCxGCB9QqXYRwHYDHBgwXWl8eKZKiESHI3Ba1kWs3fKixcaJUl1YyeBm7Ocq+yLItUiVBGnXxenSHJolIKEcwHq6ikbOX1YGVzQCTN8LPmSLreghUl9sN4Uw7yajMrLC0TZ1ImzqY6FEop0+pIaEN5HaoOxVuwEqFyc4I46uSlzOLqgxlh6UaR9l3VYWl9Fdoxb1Q90KJtu41pwwFW/WHhTtW8i7TafLCqRsk6bsGw63L9qurXRmuIlbT9lDQnlXU+nBFW1Q2qnZbDprWa2tjR90LZFqx1/+Td/HpGWLlrLDvIwTcx6dQ1Vrntbig68cDms3JwbA5Y1azs1ger6sNV/bbIw1jU81MvNAGrl58RVn8ozW+btF08iGFoAlYvP3csfVur1gJBEIA1uBmue5dhZDOyO2epbmgCVi8/I6x0MMHH9pjsTfBhNzQBq5uPZoQlB0uH3DZG4EZqQ26fL3sZq5uf09Ih6qw3i/pm6BZO0qZX7rrUS68Xsbr5ZE4rePMk08pk9aUZugfqppvs6AM1Acvlo/StP+6EbW06z8hJqxbYp2BZPQUnFsLsKuhQdaHqn5ewbF7KXIn0jWO5MqOQ7RaNLPtbNMmmhimj0GUmYLl8Gs0Lq4wyPbTu1l2QKqHSouzs3OlDIslW5SQsnY/NXmFplyNvEuuLV/Tau9BzwiraDUSwXmysztYWWNtL1psXeumgIrDGaqXvBfUuvtqUYI3V2t1wk1e2msFluJJm6zDJXv/fIfjPP7DAAgsssCiwwAILLLDAosACCyywwAKLAgsssMACC6zt9fDz/v75tyOB+98PD2+ORgKffjw4OP1uJPDxl+Xy8v1I4MPF3t7VNyOB4/vF4uzdzrG+39f1kz/w66Guv/yBvw90KX/gZKkr8Qf+2dOV+gNHC12/7RxrabD2/a31bLAO/a11YbAO/K21MFhLf2s9Gqw9f2vdGqzFu11jnVusE2/gxmI9eQOnFuvYG7i0WH7uK4t15w2cWazrXWP9a7H8f/bQYvm/6IPF+sF/pVssf19Ii/WH/0K2WH/uGuvEWC39gSdj9Twy+Rqri5EZx1gt/IE7Y/XoD1wbq9vd3w1PlufnD2OBp+ebm/uxwPHF6emnscDR4vLy41jg7vHq6sNY4Pr27OyYdRaLUrDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssL6u+k+AAQCR9eHtLKvLfwAAAABJRU5ErkJggg==" data-original="/medias/featureimages/5.jpg" class="responsive-img" alt="Maven-eclipse">
                         
-                        <span class="card-title">Redis-Set</span>
+                        <span class="card-title">Maven-eclipse</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            集合(Set)命令1.SADD key member1 [member2]
-将一个或多个成员元素加入到集合中，已经存在于集合的成员元素将被忽略。假如集合 key 不存在，则创建一个只包含添加的元素作成员的集合。当集合 key 不是集合类型时
+                            Maven-eclpse打开 Windows-&gt;Prferences弹出如下画面
+下一步下一步下一步下一步点击Apply and Close即可完成
+
+        document.querySelectorAll('.githu
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-04-30
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-04-12
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/" class="post-category">
-                                    
+                            <a href="/categories/%E5%B8%B8%E7%94%A8%E5%B7%A5%E5%85%B7/" class="post-category">
+                                    常用工具
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
-
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/">
-                        <span class="chip bg-color"></span>
+                    <a href="/tags/maven/">
+                        <span class="chip bg-color">maven</span>
                     </a>
                     
                 </div>
