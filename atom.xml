@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="www.yunshan.online/"/>
-  <updated>2020-05-04T12:40:35.263Z</updated>
+  <updated>2020-05-06T05:00:58.614Z</updated>
   <id>www.yunshan.online/</id>
   
   <author>
@@ -17,11 +17,157 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>Git</title>
+    <link href="www.yunshan.online/posts/1774397340.html"/>
+    <id>www.yunshan.online/posts/1774397340.html</id>
+    <published>2020-05-06T01:43:38.000Z</published>
+    <updated>2020-05-06T05:00:58.614Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h5 id=&quot;Git-创建仓库&quot;&gt;&lt;a href=&quot;#Git-创建仓库&quot; class=&quot;headerlink&quot; title=&quot;Git 创建仓库&quot;&gt;&lt;/a&gt;Git 创建仓库&lt;/h5&gt;&lt;pre&gt;&lt;code&gt;git init repo
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;初始化后，会在
+        
+      
+    
+    </summary>
+    
+    
+      <category term="常用工具" scheme="www.yunshan.online/categories/%E5%B8%B8%E7%94%A8%E5%B7%A5%E5%85%B7/"/>
+    
+    
+      <category term="git" scheme="www.yunshan.online/tags/git/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>MongoDB命令</title>
+    <link href="www.yunshan.online/posts/1585805827.html"/>
+    <id>www.yunshan.online/posts/1585805827.html</id>
+    <published>2020-05-05T03:21:09.000Z</published>
+    <updated>2020-05-05T06:34:45.049Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h5 id=&quot;创建数据库&quot;&gt;&lt;a href=&quot;#创建数据库&quot; class=&quot;headerlink&quot; title=&quot;创建数据库&quot;&gt;&lt;/a&gt;创建数据库&lt;/h5&gt;&lt;pre&gt;&lt;code&gt;use DATABASE_NAME
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;刚创建的数据库 runoob
+        
+      
+    
+    </summary>
+    
+    
+      <category term="数据库" scheme="www.yunshan.online/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
+    
+    
+      <category term="mongodb" scheme="www.yunshan.online/tags/mongodb/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Mongodb基础</title>
+    <link href="www.yunshan.online/posts/3300984642.html"/>
+    <id>www.yunshan.online/posts/3300984642.html</id>
+    <published>2020-05-05T02:05:37.000Z</published>
+    <updated>2020-05-05T06:37:37.862Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;在mongodb中通过数据库，集合，文档的方式来管理数据，以下是mongodb与关系数据库的概念对比&lt;/p&gt;
+&lt;div class=&quot;table-container&quot;&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th
+        
+      
+    
+    </summary>
+    
+    
+      <category term="数据库" scheme="www.yunshan.online/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
+    
+    
+      <category term="mongodb" scheme="www.yunshan.online/tags/mongodb/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Mongodb安装配置</title>
+    <link href="www.yunshan.online/posts/662153398.html"/>
+    <id>www.yunshan.online/posts/662153398.html</id>
+    <published>2020-05-05T00:57:03.000Z</published>
+    <updated>2020-05-05T02:01:13.802Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;&lt;a href=&quot;https://www.mongodb.com/download-center/community&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;下载地址&lt;/a&gt;：&lt;a
+        
+      
+    
+    </summary>
+    
+    
+      <category term="数据库" scheme="www.yunshan.online/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
+    
+    
+      <category term="mongodb" scheme="www.yunshan.online/tags/mongodb/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>SSI</title>
+    <link href="www.yunshan.online/posts/254656088.html"/>
+    <id>www.yunshan.online/posts/254656088.html</id>
+    <published>2020-05-04T14:07:17.000Z</published>
+    <updated>2020-05-04T14:08:47.458Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;script&gt;
+        document.querySelectorAll(&#39;.github-emoji&#39;)
+          .forEach(el =&gt; {
+            if (!el.dataset.src) { return; }
+       
+        
+      
+    
+    </summary>
+    
+    
+      <category term="SSI" scheme="www.yunshan.online/categories/SSI/"/>
+    
+    
+      <category term="ssi" scheme="www.yunshan.online/tags/ssi/"/>
+    
+  </entry>
+  
+  <entry>
     <title>AngularJS学习一</title>
     <link href="www.yunshan.online/posts/4247448736.html"/>
     <id>www.yunshan.online/posts/4247448736.html</id>
     <published>2020-05-04T11:31:05.000Z</published>
-    <updated>2020-05-04T12:40:35.263Z</updated>
+    <updated>2020-05-04T13:57:27.970Z</updated>
     
     <summary type="html">
     
@@ -44,7 +190,7 @@
     <link href="www.yunshan.online/posts/4244937406.html"/>
     <id>www.yunshan.online/posts/4244937406.html</id>
     <published>2020-05-04T08:35:27.000Z</published>
-    <updated>2020-05-04T10:04:53.095Z</updated>
+    <updated>2020-05-04T13:57:27.972Z</updated>
     
     <summary type="html">
     
@@ -71,7 +217,7 @@
     <link href="www.yunshan.online/posts/3331266421.html"/>
     <id>www.yunshan.online/posts/3331266421.html</id>
     <published>2020-05-04T06:23:59.000Z</published>
-    <updated>2020-05-04T07:19:13.627Z</updated>
+    <updated>2020-05-04T13:57:27.971Z</updated>
     
     <summary type="html">
     
@@ -101,7 +247,7 @@
     <link href="www.yunshan.online/posts/1730787112.html"/>
     <id>www.yunshan.online/posts/1730787112.html</id>
     <published>2020-05-04T03:29:15.000Z</published>
-    <updated>2020-05-04T06:20:49.944Z</updated>
+    <updated>2020-05-04T13:57:27.968Z</updated>
     
     <summary type="html">
     
@@ -128,7 +274,7 @@
     <link href="www.yunshan.online/posts/905568258.html"/>
     <id>www.yunshan.online/posts/905568258.html</id>
     <published>2020-05-04T02:50:03.000Z</published>
-    <updated>2020-05-04T03:28:19.119Z</updated>
+    <updated>2020-05-04T13:57:27.974Z</updated>
     
     <summary type="html">
     
@@ -155,7 +301,7 @@
     <link href="www.yunshan.online/posts/295621084.html"/>
     <id>www.yunshan.online/posts/295621084.html</id>
     <published>2020-05-04T02:00:41.000Z</published>
-    <updated>2020-05-04T02:46:06.081Z</updated>
+    <updated>2020-05-04T13:57:27.973Z</updated>
     
     <summary type="html">
     
@@ -182,7 +328,7 @@
     <link href="www.yunshan.online/posts/1922178244.html"/>
     <id>www.yunshan.online/posts/1922178244.html</id>
     <published>2020-05-04T01:42:25.000Z</published>
-    <updated>2020-05-04T01:58:59.569Z</updated>
+    <updated>2020-05-04T13:57:27.967Z</updated>
     
     <summary type="html">
     
@@ -209,7 +355,7 @@
     <link href="www.yunshan.online/posts/2429033292.html"/>
     <id>www.yunshan.online/posts/2429033292.html</id>
     <published>2020-05-04T01:29:53.000Z</published>
-    <updated>2020-05-04T01:38:29.669Z</updated>
+    <updated>2020-05-04T13:57:27.969Z</updated>
     
     <summary type="html">
     
@@ -236,7 +382,7 @@
     <link href="www.yunshan.online/posts/1829591073.html"/>
     <id>www.yunshan.online/posts/1829591073.html</id>
     <published>2020-05-03T13:14:14.000Z</published>
-    <updated>2020-05-04T01:27:24.349Z</updated>
+    <updated>2020-05-04T13:57:27.966Z</updated>
     
     <summary type="html">
     
@@ -420,141 +566,6 @@
     
     
       <category term="dubbo" scheme="www.yunshan.online/tags/dubbo/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Dubbo基础</title>
-    <link href="www.yunshan.online/posts/298515222.html"/>
-    <id>www.yunshan.online/posts/298515222.html</id>
-    <published>2020-04-30T05:31:30.000Z</published>
-    <updated>2020-05-01T13:11:38.565Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h4 id=&quot;Dubbo介绍&quot;&gt;&lt;a href=&quot;#Dubbo介绍&quot; class=&quot;headerlink&quot; title=&quot;Dubbo介绍&quot;&gt;&lt;/a&gt;Dubbo介绍&lt;/h4&gt;&lt;p&gt;&lt;a href=&quot;http://dubbo.apache.org/&quot;
-        
-      
-    
-    </summary>
-    
-    
-      <category term="分布式" scheme="www.yunshan.online/categories/%E5%88%86%E5%B8%83%E5%BC%8F/"/>
-    
-    
-      <category term="dubbo" scheme="www.yunshan.online/tags/dubbo/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Redis-SortedSet</title>
-    <link href="www.yunshan.online/posts/851349237.html"/>
-    <id>www.yunshan.online/posts/851349237.html</id>
-    <published>2020-04-30T04:38:29.000Z</published>
-    <updated>2020-05-01T13:11:38.567Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h4 id=&quot;有序集合-sorted-set-命令&quot;&gt;&lt;a href=&quot;#有序集合-sorted-set-命令&quot; class=&quot;headerlink&quot; title=&quot;有序集合(sorted set)命令&quot;&gt;&lt;/a&gt;有序集合(sorted
-        
-      
-    
-    </summary>
-    
-    
-      <category term="数据库" scheme="www.yunshan.online/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
-    
-    
-      <category term="redis" scheme="www.yunshan.online/tags/redis/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Redis-Set</title>
-    <link href="www.yunshan.online/posts/3214324279.html"/>
-    <id>www.yunshan.online/posts/3214324279.html</id>
-    <published>2020-04-30T03:56:42.000Z</published>
-    <updated>2020-05-01T13:11:38.568Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h4 id=&quot;集合-Set-命令&quot;&gt;&lt;a href=&quot;#集合-Set-命令&quot; class=&quot;headerlink&quot; title=&quot;集合(Set)命令&quot;&gt;&lt;/a&gt;集合(Set)命令&lt;/h4&gt;&lt;p&gt;1.&lt;code&gt;SADD key member1
-        
-      
-    
-    </summary>
-    
-    
-      <category term="数据库" scheme="www.yunshan.online/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
-    
-    
-      <category term="redis" scheme="www.yunshan.online/tags/redis/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Redis-List</title>
-    <link href="www.yunshan.online/posts/1934180735.html"/>
-    <id>www.yunshan.online/posts/1934180735.html</id>
-    <published>2020-04-30T03:08:17.000Z</published>
-    <updated>2020-05-01T13:11:38.567Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h3 id=&quot;列表-List-命令&quot;&gt;&lt;a href=&quot;#列表-List-命令&quot; class=&quot;headerlink&quot;
-        
-      
-    
-    </summary>
-    
-    
-      <category term="数据库" scheme="www.yunshan.online/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
-    
-    
-      <category term="redis" scheme="www.yunshan.online/tags/redis/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Spring注解大全</title>
-    <link href="www.yunshan.online/posts/2338456835.html"/>
-    <id>www.yunshan.online/posts/2338456835.html</id>
-    <published>2020-04-29T12:06:35.000Z</published>
-    <updated>2020-05-01T13:11:38.569Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h3 id=&quot;Spring注解大全&quot;&gt;&lt;a href=&quot;#Spring注解大全&quot; class=&quot;headerlink&quot; title=&quot;Spring注解大全&quot;&gt;&lt;/a&gt;Spring注解大全&lt;/h3&gt;&lt;h4 id=&quot;Controller注解&quot;&gt;&lt;a
-        
-      
-    
-    </summary>
-    
-    
-      <category term="Java" scheme="www.yunshan.online/categories/Java/"/>
-    
-    
-      <category term="spring" scheme="www.yunshan.online/tags/spring/"/>
     
   </entry>
   

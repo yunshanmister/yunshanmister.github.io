@@ -4,6 +4,131 @@
   
     
     <entry>
+      <title>Git</title>
+      <link href="/posts/1774397340.html"/>
+      <url>/posts/1774397340.html</url>
+      
+        <content type="html"><![CDATA[<h5 id="Git-创建仓库"><a href="#Git-创建仓库" class="headerlink" title="Git 创建仓库"></a>Git 创建仓库</h5><pre><code>git init repo</code></pre><p>初始化后，会在 repo 目录下会出现一个名为 .git 的目录，所有 Git 需要的数据和资源都存放在这个目录中。</p><p>使用 git clone 从现有 Git 仓库中拷贝项目</p><pre><code>git clone &lt;repo&gt;</code></pre><p>如果我们需要克隆到指定的目录，可以使用以下命令格式：</p><pre><code>git clone &lt;repo&gt; &lt;directory&gt;</code></pre><h5 id="Git-基本快照"><a href="#Git-基本快照" class="headerlink" title="Git 基本快照"></a>Git 基本快照</h5><p><code>git add</code> 命令可将该文件添加到缓存，如我们添加以下两个文件：</p><p><code>git status</code> 命令用于查看项目的当前状态。</p><p><code>git diff</code> 命令显示已写入缓存与已修改但尚未写入缓存的改动的区别。<code>git diff</code> 有两个主要的应用场景。</p><ul><li>尚未缓存的改动：git diff</li><li>查看已缓存的改动： git diff —cached</li><li>查看已缓存的与未缓存的所有改动：git diff HEAD</li><li>显示摘要而非整个 diff：git diff —stat</li></ul><p>执行 <code>git commit</code> 将缓存区内容添加到仓库中。使用 <code>-m</code> 选项以在命令行中提供提交注释。</p><p><code>git reset HEAD</code> 命令用于取消已缓存的内容。</p><p>要从 Git 中移除某个文件，就必须要从已跟踪文件清单中移除，然后提交。可以用以下命令完成此项工作 <code>git rm &lt;file&gt;</code></p><p>如果删除之前修改过并且已经放到暂存区域的话，则必须要用强制删除选项 <code>-f</code>。  <code>git rm -f &lt;file&gt;</code></p><p>如果把文件从暂存区域移除，但仍然希望保留在当前工作目录中，换句话说，仅是从跟踪清单中删除，使用 <code>--cached</code> 选项即可。<code>git rm --cached &lt;file&gt;</code></p><p><code>git mv</code> 命令用于移动或重命名一个文件、目录、软连接。</p><ul><li><p>git commit：是将本地修改过的文件提交到本地库中；</p></li><li><p>git push：是将本地库中的最新信息发送给远程库；</p></li><li><p>git pull：是从远程获取最新版本到本地，并自动merge；</p></li><li><p>git fetch：是从远程获取最新版本到本地，不会自动merge；</p></li><li><p>git merge：是用于从指定的commit(s)合并到当前分支，用来合并两个分支；</p></li></ul><h5 id="Git-分支管理"><a href="#Git-分支管理" class="headerlink" title="Git 分支管理"></a>Git 分支管理</h5><p>创建分支命令：</p><pre><code>git branch (branchname)</code></pre><p>切换分支命令:</p><pre><code>git checkout (branchname)</code></pre><p>合并分支命令:</p><pre><code>git merge</code></pre><p>列出分支基本命令：</p><pre><code>git branch</code></pre><p>删除分支命令：</p><pre><code>git branch -d (branchname)</code></pre><script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
+      
+      
+      <categories>
+          
+          <category> 常用工具 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> git </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>MongoDB命令</title>
+      <link href="/posts/1585805827.html"/>
+      <url>/posts/1585805827.html</url>
+      
+        <content type="html"><![CDATA[<h5 id="创建数据库"><a href="#创建数据库" class="headerlink" title="创建数据库"></a>创建数据库</h5><pre><code>use DATABASE_NAME</code></pre><p>刚创建的数据库 runoob 并不在数据库的列表中， 要显示它，我们需要向 runoob 数据库插入一些数据</p><h5 id="删除数据库"><a href="#删除数据库" class="headerlink" title="删除数据库"></a>删除数据库</h5><pre><code>db.dropDatabase()</code></pre><h5 id="创建集合"><a href="#创建集合" class="headerlink" title="创建集合"></a>创建集合</h5><pre><code># name: 要创建的集合名称# options: 可选参数, 指定有关内存大小及索引的选项db.createCollection(name, options)</code></pre><p>options 可以是如下参数：</p><p><code>capped</code>    布尔类型    （可选）如果为 true，则创建固定集合。固定集合是指有着固定大小的集合，当达到最大值时，它会自动覆盖最早的文档。<br>当该值为 true 时，必须指定 size 参数。</p><p><code>autoIndexId</code>    布尔类型    （可选）如为 true，自动在 _id 字段创建索引。默认为 false。</p><p><code>size</code>    数值类型    （可选）为固定集合指定一个最大值，以千字节计（KB）。如果 capped 为 true，也需要指定该字段。</p><p><code>max</code>    数值类型    （可选）指定固定集合中包含文档的最大数量。</p><p>示例：创建固定集合 mycol，整个集合空间大小 6142800 KB, 文档最大个数为 10000 个。</p><pre><code>db.createCollection("user", { capped : true, autoIndexId : true, size : 6142800, max : 10000 } )</code></pre><p>在 MongoDB 中，你不需要创建集合。当你插入一些文档时，MongoDB 会自动创建集合。</p><pre><code>db.user.insert({"name" : "user"})</code></pre><p>使用  <code>show collections</code> 查看集合</p><h5 id="删除集合"><a href="#删除集合" class="headerlink" title="删除集合"></a>删除集合</h5><pre><code>db.collection.drop()</code></pre><p>如果成功删除选定集合，则 drop() 方法返回 true，否则返回 false。</p><h5 id="插入文档"><a href="#插入文档" class="headerlink" title="插入文档"></a>插入文档</h5><p>使用 insert() 或 save() 方法向集合中插入文档，语法如下：</p><pre><code>db.COLLECTION_NAME.insert(document)</code></pre><p>插入文档你也可以使用 db.col.save(document) 命令。如果不指定 _id 字段 save() 方法类似于 insert() 方法。如果指定 _id 字段，则会更新该 _id 的数据。</p><h6 id="更新文档"><a href="#更新文档" class="headerlink" title="更新文档"></a>更新文档</h6><p>update() 方法用于更新已存在的文档。语法格式如下：</p><pre><code>db.collection.update(   &lt;query&gt;,   &lt;update&gt;,   {     upsert: &lt;boolean&gt;,     multi: &lt;boolean&gt;,     writeConcern: &lt;document&gt;   })</code></pre><p>参数说明：</p><ul><li>query : update的查询条件，类似sql update查询内where后面的。</li><li>update : update的对象和一些更新的操作符（如$,$inc…）等，也可以理解为sql update查询内set后面的</li><li>upsert : 可选，这个参数的意思是，如果不存在update的记录，是否插入objNew,true为插入，默认是false，不插入。</li><li>multi : 可选，mongodb 默认是false,只更新找到的第一条记录，如果这个参数为true,就把按条件查出来多条记录全部更新。</li><li>writeConcern :可选，抛出异常的级别。</li></ul><p>save() 方法通过传入的文档来替换已有文档。语法格式如下：</p><pre><code>db.collection.save(   &lt;document&gt;,   {     writeConcern: &lt;document&gt;   })</code></pre><p>参数说明：</p><ul><li>document : 文档数据。</li><li>writeConcern :可选，抛出异常的级别。<br>实例</li></ul><h6 id="删除文档"><a href="#删除文档" class="headerlink" title="删除文档"></a>删除文档</h6><p>remove()函数是用来移除集合中的数据。</p><p>remove() 方法的基本语法格式如下所示：</p><pre><code>db.collection.remove(   &lt;query&gt;,   &lt;justOne&gt;)</code></pre><p>MongoDB 是 2.6 版本以后的，语法格式如下：</p><pre><code>db.collection.remove(   &lt;query&gt;,   {     justOne: &lt;boolean&gt;,     writeConcern: &lt;document&gt;   })</code></pre><p>参数说明：</p><ul><li>query :（可选）删除的文档的条件。</li><li>justOne : （可选）如果设为 true 或 1，则只删除一个文档，如果不设置该参数，或使用默认值 false，则删除所有匹配条件的文档。</li><li>writeConcern :（可选）抛出异常的级别。</li></ul><h6 id="查询文档"><a href="#查询文档" class="headerlink" title="查询文档"></a>查询文档</h6><p>find() 方法以非结构化的方式来显示所有文档。</p><p>查询数据的语法格式如下：</p><pre><code>db.collection.find(query, projection)</code></pre><p>参数说明：</p><ul><li>query ：可选，使用查询操作符指定查询条件</li><li>projection ：可选，使用投影操作符指定返回的键。查询时返回文档中所有键值， 只需省略该参数即可（默认省略）。</li></ul><p>find() 方法可以传入多个键(key)，每个键(key)以逗号隔开，即常规 SQL 的 AND 条件。</p><pre><code>db.col.find({key1:value1, key2:value2}).pretty()</code></pre><p>pretty() 方法,pretty() 方法以格式化的方式来显示所有文档。</p><pre><code>db.col.find().pretty()</code></pre><p>MongoDB OR 条件语句使用了关键字 $or,语法格式如下：</p><pre><code>db.col.find(   {      $or: [         {key1: value1}, {key2:value2}      ]   }).pretty()</code></pre><script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
+      
+      
+      <categories>
+          
+          <category> 数据库 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> mongodb </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Mongodb基础</title>
+      <link href="/posts/3300984642.html"/>
+      <url>/posts/3300984642.html</url>
+      
+        <content type="html"><![CDATA[<p>在mongodb中通过数据库，集合，文档的方式来管理数据，以下是mongodb与关系数据库的概念对比</p><div class="table-container"><table><thead><tr><th style="text-align:left">SQL术语/概念</th><th style="text-align:left">MongoDB术语/概念</th><th style="text-align:left">解释/说明</th></tr></thead><tbody><tr><td style="text-align:left">database</td><td style="text-align:left">database</td><td style="text-align:left">数据库</td></tr><tr><td style="text-align:left">table</td><td style="text-align:left">collection</td><td style="text-align:left">数据库表/集合</td></tr><tr><td style="text-align:left">row</td><td style="text-align:left">document</td><td style="text-align:left">数据记录行/文档</td></tr><tr><td style="text-align:left">column</td><td style="text-align:left">field</td><td style="text-align:left">数据字段/域</td></tr><tr><td style="text-align:left">index</td><td style="text-align:left">index</td><td style="text-align:left">索引</td></tr><tr><td style="text-align:left">table joins</td><td style="text-align:left"></td><td style="text-align:left">表连接,MongoDB不支持</td></tr><tr><td style="text-align:left">primary key</td><td style="text-align:left">primary key</td><td style="text-align:left">key    主键,MongoDB自动将_id字段设置为主键</td></tr></tbody></table></div><ul><li><p>一个mongodb实例可以创建多个数据库</p></li><li><p>一个数据库可以创建多个集合</p></li><li><p>一个集合可以包括多个文档。</p></li></ul><h5 id="连接mongodb"><a href="#连接mongodb" class="headerlink" title="连接mongodb"></a>连接mongodb</h5><p>1、 命令格式</p><pre><code>mongodb://[username:password@]host1[:port1][,host2[:port2],...[,hostN[:portN]]][/[database][? options]]</code></pre><p>mongodb:// 固定前缀</p><p>username：账号，可不填</p><p>password：密码，可不填</p><p>host：主机名或ip地址，</p><p>只有host主机名为必填项。</p><p>port：端口，可不填，默认27017</p><p>/database：连接某一个数据库 ?options：连接参数，key/value对</p><p>例子:</p><pre><code>mongodb://localhost //连接本地数据库27017端口mongodb://  root:itcast@localhost //使用用户名root密码为itcast连接本地数据库27017端口mongodb://localhost,localhost:27018,localhost:27019 //连接三台主从服务器，端口为27017、27018、27019</code></pre><p>cmd状态执行mongo.exe,就可以输入命令来操作mongodb数据库了，javascript shell可以运行javascript程序。</p><h5 id="数据库"><a href="#数据库" class="headerlink" title="数据库"></a>数据库</h5><p>MongoDB的默认数据库为”db”，该数据库存储在data目录中。<br>MongoDB的单个实例可以容纳多个独立的数据库，每一个都有自己的集合和权限，不同的数据库也放置在不同的文件中。</p><p><code>show dbs</code> 命令可以显示所有数据的列表。</p><p> <code>db</code> 命令可以显示当前数据库对象或集合。</p><p> <code>use</code> 连接到一个指定的数据库，没有则会创建。</p><h6 id="RDBMS-与-MongoDB-对应"><a href="#RDBMS-与-MongoDB-对应" class="headerlink" title="RDBMS 与 MongoDB 对应"></a>RDBMS 与 MongoDB 对应</h6><div class="table-container"><table><thead><tr><th style="text-align:left">RDBMS</th><th style="text-align:left">MongoDB</th></tr></thead><tbody><tr><td style="text-align:left">数据库</td><td style="text-align:left">数据库</td></tr><tr><td style="text-align:left">表格</td><td style="text-align:left">集合</td></tr><tr><td style="text-align:left">行</td><td style="text-align:left">文档</td></tr><tr><td style="text-align:left">列</td><td style="text-align:left">字段</td></tr><tr><td style="text-align:left">表联合</td><td style="text-align:left">嵌入文档</td></tr><tr><td style="text-align:left">主键</td><td style="text-align:left">主键 (MongoDB 提供了 key 为 _id )</td></tr></tbody></table></div><h6 id="集合"><a href="#集合" class="headerlink" title="集合"></a>集合</h6><p>集合相当于关系数据库中的表，一个数据库可以创建多个集合，一个集合是将相同类型的文档管理起来。</p><h6 id="文档"><a href="#文档" class="headerlink" title="文档"></a>文档</h6><p>mongodb中文档的格式是json格式</p><h6 id="用户"><a href="#用户" class="headerlink" title="用户"></a>用户</h6><p>创建用户<br>语法格式：</p><pre><code>mongo&gt;db.createUser(   { user: "&lt;name&gt;",    pwd: "&lt;cleartext password&gt;",    customData: { &lt;any information&gt; },    roles: [    { role: "&lt;role&gt;", db: "&lt;database&gt;" } | "&lt;role&gt;",     ... ]}   )</code></pre><p>创建root用户，角色为root</p><pre><code>use admindb.createUser(   {        user:"root",        pwd:"root",        roles:[{role:"root",db:"admin"}]       }   )</code></pre><p>内置角色如下：</p><ul><li><ol><li>数据库用户角色：read、readWrite</li></ol></li><li><ol><li>数据库管理角色：dbAdmin、dbOwner、userAdmin</li></ol></li><li><ol><li>集群管理角色：clusterAdmin、clusterManager、clusterMonitor、hostManager</li></ol></li><li><ol><li>备份恢复角色：backup、restore</li></ol></li><li><ol><li>所有数据库角色：readAnyDatabase、readWriteAnyDatabase、userAdminAnyDatabase、 dbAdminAnyDatabase</li></ol></li><li><ol><li>超级用户角色：root</li></ol></li></ul><p>查询用户。 查询当前库下的所有用户： <code>show users</code></p><p>删除用户   语法格式： <code>db.dropUser("用户名")</code></p><p>修改用户</p><p>语法格式：</p><pre><code>db.updateUser(  "&lt;username&gt;",   { customData : { &lt;any information&gt; },   roles : [    { role: "&lt;role&gt;", db: "&lt;database&gt;" } | "&lt;role&gt;",     ...     ],     pwd: "&lt;cleartext password&gt;"      },  writeConcern: { &lt;write concern&gt; })</code></pre><p>修改密码</p><p>语法格式：</p><pre><code>db.changeUserPassword("username","newPasswd")</code></pre><script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
+      
+      
+      <categories>
+          
+          <category> 数据库 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> mongodb </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Mongodb安装配置</title>
+      <link href="/posts/662153398.html"/>
+      <url>/posts/662153398.html</url>
+      
+        <content type="html"><![CDATA[<p><a href="https://www.mongodb.com/download-center/community" target="_blank" rel="noopener">下载地址</a>：<a href="https://www.mongodb.com/download-center/community" target="_blank" rel="noopener">https://www.mongodb.com/download-center/community</a></p><p>先择自己需要的版本，选择msi点击下载。</p><p>安装注意选<font color="red">custom</font>可以配置自己的安装路径。不要有中文。</p><h5 id="设置服务"><a href="#设置服务" class="headerlink" title="设置服务"></a>设置服务</h5><pre><code>cd D:\MongoDB\Server\4.2\binmongod --dbpath "E:\mongodb\data" --logpath "E:\mongodb\log\MongoDB.log" --install --serviceName "MongoDB"</code></pre><p>启动服务</p><pre><code>net start MongoDB</code></pre><p>关闭服务</p><pre><code>net stop MongoDB</code></pre><p>移除服务</p><pre><code>"D:\MongoDB\Server\4.2\mongod.exe" --remove</code></pre><p>如果还是无法重启服务请配置环境变量，然后删除服务，重新设置服务启动即可。</p><p>我用的是studio-3t客户端。去官网下载安装使用即可。</p><script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
+      
+      
+      <categories>
+          
+          <category> 数据库 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> mongodb </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>SSI</title>
+      <link href="/posts/254656088.html"/>
+      <url>/posts/254656088.html</url>
+      
+        <content type="html"><![CDATA[<script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
+      
+      
+      <categories>
+          
+          <category> SSI </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> ssi </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>AngularJS学习一</title>
       <link href="/posts/4247448736.html"/>
       <url>/posts/4247448736.html</url>
