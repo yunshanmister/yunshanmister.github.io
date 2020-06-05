@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="www.yunshan.online/"/>
-  <updated>2020-05-06T05:00:58.614Z</updated>
+  <updated>2020-05-10T02:38:59.728Z</updated>
   <id>www.yunshan.online/</id>
   
   <author>
@@ -17,11 +17,70 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>SwaggerUI使用</title>
+    <link href="www.yunshan.online/posts/1426395581.html"/>
+    <id>www.yunshan.online/posts/1426395581.html</id>
+    <published>2020-05-09T09:47:43.000Z</published>
+    <updated>2020-05-10T02:38:59.728Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h4 id=&quot;添加依赖&quot;&gt;&lt;a href=&quot;#添加依赖&quot; class=&quot;headerlink&quot; title=&quot;添加依赖&quot;&gt;&lt;/a&gt;添加依赖&lt;/h4&gt;&lt;p&gt;官方依赖&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;&amp;lt;dependency&amp;gt;
+   
+        
+      
+    
+    </summary>
+    
+    
+      <category term="SwaggerUI" scheme="www.yunshan.online/categories/SwaggerUI/"/>
+    
+    
+      <category term="swaggerUi" scheme="www.yunshan.online/tags/swaggerUi/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>SpringBoot入门</title>
+    <link href="www.yunshan.online/posts/1021323671.html"/>
+    <id>www.yunshan.online/posts/1021323671.html</id>
+    <published>2020-05-09T07:18:21.000Z</published>
+    <updated>2020-05-10T07:15:19.337Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;1。创建maven工程添加以下依赖&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;&amp;lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&amp;gt;
+&amp;lt;project xmlns=&quot;http://maven.apache.org/POM/4.0.0&quot;
+    
+        
+      
+    
+    </summary>
+    
+    
+      <category term="Java" scheme="www.yunshan.online/categories/Java/"/>
+    
+    
+      <category term="springboot" scheme="www.yunshan.online/tags/springboot/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Git</title>
     <link href="www.yunshan.online/posts/1774397340.html"/>
     <id>www.yunshan.online/posts/1774397340.html</id>
     <published>2020-05-06T01:43:38.000Z</published>
-    <updated>2020-05-06T05:00:58.614Z</updated>
+    <updated>2020-05-07T09:55:04.499Z</updated>
     
     <summary type="html">
     
@@ -49,7 +108,7 @@
     <link href="www.yunshan.online/posts/1585805827.html"/>
     <id>www.yunshan.online/posts/1585805827.html</id>
     <published>2020-05-05T03:21:09.000Z</published>
-    <updated>2020-05-05T06:34:45.049Z</updated>
+    <updated>2020-05-07T09:55:04.502Z</updated>
     
     <summary type="html">
     
@@ -77,7 +136,7 @@
     <link href="www.yunshan.online/posts/3300984642.html"/>
     <id>www.yunshan.online/posts/3300984642.html</id>
     <published>2020-05-05T02:05:37.000Z</published>
-    <updated>2020-05-05T06:37:37.862Z</updated>
+    <updated>2020-05-07T09:55:04.503Z</updated>
     
     <summary type="html">
     
@@ -109,7 +168,7 @@
     <link href="www.yunshan.online/posts/662153398.html"/>
     <id>www.yunshan.online/posts/662153398.html</id>
     <published>2020-05-05T00:57:03.000Z</published>
-    <updated>2020-05-05T02:01:13.802Z</updated>
+    <updated>2020-05-07T09:55:04.501Z</updated>
     
     <summary type="html">
     
@@ -136,7 +195,7 @@
     <link href="www.yunshan.online/posts/254656088.html"/>
     <id>www.yunshan.online/posts/254656088.html</id>
     <published>2020-05-04T14:07:17.000Z</published>
-    <updated>2020-05-04T14:08:47.458Z</updated>
+    <updated>2020-05-07T09:55:04.500Z</updated>
     
     <summary type="html">
     
@@ -512,60 +571,6 @@
     
     
       <category term="jedis" scheme="www.yunshan.online/tags/jedis/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>zookeeper+dubbo-admin</title>
-    <link href="www.yunshan.online/posts/684168058.html"/>
-    <id>www.yunshan.online/posts/684168058.html</id>
-    <published>2020-04-30T07:57:10.000Z</published>
-    <updated>2020-05-02T01:49:01.494Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;p&gt;Github地址：&lt;a href=&quot;https://github.com/apache/zookeeper&quot; target=&quot;_blank&quot;
-        
-      
-    
-    </summary>
-    
-    
-      <category term="分布式" scheme="www.yunshan.online/categories/%E5%88%86%E5%B8%83%E5%BC%8F/"/>
-    
-    
-      <category term="zookeeper" scheme="www.yunshan.online/tags/zookeeper/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Dubbo入门</title>
-    <link href="www.yunshan.online/posts/2245470073.html"/>
-    <id>www.yunshan.online/posts/2245470073.html</id>
-    <published>2020-04-30T07:33:15.000Z</published>
-    <updated>2020-05-02T06:28:31.259Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h3 id=&quot;Dubbo入门程序&quot;&gt;&lt;a href=&quot;#Dubbo入门程序&quot; class=&quot;headerlink&quot; title=&quot;Dubbo入门程序&quot;&gt;&lt;/a&gt;Dubbo入门程序&lt;/h3&gt;&lt;h3 id=&quot;点对点模式&quot;&gt;&lt;a href=&quot;#点对点模式&quot;
-        
-      
-    
-    </summary>
-    
-    
-      <category term="分布式" scheme="www.yunshan.online/categories/%E5%88%86%E5%B8%83%E5%BC%8F/"/>
-    
-    
-      <category term="dubbo" scheme="www.yunshan.online/tags/dubbo/"/>
     
   </entry>
   
